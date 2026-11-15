@@ -1,0 +1,125 @@
+{
+ "id": "lemmon-wide",
+ "name": "Comet C/2025 A6 (Lemmon)",
+ "centre": {
+  "ra": 242.685679404,
+  "dec": -60.014158876
+ },
+ "size": 512,
+ "pixel_arcsec": 6.15,
+ "field_arcmin": 52.480000000000004,
+ "grid": "north-up",
+ "centre_pixel": [
+  256,
+  256
+ ],
+ "centre_from": "JPL Horizons, the comet at the time of the photo dr1/level2/2026W09_2A/l2b-v27-2026-229/5/level2_2026W09_2A_0075_3D5_spx_l2b-v27-2026-229.fits",
+ "rule": {
+  "unit": "MJy/sr above the sky of each photo",
+  "curve": "asinh",
+  "black": -0.18589498550891875,
+  "white": 53.182984590530396,
+  "soften": 0.27884247826337816,
+  "noise": 0.09294749275445938,
+  "black_noise": -2.0,
+  "soften_noise": 3.0,
+  "sky": [
+   0.349295,
+   0.57492,
+   0.738959,
+   0.616378,
+   0.688872
+  ],
+  "grey": "255 * (asinh(v / soften) - asinh(black / soften)) / (asinh(white / soften) - asinh(black / soften)), limited to 0..255; the same for the five pictures"
+ },
+ "pictures": [
+  {
+   "file": "wide-0.png",
+   "sha256": "bd46f77f8ce160498ec7eda9c0c361e80dc8b588534c5200bc8f516166220c35",
+   "key": "dr1/level2/2025W32_2D/l2b-v27-2026-226/5/level2_2025W32_2D_0560_4D5_spx_l2b-v27-2026-226.fits",
+   "mjd": 60897.452261965,
+   "lam_um": 4.273384136703268,
+   "bw_um": 0.03707637309778335,
+   "comet_px": null,
+   "filled": 7095
+  },
+  {
+   "file": "wide-1.png",
+   "sha256": "6b877b9d6ff3fc1e39ab036950631d3ced8a42d49a0baf4a992777b5bae47970",
+   "key": "dr1/level2/2026W09_2A/l2b-v27-2026-229/5/level2_2026W09_2A_0075_1D5_spx_l2b-v27-2026-229.fits",
+   "mjd": 61097.860786351,
+   "lam_um": 4.1932300225875725,
+   "bw_um": 0.0367596525461044,
+   "comet_px": [
+    255.28,
+    256.86
+   ],
+   "filled": 8177
+  },
+  {
+   "file": "wide-2.png",
+   "sha256": "d928fbd8dfe501a7816368d4fd729f4a8117b0bd428dcd15587618428feed7bb",
+   "key": "dr1/level2/2026W09_2A/l2b-v27-2026-229/5/level2_2026W09_2A_0075_2D5_spx_l2b-v27-2026-229.fits",
+   "mjd": 61097.862278608,
+   "lam_um": 4.229285788691456,
+   "bw_um": 0.03666480915204597,
+   "comet_px": [
+    255.64,
+    256.43
+   ],
+   "filled": 7575
+  },
+  {
+   "file": "wide-3.png",
+   "sha256": "d4b1745df7db555912f95885612821da24c5c98498ee9603d29dd3e4b6a25430",
+   "key": "dr1/level2/2026W09_2A/l2b-v27-2026-229/5/level2_2026W09_2A_0075_3D5_spx_l2b-v27-2026-229.fits",
+   "mjd": 61097.863770865,
+   "lam_um": 4.265642496918297,
+   "bw_um": 0.03713086231556975,
+   "comet_px": [
+    256.0,
+    256.0
+   ],
+   "filled": 3288
+  },
+  {
+   "file": "wide-4.png",
+   "sha256": "2b876ca5941185c1228a4563616776c4821976ec91b115b0d1bcacb6a67351b1",
+   "key": "dr1/level2/2026W09_2A/l2b-v27-2026-229/5/level2_2026W09_2A_0075_4D5_spx_l2b-v27-2026-229.fits",
+   "mjd": 61097.865280888,
+   "lam_um": 4.302101233723177,
+   "bw_um": 0.03765908524568021,
+   "comet_px": [
+    256.36,
+    255.57
+   ],
+   "filled": 2859
+  }
+ ],
+ "refs": [
+  "SPHEREx Data Release 1, Level 2 spectral images, NASA/IPAC Infrared Science Archive",
+  "JPL Horizons: positions of C/2025 A6 (Lemmon) as seen from SPHEREx",
+  "Gaia Data Release 3, through the MAST cone search"
+ ],
+ "registration": {
+  "n": 888,
+  "within": 829,
+  "median": 0.49956150023634915,
+  "worst": 1.892261828058689,
+  "limit_px": 1.0,
+  "against_gaia": {
+   "august": {
+    "n": 953,
+    "within": 909,
+    "median": 0.3715784819913655,
+    "worst": 1.9438395195055926
+   },
+   "feb_4266": {
+    "n": 978,
+    "within": 937,
+    "median": 0.36454995151363234,
+    "worst": 1.9586586892627065
+   }
+  }
+ }
+}

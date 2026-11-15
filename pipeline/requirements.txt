@@ -1,0 +1,10 @@
+# The offline pipeline. Python 3.11 or newer.
+#   python -m venv pipeline/.venv
+#   pipeline/.venv/Scripts/python -m pip install -r pipeline/requirements.txt    (Windows)
+#   pipeline/.venv/bin/python -m pip install -r pipeline/requirements.txt        (Linux, macOS)
+astropy==8.0.2
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.11.2
+requests==2.34.2
+pytest==9.2.0

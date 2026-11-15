@@ -1,0 +1,1073 @@
+{
+ "gaia.fast.catalogue": {
+  "value": 4746,
+  "err": null,
+  "unit": null,
+  "text": "4,746",
+  "check": null
+ },
+ "gaia.fast.count": {
+  "value": 4743,
+  "err": null,
+  "unit": null,
+  "text": "4,743",
+  "check": null
+ },
+ "gaia.fast.speed": {
+  "value": 0.5,
+  "err": null,
+  "unit": "arcsec per year",
+  "text": "0.5",
+  "check": null
+ },
+ "lie.detector": {
+  "value": 1,
+  "err": null,
+  "unit": null,
+  "text": "1",
+  "check": "K7"
+ },
+ "lie.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": "K7"
+ },
+ "lie.photos.all": {
+  "value": 112,
+  "err": null,
+  "unit": null,
+  "text": "112",
+  "check": "K7"
+ },
+ "lie.photos.detector": {
+  "value": 19,
+  "err": null,
+  "unit": null,
+  "text": "19",
+  "check": "K7"
+ },
+ "lie.rwaur.all": {
+  "value": 49.685011437518135,
+  "err": null,
+  "unit": "times",
+  "text": "49.7",
+  "check": "K7"
+ },
+ "lie.rwaur.detector": {
+  "value": 2.7102582573745626,
+  "err": null,
+  "unit": "times",
+  "text": "2.71",
+  "check": "K7"
+ },
+ "lie.rwaur.matched": {
+  "value": 1.2436982723969088,
+  "err": null,
+  "unit": "times",
+  "text": "1.24",
+  "check": "K7"
+ },
+ "lie.stars.all": {
+  "value": 20,
+  "err": null,
+  "unit": null,
+  "text": "20",
+  "check": "K7"
+ },
+ "lie.stars.detector": {
+  "value": 12,
+  "err": null,
+  "unit": null,
+  "text": "12",
+  "check": "K7"
+ },
+ "lie.stars.matched": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K7"
+ },
+ "lie.swing.all": {
+  "value": 11.847259584912221,
+  "err": null,
+  "unit": "times",
+  "text": "11.8",
+  "check": "K7"
+ },
+ "lie.swing.detector": {
+  "value": 2.180839531538152,
+  "err": null,
+  "unit": "times",
+  "text": "2.18",
+  "check": "K7"
+ },
+ "lie.swing.matched": {
+  "value": 1.0212405207216237,
+  "err": null,
+  "unit": "times",
+  "text": "1.02",
+  "check": "K7"
+ },
+ "lie.swing.matched.percent": {
+  "value": 2.1240520721623746,
+  "err": null,
+  "unit": "%",
+  "text": "2",
+  "check": "K7"
+ },
+ "motion.eps-indi-b.catalogue": {
+  "value": 4.664045391431221,
+  "err": null,
+  "unit": "arcsec",
+  "text": "4.7",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.days": {
+  "value": 363.95230153137527,
+  "err": null,
+  "unit": "days",
+  "text": "364",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.error": {
+  "value": 0.15397254945806446,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.2",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.first": {
+  "value": 60796.01354370253,
+  "err": null,
+  "unit": null,
+  "text": "May 2025",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.last": {
+  "value": 61159.965845233906,
+  "err": null,
+  "unit": null,
+  "text": "April 2026",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.measured": {
+  "value": 4.783574134319737,
+  "err": 0.15397254945806446,
+  "unit": "arcsec",
+  "text": "4.8",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.pixels": {
+  "value": 0.7778169324097134,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.78",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.significance": {
+  "value": 31.067707530702272,
+  "err": null,
+  "unit": "times its error",
+  "text": "31",
+  "check": "K5-motion"
+ },
+ "motion.eps-indi-b.stars": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.catalogue": {
+  "value": 4.565955995913129,
+  "err": null,
+  "unit": "arcsec",
+  "text": "4.6",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.days": {
+  "value": 166.4016221589336,
+  "err": null,
+  "unit": "days",
+  "text": "166",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.error": {
+  "value": 0.827648471439189,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.8",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.first": {
+  "value": 60991.528412655214,
+  "err": null,
+  "unit": null,
+  "text": "November 2025",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.last": {
+  "value": 61157.93003481415,
+  "err": null,
+  "unit": null,
+  "text": "April 2026",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.measured": {
+  "value": 3.1509548663624125,
+  "err": 0.827648471439189,
+  "unit": "arcsec",
+  "text": "3.2",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.pixels": {
+  "value": 0.512350384774376,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.51",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.significance": {
+  "value": 3.8071173633453963,
+  "err": null,
+  "unit": "times its error",
+  "text": "4",
+  "check": "K5-motion"
+ },
+ "motion.wise0855.stars": {
+  "value": 32,
+  "err": null,
+  "unit": null,
+  "text": "32",
+  "check": "K5-motion"
+ },
+ "rwaur.d1.change": {
+  "value": 24.369827239690878,
+  "err": 8.20834488381378,
+  "unit": "%",
+  "text": "+24.4",
+  "check": "K6"
+ },
+ "rwaur.d1.clean": {
+  "value": 52.1389005323953,
+  "err": 15.293258801143386,
+  "unit": "%",
+  "text": "+52.1",
+  "check": "K6"
+ },
+ "rwaur.d1.clean.pairs": {
+  "value": 4,
+  "err": null,
+  "unit": null,
+  "text": "4",
+  "check": "K6"
+ },
+ "rwaur.d1.colour.from": {
+  "value": 0.7438946768767143,
+  "err": null,
+  "unit": "µm",
+  "text": "0.74",
+  "check": "K6"
+ },
+ "rwaur.d1.colour.to": {
+  "value": 1.0642840441291774,
+  "err": null,
+  "unit": "µm",
+  "text": "1.06",
+  "check": "K6"
+ },
+ "rwaur.d1.masked": {
+  "value": 18.751748529143075,
+  "err": 11.892248014785984,
+  "unit": "%",
+  "text": "+18.8",
+  "check": "K6"
+ },
+ "rwaur.d1.masked.error": {
+  "value": 11.892248014785984,
+  "err": null,
+  "unit": "%",
+  "text": "11.9",
+  "check": "K6"
+ },
+ "rwaur.d1.masked.pairs": {
+  "value": 13,
+  "err": null,
+  "unit": null,
+  "text": "13",
+  "check": "K6"
+ },
+ "rwaur.d1.pairs": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K6"
+ },
+ "rwaur.d1.stars": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K6"
+ },
+ "rwaur.d1.stars.median": {
+  "value": -1.127293564682319,
+  "err": 0.9494710059103578,
+  "unit": "%",
+  "text": "-1.13",
+  "check": "K6"
+ },
+ "rwaur.d2.change": {
+  "value": 37.947067510540755,
+  "err": 4.994903848315886,
+  "unit": "%",
+  "text": "+37.9",
+  "check": "K6"
+ },
+ "rwaur.d2.clean.pairs": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K6"
+ },
+ "rwaur.d2.colour.from": {
+  "value": 1.1256168173632584,
+  "err": null,
+  "unit": "µm",
+  "text": "1.13",
+  "check": "K6"
+ },
+ "rwaur.d2.colour.to": {
+  "value": 1.6155900237741108,
+  "err": null,
+  "unit": "µm",
+  "text": "1.62",
+  "check": "K6"
+ },
+ "rwaur.d2.masked": {
+  "value": 36.00732454781086,
+  "err": 3.5582052149199987,
+  "unit": "%",
+  "text": "+36.0",
+  "check": "K6"
+ },
+ "rwaur.d2.masked.error": {
+  "value": 3.5582052149199987,
+  "err": null,
+  "unit": "%",
+  "text": "3.6",
+  "check": "K6"
+ },
+ "rwaur.d2.masked.pairs": {
+  "value": 11,
+  "err": null,
+  "unit": null,
+  "text": "11",
+  "check": "K6"
+ },
+ "rwaur.d2.pairs": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K6"
+ },
+ "rwaur.d2.stars": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K6"
+ },
+ "rwaur.d2.stars.median": {
+  "value": -0.5537887705904687,
+  "err": 1.2238184493108686,
+  "unit": "%",
+  "text": "-0.55",
+  "check": "K6"
+ },
+ "rwaur.d3.change": {
+  "value": 20.651598927665948,
+  "err": 6.253558402152838,
+  "unit": "%",
+  "text": "+20.7",
+  "check": "K6"
+ },
+ "rwaur.d3.clean.pairs": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K6"
+ },
+ "rwaur.d3.colour.from": {
+  "value": 1.6680309663440163,
+  "err": null,
+  "unit": "µm",
+  "text": "1.67",
+  "check": "K6"
+ },
+ "rwaur.d3.colour.to": {
+  "value": 2.413467635862554,
+  "err": null,
+  "unit": "µm",
+  "text": "2.41",
+  "check": "K6"
+ },
+ "rwaur.d3.masked": {
+  "value": 28.237088486852535,
+  "err": 9.90087537209085,
+  "unit": "%",
+  "text": "+28.2",
+  "check": "K6"
+ },
+ "rwaur.d3.masked.error": {
+  "value": 9.90087537209085,
+  "err": null,
+  "unit": "%",
+  "text": "9.9",
+  "check": "K6"
+ },
+ "rwaur.d3.masked.pairs": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K6"
+ },
+ "rwaur.d3.pairs": {
+  "value": 18,
+  "err": null,
+  "unit": null,
+  "text": "18",
+  "check": "K6"
+ },
+ "rwaur.d3.stars": {
+  "value": 12,
+  "err": null,
+  "unit": null,
+  "text": "12",
+  "check": "K6"
+ },
+ "rwaur.d3.stars.median": {
+  "value": -0.8626213994022525,
+  "err": 1.1369766410976514,
+  "unit": "%",
+  "text": "-0.86",
+  "check": "K6"
+ },
+ "rwaur.d4.change": {
+  "value": -4.4461765896362415,
+  "err": 3.160814466152526,
+  "unit": "%",
+  "text": "-4.4",
+  "check": "K6"
+ },
+ "rwaur.d4.clean.pairs": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K6"
+ },
+ "rwaur.d4.colour.from": {
+  "value": 2.427129520017554,
+  "err": null,
+  "unit": "µm",
+  "text": "2.43",
+  "check": "K6"
+ },
+ "rwaur.d4.colour.to": {
+  "value": 3.7333530136497717,
+  "err": null,
+  "unit": "µm",
+  "text": "3.73",
+  "check": "K6"
+ },
+ "rwaur.d4.masked.pairs": {
+  "value": 1,
+  "err": null,
+  "unit": null,
+  "text": "1",
+  "check": "K6"
+ },
+ "rwaur.d4.pairs": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K6"
+ },
+ "rwaur.d4.stars": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K6"
+ },
+ "rwaur.d4.stars.median": {
+  "value": -1.5594779996992436,
+  "err": 0.9266956570451019,
+  "unit": "%",
+  "text": "-1.56",
+  "check": "K6"
+ },
+ "rwaur.d5.change": {
+  "value": -15.063116649729768,
+  "err": 2.078660771625657,
+  "unit": "%",
+  "text": "-15.1",
+  "check": "K6"
+ },
+ "rwaur.d5.clean.pairs": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K6"
+ },
+ "rwaur.d5.colour.from": {
+  "value": 3.85297009457513,
+  "err": null,
+  "unit": "µm",
+  "text": "3.85",
+  "check": "K6"
+ },
+ "rwaur.d5.colour.to": {
+  "value": 4.393897848255319,
+  "err": null,
+  "unit": "µm",
+  "text": "4.39",
+  "check": "K6"
+ },
+ "rwaur.d5.masked": {
+  "value": -28.113855684378496,
+  "err": 1.9875038142875647,
+  "unit": "%",
+  "text": "-28.1",
+  "check": "K6"
+ },
+ "rwaur.d5.masked.error": {
+  "value": 1.9875038142875647,
+  "err": null,
+  "unit": "%",
+  "text": "2.0",
+  "check": "K6"
+ },
+ "rwaur.d5.masked.pairs": {
+  "value": 7,
+  "err": null,
+  "unit": null,
+  "text": "7",
+  "check": "K6"
+ },
+ "rwaur.d5.pairs": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K6"
+ },
+ "rwaur.d5.stars": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K6"
+ },
+ "rwaur.d5.stars.median": {
+  "value": -3.0469122443224306,
+  "err": 1.3520100155714532,
+  "unit": "%",
+  "text": "-3.05",
+  "check": "K6"
+ },
+ "rwaur.d6.change": {
+  "value": -29.210377606282435,
+  "err": 3.01809453076284,
+  "unit": "%",
+  "text": "-29.2",
+  "check": "K6"
+ },
+ "rwaur.d6.clean.pairs": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K6"
+ },
+ "rwaur.d6.colour.from": {
+  "value": 4.416900666028848,
+  "err": null,
+  "unit": "µm",
+  "text": "4.42",
+  "check": "K6"
+ },
+ "rwaur.d6.colour.to": {
+  "value": 5.003974324425152,
+  "err": null,
+  "unit": "µm",
+  "text": "5.00",
+  "check": "K6"
+ },
+ "rwaur.d6.masked": {
+  "value": -37.58707906221419,
+  "err": 2.332566582714044,
+  "unit": "%",
+  "text": "-37.6",
+  "check": "K6"
+ },
+ "rwaur.d6.masked.error": {
+  "value": 2.332566582714044,
+  "err": null,
+  "unit": "%",
+  "text": "2.3",
+  "check": "K6"
+ },
+ "rwaur.d6.masked.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": "K6"
+ },
+ "rwaur.d6.pairs": {
+  "value": 19,
+  "err": null,
+  "unit": null,
+  "text": "19",
+  "check": "K6"
+ },
+ "rwaur.d6.stars": {
+  "value": 12,
+  "err": null,
+  "unit": null,
+  "text": "12",
+  "check": "K6"
+ },
+ "rwaur.d6.stars.median": {
+  "value": 3.2235810833934453,
+  "err": 2.5035940004612107,
+  "unit": "%",
+  "text": "+3.22",
+  "check": "K6"
+ },
+ "rwaur.first": {
+  "value": 60919.420312786,
+  "err": null,
+  "unit": null,
+  "text": "September 2025",
+  "check": "K6"
+ },
+ "rwaur.last": {
+  "value": 61111.002753168,
+  "err": null,
+  "unit": null,
+  "text": "February to March 2026",
+  "check": "K6"
+ },
+ "targets.barnard.detector": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": null
+ },
+ "targets.barnard.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": null
+ },
+ "targets.barnard.position.off_px": {
+  "value": 0.041198266687751665,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.04",
+  "check": "K5"
+ },
+ "targets.barnard.position.tolerance_px": {
+  "value": 0.5,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.5",
+  "check": "K5"
+ },
+ "targets.barnard.shift.catalogue": {
+  "value": 163.7518874698322,
+  "err": null,
+  "unit": "arcsec",
+  "text": "163.8",
+  "check": "K5"
+ },
+ "targets.barnard.shift.diff": {
+  "value": 0.0813017891420827,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.1",
+  "check": "K5"
+ },
+ "targets.barnard.shift.diff_px": {
+  "value": 0.013219803112533773,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.01",
+  "check": "K5"
+ },
+ "targets.barnard.shift.measured": {
+  "value": 163.67096522026728,
+  "err": null,
+  "unit": "arcsec",
+  "text": "163.7",
+  "check": "K5"
+ },
+ "targets.barnard.shift.pixels": {
+  "value": 26.613165076466224,
+  "err": null,
+  "unit": "pixels",
+  "text": "27",
+  "check": "K5"
+ },
+ "targets.barnard.shift.tolerance": {
+  "value": 12.214,
+  "err": null,
+  "unit": "arcsec",
+  "text": "12.2",
+  "check": "K5"
+ },
+ "targets.barnard.shift.years": {
+  "value": 15.754749425497911,
+  "err": null,
+  "unit": "years",
+  "text": "15.8",
+  "check": "K5"
+ },
+ "targets.barnard.speed.measured": {
+  "value": 10.38867460217284,
+  "err": null,
+  "unit": "arcsec per year",
+  "text": "10.39",
+  "check": "K5"
+ },
+ "targets.barnard.spherex.month": {
+  "value": 61120.43786916311,
+  "err": null,
+  "unit": null,
+  "text": "March 2026",
+  "check": "K5"
+ },
+ "targets.barnard.spherex.photos": {
+  "value": 19,
+  "err": null,
+  "unit": null,
+  "text": "19",
+  "check": "K5"
+ },
+ "targets.barnard.wise.first": {
+  "value": 55273.549798,
+  "err": null,
+  "unit": null,
+  "text": "March 2010",
+  "check": "K5"
+ },
+ "targets.barnard.wise.last": {
+  "value": 55458.481485,
+  "err": null,
+  "unit": null,
+  "text": "September 2010",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.detector": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": null
+ },
+ "targets.eps-indi-b.pairs": {
+  "value": 7,
+  "err": null,
+  "unit": null,
+  "text": "7",
+  "check": null
+ },
+ "targets.eps-indi-b.position.off_px": {
+  "value": 0.13588419527594592,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.14",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.position.tolerance_px": {
+  "value": 0.5,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.5",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.catalogue": {
+  "value": 73.9179378784234,
+  "err": null,
+  "unit": "arcsec",
+  "text": "73.9",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.diff": {
+  "value": 0.5460238208793262,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.5",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.diff_px": {
+  "value": 0.08878436111858963,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.09",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.measured": {
+  "value": 74.34319080627668,
+  "err": null,
+  "unit": "arcsec",
+  "text": "74.3",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.pixels": {
+  "value": 12.08832370833767,
+  "err": null,
+  "unit": "pixels",
+  "text": "12",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.tolerance": {
+  "value": 4.161,
+  "err": null,
+  "unit": "arcsec",
+  "text": "4.2",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.shift.years": {
+  "value": 15.751052535890226,
+  "err": null,
+  "unit": "years",
+  "text": "15.8",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.speed.measured": {
+  "value": 4.719887171786067,
+  "err": null,
+  "unit": "arcsec per year",
+  "text": "4.72",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.spherex.month": {
+  "value": 61159.965845233906,
+  "err": null,
+  "unit": null,
+  "text": "April 2026",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.spherex.photos": {
+  "value": 11,
+  "err": null,
+  "unit": null,
+  "text": "11",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.wise.first": {
+  "value": 55314.051174,
+  "err": null,
+  "unit": null,
+  "text": "April 2010",
+  "check": "K5"
+ },
+ "targets.eps-indi-b.wise.last": {
+  "value": 55499.736639,
+  "err": null,
+  "unit": null,
+  "text": "October 2010",
+  "check": "K5"
+ },
+ "targets.r-dra.detector": {
+  "value": 2,
+  "err": null,
+  "unit": null,
+  "text": "2",
+  "check": null
+ },
+ "targets.r-dra.frames": {
+  "value": 412,
+  "err": null,
+  "unit": null,
+  "text": "412",
+  "check": "K6-rdra"
+ },
+ "targets.r-dra.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": null
+ },
+ "targets.r-dra.saturated": {
+  "value": 412,
+  "err": null,
+  "unit": null,
+  "text": "412",
+  "check": "K6-rdra"
+ },
+ "targets.rw-aur.detector": {
+  "value": 1,
+  "err": null,
+  "unit": null,
+  "text": "1",
+  "check": null
+ },
+ "targets.rw-aur.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": null
+ },
+ "targets.wise0855.beside.away": {
+  "value": 4.337846228957663,
+  "err": null,
+  "unit": "arcsec",
+  "text": "4.3",
+  "check": "K5"
+ },
+ "targets.wise0855.beside.off": {
+  "value": 0.2303102965988696,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.2",
+  "check": "K5"
+ },
+ "targets.wise0855.beside.off_px": {
+  "value": 0.037448828715263345,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.04",
+  "check": "K5"
+ },
+ "targets.wise0855.detector": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": null
+ },
+ "targets.wise0855.pairs": {
+  "value": 8,
+  "err": null,
+  "unit": null,
+  "text": "8",
+  "check": null
+ },
+ "targets.wise0855.position.off_px": {
+  "value": 0.07328804106372058,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.07",
+  "check": "K5"
+ },
+ "targets.wise0855.position.tolerance_px": {
+  "value": 0.5,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.5",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.catalogue": {
+  "value": 128.56055322842226,
+  "err": null,
+  "unit": "arcsec",
+  "text": "128.6",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.diff": {
+  "value": 0.6736537536660613,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.7",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.diff_px": {
+  "value": 0.10953719571805874,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.11",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.measured": {
+  "value": 128.1239061279063,
+  "err": null,
+  "unit": "arcsec",
+  "text": "128.1",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.pixels": {
+  "value": 20.833155467952245,
+  "err": null,
+  "unit": "pixels",
+  "text": "21",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.tolerance": {
+  "value": 4.816,
+  "err": null,
+  "unit": "arcsec",
+  "text": "4.8",
+  "check": "K5"
+ },
+ "targets.wise0855.shift.years": {
+  "value": 15.719403171291292,
+  "err": null,
+  "unit": "years",
+  "text": "15.7",
+  "check": "K5"
+ },
+ "targets.wise0855.speed.measured": {
+  "value": 8.150685158448123,
+  "err": null,
+  "unit": "arcsec per year",
+  "text": "8.15",
+  "check": "K5"
+ },
+ "targets.wise0855.spherex.month": {
+  "value": 61157.93003481415,
+  "err": null,
+  "unit": null,
+  "text": "April 2026",
+  "check": "K5"
+ },
+ "targets.wise0855.spherex.photos": {
+  "value": 21,
+  "err": null,
+  "unit": null,
+  "text": "21",
+  "check": "K5"
+ },
+ "targets.wise0855.wise.first": {
+  "value": 55319.364866,
+  "err": null,
+  "unit": null,
+  "text": "May 2010",
+  "check": "K5"
+ },
+ "targets.wise0855.wise.last": {
+  "value": 55513.471187,
+  "err": null,
+  "unit": null,
+  "text": "November 2010",
+  "check": "K5"
+ }
+}

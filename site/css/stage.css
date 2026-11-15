@@ -1,0 +1,2079 @@
+/*
+  The viewer: its page (the form in the masthead, the name of the place, the row of cells with what is known about
+  it, the place where messages stand) and its stage (the plates, the desk with the controls, the readout), then the
+  colours with their ruler and the visits.
+  Built on tokens.css, base.css and components.css; loaded by view.html after the shared sheets. The reading pages
+  load it for the colour chip.
+
+  The pictures are the content: everything around them is ruled and quiet, and nothing is drawn on a pixel that is
+  not information about that pixel. A plate is black in both editions. What can change while a plate is on the
+  page (a message, the progress of a load, the readout) has a place that keeps its room, so that the plate never
+  moves.
+*/
+
+/* ---- The page ---- */
+
+.view {
+  padding-block-start: var(--space-3);
+}
+
+.view > * + * {
+  margin-block-start: var(--space-3);
+}
+
+/* what stands under the working area: each part under a rule, with room above it */
+.view > #visits,
+.view > #colours,
+.view > #frame-map,
+.view > #spectrum,
+.view > #is-it-real {
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.view > #reading {
+  margin-block-start: var(--space-6);
+}
+
+.view h2 {
+  font-size: var(--text-2xl);
+}
+
+/* ---- The form in the masthead: another place can be typed from here ---- */
+
+.view-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.view-search .field-label {
+  margin: 0;
+  padding-block: var(--space-2) var(--space-1);
+}
+
+/* the field and its button lie against the heavy rule of the masthead */
+.view-search .field,
+.view-search .btn {
+  border-block-start: 0;
+}
+
+@media (min-width: 64rem) {
+  .view-search {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .view-search .field-label {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-4) 0 0;
+    border-block-end: var(--rule-mid) solid var(--color-line-strong);
+  }
+}
+
+/* ---- The name of the place, and beside it one plain sentence about what is shown ---- */
+
+.view-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2) var(--space-5);
+  align-items: start;
+}
+
+.view-title {
+  min-width: 0;
+}
+
+/* the name of an object, in capitals as it is written: narrow, heaviest, and no larger than a working screen needs */
+.view-title h1 {
+  font-size: var(--text-3xl);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+/* the one plain sentence about what is shown: it stands in the desk beside the plate, and in the head when there is no plate */
+.view-lede {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.view-named {
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.view-named a {
+  color: var(--color-text);
+}
+
+@media (min-width: 40rem) {
+  .view-title h1 {
+    font-size: clamp(var(--text-3xl), 1.2rem + 4.4vw, 4.5rem);
+  }
+}
+
+.view-lede:empty {
+  display: none;
+}
+
+
+/*
+  Messages: what the page is doing (reading what was typed, the plan, the progress of a load) and what went wrong,
+  with the next step. They stand under the stage, and where the stage is not shown yet, in its place.
+*/
+#plan {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+#plan:empty,
+#places[hidden] {
+  display: none;
+}
+
+.plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  min-width: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+}
+
+.plan[data-phase="idle"] {
+  display: none;
+}
+
+.plan-summary,
+.plan-progress {
+  max-width: none;
+}
+
+.plan-summary {
+  color: var(--color-text);
+}
+
+.plan-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  color: var(--color-text-muted);
+}
+
+/* the bar of a load: a ruled slot that fills with the ink of the form */
+.plan-meter {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 7.5rem;
+  max-width: 100%;
+  height: 0.625rem;
+  border: var(--rule-hair) solid var(--color-line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.plan-meter::-webkit-progress-bar {
+  background: transparent;
+}
+
+.plan-meter::-webkit-progress-value {
+  background: var(--color-accent);
+}
+
+.plan-meter::-moz-progress-bar {
+  background: var(--color-accent);
+}
+
+.plan-button {
+  margin-inline-start: auto;
+}
+
+.plan-cap {
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+}
+
+/* what went wrong, and the next step: said once, in plain words, with what can be pressed at its end */
+.state {
+  min-width: 0;
+  padding-block-start: var(--space-1);
+  border-block-start: var(--rule-hair) solid var(--color-line-strong);
+  line-height: var(--leading-snug);
+}
+
+.state-title {
+  max-width: none;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.state-next,
+.state-actions {
+  display: inline;
+  max-width: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.state-actions {
+  margin-inline-start: var(--space-2);
+}
+
+.state-actions:empty {
+  display: none;
+}
+
+.state-link {
+  margin-inline-end: var(--space-3);
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+.state-retry {
+  margin-inline-end: var(--space-3);
+  min-height: 2rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+/* a finger needs more than the eye does */
+@media (pointer: coarse) {
+  .state-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+  }
+
+  .state-retry {
+    min-height: var(--tap);
+  }
+}
+
+/* ---- What is known about the place: one row of cells in fixed slots ---- */
+
+/* on a narrow window: two rows of two */
+.view-facts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.view-facts > .cell {
+  grid-column: span 2;
+}
+
+.view-facts > .cell {
+  min-height: 4.25rem;
+}
+
+.view-facts .cell-value {
+  max-width: none;
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.view-facts [data-cell="colours"] {
+  white-space: nowrap;
+}
+
+/* the six ranges of colour, to choose from: where the row is too narrow for them they take a row of their own */
+.view-facts:has(.view-ranges) > .cell:nth-child(n + 2) {
+  grid-column: span 3;
+}
+
+.view-facts:has(.view-ranges) > .view-facts-colours {
+  grid-column: 1 / -1;
+  order: 1;
+}
+
+/* the six ends are written without their unit: it stands once, at the end of the row */
+.view-facts .cell-value:has(.view-ranges) {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-1);
+}
+
+.view-ranges {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.view-ranges-unit {
+  white-space: nowrap;
+}
+
+/* the unit follows the last range on its line, and does not stretch */
+.view-ranges > span.view-ranges-unit {
+  flex: 0 0 auto;
+  align-self: center;
+  min-height: 0;
+  padding-inline: 0;
+}
+
+.view-ranges > * {
+  flex: 1 1 auto;
+  min-height: 1.75rem;
+  padding-inline: var(--space-1);
+  white-space: nowrap;
+  font-size: var(--text-xs);
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (pointer: coarse) {
+  .view-ranges > * {
+    min-height: var(--tap);
+  }
+}
+
+@media (min-width: 40rem) {
+  .view-facts[data-cols] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .view-facts > .cell,
+  .view-facts:has(.view-ranges) > .cell:nth-child(n + 2) {
+    grid-column: auto;
+  }
+
+  .view-facts[data-cols]:has(.view-ranges) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .view-facts:has(.view-ranges) > .view-facts-colours {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    order: 0;
+  }
+}
+
+@media (min-width: 80rem) {
+  .view-facts[data-cols],
+  .view-facts[data-cols]:has(.view-ranges) {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 0.55fr) minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
+
+  .view-facts:has(.view-ranges) > .view-facts-colours {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.view-back {
+  display: none;
+}
+
+.view-noscript {
+  max-width: var(--measure);
+}
+
+/* ---- The stage: the plates, and beside them the desk ---- */
+
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4) var(--space-5);
+  align-items: start;
+  min-width: 0;
+}
+
+/* two other visits are on their way: the stage keeps its room and shows nothing, so the visits under it stay put */
+.is-waiting > * {
+  visibility: hidden;
+}
+
+/* the plate's column: the choices of view, the plate, its buttons; and the desk beside it */
+.stage-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* on a phone the plate comes first, then the choices, the buttons and what the view does */
+.stage-main > .stage-pictures { order: 1; }
+.stage-main > .stage-modes { order: 2; }
+.stage-main > .stage-hint { order: 3; }
+.stage-main > .stage-playback { order: 4; }
+.stage-main > .stage-note { order: 5; }
+.stage-main > .stage-curtain { order: 6; }
+
+.stage-pictures {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.stage-pictures:empty {
+  display: none;
+}
+
+.stage-desk {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  min-width: 0;
+}
+
+@media (min-width: 64rem) {
+  .stage {
+    /* two plates side by side take 7 of 12 columns, as the script sizes them; one plate sets --plate-col to its width */
+    grid-template-columns: minmax(0, var(--plate-col, 7fr)) minmax(0, 5fr);
+    gap: var(--space-4) var(--space-6);
+  }
+
+  /* the choices of view stand directly above the plate */
+  .stage-main > .stage-modes { order: 1; }
+  .stage-main > .stage-hint { order: 2; }
+  .stage-main > .stage-pictures { order: 3; }
+}
+
+/* ---- A plate: the picture, its scale bar and compass, and its own row of cells ---- */
+
+/* the script gives a plate the width of its picture, and of the margin when it has one */
+.stage-panel {
+  box-sizing: content-box;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.stage-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-stage);
+  cursor: crosshair;
+}
+
+.stage-panel[data-kind="curtain"] .stage-frame {
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+.stage-canvas,
+.stage-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* one square on the screen for one pixel of the picture: never smoothed, unless the visitor asks for it */
+.stage-canvas {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* "Smooth pixels": the browser smooths the picture as it enlarges it. The values are the same. */
+.stage[data-smooth="true"] .stage-canvas {
+  image-rendering: auto;
+}
+
+.stage-overlay {
+  pointer-events: none;
+}
+
+.stage-veil {
+  fill: var(--color-veil);
+}
+
+.stage-source {
+  fill: var(--color-mark-alt);
+  fill-opacity: 0.22;
+}
+
+.stage-hatch-line {
+  fill: none;
+  stroke: var(--color-hatch);
+  stroke-linecap: square;
+}
+
+.stage-target {
+  fill: none;
+  stroke: var(--color-mark);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+.stage-marks {
+  fill: none;
+  stroke: var(--color-mark-alt);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+.stage-curtain-line {
+  stroke: var(--color-rule);
+  stroke-width: 2.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* inside the plate, clear of the pixels: how large the picture is on the sky, and which way north is */
+.stage-under {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  min-height: var(--plate-strip);
+  padding: var(--space-1) var(--space-3);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.stage-scale {
+  display: inline-grid;
+  gap: 3px;
+  justify-items: start;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.stage-scale-bar {
+  height: 7px;
+  border: var(--rule-mid) solid var(--color-text);
+  border-block-start: 0;
+}
+
+.stage-compass {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stage-scale + .stage-compass {
+  margin-inline-start: auto;
+}
+
+.stage-compass-icon {
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.stage-compass-icon line {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.stage-compass-icon polygon {
+  fill: currentColor;
+}
+
+.stage-compass-icon text {
+  fill: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.stage-compass-tag {
+  margin-block-start: -2px;
+  white-space: nowrap;
+}
+
+/* on a wide window the scale bar and the compass stand in a margin at the right of the picture */
+.stage[data-plate-at="right"] .stage-panel {
+  grid-template-columns: auto minmax(var(--plate-margin), 1fr);
+}
+
+.stage[data-plate-at="right"] .stage-frame {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.stage[data-plate-at="right"] .stage-under {
+  grid-column: 2;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+  padding: var(--space-3);
+}
+
+.stage[data-plate-at="right"] .stage-compass {
+  order: 1;
+  margin-inline-start: 0;
+}
+
+.stage[data-plate-at="right"] .stage-scale {
+  order: 2;
+  margin-block-start: auto;
+}
+
+.stage[data-plate-at="right"] .stage-caption {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* the cells joined under a plate: which visit is on, its date, its colour, how many photos were added up */
+.stage-caption {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: none;
+}
+
+.stage-caption .cell {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 2.125rem;
+  padding: 0 var(--space-2);
+  background: var(--cell-ground, var(--color-bg));
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* the curtain shows both visits: a row of cells for each */
+.stage-caption-half {
+  flex: 1 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rule-hair);
+  padding: 0;
+  background: var(--color-line-strong);
+}
+
+/* which visit is on: the later one is filled, so that the change shows in a fixed place with every flip */
+.stage-caption .stage-caption-side {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.stage-caption .stage-caption-side[data-side="b"] {
+  box-shadow: inset 0 calc(-1 * var(--rule-mid)) 0 var(--color-rule);
+}
+
+.stage-panel[data-kind="diff"] .stage-caption-side {
+  white-space: normal;
+  padding-block: var(--space-1);
+}
+
+.stage-resampled {
+  text-transform: none;
+}
+
+/* beside the picture a plate is wide enough for its cells to stand in one row */
+.stage[data-plate-at="right"] .stage-caption,
+.stage[data-plate-at="right"] .stage-caption-half {
+  flex-wrap: nowrap;
+}
+
+.stage[data-plate-at="right"] .stage-caption .cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- The desk: the views, what plays them, how they are drawn ---- */
+
+.stage-playback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+/*
+  Choices of the viewer (R4): the text face, sentence case, weight 600. The one that is chosen is marked by a bar
+  under it and the ink of the text; nothing is filled. The only filled thing of a view is its primary button.
+*/
+:is(.view, .stage) .choice,
+:is(.view, .stage) .stage-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+  padding: 0;
+  background: transparent;
+  max-width: 100%;
+}
+
+:is(.view, .stage) .choice > * {
+  flex: 0 0 auto;
+  justify-content: center;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 0 var(--space-1);
+  border: 0;
+  border-block-end: 2.5px solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+:is(.view, .stage) .choice > :hover {
+  background: transparent;
+  color: var(--color-text);
+}
+
+:is(.view, .stage) .choice > [aria-pressed="true"],
+:is(.view, .stage) .choice > [aria-checked="true"],
+:is(.view, .stage) .choice > [aria-selected="true"],
+:is(.view, .stage) .choice > [aria-current]:not([aria-current="false"]) {
+  border-block-end-color: var(--color-rule);
+  background: transparent;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+:is(.view, .stage) .choice > :disabled {
+  background: transparent;
+  color: var(--color-text-faint);
+}
+
+:is(.view, .stage) .stage-modes {
+  width: 100%;
+}
+
+/* what the view does: three lines of room, so that the controls under it stay where they are */
+.stage-hint {
+  max-width: 44rem;
+  min-height: 2lh;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.stage-curtain {
+  display: grid;
+  gap: var(--space-1);
+  width: 100%;
+  max-width: 34rem;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.stage-curtain-input {
+  width: 100%;
+  min-height: var(--tap);
+  margin: 0;
+  accent-color: var(--color-accent);
+}
+
+.stage-display {
+  flex: 1 1 14rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  min-width: 0;
+}
+
+.stage-smooth-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.stage-keys {
+  max-width: 34rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.stage-keys:empty {
+  display: none;
+}
+
+/* the mark of the pixel that was clicked: four corner ticks on a dark halo, moved by the next click, taken away by Escape */
+.stage-pick-halo,
+.stage-pick {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.stage-pick-halo {
+  stroke: var(--color-stage);
+  stroke-width: 4.5px;
+}
+
+.stage-pick {
+  stroke: var(--color-mark);
+  stroke-width: 2px;
+}
+
+/* ---- What there is to see, the readout under the pointer and the answers for the place clicked ---- */
+
+.view-see {
+  max-width: 40rem;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.stage-slot {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* two columns of the readout: position beside colour, brightness beside flags, the photo across */
+.view-readout .hover-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.view-readout .hover-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-content: start;
+  min-height: 3rem;
+}
+
+.view-readout .hover-row:has([data-part="photo"]),
+.view-readout .hover-row:has([data-part="sky"]),
+.view-readout .hover-row:has([data-part="flags"]) {
+  grid-column: 1 / -1;
+}
+
+.view-readout .hover-row dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* the flags are words, each with what it means, one to a line: they are read, so they are set in the face of
+   reading; so is a value that says in words why there is none */
+.view-readout .hover-row dd[data-part="flags"],
+.view-readout .hover-row dd.is-words {
+  font-family: var(--font-sans);
+  line-height: var(--leading-snug);
+}
+
+.view-readout .hover-row dd[data-part="flags"] {
+  white-space: pre-line;
+}
+
+.cells.view-answer {
+  grid-auto-flow: row;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.view-answer-row {
+  display: grid;
+  grid-template-columns: 8em minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  min-height: 2.75rem;
+}
+
+.view-answer-text {
+  font-family: var(--font-sans);
+  max-width: none;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  overflow-wrap: anywhere;
+}
+
+/* before a click there is nothing to answer: the part is not there, and the readout says how to get it */
+.view-answer[data-empty="true"] {
+  display: none;
+}
+
+.view-answer-link {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+@media (max-width: 29.99rem) {
+  .view-answer-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-1);
+  }
+}
+
+/* the places to try, on a page with nothing chosen: one line each, ruled */
+.view-places {
+  display: grid;
+  max-width: 48rem;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.view-place {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+  max-width: none;
+  padding-block: var(--space-2);
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.view-place-link {
+  font-weight: 700;
+}
+
+.view-place-line {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 39.99rem) {
+  .view-place {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---- The readout under the pointer: a column of cells in fixed slots, filled in place ---- */
+
+.stage-slot:empty {
+  display: none;
+}
+
+.hover {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/* before there is a reading: one sentence; with one: the name of what is read, as a label */
+.hover-hint {
+  max-width: none;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.hover[data-empty="false"] .hover-hint {
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.hover[data-empty="true"] .hover-list {
+  display: none;
+}
+
+.hover-list {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-flow: row;
+}
+
+.hover-row {
+  display: grid;
+  grid-template-columns: 6.5em minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: baseline;
+  min-height: 2.125rem;
+}
+
+.hover-row dd {
+  max-width: none;
+  margin: 0;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+/* the flags and the photo may need two lines: they have them from the start */
+.hover-row:has([data-part="flags"]),
+.hover-row:has([data-part="photo"]) {
+  min-height: 3.125rem;
+}
+
+/* ---- What the stage says about the view ---- */
+
+.stage-notes {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.stage-message:empty,
+.stage-match:empty,
+.stage-note:empty,
+.stage-legend:empty,
+.stage-diff-words:empty {
+  display: none;
+}
+
+.stage-message,
+.stage-match,
+.stage-note,
+.stage-diff-off,
+.stage-diff-words {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-message {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.stage-match[data-same="false"] {
+  color: var(--color-fail);
+  font-weight: var(--weight-medium);
+}
+
+.stage-diff-off a {
+  color: var(--color-text);
+}
+
+.stage-diff-off[hidden] {
+  display: none;
+}
+
+/* a square that is empty or full: mark the known stars and galaxies, or do not */
+.stage-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  font-size: var(--text-sm);
+}
+
+.stage-toggle input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  border: var(--rule-hair) solid var(--color-line-strong);
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.stage-toggle input:checked {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  box-shadow: inset 0 0 0 2px var(--color-bg);
+}
+
+.stage-toggle label {
+  cursor: pointer;
+}
+
+.stage-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.stage-notes > * {
+  min-width: 0;
+}
+
+.stage-legend-item {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: none;
+}
+
+/* a swatch is a small plate (the script marks it as one): black, with the mark as it is drawn on the pictures */
+.stage-swatch {
+  flex: 0 0 auto;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: var(--rule-hair) solid var(--color-line-strong);
+  background-color: var(--color-stage);
+}
+
+/* the same two directions as on the pictures: saturated pixels rise to the right, damaged ones fall */
+.stage-swatch-saturated {
+  background-image: repeating-linear-gradient(135deg, var(--color-hatch) 0 1.2px, transparent 1.2px 4px);
+}
+
+.stage-swatch-defect {
+  background-image: repeating-linear-gradient(45deg, var(--color-hatch) 0 1.2px, transparent 1.2px 4px);
+}
+
+.stage-swatch-veil {
+  background-color: var(--color-text-faint);
+  background-image: linear-gradient(var(--color-veil), var(--color-veil));
+}
+
+.stage-swatch-source {
+  --tint: color-mix(in srgb, var(--color-mark-alt) 22%, transparent);
+  background-color: var(--color-text-faint);
+  background-image: linear-gradient(var(--tint), var(--tint));
+}
+
+.stage-swatch-marks {
+  background:
+    linear-gradient(var(--color-mark-alt), var(--color-mark-alt)) left 0.1rem center / 0.4rem 1.5px no-repeat,
+    linear-gradient(var(--color-mark-alt), var(--color-mark-alt)) right 0.3rem bottom 0.05rem / 1.5px 0.4rem no-repeat,
+    var(--color-stage);
+}
+
+.stage-legend-diff {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.stage-diff-key {
+  flex: 1 1 4rem;
+  min-width: 0;
+  max-width: 14rem;
+  height: 0.75rem;
+  border: var(--rule-hair) solid var(--color-line-strong);
+  image-rendering: pixelated;
+}
+
+.stage-diff-end {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---- Colour chips and the colour ruler ---- */
+
+/* a chip: a small square in the colour of its detector's part of the ruler, and the wavelength */
+.colour-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.colour-chip-swatch {
+  flex: 0 0 auto;
+  width: 0.75em;
+  height: 0.75em;
+  border: 1px solid var(--color-stage);
+  background: var(--band, var(--color-text-muted));
+}
+
+.view-choices {
+  margin-block: var(--space-3);
+}
+
+.view-choices {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.view-choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+  white-space: normal;
+  text-align: start;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+}
+
+/* the ruler is a drawing made of data: it stands on a plate, full width, and the colours hang from it */
+.view-ruler {
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.view-ruler:empty {
+  display: none;
+}
+
+.ruler {
+  padding-block-start: 6px;
+}
+
+.ruler-bar {
+  position: relative;
+  height: 1.25rem;
+  background: var(--color-surface);
+}
+
+/* the six parts overlap a little at their ends, so they stand in two rows */
+.ruler-span {
+  position: absolute;
+  height: 50%;
+  background: var(--band);
+}
+
+.ruler-span:nth-child(odd) {
+  inset-block-start: 0;
+}
+
+.ruler-span:nth-child(even) {
+  inset-block-end: 0;
+}
+
+.ruler-marks {
+  position: absolute;
+  inset: 0;
+}
+
+.ruler-mark {
+  position: absolute;
+  inset-block: -6px;
+  width: 2px;
+  margin-inline-start: -1px;
+  background: var(--color-text);
+  outline: 1px solid var(--color-stage);
+}
+
+.ruler-ticks {
+  position: relative;
+  height: 1.6em;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.ruler-tick {
+  position: absolute;
+  inset-block-start: 4px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.ruler-tick:first-child {
+  transform: none;
+}
+
+.ruler-tick:last-child {
+  transform: translateX(-100%);
+}
+
+.view-colours-note {
+  margin-block-start: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+/* ---- The visits: two of them are compared, and the two that are chosen are filled ---- */
+
+.visits-hint {
+  margin-block: var(--space-2) var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.visits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rule-hair);
+  margin: 0;
+  padding: var(--rule-hair);
+  background: var(--color-line-strong);
+  list-style: none;
+}
+
+.visits-list li {
+  flex: 1 1 11rem;
+  display: flex;
+  max-width: none;
+}
+
+.visit-tile {
+  flex: 1 1 auto;
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  justify-items: start;
+  min-width: 0;
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  border: var(--rule-hair) solid transparent;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  text-align: start;
+  cursor: pointer;
+}
+
+.visit-tile:hover {
+  background: var(--color-surface-raised);
+}
+
+/* the two visits that are compared are marked by a heavy rule on top and the ink of the text, not by a fill */
+.visit-tile[aria-pressed="true"],
+.visit-tile[aria-pressed="true"]:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  box-shadow: inset 0 var(--rule-heavy, 4px) 0 var(--color-accent);
+}
+
+.visit-tile:focus-visible {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+/* a visit with few photos is greyed inside a dashed rule, and says so in words */
+.visit-tile[data-short="true"] {
+  border: var(--rule-hair) dashed var(--color-text-faint);
+  color: var(--color-text-faint);
+}
+
+.visit-tile[data-short="true"][aria-pressed="true"] {
+  border-color: var(--color-text-faint);
+  color: var(--color-text);
+}
+
+.visit-role {
+  min-height: 1.3em;
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.visit-date {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.visit-colours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.visit-colours:empty {
+  display: none;
+}
+
+/* ---- Embedded in another page: the stage only, with a link back ---- */
+
+.is-embed .masthead,
+.is-embed .colophon,
+.is-embed .skip-link,
+.is-embed #view-where,
+.is-embed #colours,
+.is-embed #visits,
+.is-embed #frame-map,
+.is-embed #spectrum,
+.is-embed #is-it-real,
+.is-embed #reading,
+.is-embed #places,
+.is-embed .view-lede {
+  display: none !important;
+}
+
+.is-embed .page {
+  padding: var(--space-3);
+}
+
+.is-embed .view-title h1 {
+  font-size: var(--text-xl);
+}
+
+.is-embed .view-back {
+  display: block;
+  font-size: var(--text-sm);
+}
+
+/* ---- Other ways of looking at the page ---- */
+
+@media (forced-colors: active) {
+  .visit-tile[aria-pressed="true"],
+  .stage-caption .stage-caption-side[data-side="b"] {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+    forced-color-adjust: none;
+  }
+
+  .visits-list {
+    background: CanvasText;
+  }
+
+  .stage-frame,
+  .stage-swatch,
+  .ruler-bar {
+    forced-color-adjust: none;
+  }
+}
+
+@media print {
+  .view-search,
+  .stage-main > .stage-modes,
+  .stage-playback,
+  .stage-toggle,
+  .hover {
+    display: none;
+  }
+}
+
+/* ---- Display: what only some visitors want, in one disclosure ---- */
+
+.stage-display-body {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.stage-display-details[hidden] {
+  display: none;
+}
+
+/* a page with no place yet: no row of blank cells, and the places to try are the page */
+.view[data-empty="true"] #view-where,
+.view[data-empty="true"] #plan {
+  display: none;
+}
+
+/* ---- Look it up elsewhere: one line of links for the centre of the view, one for the place clicked ---- */
+
+.lookup {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.lookup[hidden] {
+  display: none;
+}
+
+.lookup-note {
+  max-width: var(--measure, 66ch);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.lookup-rows {
+  border-block-start: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.lookup-row {
+  display: grid;
+  grid-template-columns: 11rem 12rem minmax(0, 1fr);
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.lookup-name {
+  margin: 0;
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.lookup-where,
+.lookup-links {
+  margin: 0;
+  max-width: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* the links are names of other sites, read as words: the face of reading; the position stays in typewriter */
+.lookup-links {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.lookup-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+}
+
+.lookup-links[hidden] {
+  display: none;
+}
+
+@media (max-width: 47.99rem) {
+  .lookup-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* how the two pictures are drawn, alike: white point, speed, grey scale */
+.stage-settings {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.stage-setting {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+}
+
+.stage-setting-name {
+  margin: 0;
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.stage-whites > *,
+.stage-speeds > * {
+  min-width: 4.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+/* on a phone the field is narrow beside its button: the example in it is set a little smaller so that it is not cut */
+@media (max-width: 30rem) {
+  .view-search .field::placeholder {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ---- What is known about the place, in the desk beside the plate: two to a row ---- */
+
+.stage-desk .view-facts,
+.stage-desk .view-facts[data-cols],
+.stage-desk .view-facts[data-cols]:has(.view-ranges) {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stage-desk .view-facts > .cell,
+.stage-desk .view-facts:has(.view-ranges) > .cell:nth-child(n + 2),
+.stage-desk .view-facts:has(.view-ranges) > .view-facts-colours {
+  grid-column: auto;
+  grid-row: auto;
+  order: 0;
+  min-height: 0;
+}
+
+.stage-desk .view-facts > .view-facts-colours,
+.stage-desk .view-facts:has(.view-ranges) > .view-facts-colours,
+.stage-desk .view-facts:has(.view-ranges) > .cell:last-child,
+.stage-desk .view-facts > :last-child {
+  grid-column: 1 / -1;
+}
+
+.view-facts [data-cell="source"] {
+  font-family: var(--font-sans);
+}
+
+/* the six ranges of colour wrap inside the desk */
+.stage-desk .view-ranges {
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+}
+
+.stage-desk .view-ranges > * {
+  flex: 0 0 auto;
+  min-height: 2rem;
+  padding-inline: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+.stage-desk .view-ranges > [aria-pressed="true"] {
+  font-weight: 700;
+}
+
+:is(.view, .stage) .stage-whites > *,
+:is(.view, .stage) .stage-speeds > * {
+  min-width: var(--tap);
+}
+
+:is(.view, .stage) .stage-whites > * {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+:is(.view, .stage) .stage-whites > [aria-pressed="true"] {
+  font-weight: 700;
+}
+
+:is(.view, .stage) .stage-speeds > * {
+  font-size: var(--text-md);
+}
+
+.stage-setting-name,
+.lookup-name {
+  font-size: var(--text-sm);
+}
+
+/* ---- Colour: the choice of the colour to compare; chosen by its bar, not filled ---- */
+
+.view-choices .colour-chip-swatch,
+.visit-tile .colour-chip-swatch {
+  width: 0.9em;
+  height: 0;
+  border: 0;
+  border-block-start: 2.5px solid var(--band, var(--color-text-muted));
+  background: transparent;
+}
+
+.view-choices .colour-chip,
+.visit-tile .colour-chip {
+  font-size: var(--text-sm);
+}
+
+.view-choices {
+  gap: var(--space-2) var(--space-5);
+}
+
+.view-choice {
+  font-size: var(--text-md);
+}
+
+/* ---- The empty viewer: the headline at display size, the search form, the plate beside them, and the list ---- */
+
+.view[data-empty="true"] .view-title h1 {
+  font-size: var(--text-display);
+  line-height: var(--leading-display);
+}
+
+.view[data-empty="true"] .view-head {
+  gap: var(--space-5) var(--space-6);
+}
+
+.view-head > .view-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  max-width: 40rem;
+}
+
+.view[data-empty="true"] .view-lede {
+  font-size: var(--text-lg);
+}
+
+.view-head > .view-search .field-label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.view-head > .view-search .field,
+.view-head > .view-search .btn {
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.view-head > .view-search .btn-primary {
+  border-block-start-color: var(--color-primary);
+}
+
+.view-spot {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.view-spot .spot-frame {
+  max-width: 100%;
+}
+
+.spot-verdict {
+  display: block;
+  min-height: calc(2 * var(--leading-display) * var(--text-lg) + var(--space-4));
+  font-size: var(--text-lg);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.spot-verdict:hover,
+.spot-verdict:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-mid);
+  text-underline-offset: 0.2em;
+}
+
+.spot-plate canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.spot-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) 0 0;
+}
+
+@media (min-width: 64rem) {
+  .view[data-empty="true"] .view-title h1 {
+    max-width: none;
+    text-wrap: balance;
+  }
+
+  /* the head dissolves into the page's grid: the words and the form stand on the left with the places to try
+     under them, the plate on the right across all of it, so that no empty block is left beside the plate */
+  .view[data-empty="true"] {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-5);
+    align-items: start;
+    align-content: start;
+  }
+
+  .view[data-empty="true"] > * {
+    grid-column: 1 / -1;
+  }
+
+  .view[data-empty="true"] > .view-head {
+    display: contents;
+  }
+
+  .view[data-empty="true"] .view-head > .view-title,
+  .view[data-empty="true"] .view-head > .view-lede,
+  .view[data-empty="true"] .view-head > .view-search,
+  .view[data-empty="true"] > #places {
+    grid-column: 1;
+  }
+
+  .view[data-empty="true"] .view-head > .view-title {
+    grid-row: 1;
+  }
+
+  .view[data-empty="true"] .view-head > .view-lede {
+    grid-row: 2;
+    margin-block-start: var(--space-4);
+  }
+
+  .view[data-empty="true"] .view-head > .view-search {
+    grid-row: 3;
+    margin-block-start: var(--space-4);
+  }
+
+  /* the plate keeps its whole-number scale and stands against the right edge of the page, under the end of the
+     masthead's rule */
+  .view[data-empty="true"] .view-head > .view-spot {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    justify-self: end;
+  }
+
+  .view[data-empty="true"] > #places {
+    grid-row: 4;
+    margin-block-start: var(--space-4);
+  }
+
+  .view[data-empty="true"] .view-place {
+    grid-template-columns: minmax(0, 11.5rem) minmax(0, 1fr) minmax(0, 7rem);
+    column-gap: var(--space-3);
+  }
+}
+
+/* the places to try: the whole width, a row each: its name, what to look for, and the kind of change */
+.view-places {
+  max-width: none;
+  margin-block-start: var(--space-4);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.view-place {
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) minmax(0, 12rem);
+  padding-block: var(--space-3);
+  font-size: var(--text-md);
+}
+
+.view-place-link {
+  font-size: var(--text-lg);
+}
+
+.view-place-line {
+  font-size: var(--text-md);
+}
+
+.view-place-kind {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+@media (max-width: 47.99rem) {
+  .view-place {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---- Visits: one ruled row of cells; the two compared are marked by a bar, not a heavy box ---- */
+
+.visits-list {
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.visits-list li + li {
+  border-inline-start: var(--rule-hair) solid var(--color-line);
+}
+
+.visit-tile {
+  padding: var(--space-3);
+  border-block-end-width: 2.5px;
+  font-size: var(--text-sm);
+}
+
+.visit-tile[aria-pressed="true"],
+.visit-tile[aria-pressed="true"]:hover {
+  background: var(--color-bg);
+  box-shadow: none;
+  border-block-end-color: var(--color-rule);
+}
+
+/* a visit with few photos keeps its dashed rule; its bar is the same */
+.visit-tile[data-short="true"][aria-pressed="true"] {
+  border-block-end-color: var(--color-rule);
+}
+
+.visit-role {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--color-text-faint);
+  text-transform: none;
+}
+
+.visit-tile[aria-pressed="true"] .visit-role {
+  color: var(--color-text);
+}
+
+.visit-date {
+  font-size: var(--text-md);
+}
+
+.visit-colours {
+  gap: var(--space-1) var(--space-4);
+}
+
+.visits-hint,
+.view-colours-note {
+  font-size: var(--text-md);
+}
+
+/* nothing in a slot of the caption but a dash: the slot is not there */
+.stage-caption .cell:empty {
+  display: none;
+}
+
+/* the links to look the place up stand in the desk: one under another */
+.stage-desk .lookup-row {
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--space-3);
+}
+
+.stage-desk .lookup-links {
+  gap: var(--space-1) var(--space-3);
+}
+
+.stage-desk .lookup-where {
+  font-size: var(--text-sm);
+}
+
+.stage-desk .lookup-links {
+  font-size: var(--text-sm);
+}
+
+.stage-main > .stage-display-details {
+  align-self: stretch;
+  order: 7;
+}
+
+.stage-notes:empty,
+.stage-notes:not(:has(:not(:empty, [hidden]))) {
+  display: none;
+}
+
+/* a slot that has nothing to say yet is not drawn: never a dash standing for a value */
+.view-facts > .cell:has(> .cell-value:empty) {
+  display: none;
+}
+
+/* under the name, the facts stand in as many rows as they need, each cell as wide as its words; in the desk, two to a row */
+.cells.view-facts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cells.view-facts > .cell {
+  flex: 1 1 9rem;
+}
+
+.cells.view-facts > .view-facts-colours {
+  flex: 3 1 24rem;
+}
+
+.stage-desk .cells.view-facts {
+  display: grid;
+}
+
+/* ---- The viewer, round F ---- */
+
+/* the title does not sit on the search strip: air above it, a little less below */
+.view:not([data-empty="true"]) .view-title {
+  padding-block-start: var(--space-5);
+}
+
+.view:not([data-empty="true"]) .view-title h1 {
+  margin-block-end: var(--space-3);
+}
+
+/* the example in the search field is the one of the home page: the text face, at the same size */
+.view-search .field::placeholder {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+}
+
+@media (max-width: 30rem) {
+  .view-search .field::placeholder {
+    font-size: 0.75rem;
+  }
+}
+
+/* the sentence about a saturated centre stands with the other sentence about what there is to see */
+.view-saturated {
+  padding-block: var(--space-2);
+  border-block: var(--rule-hair) solid var(--color-line);
+}
+
+/* the readout and the facts under it: one rule between them, with air, not two */
+.stage-slot > .view-readout .hover-list {
+  border-block-end: 0;
+}
+
+.stage-slot > .cells.view-facts {
+  margin-block-start: var(--space-2);
+}
+
+/* the flag words stand in a detail: a line says how many are set, the words say what each means */
+.hover-flags > summary {
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  min-height: 1.5rem;
+}
+
+.hover-flags-words {
+  margin-block-start: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  white-space: pre-line;
+}
+
+.view-readout .hover-row dd[data-part="flags"] {
+  white-space: normal;
+}
+
+/* the receipt of a reading */
+.hover-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin: 0;
+}
+
+.hover[data-empty="true"] .hover-copy {
+  display: none;
+}
+
+.hover-copy-button {
+  min-height: var(--tap);
+  padding: 0 0 var(--space-1);
+  border: 0;
+  border-block-end: var(--rule-mid) solid var(--color-rule);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hover-copy-button:disabled {
+  color: var(--color-text-faint);
+  border-block-end-color: transparent;
+  cursor: default;
+}
+
+.hover-copy-state {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* the visits say their date and their count: the colours stand once, in "Colour" */
+.visit-colours {
+  display: none;
+}
+
+/* under a plate on a phone: which visit and its date on one row, the count on a row of its own, in words */
+@media (max-width: 63.99rem) {
+  .stage:not([data-plate-at="right"]) .stage-panel:not([data-kind="diff"]) > .stage-caption:not(:has(.stage-caption-half)) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .stage:not([data-plate-at="right"]) .stage-caption-photos {
+    grid-column: 1 / -1;
+    font-family: var(--font-sans);
+    color: var(--color-text-muted);
+  }
+
+  .stage:not([data-plate-at="right"]) .stage-caption-colour {
+    grid-column: 1 / -1;
+  }
+}
+
+/* on the narrowest phones the box of the viewer gives its words more room, so that its example is never cut */
+@media (max-width: 24rem) {
+  .view-search .field {
+    padding-inline: var(--space-2);
+  }
+}

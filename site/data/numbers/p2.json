@@ -1,0 +1,919 @@
+{
+ "lemmon.above.day": {
+  "value": 61096.842233631,
+  "err": null,
+  "unit": "MJD",
+  "text": "25 February",
+  "check": "K2"
+ },
+ "lemmon.above.flux": {
+  "value": 19.532244664036035,
+  "err": 1.4950140541737935,
+  "unit": "mJy",
+  "text": "19.5",
+  "check": "K2"
+ },
+ "lemmon.above.lam": {
+  "value": 4.383643337139052,
+  "err": null,
+  "unit": "µm",
+  "text": "4.384",
+  "check": "K2"
+ },
+ "lemmon.aperture.arcsec": {
+  "value": 12.289397019949861,
+  "err": null,
+  "unit": "arcsec",
+  "text": "12.3",
+  "check": "K2"
+ },
+ "lemmon.aperture.px": {
+  "value": 2,
+  "err": null,
+  "unit": "pixels",
+  "text": "2",
+  "check": "K2"
+ },
+ "lemmon.band.from": {
+  "value": 4.2,
+  "err": null,
+  "unit": "µm",
+  "text": "4.20",
+  "check": "K2"
+ },
+ "lemmon.band.to": {
+  "value": 4.32,
+  "err": null,
+  "unit": "µm",
+  "text": "4.32",
+  "check": "K2"
+ },
+ "lemmon.below.day": {
+  "value": 61097.860786351,
+  "err": null,
+  "unit": "MJD",
+  "text": "26 February",
+  "check": "K2"
+ },
+ "lemmon.below.flux": {
+  "value": 14.149672330881122,
+  "err": 2.559228846156941,
+  "unit": "mJy",
+  "text": "14.1",
+  "check": "K2"
+ },
+ "lemmon.below.lam": {
+  "value": 4.192924745686575,
+  "err": null,
+  "unit": "µm",
+  "text": "4.193",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25": {
+  "value": 9.651712098616649,
+  "err": 0.8650503161096019,
+  "unit": "times",
+  "text": "about 10 times",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.err": {
+  "value": 0.8650503161096019,
+  "err": null,
+  "unit": "times",
+  "text": "0.9",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.exact": {
+  "value": 9.651712098616649,
+  "err": 0.8650503161096019,
+  "unit": "times",
+  "text": "9.7",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.moved.high": {
+  "value": 11.315853354429425,
+  "err": null,
+  "unit": "times",
+  "text": "11.3",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.moved.low": {
+  "value": 8.99961391922458,
+  "err": null,
+  "unit": "times",
+  "text": "9.0",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.nopeak": {
+  "value": 3.129274620177909,
+  "err": null,
+  "unit": "times",
+  "text": "3.1",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.ring2": {
+  "value": 10.20709816809879,
+  "err": 0.9404483081662184,
+  "unit": "times",
+  "text": "10.2",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb25.wide": {
+  "value": 8.512446186807619,
+  "err": null,
+  "unit": "times",
+  "text": "8.5",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26": {
+  "value": 15.629193988005873,
+  "err": 1.4052936426507594,
+  "unit": "times",
+  "text": "about 16 times",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.err": {
+  "value": 1.4052936426507594,
+  "err": null,
+  "unit": "times",
+  "text": "1.4",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.exact": {
+  "value": 15.629193988005873,
+  "err": 1.4052936426507594,
+  "unit": "times",
+  "text": "15.6",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.moved.high": {
+  "value": 17.34561182354879,
+  "err": null,
+  "unit": "times",
+  "text": "17.3",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.moved.low": {
+  "value": 12.665326071020766,
+  "err": null,
+  "unit": "times",
+  "text": "12.7",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.nopeak": {
+  "value": 8.086183565660225,
+  "err": null,
+  "unit": "times",
+  "text": "8.1",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.ring2": {
+  "value": 16.738039409732835,
+  "err": 1.5443866144539677,
+  "unit": "times",
+  "text": "16.7",
+  "check": "K2"
+ },
+ "lemmon.contrast.feb26.wide": {
+  "value": 10.852051434135,
+  "err": null,
+  "unit": "times",
+  "text": "10.9",
+  "check": "K2"
+ },
+ "lemmon.contrast.lowest": {
+  "value": 6.690728407154009,
+  "err": null,
+  "unit": "times",
+  "text": "6.7",
+  "check": "K2"
+ },
+ "lemmon.contrast.subsets": {
+  "value": 15,
+  "err": null,
+  "unit": null,
+  "text": "15",
+  "check": "K2"
+ },
+ "lemmon.display.black": {
+  "value": -0.18589498550891875,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "-0.19",
+  "check": null
+ },
+ "lemmon.display.noise": {
+  "value": 0.09294749275445938,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.093",
+  "check": null
+ },
+ "lemmon.display.white": {
+  "value": 53.182984590530396,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "53.2",
+  "check": null
+ },
+ "lemmon.frame.1a-0447-2.flux": {
+  "value": 162.54408288222183,
+  "err": 2.7655645859382574,
+  "unit": "mJy",
+  "text": "162.5",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0447-2.lam": {
+  "value": 4.2317876559479215,
+  "err": null,
+  "unit": "µm",
+  "text": "4.232",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0459-2.flux": {
+  "value": 52.69998400556663,
+  "err": 1.6037492086672034,
+  "unit": "mJy",
+  "text": "52.7",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0459-2.lam": {
+  "value": 4.30924527349028,
+  "err": null,
+  "unit": "µm",
+  "text": "4.309",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-2.flux": {
+  "value": 12.408331842431652,
+  "err": 1.2857457782566966,
+  "unit": "mJy",
+  "text": "12.4",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-2.lam": {
+  "value": 3.8191486410493227,
+  "err": null,
+  "unit": "µm",
+  "text": "3.819",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-3.flux": {
+  "value": 16.527852885555138,
+  "err": 1.8459429386046238,
+  "unit": "mJy",
+  "text": "16.5",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-3.lam": {
+  "value": 3.8521845236507435,
+  "err": null,
+  "unit": "µm",
+  "text": "3.852",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-4.flux": {
+  "value": 15.859485712924235,
+  "err": 0.9299079629254269,
+  "unit": "mJy",
+  "text": "15.9",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0500-4.lam": {
+  "value": 3.8856013129343205,
+  "err": null,
+  "unit": "µm",
+  "text": "3.886",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0550-1.flux": {
+  "value": 19.532244664036035,
+  "err": 1.4950140541737935,
+  "unit": "mJy",
+  "text": "19.5",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0550-1.lam": {
+  "value": 4.383643337139052,
+  "err": null,
+  "unit": "µm",
+  "text": "4.384",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0550-2.flux": {
+  "value": 17.517272641049217,
+  "err": 1.581238391244001,
+  "unit": "mJy",
+  "text": "17.5",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0550-2.lam": {
+  "value": 4.420986760195634,
+  "err": null,
+  "unit": "µm",
+  "text": "4.421",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-2.flux": {
+  "value": 9.979656842709671,
+  "err": 3.9489346530075133,
+  "unit": "mJy",
+  "text": "10.0",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-2.lam": {
+  "value": 3.978066311834575,
+  "err": null,
+  "unit": "µm",
+  "text": "3.978",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-3.flux": {
+  "value": 10.313854586865316,
+  "err": 3.6450286266147907,
+  "unit": "mJy",
+  "text": "10.3",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-3.lam": {
+  "value": 4.012956033043172,
+  "err": null,
+  "unit": "µm",
+  "text": "4.013",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-4.flux": {
+  "value": 11.644592119033533,
+  "err": 3.864409663064743,
+  "unit": "mJy",
+  "text": "11.6",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0564-4.lam": {
+  "value": 4.048022173603779,
+  "err": null,
+  "unit": "µm",
+  "text": "4.048",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0656-1.flux": {
+  "value": 29.055613933967386,
+  "err": 11.67134605332104,
+  "unit": "mJy",
+  "text": "29.1",
+  "check": "K2"
+ },
+ "lemmon.frame.1a-0656-1.lam": {
+  "value": 4.119283845632497,
+  "err": null,
+  "unit": "µm",
+  "text": "4.119",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-1.flux": {
+  "value": 14.149672330881122,
+  "err": 2.559228846156941,
+  "unit": "mJy",
+  "text": "14.1",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-1.lam": {
+  "value": 4.192924745686575,
+  "err": null,
+  "unit": "µm",
+  "text": "4.193",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-2.flux": {
+  "value": 136.1790818321155,
+  "err": 5.848104839193852,
+  "unit": "mJy",
+  "text": "136.2",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-2.lam": {
+  "value": 4.229133626005078,
+  "err": null,
+  "unit": "µm",
+  "text": "4.229",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-3.flux": {
+  "value": 263.21060730073606,
+  "err": 4.861918261028926,
+  "unit": "mJy",
+  "text": "263.2",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-3.lam": {
+  "value": 4.265642496918297,
+  "err": null,
+  "unit": "µm",
+  "text": "4.266",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-4.flux": {
+  "value": 71.66593218318728,
+  "err": 4.9124815288922745,
+  "unit": "mJy",
+  "text": "71.7",
+  "check": "K2"
+ },
+ "lemmon.frame.2a-0075-4.lam": {
+  "value": 4.302257102578389,
+  "err": null,
+  "unit": "µm",
+  "text": "4.302",
+  "check": "K2"
+ },
+ "lemmon.glow.aug.beyond": {
+  "value": 0.34224599599838257,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.34",
+  "check": "K2"
+ },
+ "lemmon.glow.aug.near": {
+  "value": 0.3519577085971832,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.35",
+  "check": "K2"
+ },
+ "lemmon.glow.aug.ring": {
+  "value": 0.33935365080833435,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.34",
+  "check": "K2"
+ },
+ "lemmon.glow.beyond": {
+  "value": 0.41408613324165344,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.41",
+  "check": "K2"
+ },
+ "lemmon.glow.near": {
+  "value": 0.7011129856109619,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.70",
+  "check": "K2"
+ },
+ "lemmon.glow.ring": {
+  "value": 0.4382285177707672,
+  "err": null,
+  "unit": "MJy/sr",
+  "text": "0.44",
+  "check": "K2"
+ },
+ "lemmon.hero.arcmin": {
+  "value": 4.198877315149536,
+  "err": null,
+  "unit": "arcmin",
+  "text": "4.2",
+  "check": null
+ },
+ "lemmon.hero.aug": {
+  "value": 0.5490351288648775,
+  "err": 22.895306061200785,
+  "unit": "mJy",
+  "text": "+0.5",
+  "check": "K3"
+ },
+ "lemmon.hero.aug.lam": {
+  "value": 4.273384136703268,
+  "err": null,
+  "unit": "µm",
+  "text": "4.273",
+  "check": "K3"
+ },
+ "lemmon.hero.aug.ring2": {
+  "value": 0.4035130230169774,
+  "err": null,
+  "unit": "mJy",
+  "text": "+0.4",
+  "check": "K3"
+ },
+ "lemmon.hero.filled": {
+  "value": 119,
+  "err": null,
+  "unit": "pixels",
+  "text": "119",
+  "check": null
+ },
+ "lemmon.hero.minutes": {
+  "value": 4.297700162278488,
+  "err": null,
+  "unit": "minutes",
+  "text": "4",
+  "check": "K2"
+ },
+ "lemmon.hero.off": {
+  "value": 14.149672330881122,
+  "err": 2.559228846156941,
+  "unit": "mJy",
+  "text": "14.1",
+  "check": "K2"
+ },
+ "lemmon.hero.off.lam": {
+  "value": 4.192924745686575,
+  "err": null,
+  "unit": "µm",
+  "text": "4.193",
+  "check": "K2"
+ },
+ "lemmon.hero.off.ring2": {
+  "value": 12.576272597770693,
+  "err": null,
+  "unit": "mJy",
+  "text": "12.6",
+  "check": "K2"
+ },
+ "lemmon.hero.on": {
+  "value": 263.21060730073606,
+  "err": 4.861918261028926,
+  "unit": "mJy",
+  "text": "263.2",
+  "check": "K2"
+ },
+ "lemmon.hero.on.lam": {
+  "value": 4.265642496918297,
+  "err": null,
+  "unit": "µm",
+  "text": "4.266",
+  "check": "K2"
+ },
+ "lemmon.hero.on.ring2": {
+  "value": 260.1776815344371,
+  "err": null,
+  "unit": "mJy",
+  "text": "260.2",
+  "check": "K2"
+ },
+ "lemmon.hero.pixels": {
+  "value": 41,
+  "err": null,
+  "unit": "pixels",
+  "text": "41",
+  "check": null
+ },
+ "lemmon.hero.ratio": {
+  "value": 18.601887107045503,
+  "err": null,
+  "unit": null,
+  "text": "about 19 times",
+  "check": "K2"
+ },
+ "lemmon.limit.gain": {
+  "value": 1.1657132727187935,
+  "err": null,
+  "unit": "%",
+  "text": "1.2",
+  "check": "K2"
+ },
+ "lemmon.peak.feb25.flux": {
+  "value": 162.54408288222183,
+  "err": null,
+  "unit": "mJy",
+  "text": "162.5",
+  "check": "K2"
+ },
+ "lemmon.peak.feb25.lam": {
+  "value": 4.2317876559479215,
+  "err": null,
+  "unit": "µm",
+  "text": "4.232",
+  "check": "K2"
+ },
+ "lemmon.peak.feb26.flux": {
+  "value": 263.21060730073606,
+  "err": null,
+  "unit": "mJy",
+  "text": "263.2",
+  "check": "K2"
+ },
+ "lemmon.peak.feb26.lam": {
+  "value": 4.265642496918297,
+  "err": null,
+  "unit": "µm",
+  "text": "4.266",
+  "check": "K2"
+ },
+ "lemmon.photos": {
+  "value": 16,
+  "err": null,
+  "unit": null,
+  "text": "16",
+  "check": "K2"
+ },
+ "lemmon.photos.measured": {
+  "value": 15,
+  "err": null,
+  "unit": null,
+  "text": "15",
+  "check": "K2"
+ },
+ "lemmon.ring.inner.arcsec": {
+  "value": 245.78794039899722,
+  "err": null,
+  "unit": "arcsec",
+  "text": "246",
+  "check": "K2"
+ },
+ "lemmon.ring.inner.px": {
+  "value": 40.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "40",
+  "check": "K2"
+ },
+ "lemmon.ring.outer.arcsec": {
+  "value": 337.9584180486212,
+  "err": null,
+  "unit": "arcsec",
+  "text": "338",
+  "check": "K2"
+ },
+ "lemmon.ring.outer.px": {
+  "value": 55.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "55",
+  "check": "K2"
+ },
+ "lemmon.ring2.inner.px": {
+  "value": 15.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "15",
+  "check": "K2"
+ },
+ "lemmon.ring2.outer.px": {
+  "value": 25.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "25",
+  "check": "K2"
+ },
+ "lemmon.star.arcsec": {
+  "value": 9.358706589334554,
+  "err": null,
+  "unit": "arcsec",
+  "text": "9",
+  "check": "K2"
+ },
+ "lemmon.star.flux": {
+  "value": 29.055613933967386,
+  "err": null,
+  "unit": "mJy",
+  "text": "29.1",
+  "check": "K2"
+ },
+ "lemmon.star.lam": {
+  "value": 4.119283845632497,
+  "err": null,
+  "unit": "µm",
+  "text": "4.119",
+  "check": "K2"
+ },
+ "lemmon.star.magnitude": {
+  "value": 12.762517,
+  "err": null,
+  "unit": "Gaia G magnitude",
+  "text": "12.8",
+  "check": "K2"
+ },
+ "lemmon.star.pixels": {
+  "value": 1.523053828294781,
+  "err": null,
+  "unit": "pixels",
+  "text": "1 to 2",
+  "check": "K2"
+ },
+ "lemmon.template.1a-0447-2.apart": {
+  "value": 1.3668975108656056,
+  "err": null,
+  "unit": "nm",
+  "text": "1.4",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0447-2.flux": {
+  "value": -0.05473358916312099,
+  "err": 1.2966165085342793,
+  "unit": "mJy",
+  "text": "-0.1",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0447-2.lam": {
+  "value": 4.230420758437056,
+  "err": null,
+  "unit": "µm",
+  "text": "4.230",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0447-2.percent": {
+  "value": 0.03367307390868268,
+  "err": null,
+  "unit": "%",
+  "text": "0.0",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0447-2.sigma": {
+  "value": 53.23371265586156,
+  "err": null,
+  "unit": null,
+  "text": "53.2",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0459-2.apart": {
+  "value": 12.363033349994446,
+  "err": null,
+  "unit": "nm",
+  "text": "12.4",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0459-2.flux": {
+  "value": 1.5161796976720499,
+  "err": 3.2076411640453175,
+  "unit": "mJy",
+  "text": "+1.5",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0459-2.lam": {
+  "value": 4.2968822401402855,
+  "err": null,
+  "unit": "µm",
+  "text": "4.297",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0459-2.percent": {
+  "value": 2.877002197025141,
+  "err": null,
+  "unit": "%",
+  "text": "2.9",
+  "check": "K3"
+ },
+ "lemmon.template.1a-0459-2.sigma": {
+  "value": 14.272355113799547,
+  "err": null,
+  "unit": null,
+  "text": "14.3",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-2.apart": {
+  "value": 7.98742316124379,
+  "err": null,
+  "unit": "nm",
+  "text": "8.0",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-2.flux": {
+  "value": 0.3334686155551111,
+  "err": 24.992269404019854,
+  "unit": "mJy",
+  "text": "+0.3",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-2.lam": {
+  "value": 4.237121049166322,
+  "err": null,
+  "unit": "µm",
+  "text": "4.237",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-2.percent": {
+  "value": 0.24487506529543093,
+  "err": null,
+  "unit": "%",
+  "text": "0.2",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-2.sigma": {
+  "value": 5.292541290392185,
+  "err": null,
+  "unit": null,
+  "text": "5.3",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-3.apart": {
+  "value": 7.7416397849709995,
+  "err": null,
+  "unit": "nm",
+  "text": "7.7",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-3.flux": {
+  "value": 0.5490351288648775,
+  "err": 22.895306061200785,
+  "unit": "mJy",
+  "text": "+0.5",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-3.lam": {
+  "value": 4.273384136703268,
+  "err": null,
+  "unit": "µm",
+  "text": "4.273",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-3.percent": {
+  "value": 0.20859156646280877,
+  "err": null,
+  "unit": "%",
+  "text": "0.2",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-3.sigma": {
+  "value": 11.222053380972223,
+  "err": null,
+  "unit": null,
+  "text": "11.2",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-4.apart": {
+  "value": 7.214560812547788,
+  "err": null,
+  "unit": "nm",
+  "text": "7.2",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-4.flux": {
+  "value": 0.7103327915472977,
+  "err": 9.412378359050003,
+  "unit": "mJy",
+  "text": "+0.7",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-4.lam": {
+  "value": 4.309471663390937,
+  "err": null,
+  "unit": "µm",
+  "text": "4.309",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-4.percent": {
+  "value": 0.9911721928511252,
+  "err": null,
+  "unit": "%",
+  "text": "1.0",
+  "check": "K3"
+ },
+ "lemmon.template.2a-0075-4.sigma": {
+  "value": 6.683068212953995,
+  "err": null,
+  "unit": null,
+  "text": "6.7",
+  "check": "K3"
+ },
+ "lemmon.template.apart.largest": {
+  "value": 12.363033349994446,
+  "err": null,
+  "unit": "nm",
+  "text": "12.4",
+  "check": "K3"
+ },
+ "lemmon.template.percent.largest": {
+  "value": 2.877002197025141,
+  "err": null,
+  "unit": "%",
+  "text": "2.9",
+  "check": "K3"
+ },
+ "lemmon.template.sigma.smallest": {
+  "value": 5.292541290392185,
+  "err": null,
+  "unit": null,
+  "text": "5.3",
+  "check": "K3"
+ },
+ "lemmon.track.arcmin": {
+  "value": 52.16631017895614,
+  "err": null,
+  "unit": "arcmin",
+  "text": "52.2",
+  "check": "K3"
+ },
+ "lemmon.track.hours": {
+  "value": 37.526797775994055,
+  "err": null,
+  "unit": "hours",
+  "text": "37.5",
+  "check": "K3"
+ },
+ "lemmon.track.offset.feb25": {
+  "value": 0.41926827450086734,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.4",
+  "check": "K3"
+ },
+ "lemmon.track.offset.feb26": {
+  "value": 0.2325795898519288,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.2",
+  "check": "K3"
+ }
+}

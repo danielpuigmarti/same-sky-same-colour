@@ -1,0 +1,21 @@
+[
+ {
+  "id": "K-pluto-blink",
+  "title": "Pluto in plain photos, blinked against another visit",
+  "claim": "In plain SPHEREx photos, with nothing subtracted, Pluto is a point of light where JPL Horizons says it should be, and that place is empty in a photo of the same colour taken at another visit.",
+  "test": "The photos and their same-colour twins are those of row K-pluto: JPL Horizons gives Pluto's place as SPHEREx saw it at each photo's time, the frame index gives the photos that hold it, and the shared match rule gives each a twin from another visit in which Pluto is at least 12 pixels away. At most 24 pairs per detector, evenly spaced in time. In the photo, background removed and smoothed with a Gaussian of 1 pixel, the brightest pixel within 1.5 pixels of the predicted place is measured and a round Gaussian is fitted there; in the twin, resampled onto the photo's pixels and treated the same way, the brightest pixel within 1 pixel of that fit. Position only: no brightness, spectrum or ice is claimed.",
+  "pass_rule": "In at least one detector at least 80 percent of the pairs show a light of at least 5 noise units whose fitted centre is within 1 pixel (6.15 arcsec) of the Horizons place, with nothing of 3 noise units or more there in the twin. The rule is in pipeline/frozen/pluto_blink_rule.json; it was written after the difference test of row K-pluto had failed and before any plain photo was measured for it.",
+  "rule_commit": null,
+  "status": "FAIL",
+  "plain": "did not meet its rule",
+  "value": "detector 1: 14 of 24 pairs; best detector for the light alone: D3 23 of 24, its twins empty in 14",
+  "unit": "pairs",
+  "reference": "at least 80 percent",
+  "tolerance": "1 pixel",
+  "image": "img/k-pluto-blink.png",
+  "image_sha256": "b4c36f1f8263cde965c5c6cc9d4a844fe8fd90c64cfba427af7dbd3692c97771",
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run pluto_blink"
+ }
+]

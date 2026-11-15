@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reader test page</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 16px; max-width: 980px; }
+  label { margin-right: 12px; }
+  input[type=number] { width: 8em; }
+  button { margin-right: 8px; }
+  pre { background: #f2f2f2; padding: 8px; max-height: 320px; overflow: auto; }
+  .pair { display: flex; gap: 12px; margin: 8px 0; align-items: flex-start; }
+  figure { margin: 0; }
+  canvas { width: 192px; height: 192px; image-rendering: pixelated; background: #000; }
+  figcaption { font-size: 12px; max-width: 192px; word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Reader test page</h1>
+<p>Reads stamps of one sky position straight from the public bucket, through the worker. Serve the whole project
+folder: <code>node tools/serve.mjs --root .</code>, then open <code>/tests/manual/d1.html</code>. The frame index is
+read from the test fixture until the real index is deployed (<code>?index=../../site/idx/</code> uses that one).
+A stand-in rule takes the first two visits and the first two frames of each; it is not the real rule.</p>
+<p>
+  <label>RA <input id="ra" type="number" step="any" value="330.84"></label>
+  <label>Dec <input id="dec" type="number" step="any" value="-56.79"></label>
+  <label>Detector <input id="det" type="number" min="1" max="6" value="2"></label>
+  <label><input id="req" type="checkbox"> only finished tiles</label>
+</p>
+<p>
+  <button id="run">Load stamps</button>
+  <button id="again">Load again (stamps from the cache)</button>
+  <button id="cancel">Cancel</button>
+</p>
+<pre id="log"></pre>
+<div id="stamps"></div>
+
+<script type="module">
+import { createClient } from '../../site/js/lib/client.js';
+
+const $ = (id) => document.getElementById(id);
+const log = (s) => { $('log').textContent += s + '\n'; console.log(s); };
+
+// The stand-in rules: a module of its own, handed to the worker as a Blob address.
+const rulesSource = `
+export const visits = (frames) => {
+  const sorted = [...frames].sort((a, b) => a.tmid - b.tmid), out = [];
+  for (const f of sorted) {
+    const last = out[out.length - 1];
+    if (last && f.tmid - last.frames[last.frames.length - 1].tmid <= 10) last.frames.push(f);
+    else out.push({ frames: [f], short: false });
+  }
+  for (const v of out) v.short = v.frames.length < 3;
+  return out;
+};
+export const defaultPair = () => [0, 1];
+export const matchPairs = (a, b) => Array.from({ length: Math.min(a.length, b.length, 2) }, (_, i) => [i, i]);
+`;
+const rulesUrl = URL.createObjectURL(new Blob([rulesSource], { type: 'text/javascript' }));
+
+const index = new URL(new URLSearchParams(location.search).get('index') ?? '../fixtures/idx/', location.href).href;
+let client = null;
+function start() {
+  client?.terminate();
+  client = createClient({
+    config: {
+      indexBase: index,
+      waveUrl: new URL('../../site/data/wave/tables.json', location.href).href,
+      rulesUrl,
+      requireIndexed: $('req').checked,
+    },
+  });
+  return client;
+}
+start();
+
+/** A 64 by 64 stamp on a canvas: asinh scale between the 1st and 99.5th percentile; FITS row 0 at the bottom. */
+function draw(canvas, s) {
+  const n = s.w, vals = s.data, fin = Array.from(vals).filter(Number.isFinite).sort((a, b) => a - b);
+  const lo = fin[Math.floor(fin.length * 0.01)] ?? 0, hi = fin[Math.floor(fin.length * 0.995)] ?? 1;
+  canvas.width = canvas.height = n;
+  const ctx = canvas.getContext('2d'), im = ctx.createImageData(n, n);
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      const v = vals[y * n + x], o = ((n - 1 - y) * n + x) * 4;
+      const g = Number.isFinite(v) ? Math.round(255 * Math.min(1, Math.max(0, Math.asinh((v - lo) / Math.max(hi - lo, 1e-9) * 10) / Math.asinh(10)))) : 0;
+      im.data[o] = Number.isFinite(v) ? g : 120; im.data[o + 1] = g; im.data[o + 2] = g; im.data[o + 3] = 255;
+    }
+  }
+  ctx.putImageData(im, 0, 0);
+}
+
+function show(stamps) {
+  $('stamps').replaceChildren();
+  for (let k = 0; k + 1 < stamps.length; k += 2) {
+    const row = document.createElement('div');
+    row.className = 'pair';
+    for (const s of [stamps[k], stamps[k + 1]]) {
+      const fig = document.createElement('figure'), cv = document.createElement('canvas'), cap = document.createElement('figcaption');
+      draw(cv, s);
+      const flagged = s.flags ? s.flags.filter((v) => v !== 0).length : 'no flags';
+      cap.textContent = `${s.key.split('/').pop()}  MJD ${s.mjd.toFixed(3)}  wavelength ${s.lam.toFixed(4)}  bandwidth ${s.bw.toFixed(4)}  flagged pixels ${flagged}`;
+      fig.append(cv, cap);
+      row.append(fig);
+    }
+    $('stamps').append(row);
+  }
+}
+
+async function run(label) {
+  const ra = Number($('ra').value), dec = Number($('dec').value), det = Number($('det').value);
+  log(`--- ${label}: RA ${ra}, Dec ${dec}, detector ${det}`);
+  const t0 = performance.now();
+  let firstStamp = null;
+  const plan = await client.plan(ra, dec, det);
+  const tPlan = performance.now() - t0;
+  if (plan.state) { log(`plan: ${plan.state} after ${(tPlan / 1000).toFixed(2)} s`); window.__d1 = { plan }; return; }
+  log(`plan: ${(tPlan / 1000).toFixed(2)} s; visits ${plan.visits.length} (frames ${plan.visits.map((v) => v.frames.length).join(', ')}), pairs ${plan.pairs.length}, ` +
+    `expected ${(plan.bytes / 1e6).toFixed(2)} MB in about ${plan.seconds} s, first request ${plan.firstRequestMs?.toFixed(0)} ms, slow link ${plan.slow}, skipped ${JSON.stringify(plan.skipped)}`);
+  const stamps = await client.load(plan, (p) => {
+    if (p.type === 'stamp') {
+      firstStamp ??= performance.now() - t0;
+      if (p.done === 1) log(`first stamp: ${(firstStamp / 1000).toFixed(2)} s after the click (${(p.ms / 1000).toFixed(2)} s after the load began)${p.cached ? ', from the cache' : ''}`);
+    } else if (p.type === 'warning') log('warning: ' + p.what);
+    else if (p.type === 'more') log(`the rest is held back: ${p.plan.pairs.length} pairs, ${(p.plan.bytes / 1e6).toFixed(2)} MB`);
+  });
+  const tAll = performance.now() - t0;
+  if (stamps.state) { log(`load: ${stamps.state} after ${(tAll / 1000).toFixed(2)} s`); window.__d1 = { plan, stamps }; return; }
+  log(`all ${stamps.length} stamps: ${(tAll / 1000).toFixed(2)} s after the click`);
+  show(stamps);
+  window.__d1 = { plan, stamps, tPlan, firstStamp, tAll };
+}
+
+$('run').onclick = () => { start(); run('first run'); };
+$('again').onclick = () => run('again');
+$('cancel').onclick = () => { client.cancel(); log('cancelled'); };
+window.__run = (label) => { start(); return run(label ?? 'run'); };
+window.__again = () => run('again');
+</script>
+</body>
+</html>

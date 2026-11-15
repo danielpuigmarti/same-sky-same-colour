@@ -1,0 +1,68 @@
+{
+ "about": "Tolerances and pass rules of the checks on the five targets. Written from the catalogue values in names.json and the dates of the 2010 images alone, before the jobs measured any position or brightness. One term was chosen with a result in hand: a trial measurement had put the 2010 centre of Barnard's Star about 6 arcsec from the catalogue, and the beam width added for a star that saturates WISE was set knowing it. The jobs read this file and never write it.",
+ "written_on": "2026-11-14",
+ "pixel_arcsec": 6.15,
+ "movers": {
+  "rule": "The shift from the 2010 image to SPHEREx's latest visit, measured, differs from the shift the catalogue gives by at most shift_arcsec. shift_arcsec = half a SPHEREx pixel, plus half the distance the catalogue moves the object between the first and the last photo of the 2010 image (that image is a mean over about six months, and the object moved meanwhile), plus one beam width of WISE (6.4 arcsec in W2) for a star that saturates WISE, whose centre is known only from the wings of its image. The position in SPHEREx alone lies within position_px of the catalogue position at that date.",
+  "saturates_wise": {
+   "barnard": "Barnard's Star is near magnitude 4.5 at 2 µm (2MASS); the W2 band of WISE saturates near magnitude 7 (Explanatory Supplement to the AllWISE Data Release Products, section II.2)."
+  },
+  "eps-indi-b": {
+   "allwise": {
+    "band": "W2",
+    "tile": "3306m561_ac51",
+    "first_mjd": 55314.051174,
+    "last_mjd": 55499.736639
+   },
+   "allwise_half_spread_arcsec": 1.086,
+   "allwise_saturated_arcsec": 0.0,
+   "position_px": 0.5,
+   "shift_arcsec": 4.161
+  },
+  "barnard": {
+   "allwise": {
+    "band": "W2",
+    "tile": "2688p045_ac51",
+    "first_mjd": 55273.549798,
+    "last_mjd": 55458.481485
+   },
+   "allwise_half_spread_arcsec": 2.739,
+   "allwise_saturated_arcsec": 6.4,
+   "position_px": 0.5,
+   "shift_arcsec": 12.214
+  },
+  "wise0855": {
+   "allwise": {
+    "band": "W2",
+    "tile": "1342m076_ac51",
+    "first_mjd": 55319.364866,
+    "last_mjd": 55513.471187
+   },
+   "allwise_half_spread_arcsec": 1.741,
+   "allwise_saturated_arcsec": 0.0,
+   "position_px": 0.5,
+   "shift_arcsec": 4.816
+  }
+ },
+ "motion": {
+  "rule": "Motion within SPHEREx's own year is shown for a target if its measured shift between two visits is at least nonzero_sigma times its error away from zero, and each of its two components (east, north) is within within_sigma times its error of the catalogue shift, parallax included. The error is the target's own, with the scatter of the field stars' shifts between the same visits added in quadrature. Epsilon Indi B: first against last deep visit of detector 6. WISE 0855: the co-adds of November 2025 and April to May 2026 of detector 6; May 2025 is left out.",
+  "nonzero_sigma": 3,
+  "within_sigma": 3
+ },
+ "rw-aur": {
+  "rule": "A colour band shows RW Aurigae's change if the sign of the change is the same with the common mask as without it, and the comparison stars of that band, measured with the same mask, have a median ratio within comparison_median_pct of 1.",
+  "comparison_median_pct": 1.0,
+  "reference_before_masking_pct": [
+   26.8,
+   40.7,
+   9.0,
+   -8.8,
+   -15.2,
+   -29.1
+  ]
+ },
+ "r-dra": {
+  "rule": "A frame is saturated at the star when at least one pixel within radius_px pixels of its position carries one of the flags OVERFLOW, NONLINEAR or BLOOM.",
+  "radius_px": 3
+ }
+}

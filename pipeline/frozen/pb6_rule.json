@@ -1,0 +1,313 @@
+{
+ "id": "PB6",
+ "written": "2026-11-14 21:57 Europe/Amsterdam, before any difference was measured by the diffcheck job",
+ "question": "Do the difference view and the same-colour flipbook show real change and nothing else, so that they may be shown at positions a visitor types?",
+ "views": {
+  "difference": "(a) The difference of the per-visit co-adds on one sky grid: the matched photos of each of the two visits (sx.visits.default_pair, sx.match.match_pairs, at most 8 pairs) are put on one 64 by 64 grid of 6.15 arcsec pixels (north up) with sx.stack.resample after each photo's own background is removed, added with sx.stack.coadd, and subtracted with sx.stack.difference. Only pixels whose colour matches in every pair are used (sx.match.matched_mask).",
+  "flipbook": "(b) The flipbook: each photo of the earlier visit minus its same-colour twin of the later visit, one difference for each matched pair, on the same grid and with the same functions, one photo against one photo."
+ },
+ "statistics": {
+  "noise_unit": "sx.stack.difference: the two noises of the co-adds (or of the two single photos) added in quadrature",
+  "mean_test": "z = mean of the difference over the used pixels divided by its standard error, the standard error being the robust scatter of the difference (sx.stack.difference, key scatter) over the square root of the number of used pixels. Pixels are counted as independent, which is the strict form: neighbouring pixels are not independent, so the real error is larger.",
+  "pair_test": "A star shows a dark-bright pair when, among the pixels the view shows within 3 pixels of its Gaia position on the grid, one is at +3 noise units or more and another at -3 noise units or less. A star cannot be tested when fewer than 40% of the 29 pixels of that disc are shown (hidden by the flag mask or by saturation). For the difference of co-adds a star that cannot be tested counts as not passing; for the flipbook a star counts as not passing when fewer than half of its pair differences can be tested."
+ },
+ "tests": {
+  "empty": {
+   "positions": 20,
+   "needed": 18,
+   "z_max": 3,
+   "min_matched_pairs": 3,
+   "min_pixels": 100,
+   "rule": "The mean of an empty difference, taken over the pixels with no flag other than FULLSAMPLE in either photo (stars left out, as they are for the background; when fewer than 100 such pixels are left, over all the pixels the difference shows, as sx.stack does for the background), is zero within 3 standard errors at 18 or more of 20 positions. A position passes when every run on it passes: for the difference of co-adds, each of its detectors; for the flipbook, every pair of every detector. Each position is run in two detectors (the two named in its entry)."
+  },
+  "stars": {
+   "stars": 20,
+   "needed": 18,
+   "pair_units": 3,
+   "disc_radius_px": 3,
+   "rule": "18 or more of the 20 comparison stars of RW Aurigae show no dark-bright pair above 3 noise units. The detector of a star is the first of 4, 5, 3, 6, 2, 1 with at least 3 matched pairs between the default visits of that detector (the long-wavelength detectors are tried first because stars of this brightness saturate in the short ones). For the flipbook a star shows a pair if any of its pair differences shows one.",
+   "source": "pipeline/jobs/_rwaur_stars.py",
+   "min_disc_fraction": 0.4
+  },
+  "injection": {
+   "sources": 10,
+   "needed": 10,
+   "tolerance": 0.2,
+   "psf": "round Gaussian, sigma 1.0 pixel, added to every photo of the later visit at one sky position",
+   "aperture_radius_px": 4,
+   "strength": "total flux that makes the aperture sum 40 times its noise (robust scatter of the difference times the square root of the pixels in the aperture) in the difference of the co-adds",
+   "site": "random angle and distance of 8 to 20 pixels from the centre of an empty position (seeded); a site is moved on when the clean difference has a pixel beyond 3 noise units within 5 pixels of it",
+   "rule": "The aperture sum of the difference at the injected source is within 20% of the injected flux (the same thing as within 20% of the expected noise units, as the aperture noise cancels) for 10 of 10 sources; for the flipbook, the median over the pairs of a source."
+  }
+ },
+ "detectors": "The ten positions that an earlier test used are run in detectors 2 and 5 and compared with that test's pass. The other ten are run in detectors 1 and 4, or 3 and 6, alternately.",
+ "decision": "A view is built at typed positions only if all three tests pass for that view. Otherwise it stays on prepared showcases and the page says why. The decision of each view is written whichever way it goes, with what a caption has to say about pairs at stars.",
+ "positions": [
+  {
+   "name": "ecl_000",
+   "ra": 180.00355,
+   "dec": -0.00154,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": 0.0,
+   "gal_b": 60.2,
+   "brightest_g_5arcmin": 13.043417
+  },
+  {
+   "name": "ecl_p08",
+   "ra": 201.33008,
+   "dec": -0.77551,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": 7.6,
+   "gal_b": 60.9,
+   "brightest_g_5arcmin": 14.2391205
+  },
+  {
+   "name": "ecl_m06",
+   "ra": 16.28296,
+   "dec": 0.00377,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": -6.4,
+   "gal_b": -62.7,
+   "brightest_g_5arcmin": 14.0364628
+  },
+  {
+   "name": "ecl_m12",
+   "ra": 147.2601,
+   "dec": -0.08192,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": -12.5,
+   "gal_b": 38.5,
+   "brightest_g_5arcmin": 13.08651
+  },
+  {
+   "name": "mid_p35",
+   "ra": 212.40906,
+   "dec": 24.87015,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": 35.4,
+   "gal_b": 72.3,
+   "brightest_g_5arcmin": 13.2783241
+  },
+  {
+   "name": "mid_m40",
+   "ra": 49.91736,
+   "dec": -23.32827,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": -40.0,
+   "gal_b": -56.4,
+   "brightest_g_5arcmin": 13.1478434
+  },
+  {
+   "name": "hi_p62",
+   "ra": 214.35542,
+   "dec": 56.00899,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": 62.4,
+   "gal_b": 57.2,
+   "brightest_g_5arcmin": 13.1400585
+  },
+  {
+   "name": "hi_p72",
+   "ra": 218.7432,
+   "dec": 78.83295,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": 71.5,
+   "gal_b": 37.0,
+   "brightest_g_5arcmin": 13.2489681
+  },
+  {
+   "name": "hi_m65",
+   "ra": 39.96487,
+   "dec": -56.54164,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": -65.0,
+   "gal_b": -54.8,
+   "brightest_g_5arcmin": 13.4311676
+  },
+  {
+   "name": "hi_m75",
+   "ra": 50.99307,
+   "dec": -71.22717,
+   "dets": [
+    2,
+    5
+   ],
+   "source": "earlier test",
+   "ecl_lat": -75.5,
+   "gal_b": -41.1,
+   "brightest_g_5arcmin": 13.4817295
+  },
+  {
+   "name": "ecl_p03",
+   "ra": 133.45561,
+   "dec": 21.1088,
+   "dets": [
+    1,
+    4
+   ],
+   "source": "selected by this job",
+   "ecl_lat": 3.5,
+   "gal_b": 35.9,
+   "brightest_g_5arcmin": 13.1509008
+  },
+  {
+   "name": "ecl_m03",
+   "ra": 216.77046,
+   "dec": -17.18653,
+   "dets": [
+    3,
+    6
+   ],
+   "source": "selected by this job",
+   "ecl_lat": -2.5,
+   "gal_b": 40.0,
+   "brightest_g_5arcmin": 13.3851748
+  },
+  {
+   "name": "ecl_p15",
+   "ra": 239.99652,
+   "dec": -5.26562,
+   "dets": [
+    1,
+    4
+   ],
+   "source": "selected by this job",
+   "ecl_lat": 15.0,
+   "gal_b": 34.1,
+   "brightest_g_5arcmin": 13.3302584
+  },
+  {
+   "name": "ecl_m20",
+   "ra": 26.01611,
+   "dec": -10.71539,
+   "dets": [
+    3,
+    6
+   ],
+   "source": "selected by this job",
+   "ecl_lat": -20.0,
+   "gal_b": -69.4,
+   "brightest_g_5arcmin": 14.3350306
+  },
+  {
+   "name": "mid_p25",
+   "ra": 324.01549,
+   "dec": 11.68487,
+   "dets": [
+    1,
+    4
+   ],
+   "source": "selected by this job",
+   "ecl_lat": 24.5,
+   "gal_b": -28.8,
+   "brightest_g_5arcmin": 13.0925083
+  },
+  {
+   "name": "mid_p45",
+   "ra": 175.52415,
+   "dec": 51.71258,
+   "dets": [
+    3,
+    6
+   ],
+   "source": "selected by this job",
+   "ecl_lat": 44.5,
+   "gal_b": 62.2,
+   "brightest_g_5arcmin": 13.8177986
+  },
+  {
+   "name": "mid_m30",
+   "ra": 76.44371,
+   "dec": -7.29067,
+   "dets": [
+    1,
+    4
+   ],
+   "source": "selected by this job",
+   "ecl_lat": -30.0,
+   "gal_b": -26.8,
+   "brightest_g_5arcmin": 13.174758
+  },
+  {
+   "name": "mid_m52",
+   "ra": 54.55836,
+   "dec": -34.62701,
+   "dets": [
+    3,
+    6
+   ],
+   "source": "selected by this job",
+   "ecl_lat": -52.0,
+   "gal_b": -53.7,
+   "brightest_g_5arcmin": 13.1660442
+  },
+  {
+   "name": "hi_p55",
+   "ra": 256.45863,
+   "dec": 31.99675,
+   "dets": [
+    1,
+    4
+   ],
+   "source": "selected by this job",
+   "ecl_lat": 54.5,
+   "gal_b": 35.3,
+   "brightest_g_5arcmin": 13.4214745
+  },
+  {
+   "name": "hi_m58",
+   "ra": 37.91197,
+   "dec": -47.7393,
+   "dets": [
+    3,
+    6
+   ],
+   "source": "selected by this job",
+   "ecl_lat": -57.5,
+   "gal_b": -61.6,
+   "brightest_g_5arcmin": 13.9770956
+  }
+ ],
+ "changes_before_measurement": [
+  "First version, written before anything was measured.",
+  "Changed after a trial run of two comparison stars (one was saturated and could not be tested in detector 1; the other showed a pair in a detector 4 co-add) and before any empty position, any other star or any injection was measured: the detector of a star is chosen by the fixed order above, because the first rule (most pairs, lowest number) picks detector 1, where these stars saturate; a star can be tested when 40% of its disc is shown, not 90%, because one common flag mask hides most of the grid in a co-add; for the zero-mean test, when fewer than 100 quiet pixels are left the shown pixels are used, as sx.stack does for the background.",
+  "The thresholds and the rules above were not changed after the first full run of the job. Only this note was corrected afterwards (the first version of it said no result had been read before the changes above). The 5-sigma-clipped mean that the earlier background test used is reported beside the rule, not instead of it."
+ ],
+ "positions_chosen": "by diffcheck --select, from Gaia DR3 (no star brighter than G = 13 within 5 arcmin, galactic latitude beyond 20 degrees), the frame index and the count of pairs and quiet pixels; no mean was looked at"
+}

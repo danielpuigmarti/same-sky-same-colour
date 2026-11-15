@@ -1,0 +1,219 @@
+{
+ "lines.bra.dev_nm": {
+  "value": -1.4759566152235948,
+  "err": null,
+  "unit": "nm",
+  "text": "-1.48",
+  "check": "K1"
+ },
+ "lines.bra.expected": {
+  "value": 4.051367885629332,
+  "err": null,
+  "unit": "µm",
+  "text": "4.05137",
+  "check": "K1"
+ },
+ "lines.bra.fit": {
+  "value": 4.049891929014108,
+  "err": 0.0005650895982705991,
+  "unit": "µm",
+  "text": "4.04989",
+  "check": "K1"
+ },
+ "lines.bra.n": {
+  "value": 55,
+  "err": null,
+  "unit": null,
+  "text": "55",
+  "check": "K1"
+ },
+ "lines.pab.dev_nm": {
+  "value": -0.034470353519777674,
+  "err": null,
+  "unit": "nm",
+  "text": "-0.03",
+  "check": "K1"
+ },
+ "lines.pab.expected": {
+  "value": 1.2818777295234025,
+  "err": null,
+  "unit": "µm",
+  "text": "1.28188",
+  "check": "K1"
+ },
+ "lines.pab.fit": {
+  "value": 1.2818432591698827,
+  "err": 0.0005884750574573391,
+  "unit": "µm",
+  "text": "1.28184",
+  "check": "K1"
+ },
+ "lines.pab.n": {
+  "value": 76,
+  "err": null,
+  "unit": null,
+  "text": "76",
+  "check": "K1"
+ },
+ "place.gaia.frames": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": null
+ },
+ "place.gaia.largest": {
+  "value": 0.11476895037426864,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.11",
+  "check": null
+ },
+ "place.gaia.limit": {
+  "value": 0.3,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.3",
+  "check": null
+ },
+ "place.gaia.median": {
+  "value": 0.028679280180165505,
+  "err": null,
+  "unit": "pixels",
+  "text": "0.03",
+  "check": null
+ },
+ "place.gaia.stars": {
+  "value": 65,
+  "err": null,
+  "unit": null,
+  "text": "65",
+  "check": null
+ },
+ "wave.cwave.d1.max_nm": {
+  "value": 1.1046899057085557,
+  "err": null,
+  "unit": "nm",
+  "text": "1.1",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d1.rms_nm": {
+  "value": 0.37466038087011794,
+  "err": null,
+  "unit": "nm",
+  "text": "0.37",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d2.max_nm": {
+  "value": 25.99495850426092,
+  "err": null,
+  "unit": "nm",
+  "text": "26.0",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d2.rms_nm": {
+  "value": 0.4410966688972463,
+  "err": null,
+  "unit": "nm",
+  "text": "0.44",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d3.max_nm": {
+  "value": 4.278733710281202,
+  "err": null,
+  "unit": "nm",
+  "text": "4.3",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d3.rms_nm": {
+  "value": 0.6408446247163258,
+  "err": null,
+  "unit": "nm",
+  "text": "0.64",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d4.max_nm": {
+  "value": 5.673489234026441,
+  "err": null,
+  "unit": "nm",
+  "text": "5.7",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d4.rms_nm": {
+  "value": 0.9080576219548062,
+  "err": null,
+  "unit": "nm",
+  "text": "0.91",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d5.max_nm": {
+  "value": 10.962080515517059,
+  "err": null,
+  "unit": "nm",
+  "text": "11.0",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d5.rms_nm": {
+  "value": 0.45720668468460274,
+  "err": null,
+  "unit": "nm",
+  "text": "0.46",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d6.max_nm": {
+  "value": 2.639117272071445,
+  "err": null,
+  "unit": "nm",
+  "text": "2.6",
+  "check": "K1-limit"
+ },
+ "wave.cwave.d6.rms_nm": {
+  "value": 0.5146517542117414,
+  "err": null,
+  "unit": "nm",
+  "text": "0.51",
+  "check": "K1-limit"
+ },
+ "wave.cwave.pixels": {
+  "value": 10000,
+  "err": null,
+  "unit": null,
+  "text": "10,000",
+  "check": "K1-limit"
+ },
+ "wave.tables.bytes": {
+  "value": 32240,
+  "err": null,
+  "unit": "bytes",
+  "text": "32,240",
+  "check": null
+ },
+ "wave.tables.error_astropy": {
+  "value": 2.6645352591003757e-15,
+  "err": null,
+  "unit": "µm",
+  "text": "2.7e-15",
+  "check": null
+ },
+ "wave.tables.error_maps": {
+  "value": 2.3642054802763823e-07,
+  "err": null,
+  "unit": "µm",
+  "text": "2.4e-07",
+  "check": null
+ },
+ "wave.tables.gzip_bytes": {
+  "value": 14865,
+  "err": null,
+  "unit": "bytes",
+  "text": "14,865",
+  "check": null
+ },
+ "wave.tables.pixels": {
+  "value": 60000,
+  "err": null,
+  "unit": null,
+  "text": "60,000",
+  "check": null
+ }
+}

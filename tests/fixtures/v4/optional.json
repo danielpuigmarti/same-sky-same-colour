@@ -1,0 +1,145 @@
+{
+ "about": "Made-up data in the form that the gallery job and the Pluto job write, for the tests of the parts of the targets page that are shown only when their checks allow them. Nothing here was measured: the stars, the places and the numbers are invented, and none of it is shown on the site.",
+ "decisions": {
+  "S4": { "build": true, "why": "made up for the test" },
+  "S5": { "build": true, "why": "made up for the test" }
+ },
+ "numbers": {
+  "gallery.g101.pm": { "value": 1.23, "err": null, "unit": "arcsec per year", "text": "1.23", "check": "K-gallery" },
+  "gallery.g101.jump": { "value": 19.4, "err": null, "unit": "arcsec", "text": "19", "check": "K-gallery" },
+  "gallery.g202.pm": { "value": 2.5, "err": null, "unit": "arcsec per year", "text": "2.50", "check": "K-gallery" },
+  "gallery.g202.jump": { "value": 39.6, "err": null, "unit": "arcsec", "text": "40", "check": "K-gallery" },
+  "spotit.items": { "value": 3, "err": null, "unit": null, "text": "3", "check": "K-gallery" },
+  "pluto.found": { "value": 21, "err": null, "unit": null, "text": "21", "check": "K-pluto" },
+  "pluto.difference_frames": { "value": 24, "err": null, "unit": null, "text": "24", "check": "K-pluto" }
+ },
+ "rows": [
+  {
+   "id": "K-gallery",
+   "title": "Fast stars land where Gaia says, 2010 to 2026",
+   "claim": "Made up for the test: every star of the gallery is where the catalogue puts it.",
+   "test": "Made up for the test.",
+   "pass_rule": "Made up for the test.",
+   "rule_commit": null,
+   "status": "PASS",
+   "plain": "position checked against Gaia",
+   "value": "2 of 2",
+   "unit": "stars",
+   "reference": "2 of 2",
+   "tolerance": "1 pixel",
+   "image": null,
+   "image_sha256": null,
+   "reviewer_role": "a reviewer made up for the test",
+   "reviewed_on": "2026-11-15",
+   "rerun": "python -m sx.run gallery"
+  },
+  {
+   "id": "K-pluto",
+   "title": "Pluto lands where JPL Horizons says",
+   "claim": "Made up for the test.",
+   "test": "Made up for the test.",
+   "pass_rule": "Made up for the test.",
+   "rule_commit": null,
+   "status": "UNVERIFIED",
+   "plain": "position checked against JPL Horizons",
+   "value": "21 of 24",
+   "unit": "difference photos",
+   "reference": "at least 80%",
+   "tolerance": "1 pixel",
+   "image": null,
+   "image_sha256": null,
+   "reviewer_role": null,
+   "reviewed_on": null,
+   "rerun": "python -m sx.run pluto"
+  }
+ ],
+ "gallery": {
+  "index": { "about": "made up for the test", "items": [{ "id": "g101" }, { "id": "g202" }] },
+  "cards": [
+   {
+    "card": {
+     "id": "g101",
+     "name": "Gaia DR3 101",
+     "detector": 6,
+     "showcase": "manifest.json",
+     "kind": "gallery",
+     "check": "K-gallery",
+     "plain": "position checked against Gaia",
+     "reference": { "text": "Gaia DR3 101, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0", "unverified": false },
+     "verdict": "Moved {{gallery.g101.jump}} arcsec between 2010 and 2026; Gaia puts it there to within one pixel.",
+     "panels": [
+      { "file": "wise2010.png", "label": "WISE, 2010", "what": "AllWISE Atlas image, band W2 (4.6 µm), a tile made up for the test", "mjd": 55400 },
+      { "file": "spherex.png", "label": "SPHEREx, latest visit", "what": "mean of 8 photos of detector 6, drawn on the same sky grid", "mjd": 61100 }
+     ],
+     "picture": "jump.png",
+     "rings": [{ "label": "2010", "u": 0.4, "v": 0.5 }, { "label": "SPHEREx", "u": 0.6, "v": 0.45 }],
+     "measured": [{ "label": "2010", "u": 0.41, "v": 0.5 }, { "label": "SPHEREx", "u": 0.6, "v": 0.46 }],
+     "track": [{ "u": 0.4, "v": 0.5 }, { "u": 0.5, "v": 0.475 }, { "u": 0.6, "v": 0.45 }],
+     "visits": [{ "first": "2025-06-01", "last": "2025-06-03", "photos": 8 }, { "first": "2025-12-01", "last": "2025-12-03", "photos": 8 }],
+     "numbers": ["gallery.g101.pm", "gallery.g101.jump"],
+     "pairs": 4
+    },
+    "manifest": { "id": "g101", "name": "Gaia DR3 101", "numbers": ["gallery.g101.pm", "gallery.g101.jump"] }
+   },
+   {
+    "card": {
+     "id": "g202",
+     "name": "Gaia DR3 202",
+     "detector": 6,
+     "showcase": "manifest.json",
+     "kind": "gallery",
+     "check": "K-gallery",
+     "plain": "position checked against Gaia",
+     "reference": { "text": "Gaia DR3 202, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0", "unverified": false },
+     "verdict": "Moved {{gallery.g202.jump}} arcsec between 2010 and 2026; Gaia puts it there to within one pixel.",
+     "panels": [
+      { "file": "wise2010.png", "label": "WISE, 2010", "what": "AllWISE Atlas image, band W2 (4.6 µm), a tile made up for the test", "mjd": 55400 },
+      { "file": "spherex.png", "label": "SPHEREx, latest visit", "what": "mean of 8 photos of detector 6, drawn on the same sky grid", "mjd": 61100 }
+     ],
+     "picture": "jump.png",
+     "rings": [{ "label": "2010", "u": 0.3, "v": 0.3 }, { "label": "SPHEREx", "u": 0.7, "v": 0.6 }],
+     "measured": [{ "label": "2010", "u": 0.3, "v": 0.31 }, { "label": "SPHEREx", "u": 0.7, "v": 0.6 }],
+     "track": [{ "u": 0.3, "v": 0.3 }, { "u": 0.7, "v": 0.6 }],
+     "numbers": ["gallery.g202.pm", "gallery.g202.jump"],
+     "pairs": 4
+    },
+    "manifest": { "id": "g202", "name": "Gaia DR3 202", "numbers": ["gallery.g202.pm", "gallery.g202.jump"] }
+   }
+  ]
+ },
+ "spotit": {
+  "set": {
+   "about": "made up for the test",
+   "items": [
+    { "id": "s01", "mode": "matched", "a": "s01-a.png", "b": "s01-b.png", "pixels": 244, "detector": 6 },
+    { "id": "s02", "mode": "plain", "a": "s02-a.png", "b": "s02-b.png", "pixels": 244, "detector": 2 },
+    { "id": "s03", "mode": "plain", "a": "s03-a.png", "b": "s03-b.png", "pixels": 244, "detector": 2 }
+   ]
+  },
+  "answers": {
+   "about": "made up for the test",
+   "answers": {
+    "s01": { "mover": true, "ring2010": { "u": 0.4, "v": 0.5 }, "ring2026": { "u": 0.6, "v": 0.45 }, "mode": "matched" },
+    "s02": { "mover": false, "ring2010": null, "ring2026": null, "mode": "plain" },
+    "s03": { "mover": true, "ring2010": { "u": 0.25, "v": 0.7 }, "ring2026": { "u": 0.5, "v": 0.55 }, "mode": "plain" }
+   }
+  }
+ },
+ "pluto": {
+  "card": {
+   "id": "pluto",
+   "name": "Pluto",
+   "detector": 3,
+   "showcase": "manifest.json",
+   "kind": "flipbook",
+   "check": "K-pluto",
+   "plain": "position checked against JPL Horizons",
+   "preview": "flip.png",
+   "verdict": "Pluto is found at the predicted place in {{pluto.found}} of {{pluto.difference_frames}} difference frames.",
+   "note": "Position only: no brightness and no spectrum are given.",
+   "reference": { "text": "JPL Horizons, observer at the place of SPHEREx", "unverified": false },
+   "numbers": ["pluto.found", "pluto.difference_frames"]
+  },
+  "manifest": { "id": "pluto", "name": "Pluto", "numbers": ["pluto.found", "pluto.difference_frames"] }
+ }
+}

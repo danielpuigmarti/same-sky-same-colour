@@ -1,0 +1,327 @@
+/*
+  The panels under the stage: every photo of the position (the frame map), the spectrum and "Is it real?"
+  (js/ui/panels.js). Built on tokens.css, base.css and components.css. The page that mounts the panels links this
+  file and gives each panel its place; a drawing made of data (the map, a chart) stands on a plate, black in both
+  editions.
+*/
+
+.panel-title {
+  margin-block-end: var(--space-2);
+  font-size: var(--text-2xl);
+}
+
+/* below a section heading: the text face, sentence case, bold */
+.panel-subtitle {
+  margin-block: var(--space-5) var(--space-2);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-stretch: 100%;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  word-spacing: 0;
+}
+
+.panel-hint,
+.spectrum-label,
+.framemap-legend,
+.isreal-caution,
+.isreal-links {
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.panel-hint + *,
+.framemap-legend,
+.spectrum-label {
+  margin-block-start: var(--space-2);
+}
+
+.panel-hint a,
+.isreal-links a {
+  color: var(--color-text);
+}
+
+/* what a panel says when it has nothing to draw: one ruled line */
+.panel-state {
+  max-width: var(--measure);
+  padding-block: var(--space-2);
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+/* ---- Every photo of this position ---- */
+
+.framemap-summary {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-variant-numeric: tabular-nums;
+}
+
+/* the plate of the map: its rule is on the holder, so that a place on the canvas is a place of the drawing */
+.framemap-wrap {
+  position: relative;
+  min-width: 0;
+  margin-block-start: var(--space-2);
+  border: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.framemap-canvas {
+  display: block;
+  width: 100%;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+
+.framemap-canvas:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* what the pointer is on: a ruled label on the plate */
+.framemap-tip {
+  position: absolute;
+  z-index: var(--z-raised);
+  max-width: min(22rem, 100%);
+  padding: var(--space-1) var(--space-2);
+  border: var(--rule-hair) solid var(--color-line-strong);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  pointer-events: none;
+}
+
+.framemap-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.framemap-note:empty,
+.framemap-bandnote:empty {
+  display: none;
+}
+
+.framemap-note[data-only-one="true"] {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.framemap-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-width: none;
+  margin-block-start: var(--space-3);
+}
+
+.framemap-tools .btn {
+  text-transform: uppercase;
+}
+
+/* a choice from a list, as a strip of the form */
+.framemap-tools select {
+  max-width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--rule-hair) solid var(--color-line-strong);
+  border-radius: 0;
+  background: var(--color-strip);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* ---- Spectrum ---- */
+
+.chart {
+  display: block;
+  width: 100%;
+  max-width: 44rem;
+  height: auto;
+  margin-block-start: var(--space-2);
+  border: var(--rule-hair) solid var(--color-line-strong);
+  overflow: visible;
+}
+
+.chart .grid { stroke: var(--color-line); stroke-width: 1; }
+.chart .axis { stroke: var(--color-line-strong); stroke-width: 1.5; }
+.chart .baseline { stroke: var(--color-text-faint); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.chart .tick { fill: var(--color-text-muted); font-size: 11px; font-family: var(--font-mono); }
+.chart .axis-label { fill: var(--color-text-muted); font-size: 11px; font-family: var(--font-mono); }
+.chart .curve { fill: none; stroke: var(--color-text-faint); stroke-width: 1.5; opacity: 0.7; }
+.chart .curve[data-series="1"] { stroke-dasharray: 5 3; }
+.chart .curve[data-series="2"] { stroke-dasharray: 2 3; }
+.chart .curve[data-series="3"] { stroke-dasharray: 8 3 2 3; }
+
+.chart .pt { outline: none; cursor: pointer; }
+.chart .pt circle:not(.lit),
+.chart .pt rect,
+.chart .pt polygon { fill: var(--band, var(--color-text-muted)); stroke: var(--color-stage); stroke-width: 1; }
+.chart .pt .err { stroke: var(--band, var(--color-text-muted)); stroke-width: 1.5; opacity: 0.7; }
+.chart .pt .lit { fill: none; stroke: var(--color-text); stroke-width: 2.5; opacity: 0; }
+.chart .pt[data-lit="true"] .lit,
+.chart .pt:hover .lit,
+.chart .pt:focus-visible .lit { opacity: 1; }
+.chart .pt:focus-visible .lit { stroke: var(--color-focus); }
+
+/* the key of a chart: the mark of each visit, drawn as on the chart, and its date */
+.spectrum-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+  margin-block-start: var(--space-2);
+  padding: 0;
+  list-style: none;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.spectrum-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: none;
+}
+
+.spectrum-mark {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: currentColor;
+}
+
+.spectrum-load {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: none;
+  margin-block-start: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ---- Is it real? ---- */
+
+/* four questions, four answers: a ledger */
+.isreal-list {
+  max-width: 60rem;
+  margin-block-start: var(--space-3);
+}
+
+.isreal-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1) var(--space-5);
+  padding-block: var(--space-2);
+}
+
+.isreal-q {
+  max-width: none;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+.isreal-a {
+  max-width: none;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+@media (min-width: 40rem) {
+  .isreal-row {
+    grid-template-columns: 19rem minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+
+.isreal-verdict {
+  max-width: var(--measure);
+  margin-block-start: var(--space-4);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.isreal-caution,
+.isreal-links {
+  margin-block-start: var(--space-2);
+}
+
+.isreal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: none;
+  margin-block-start: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.isreal-actions .btn {
+  text-transform: uppercase;
+}
+
+/* a button with a long line of words wraps inside the window instead of leaving it */
+.spectrum-load .btn,
+.isreal-actions .btn {
+  max-width: 100%;
+  height: auto;
+  padding-block: var(--space-2);
+  white-space: normal;
+  text-align: start;
+}
+
+/* ---- The bands of the gases, and a stored spectrum held against the object ---- */
+
+.chart .band { fill: var(--color-text); opacity: 0.09; }
+.chart .band-label { fill: var(--color-text-muted); font-size: 12px; font-family: var(--font-mono); }
+.chart .reference { fill: none; stroke: var(--color-fail); stroke-width: 1.75; stroke-dasharray: 6 3; }
+
+.spectrum-bands,
+.spectrum-compare-note {
+  max-width: var(--measure, 66ch);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.spectrum-compare {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+  margin-block: var(--space-3);
+}
+
+.spectrum-compare-name {
+  margin: 0;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.spectrum-compare-choice {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.spectrum-compare[hidden],
+.spectrum-bands[hidden] {
+  display: none;
+}

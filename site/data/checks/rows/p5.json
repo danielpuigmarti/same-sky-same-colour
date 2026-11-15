@@ -1,0 +1,40 @@
+[
+ {
+  "id": "K4",
+  "title": "Agrees with a published ratio only within a wide margin, on the same photos (not independent)",
+  "claim": "Interstellar comet 3I/ATLAS gave off more carbon dioxide in December 2025 than in August 2025. From the same SPHEREx photos, the December over August ratio of the band at 4.26 µm, corrected for distance, comes out as the published ratio within the combined error.",
+  "test": "Flux of the comet in a 2-pixel aperture (12.3 arcsec) with a background ring of 40 to 55 pixels, in the photos of detector 5 (27 in August, 17 in December), the aperture centred on the position in IRSA's table of the comet's observations; 6 and 3 of the photos lie inside 4.20 to 4.32 µm. For each pass, a Gaussian is fitted to the flux above the continuum between 4.15 and 4.40 µm, and its area is the band. A band with hard edges is not used: moving its edges by 0.01 µm swings the ratio from 1.25 to 3.04. Scaling: the flux F in a fixed angle on the sky is proportional to Q / (r_h² x Δ), where Q is the number of molecules the nucleus gives off each second, r_h the distance from the Sun and Δ the distance from the telescope (gas leaving at a constant speed); so each photo is multiplied by r_h² x Δ before the fit. The published ratio is 3.0e27 over 1.6e27 molecules a second (Lisse et al.): a ratio of two production rates that those papers derive from their own model of the coma. The pages on disk do not say how, so this test cannot say whether the two quantities are the same; they are the same kind of quantity (carbon dioxide in a 2-pixel aperture on the same photos) and both are scaled to the same distances. With the scaling Δ² in place of Δ the ratio would be 1.47, outside the combined error of the published ratio. The ratio also depends on where the aperture sits: centred on the position from JPL Horizons as seen from SPHEREx (0.3 to 3 arcsec from IRSA's) it is 2.44 ± 0.09, which would not pass; centred on the light of each bright photo it is 2.41 ± 0.10; with a 5-pixel aperture, which hardly depends on the centring, it is 2.45 ± 0.13, which would not pass. In spring 2026 the band is not there: 3 photos in the band give +0.2 ± 1.0 mJy (3-sigma limit 3.2 mJy) against 18 mJy expected if production had stayed what it was in December; that is excluded at 18 sigma.",
+  "pass_rule": "PASS if the ratio lies within the combined error of the published ratio (1.88 ± 0.34): |2.18 - 1.88| <= 0.35. The test is weak: the photos are the same ones, a result 20% away would also pass, and the centring of the aperture moves the result by more than its stated error. For that last reason the row is read as a limit, not as a pass.",
+  "rule_commit": null,
+  "status": "LIMIT",
+  "plain": "reproduces a published ratio on the same photos (not independent)",
+  "value": "2.18 ± 0.09",
+  "unit": "times",
+  "reference": "1.88 ± 0.34",
+  "tolerance": "combined error 0.35",
+  "image": "img/k4-bands.png",
+  "image_sha256": "76b2f07fe96ec3469e01d7dd21a2df65ede9603c88d5c954f2c033cf3b5e9757",
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run threei"
+ },
+ {
+  "id": "K13",
+  "title": "Spectra of a brown dwarf pair, compared with IRSA's own tool",
+  "claim": "The spectrum that this tool builds from single SPHEREx photos for Epsilon Indi B and for three steady stars matches the one from IRSA's Spectrophotometry Tool to within 10%; this has not been compared yet.",
+  "test": "The spectrum of Epsilon Indi B (a pair of brown dwarfs) and of three steady, unsaturated stars within 4 arcmin of it, from 327 photos in 5 visits: flux in a 2-pixel aperture, sky from a ring of 6 to 10 pixels, one point per photo. Compared with IRSA's SPHEREx Spectrophotometry Tool at the same positions and the same visit. The tool is a web application that runs a job for each source (minutes to hours) and has no script interface, so the comparison has to be made by hand: positions, our values and the rule are in the review sheet. Until it is made, every spectrum is labelled \"relative only\". As a rough check of the shape, the three stars' fluxes at the 2MASS bands are 0.99 times their catalogue brightness (median over J, H, K and the three stars; not a calibration: the bands are wide). The aperture correction from the point-spread-function model is not applied: the scatter of the stars about their neighbours in colour is 3.5% with it and 3.3% without.",
+  "pass_rule": "PASS if the median ratio of our fluxes to those of IRSA's tool, over the colours both have, lies between 0.9 and 1.1; otherwise the spectra stay labelled \"relative only\".",
+  "rule_commit": null,
+  "status": "UNVERIFIED",
+  "plain": "spectra are relative only until compared with IRSA's tool",
+  "value": null,
+  "unit": null,
+  "reference": "0.9 to 1.1",
+  "tolerance": "ratio between 0.9 and 1.1",
+  "image": "img/k13-spectra.png",
+  "image_sha256": "d2f732865cffbbc0692fb3e5ce29379cb3fcb2490e5084bad63de9d670e25b04",
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run spectra"
+ }
+]

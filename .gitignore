@@ -1,0 +1,27 @@
+# secrets: never committed
+.env
+.env.*
+
+# installed packages and environments
+node_modules/
+pipeline/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# output of the browser tests
+test-results/
+playwright-report/
+blob-report/
+content/out/video/
+pipeline/out/
+
+# files left by an interrupted write of the gate
+*.tmp
+
+# editors and operating systems
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

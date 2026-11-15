@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Type a star’s name or a sky position and flip between NASA SPHEREx photos of that patch of sky, taken months apart at the same infrared colour, to see what changed.">
+<title data-page="">Same Sky, Same Colour</title>
+<link rel="canonical" href="https://danielpuigmarti.github.io/same-sky-same-colour/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Same Sky, Same Colour">
+<meta property="og:description" content="Type a star’s name or a sky position and flip between NASA SPHEREx photos of that patch of sky, taken months apart at the same infrared colour, to see what changed.">
+<meta property="og:url" content="https://danielpuigmarti.github.io/same-sky-same-colour/">
+<meta property="og:image" content="https://danielpuigmarti.github.io/same-sky-same-colour/img/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Same Sky, Same Colour: a SPHEREx photo of comet Lemmon at the colour of carbon dioxide.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/suggest.css">
+<script type="module" src="js/pages/index.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+<div class="masthead-line">
+<a class="masthead-name" href="./" data-site="name">Same Sky, Same Colour</a>
+<nav class="masthead-nav" aria-label="Pages">
+<ul>
+<li><a href="./" aria-current="page">Bulletin</a></li>
+<li><a href="view.html">Blink a place</a></li>
+<li><a href="lemmon.html">The comet</a></li>
+<li><a href="targets.html">Five targets</a></li>
+<li><a href="checks.html">Checks</a></li>
+<li><a href="why.html">Why</a></li>
+</ul>
+</nav>
+<button class="masthead-edition" type="button" data-edition-toggle hidden>Day edition</button>
+</div>
+<ul class="cells cells-text masthead-cells" aria-label="This bulletin">
+<li class="cell"><span class="cell-label">What this is</span> A tool to spot what changed in the sky</li>
+<li class="cell"><span class="cell-label">Whose photos</span> NASA’s SPHEREx space telescope</li>
+<li class="cell"><span class="cell-label">The comet below, photographed</span> <span data-n="e1.lemmon.date.aug">10 August 2025</span>&nbsp;– <span data-n="e1.lemmon.date.feb">26 February 2026</span></li>
+</ul>
+</header>
+<main id="main" class="page page-index">
+
+<section id="first-screen" class="lead" aria-labelledby="title" data-subject="comet">
+<div class="lead-text">
+<h1 id="title" class="headline"><span>TWO PHOTOS OF THE SAME SKY.</span> <span>WHAT CHANGED?</span></h1>
+<p class="lede">Pick a place in the sky that SPHEREx has photographed. This page flips between NASA’s photos of it, taken months apart in the same kind of infrared light, so you can see what moved, brightened or appeared.</p>
+<ol class="steps" aria-label="How to use it">
+<li>Type a star’s name or a place in the sky, or pick one of the targets below.</li>
+<li>Two photos of it, taken months apart at the same colour, flip back and forth.</li>
+<li>What jumps out may have moved, brightened or appeared. It is worth a closer look: the “Is it real?” panel checks the usual false alarms.</li>
+</ol>
+<form class="position" id="position" action="view.html" method="get" role="search" aria-label="Sky position" data-position>
+<label class="field-label" for="where">Type a star’s name or a sky position</label>
+<div class="joined joined-lg">
+<div class="field-wrap"><input class="field" id="where" name="q" placeholder="Vega, M57 or 330.84 −56.79" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" aria-describedby="where-hint where-message"></div>
+<button class="btn btn-primary" type="submit">BLINK IT</button>
+</div>
+<p class="position-message" id="where-message" role="status" data-message></p>
+<p class="note position-hint" id="where-hint">A name, or a position such as <span translate="no">330.84 −56.79</span> (degrees: right ascension, then declination). Hours, minutes and seconds work too.</p>
+</form>
+<div class="position-try">
+<p class="label position-try-label" id="try-label">Or try the five targets, or the comet</p>
+<ul class="try" aria-label="Places to try">
+<li><a href="view.html?t=eps-indi-b" data-target="eps-indi-b">EPSILON INDI B</a> <span class="try-what">two brown dwarfs drifting across the sky</span></li>
+<li><a href="view.html?t=barnard" data-target="barnard">BARNARD’S STAR</a> <span class="try-what">the fastest-moving star in the sky</span></li>
+<li><a href="view.html?t=wise0855" data-target="wise0855"><span translate="no">WISE 0855</span></a> <span class="try-what">the coldest brown dwarf known</span></li>
+<li><a href="view.html?t=rw-aur" data-target="rw-aur">RW AURIGAE</a> <span class="try-what">a young star that dims irregularly</span></li>
+<li><a href="view.html?t=r-dra" data-target="r-dra">R DRACONIS</a> <span class="try-what">a red giant, too bright to measure</span></li>
+<li><a href="lemmon.html" data-target="lemmon">COMET LEMMON</a> <span class="try-what">a comet that glows at the colour of carbon dioxide</span></li>
+</ul>
+</div>
+<dl class="terms">
+<div><dt>Colour</dt><dd>Infrared is light our eyes cannot see. SPHEREx takes each photo in one of <span data-n="spherex.colours">102</span> narrow kinds of it, by wavelength. This page calls each kind a colour and shows every photo in grey.</dd></div>
+<div><dt>Blink</dt><dd>To flip back and forth between two photos of the same place, so that what changed jumps out. In 1930 Clyde Tombaugh found Pluto at Lowell Observatory by blinking photographic plates of one patch of sky. Two SPHEREx photos of a patch can be at different colours, so a plain blink can show changes that never happened; this page matches the colour first.</dd></div>
+</dl>
+</div>
+
+<figure class="flip" id="comet" aria-labelledby="flip-caption" data-flip data-manifest="data/lemmon/wide/manifest.json" data-showcase="data/lemmon/hero/manifest.json">
+<div class="flip-states">
+<div class="flip-state plate-frame" data-state="before">
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-0.png" width="512" height="512" alt="In August: a patch of sky crowded with stars. At the marked spot in the middle there is nothing.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<p class="plate-verdict" data-plate>NOTHING HERE</p>
+<ul class="cells cells-text">
+<li class="cell"><span class="cell-label">Taken</span> <span data-n="e1.lemmon.date.aug" data-when>10 August 2025</span></li>
+<li class="cell"><span class="cell-label">Infrared colour</span> <span class="cell-value"><span data-n="lemmon.hero.aug.lam" data-colour>4.273</span>&nbsp;µm</span></li>
+<li class="cell"><span class="cell-label">The colour of</span> carbon dioxide</li>
+</ul>
+</div>
+<div class="flip-state plate-frame" data-state="after">
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-3.png" width="512" height="512" alt="In February: the same patch of sky, with the same stars. At the marked spot there is now a round glow, far wider than any star: the comet.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<p class="plate-verdict" data-plate>COMET LEMMON</p>
+<ul class="cells cells-text">
+<li class="cell"><span class="cell-label">Taken</span> <span data-n="e1.lemmon.date.feb" data-when>26 February 2026</span></li>
+<li class="cell"><span class="cell-label">Infrared colour</span> <span class="cell-value"><span data-n="lemmon.hero.on.lam" data-colour>4.266</span>&nbsp;µm</span></li>
+<li class="cell"><span class="cell-label">The colour of</span> carbon dioxide</li>
+</ul>
+</div>
+</div>
+<figcaption class="flip-caption note" id="flip-caption"><strong class="flip-says">Two photos flipping: <span data-n="e1.lemmon.date.aug">10 August 2025</span>, nothing at the marked spot; <span data-n="e1.lemmon.date.feb">26 February 2026</span>, the comet.</strong> Real photos from NASA’s SPHEREx space telescope, read from its public archive. Each small square is one pixel of its camera. The picture is <span data-n="r1.flip.field_arcmin">13.1</span>&nbsp;arcminutes wide on the sky: <span data-n="r1.flip.shown_px">128</span> pixels of <span data-n="stage.pixel_arcsec">6.15</span>&nbsp;arcseconds, an arcsecond being a sixtieth of a sixtieth of a degree.</figcaption>
+</figure>
+</section>
+
+<p class="honesty" id="honesty"><span class="cell-label">The record</span> <span data-n="v4.checks.total">26</span> checks; for every one that can pass or fail, the rule was written before its run: <span data-n="v4.checks.fail">4</span> failed, <span data-n="v4.checks.limit">4</span> are limits, <span data-n="v4.checks.corrected">1</span> was corrected. <a href="checks.html">Read every one</a></p>
+
+<section id="results" class="item results" aria-labelledby="results-title">
+<h2 id="results-title">TESTED ON THE CHALLENGE’S FIVE TARGETS</h2>
+<table class="ledger results-ledger">
+<thead><tr><th scope="col">Target</th><th scope="col">What was found</th><th scope="col">Catalogue</th></tr></thead>
+<tbody>
+<tr><th scope="row"><a href="targets.html#eps-indi-b">Epsilon Indi B</a></th><td>Moved <a href="targets.html#eps-indi-b"><span data-n="targets.eps-indi-b.shift.measured">74.3</span></a> arcseconds since 2010</td><td data-label="Catalogue"><span data-n="targets.eps-indi-b.shift.catalogue">73.9</span> arcseconds</td></tr>
+<tr><th scope="row"><a href="targets.html#barnard">Barnard’s Star</a></th><td>Moved <a href="targets.html#barnard"><span data-n="targets.barnard.shift.measured">163.7</span></a> arcseconds since 2010</td><td data-label="Catalogue"><span data-n="targets.barnard.shift.catalogue">163.8</span> arcseconds</td></tr>
+<tr><th scope="row"><a href="targets.html#wise0855"><span translate="no">WISE 0855</span></a></th><td>Moved <a href="targets.html#wise0855"><span data-n="targets.wise0855.shift.measured">128.1</span></a> arcseconds since 2010</td><td data-label="Catalogue"><span data-n="targets.wise0855.shift.catalogue">128.6</span> arcseconds</td></tr>
+<tr><th scope="row"><a href="targets.html#rw-aur">RW Aurigae</a></th><td colspan="2">Changed by <a href="targets.html#rw-aur"><span data-n="rwaur.d2.masked">+36.0</span>&nbsp;%</a> and <a href="targets.html#rw-aur"><span data-n="rwaur.d3.masked">+28.2</span>&nbsp;%</a> in two bands</td></tr>
+<tr><th scope="row"><a href="targets.html#r-dra">R Draconis</a></th><td colspan="2">Too bright to measure: saturated in <a href="targets.html#r-dra"><span data-n="targets.r-dra.saturated">412</span></a> of <span data-n="targets.r-dra.frames">412</span> photos</td></tr>
+</tbody>
+</table>
+<p class="note results-for">This answers the challenge “Planet X and SPHEREx”, 2026 NASA Space Apps Challenge.</p>
+<div class="scorecard-box" data-built="scorecard">
+<h3 id="scorecard-title">WHAT THE CHALLENGE ASKS, AND WHERE IT IS ANSWERED</h3>
+<ul class="scorecard" aria-labelledby="scorecard-title">
+<li class="score" data-status="built">
+<span class="score-line">A public web tool that shows images of the sky from SPHEREx.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="index.html">See it<span class="visually-hidden">: A public web tool that shows images of the sky from SPHEREx.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">A visitor enters the coordinates of a patch of sky, right ascension and declination.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="index.html#where">See it<span class="visually-hidden">: A visitor enters the coordinates of a patch of sky, right ascension and declination.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">The tool shows a series of images of that patch like a little video, so that moving objects are easy to spot.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b&amp;mode=blink">See it<span class="visually-hidden">: The tool shows a series of images of that patch like a little video, so that moving objects are easy to spot.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">The tool is tried on Barnard’s Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="targets.html">See it<span class="visually-hidden">: The tool is tried on Barnard’s Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">The tool is easy to update when new data arrive.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">The infrared colours are shown in a way that helps visitors use them.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="view.html#colours">See it<span class="visually-hidden">: The infrared colours are shown in a way that helps visitors use them.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">The data of each of the six detectors are added together to make faint things easier to see.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b">See it<span class="visually-hidden">: The data of each of the six detectors are added together to make faint things easier to see.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">Spectra are drawn on the fly.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="view.html#spectrum">See it<span class="visually-hidden">: Spectra are drawn on the fly.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">Visitors can add or subtract images taken at different times.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b&amp;mode=diff">See it<span class="visually-hidden">: Visitors can add or subtract images taken at different times.</span></a></span>
+</li>
+<li class="score" data-status="not built">
+<span class="score-line">Visitors choose the field of view.</span>
+<span class="score-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not built</span>
+<span class="score-link"></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">Data from other telescopes, such as Gaia and WISE, are drawn over the images.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b">See it<span class="visually-hidden">: Data from other telescopes, such as Gaia and WISE, are drawn over the images.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">Coordinates in the address let others link to a view or embed it.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b&amp;mode=blink">See it<span class="visually-hidden">: Coordinates in the address let others link to a view or embed it.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">Metadata such as contamination flags is shown.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="view.html?t=r-dra">See it<span class="visually-hidden">: Metadata such as contamination flags is shown.</span></a></span>
+</li>
+<li class="score" data-status="built">
+<span class="score-line">Public tools such as Astropy and Aladin are used or offered.</span>
+<span class="score-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b#lookup">See it<span class="visually-hidden">: Public tools such as Astropy and Aladin are used or offered.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">Anyone can quickly see how the sky changes over time.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="checks.html#tried-by">See it<span class="visually-hidden">: Anyone can quickly see how the sky changes over time.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">The data and resources that the challenge lists are used.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b#lookup">See it<span class="visually-hidden">: The data and resources that the challenge lists are used.</span></a></span>
+</li>
+<li class="score" data-status="partial">
+<span class="score-line">The tool helps volunteers who look for moving objects, as Backyard Worlds does.</span>
+<span class="score-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</span>
+<span class="score-link"><a href="view.html?t=eps-indi-b#is-it-real">See it<span class="visually-hidden">: The tool helps volunteers who look for moving objects, as Backyard Worlds does.</span></a></span>
+</li>
+</ul>
+<p class="note">Marked as on the Checks page. <a href="checks.html#challenge">The same list, with a note on each line</a></p>
+</div>
+</section>
+
+<section id="one-night" class="item night" aria-labelledby="night-title" data-subject="comet" data-night data-manifest="data/lemmon/wide/manifest.json" data-plate>
+<h2 id="night-title">ONE NIGHT, FOUR COLOURS</h2>
+<div class="night-head">
+<p class="lede">On <span data-n="e1.lemmon.date.feb">26 February 2026</span> SPHEREx photographed the comet four times within a few minutes, each time at another infrared colour. The sky and the telescope are the same, so the main difference between the photos is the colour. At the colour of carbon dioxide the comet is <span data-n="lemmon.contrast.feb26">about 16 times</span> brighter than at the nearest colours outside the band of carbon dioxide: the photo at <span data-n="lemmon.frame.2a-0075-1.lam" data-colour>4.193</span>&nbsp;µm that night, and one from the night before.</p>
+<p class="note">A colour here is a wavelength of infrared light, in micrometres (µm). Carbon dioxide gas gives off light between <span data-n="lemmon.band.from">4.20</span> and <span data-n="lemmon.band.to">4.32</span>&nbsp;µm. Our air blocks that light, so it takes a telescope in space to see it. Brightness is in millijanskys (mJy), measured inside a small circle on the marked spot; the glow is wider than the circle, so the comet’s true values are higher. <a href="lemmon.html">How we know</a></p>
+</div>
+<p class="record">Taken <span data-n="e1.lemmon.date.feb">26 February 2026</span>: comet <span class="value" translate="no">C/2025 A6</span> (Lemmon), four photos within a few minutes. Check <a class="check-link" href="checks.html#K2" data-check="K2">K2</a></p>
+<div class="night-ruler" data-night-ruler>
+<div class="night-key">
+<p class="label night-axis" id="night-axis">Infrared colour of each photo, in micrometres</p>
+<p class="label night-band">Where carbon dioxide glows</p>
+</div>
+<div class="night-track" data-night-track>
+<ol class="night-photos" aria-labelledby="night-axis">
+<li class="night-photo" data-night-photo data-band="beside">
+<p class="night-colour"><span data-n="lemmon.frame.2a-0075-1.lam" data-colour>4.193</span>&nbsp;µm</p>
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-1.png" width="512" height="512" loading="lazy" alt="At this colour the comet is a faint smudge at the marked spot, hard to tell from the stars round it.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<ul class="night-data">
+<li><span class="cell-label">Taken</span> <time datetime="2026-02-26T20:39Z" data-when="time">20:39 UTC</time></li>
+<li><span class="cell-label">Brightness</span> <span data-n="lemmon.frame.2a-0075-1.flux">14.1</span>&nbsp;mJy</li>
+</ul>
+<span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span>
+</li>
+<li class="night-photo" data-night-photo data-band="inside">
+<p class="night-colour"><span data-n="lemmon.frame.2a-0075-2.lam" data-colour>4.229</span>&nbsp;µm</p>
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-2.png" width="512" height="512" loading="lazy" alt="At this colour the comet is a bright round glow at the marked spot.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<ul class="night-data">
+<li><span class="cell-label">Taken</span> <time datetime="2026-02-26T20:41Z" data-when="time">20:41 UTC</time></li>
+<li><span class="cell-label">Brightness</span> <span data-n="lemmon.frame.2a-0075-2.flux">136.2</span>&nbsp;mJy</li>
+</ul>
+<span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span>
+</li>
+<li class="night-photo" data-night-photo data-band="inside">
+<p class="night-colour"><span data-n="lemmon.frame.2a-0075-3.lam" data-colour>4.266</span>&nbsp;µm</p>
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-3.png" width="512" height="512" loading="lazy" alt="At this colour the glow is at its brightest and widest.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<ul class="night-data">
+<li><span class="cell-label">Taken</span> <time datetime="2026-02-26T20:43Z" data-when="time">20:43 UTC</time></li>
+<li><span class="cell-label">Brightness</span> <span data-n="lemmon.frame.2a-0075-3.flux">263.2</span>&nbsp;mJy</li>
+</ul>
+<span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span>
+</li>
+<li class="night-photo" data-night-photo data-band="inside">
+<p class="night-colour"><span data-n="lemmon.frame.2a-0075-4.lam" data-colour>4.302</span>&nbsp;µm</p>
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-4.png" width="512" height="512" loading="lazy" alt="At this colour the glow is still there, fainter and smaller than in the photo before.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<ul class="night-data">
+<li><span class="cell-label">Taken</span> <time datetime="2026-02-26T20:46Z" data-when="time">20:46 UTC</time></li>
+<li><span class="cell-label">Brightness</span> <span data-n="lemmon.frame.2a-0075-4.flux">71.7</span>&nbsp;mJy</li>
+</ul>
+<span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="plain-blink" class="item lie" aria-labelledby="plain-blink-title" data-lie data-manifest="data/lie/manifest.json">
+<div class="lie-head">
+<h2 id="plain-blink-title">A PLAIN BLINK LIES</h2>
+<div class="lie-text">
+<p>To blink is to flip between two photos of one patch of sky. With SPHEREx that can mislead. Its filter changes colour steadily from one edge of the camera to the other, so the colour of a photo depends on where a star happens to land. Photograph a steady star twice and it is recorded at two colours, and at a different brightness in each. Blink those two photos and the star seems to change. It has not.</p>
+</div>
+</div>
+<p class="record">Match the colour before you compare. Shown on the field of RW Aurigae, a star known to vary; measured on <span data-n="lie.stars.all">20</span>, <span data-n="lie.stars.detector">12</span> and <span data-n="lie.stars.matched">14</span> steady stars beside it, one count for each of the three ways below. Check <a class="check-link" href="checks.html#K7" data-check="K7">K7</a></p>
+<div class="lie-body">
+<div class="lie-choice">
+<h3 id="stops-title">Three ways to pick the photos, and how far steady stars seem to swing (brightest reading over faintest)</h3>
+<ol class="stops" data-stops aria-labelledby="stops-title">
+<li class="stop" data-stop="all">
+<span class="stop-text"><span class="stop-name">All photos of one visit, in time order</span> <span class="stop-about">A visit is one pass of the telescope over a patch of sky, spread over days. Every photo of it is at a different colour.</span></span>
+<span class="stop-meter"><span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span><span class="meter-value">&times;&#8239;<span data-n="lie.swing.all">11.8</span></span></span>
+</li>
+<li class="stop" data-stop="detector">
+<span class="stop-text"><span class="stop-name">One detector only</span> <span class="stop-about">One of the camera’s six sensors: a narrower range of colours.</span></span>
+<span class="stop-meter"><span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span><span class="meter-value">&times;&#8239;<span data-n="lie.swing.detector">2.18</span></span></span>
+</li>
+<li class="stop" data-stop="matched">
+<span class="stop-text"><span class="stop-name">Same colour</span> <span class="stop-about">Two photos matched in colour, months apart: what this tool blinks.</span></span>
+<span class="stop-meter"><span class="meter-bar" aria-hidden="true"><span class="meter-fill"></span></span><span class="meter-value">&times;&#8239;<span data-n="lie.swing.matched">1.02</span></span></span>
+</li>
+</ol>
+<p class="note lie-def"><span class="lie-times">&times;&#8239;<span data-n="lie.swing.all">11.8</span></span> means that across these photos a steady star’s brightest reading is <span data-n="lie.swing.all">11.8</span> times its faintest: the middle value of the <span data-n="lie.stars.all">20</span> steady stars beside RW Aurigae. The three figures do not compare the same photos: the first runs through all <span data-n="lie.photos.all">112</span> photos of a visit, the last compares two. &times;&#8239;1 would be no change at all, so <span data-n="lie.swing.matched">1.02</span> is a swing of <span data-n="lie.swing.matched.percent">2</span>&nbsp;%. How this was checked: <a class="check-link" href="checks.html#K7" data-check="K7">K7</a></p>
+<p class="lie-moral">Steady stars seem to change by colour alone, and hold to about <span data-n="lie.swing.matched.percent">2</span>&nbsp;% once the colour is matched, in the one field we measured. A change much bigger than that is worth a closer look, and the “Is it real?” panel checks the usual false alarms.</p>
+</div>
+<div class="lie-stage" data-lie-stage></div>
+</div>
+</section>
+
+<section id="your-turn" class="item again" aria-labelledby="again-title">
+<h2 id="again-title">NOW A PLACE OF YOUR OWN</h2>
+<form class="position again-form" action="view.html" method="get" role="search" aria-label="Sky position, once more" data-position>
+<label class="field-label" for="where-again">Type a star’s name or a sky position</label>
+<div class="joined joined-lg">
+<div class="field-wrap"><input class="field" id="where-again" name="q" placeholder="Vega, M57 or 330.84 −56.79" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" aria-describedby="where-again-hint where-again-message"></div>
+<button class="btn btn-primary" type="submit">BLINK IT</button>
+</div>
+<p class="position-message" id="where-again-message" role="status" data-message></p>
+<p class="note position-hint" id="where-again-hint">The page reads NASA’s public archive straight from your browser. On a desktop link the first two pictures came in a median of <span data-n="live.first_pair.median_s">3.3</span> seconds over <span data-n="live.positions">27</span> tested places (worst <span data-n="live.first_pair.worst_s">4.6</span>). If SPHEREx has no photos of a place, the page says so.</p>
+</form>
+</section>
+
+</main>
+<footer class="colophon">
+<div class="cells">
+<p class="cell" data-site="name">Same Sky, Same Colour</p>
+<p class="cell">Photos: SPHEREx Level <span translate="no">2</span>, NASA/IPAC Infrared Science Archive</p>
+<p class="cell"><a href="checks.html">Checks</a> and <a href="lemmon.html">the comet</a></p>
+</div>
+</footer>
+</body>
+</html>

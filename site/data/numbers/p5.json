@@ -1,0 +1,226 @@
+{
+ "spectra.aperture_px": {
+  "value": 2.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "2",
+  "check": "K13"
+ },
+ "spectra.epsb.n_photos": {
+  "value": 327,
+  "err": null,
+  "unit": null,
+  "text": "327",
+  "check": "K13"
+ },
+ "spectra.epsb.n_visits": {
+  "value": 5,
+  "err": null,
+  "unit": null,
+  "text": "5",
+  "check": "K13"
+ },
+ "spectra.epsf.fraction_max": {
+  "value": 98.4991229865089,
+  "err": null,
+  "unit": "%",
+  "text": "98.5",
+  "check": "K13"
+ },
+ "spectra.epsf.fraction_min": {
+  "value": 92.90835614027627,
+  "err": null,
+  "unit": "%",
+  "text": "92.9",
+  "check": "K13"
+ },
+ "spectra.ring_in_px": {
+  "value": 6.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "6",
+  "check": "K13"
+ },
+ "spectra.ring_out_px": {
+  "value": 10.0,
+  "err": null,
+  "unit": "pixels",
+  "text": "10",
+  "check": "K13"
+ },
+ "spectra.stars.catalogue_ratio": {
+  "value": 0.9936327927624335,
+  "err": null,
+  "unit": null,
+  "text": "0.99",
+  "check": "K13"
+ },
+ "spectra.stars.scatter_corrected": {
+  "value": 3.468476366066142,
+  "err": null,
+  "unit": "%",
+  "text": "3.5",
+  "check": "K13"
+ },
+ "spectra.stars.scatter_raw": {
+  "value": 3.311557090499654,
+  "err": null,
+  "unit": "%",
+  "text": "3.3",
+  "check": "K13"
+ },
+ "threei.aug.centre": {
+  "value": 4.259591240278167,
+  "err": null,
+  "unit": "µm",
+  "text": "4.2596",
+  "check": "K4"
+ },
+ "threei.aug.n_band": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": "K4"
+ },
+ "threei.aug.n_fit": {
+  "value": 12,
+  "err": null,
+  "unit": null,
+  "text": "12",
+  "check": "K4"
+ },
+ "threei.dec.centre": {
+  "value": 4.259485294687531,
+  "err": null,
+  "unit": "µm",
+  "text": "4.2595",
+  "check": "K4"
+ },
+ "threei.dec.n_band": {
+  "value": 3,
+  "err": null,
+  "unit": null,
+  "text": "3",
+  "check": "K4"
+ },
+ "threei.dec.n_fit": {
+  "value": 7,
+  "err": null,
+  "unit": null,
+  "text": "7",
+  "check": "K4"
+ },
+ "threei.ratio": {
+  "value": 2.183496627937189,
+  "err": 0.09365635246709161,
+  "unit": null,
+  "text": "2.18",
+  "check": "K4"
+ },
+ "threei.ratio.aperture5": {
+  "value": 2.4507243008616837,
+  "err": 0.12565023737764713,
+  "unit": null,
+  "text": "2.45",
+  "check": "K4"
+ },
+ "threei.ratio.combined": {
+  "value": 0.352663454808462,
+  "err": null,
+  "unit": null,
+  "text": "0.35",
+  "check": "K4"
+ },
+ "threei.ratio.delta_squared": {
+  "value": 1.465995049590653,
+  "err": 0.06303768592460217,
+  "unit": null,
+  "text": "1.47",
+  "check": "K4"
+ },
+ "threei.ratio.difference": {
+  "value": 0.3034966279371889,
+  "err": null,
+  "unit": null,
+  "text": "0.30",
+  "check": "K4"
+ },
+ "threei.ratio.hard_high": {
+  "value": 3.044781924095052,
+  "err": null,
+  "unit": null,
+  "text": "3.04",
+  "check": "K4"
+ },
+ "threei.ratio.hard_low": {
+  "value": 1.2499779193130929,
+  "err": null,
+  "unit": null,
+  "text": "1.25",
+  "check": "K4"
+ },
+ "threei.ratio.horizons_centre": {
+  "value": 2.4381847061598663,
+  "err": 0.09415094058616988,
+  "unit": null,
+  "text": "2.44",
+  "check": "K4"
+ },
+ "threei.ratio.light_centre": {
+  "value": 2.41338887479344,
+  "err": 0.10488810719762023,
+  "unit": null,
+  "text": "2.41",
+  "check": "K4"
+ },
+ "threei.ratio.published": {
+  "value": 1.88,
+  "err": 0.34,
+  "unit": null,
+  "text": "1.88",
+  "check": "K4"
+ },
+ "threei.spring.excess": {
+  "value": 0.20213058543621693,
+  "err": 1.0042628755974619,
+  "unit": "mJy",
+  "text": "0.2",
+  "check": "K4"
+ },
+ "threei.spring.excluded": {
+  "value": 18.174836481624983,
+  "err": null,
+  "unit": "sigma",
+  "text": "18",
+  "check": "K4"
+ },
+ "threei.spring.excluded_constant_speed": {
+  "value": 11.512528263732321,
+  "err": null,
+  "unit": "sigma",
+  "text": "12",
+  "check": "K4"
+ },
+ "threei.spring.expected": {
+  "value": 18.454444133986577,
+  "err": null,
+  "unit": "mJy",
+  "text": "18.5",
+  "check": "K4"
+ },
+ "threei.spring.limit": {
+  "value": 3.2149192122286023,
+  "err": null,
+  "unit": "mJy",
+  "text": "3.2",
+  "check": "K4"
+ },
+ "threei.spring.n_band": {
+  "value": 3,
+  "err": null,
+  "unit": null,
+  "text": "3",
+  "check": "K4"
+ }
+}

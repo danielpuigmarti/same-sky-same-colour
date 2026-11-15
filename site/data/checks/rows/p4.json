@@ -1,0 +1,40 @@
+[
+ {
+  "id": "K8",
+  "title": "Difference view and flipbook: do they show real change and nothing else?",
+  "claim": "A difference of two visits taken at the same colour shows no change where there is none: an empty field averages to zero, and an injected source comes back at its true strength. Whether steady stars cancel is part of the same test, and the row says what it found.",
+  "test": "20 empty positions (no Gaia DR3 star brighter than G = 13 within 5 arcmin), each in two detectors, the ten of the earlier background test among them; the 20 steady comparison stars of RW Aurigae; 10 injected point sources (round Gaussian, sigma 1 pixel). Two views are judged apart: the difference of the co-adds of the two visits (at most 8 matched pairs) and each photo minus its same-colour twin (the flipbook). All built with the shared rules (visits, match, stack) on one 64 by 64 grid of 6.15 arcsec pixels. The mean is taken over the pixels with no flag but FULLSAMPLE; standard errors count pixels as independent.",
+  "pass_rule": "Mean of an empty difference within 3 standard errors at 18 or more of 20 positions; 18 or more of 20 stars with no dark-bright pair above 3 noise units within 3 pixels; injected sources within 20% (10 of 10). A view is built at typed positions only if all three hold. Written before any measurement (pipeline/frozen/pb6_rule.json; the code in the column of the commit is the first 40 characters of the SHA-256 of that file, the commit itself is made by the person who commits).",
+  "rule_commit": "11248f56001e9939bee8a8eea197977195d9f962",
+  "status": "FAIL",
+  "plain": "difference view tested on empty sky and on steady stars",
+  "value": "empty 6/3 of 20 (with the 5-sigma clip of the earlier test, for comparison: 10/9), stars 0/0 of 20, injected 9/9 of 10 (co-adds/flipbook)",
+  "unit": "positions, stars, sources",
+  "reference": "18, 18, 10",
+  "tolerance": "3 standard errors; 3 noise units; 20%",
+  "image": "img/k8-pb6.png",
+  "image_sha256": "d41bdb2b12c95d97f4b9aaf92631664e73c17bb365fb0981081149fa3da91607",
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run diffcheck"
+ },
+ {
+  "id": "K10",
+  "title": "What the difference view can and cannot see",
+  "claim": "A moving object shows as a dark-bright pair in the difference of two visits only when it moves far enough and is bright enough. The table says where that starts, for each of the six detectors; what is not in it is not seen.",
+  "test": "Synthetic movers (round Gaussian, sigma 1 pixel) injected into the real matched co-adds, and into real single pairs, at 3 fixed positions of each detector, 8 injections per position for each of 8 speeds and 21 fluxes. The shift between visits is the speed times the time between them (median 181 days).",
+  "pass_rule": "A mover shows when its dark-bright pair reaches 5 noise units in at least 80% of the injections. Rule written before the run (pipeline/frozen/limits_rule.json; the code in the column of the commit is the first 40 characters of the SHA-256 of that file). The table is shown whatever it says.",
+  "rule_commit": "a13dc53534281dfe35ce216f3f2eca4b1c0e6991",
+  "status": "UNVERIFIED",
+  "plain": "what the tool can and cannot see",
+  "value": "co-add: flux needed (median of the detectors) 13.9 mJy at 1.0 arcsec a year, 1.39 mJy at 10.0 arcsec a year, 0.781 mJy at 100.0 arcsec a year; the view shows 79% of its pixels; single pair: flux needed (median of the detectors) 31.6 mJy at 1.0 arcsec a year, 3.16 mJy at 10.0 arcsec a year, 1.39 mJy at 100.0 arcsec a year; the view shows 71% of its pixels",
+  "unit": "mJy and arcsec per year",
+  "reference": null,
+  "tolerance": null,
+  "image": "img/k10-limits.png",
+  "image_sha256": "efb821d5dc905d0a36a63f9fe484e135ba7ba2d1a5f267d0dc24523d469c516d",
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run limits"
+ }
+]

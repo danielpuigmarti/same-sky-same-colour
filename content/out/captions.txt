@@ -1,0 +1,13 @@
+# The 30 seconds of video: screen capture of the public address, burned-in captions, no voice.
+# Format: start-end | caption | what is on screen. At most 12 words on screen at any moment.
+# The comet is shown on the home page in two ways: the four photos of 26 February on their ruler of colours, with a chip
+# that moves along it, then the lead photo flipped to August at the same colour.
+0:00-0:02 | Same Sky, Same Colour. Team [team]. Pluto was found by blinking. | Title card: the name of the project, of the team and the hook, from the glossary of the site
+0:02-0:05 | Planet X and SPHEREx: across one visit, steady stars swing 11.8 times. | RW Aurigae's field zoomed in: all photos of one visit in time order, steady stars flicker, the bar of the swing beside them
+0:05-0:10 | Two photos matched in colour: steady stars differ by 1.02 times. | The choice moves to "Same colour", zoomed in: its bar is the shortest and the stars hold still
+0:10-0:13 | Real NASA SPHEREx photos. Same night, four colours. | Comet Lemmon, 26 February: the chip is dragged along the ruler across the four photos taken minutes apart
+0:13-0:17 | Comet Lemmon: about 16 times brighter at carbon dioxide's colour. | The chip rests on the glow photo at the colour of carbon dioxide, beside the faint photo
+0:17-0:20 | Same colour, six months earlier: empty sky. | Tap: the same colour on August, the panel is empty
+0:20-0:26 | Epsilon Indi B: moved 74.3 arcsec in 15.8 years; Gaia predicts 73.9. | "Epsilon Indi B" typed in the box; then its card zoomed in: the 2010 picture, then SPHEREx, the measured and the predicted shift beside them
+0:26-0:28 | Any star or position, from NASA's archive. | The address bar with the page open on a typed position
+0:28-0:30 | Next: every new release. https://danielpuigmarti.github.io/same-sky-same-colour/ | The address on a plain card

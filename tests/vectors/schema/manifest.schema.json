@@ -1,0 +1,57 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Showcase manifest.json (CT-8)",
+ "description": "A showcase: frames of one detector at one position, with the stamps in binary files beside the manifest.",
+ "type": "object",
+ "properties": {
+  "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "Folder name of the showcase." },
+  "name": { "type": "string", "minLength": 1, "description": "Name shown to the visitor." },
+  "ra": { "type": "number", "minimum": 0, "exclusiveMaximum": 360, "description": "Degrees (ICRS)." },
+  "dec": { "type": "number", "minimum": -90, "maximum": 90, "description": "Degrees (ICRS)." },
+  "det": { "type": "integer", "minimum": 1, "maximum": 6 },
+  "w": { "type": "integer", "minimum": 1, "description": "Stamp width in pixels." },
+  "h": { "type": "integer", "minimum": 1, "description": "Stamp height in pixels." },
+  "frames": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/frame" }, "description": "Sorted by mjd." },
+  "pairs": {
+   "type": "array",
+   "items": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 0 } },
+   "description": "Matched pairs, as positions in frames, the earlier visit first."
+  },
+  "stamps": { "const": "stamps.bin", "description": "Little-endian float32: frames in order, each w*h values row by row, first row at the lowest y." },
+  "flags": { "enum": ["flags.bin", null], "description": "Little-endian int32 in the same layout, or null." },
+  "refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Sources for what the showcase shows." },
+  "numbers": { "type": "array", "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, "description": "Keys of numbers.json that belong to the showcase." },
+  "grid": { "enum": ["detector", "north-up"], "description": "What the stamps are drawn on; \"detector\" when absent. \"north-up\" is the display grid: north up, east to the left, 6.15 arcsec per pixel, centred on the target, nearest neighbour; each frame then has sky." }
+ },
+ "required": ["id", "name", "ra", "dec", "det", "w", "h", "frames", "pairs", "stamps", "flags", "refs", "numbers"],
+ "additionalProperties": false,
+ "$defs": {
+  "sky": {
+   "type": "object",
+   "properties": {
+    "ra": { "type": "number", "description": "Degrees (ICRS), at the target pixel." },
+    "dec": { "type": "number", "description": "Degrees (ICRS), at the target pixel." },
+    "cd": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" }, "description": "[east per x, east per y, north per x, north per y], degrees per pixel." }
+   },
+   "required": ["ra", "dec", "cd"],
+   "additionalProperties": false
+  },
+  "frame": {
+   "type": "object",
+   "properties": {
+    "key": { "type": "string", "pattern": "^dr1/level2/[A-Za-z0-9_]+/[A-Za-z0-9_.-]+/[1-6]/level2_[A-Za-z0-9_]+_[0-9]{4}_[0-9]D[1-6]_spx_[A-Za-z0-9_.-]+[.]fits$" },
+    "mjd": { "type": "number", "description": "Mid-exposure time, MJD (UTC)." },
+    "lam": { "type": "number", "exclusiveMinimum": 0, "description": "Wavelength at the target pixel, um." },
+    "bw": { "type": "number", "exclusiveMinimum": 0, "description": "Bandwidth at the target pixel, um." },
+    "x0": { "type": "integer", "description": "Full-frame pixel x of the first element." },
+    "y0": { "type": "integer", "description": "Full-frame pixel y of the first element." },
+    "tx": { "type": "number", "description": "The target's x in stamp pixels." },
+    "ty": { "type": "number", "description": "The target's y in stamp pixels." },
+    "visit": { "type": "integer", "minimum": 0, "description": "0 for the earliest visit, counting up in time." },
+    "sky": { "$ref": "#/$defs/sky", "description": "The sky around the target pixel of the stamp as written." }
+   },
+   "required": ["key", "mjd", "lam", "bw", "x0", "y0", "tx", "ty", "visit"],
+   "additionalProperties": false
+  }
+ }
+}

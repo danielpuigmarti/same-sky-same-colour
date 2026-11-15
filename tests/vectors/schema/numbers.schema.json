@@ -1,0 +1,22 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "numbers.json (CT-10)",
+ "description": "Numbers by key. A page shows a number only as <span data-n=\"key\">, filled with its text.",
+ "type": "object",
+ "propertyNames": { "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$" },
+ "additionalProperties": { "$ref": "#/$defs/entry" },
+ "$defs": {
+  "entry": {
+   "type": "object",
+   "properties": {
+    "value": { "type": "number", "description": "The number." },
+    "err": { "type": ["number", "null"], "description": "Its uncertainty, or null." },
+    "unit": { "type": ["string", "null"], "description": "Its unit, or null." },
+    "text": { "type": "string", "minLength": 1, "description": "The number as the page shows it." },
+    "check": { "type": ["string", "null"], "minLength": 1, "description": "The id of the Checks row behind it, or null." }
+   },
+   "required": ["value", "err", "unit", "text", "check"],
+   "additionalProperties": false
+  }
+ }
+}

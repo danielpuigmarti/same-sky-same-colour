@@ -1,0 +1,256 @@
+{
+ "about": "The challenge statement, line by line, in our words: what it asks for (MUST) and what it suggests (COULD), and what the tool does about each. A line is built only if everything it asks for works; if only part works it is partial. `where` is the address of the view that does it, relative to the site.",
+ "updated": "2026-11-15",
+ "items": [
+  {
+   "id": "must-site",
+   "kind": "MUST",
+   "line": "A public web tool that shows images of the sky from SPHEREx.",
+   "status": "built",
+   "where": "index.html",
+   "files": [
+    "site/index.html",
+    "site/view.html",
+    ".github/workflows/deploy.yml"
+   ],
+   "decisions": [],
+   "note": "Static files, no server; the deploy workflow publishes them.",
+   "short": "Public web tool for SPHEREx images"
+  },
+  {
+   "id": "must-coords",
+   "kind": "MUST",
+   "line": "A visitor enters the coordinates of a patch of sky, right ascension and declination.",
+   "status": "built",
+   "where": "index.html#where",
+   "files": [
+    "site/index.html",
+    "site/js/lib/coords.js",
+    "site/js/lib/livepath.js"
+   ],
+   "decisions": [],
+   "note": "The box reads degrees, hours-minutes-seconds and names, with suggestions while one types, including the string the challenge gives for WISE 0855. It opens a view of that place read live from the archive, with an address one can share; the five targets open at once.",
+   "short": "Enter coordinates"
+  },
+  {
+   "id": "must-video",
+   "kind": "MUST",
+   "line": "The tool shows a series of images of that patch like a little video, so that moving objects are easy to spot.",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b&mode=blink",
+   "files": [
+    "site/js/ui/stage.js",
+    "site/data/targets/eps-indi-b/manifest.json"
+   ],
+   "decisions": [
+    "S3"
+   ],
+   "note": "Blink, curtain and side by side work at any typed position and on the prepared targets, and use only photos taken at the same colour. The film is one visit against another, not a long series; the difference of the two is shown on the prepared targets only, because its test at typed positions failed.",
+   "short": "Images like a little video"
+  },
+  {
+   "id": "must-targets",
+   "kind": "MUST",
+   "line": "The tool is tried on Barnard's Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.",
+   "status": "built",
+   "where": "targets.html",
+   "also": [
+    "view.html?t=eps-indi-b",
+    "view.html?t=barnard",
+    "view.html?t=wise0855",
+    "view.html?t=rw-aur",
+    "view.html?t=r-dra"
+   ],
+   "files": [
+    "site/data/targets/eps-indi-b/manifest.json",
+    "site/data/targets/barnard/manifest.json",
+    "site/data/targets/wise0855/manifest.json",
+    "site/data/targets/rw-aur/manifest.json",
+    "site/data/targets/r-dra/manifest.json"
+   ],
+   "decisions": [],
+   "note": "One item each, with its reference, its tolerance and a plain verdict. The three that move are measured against an image of the WISE telescope taken years earlier; RW Aurigae's change is given band by band; R Draconis is too bright to measure, and Barnard's Star too bright to give a brightness.",
+   "short": "The five named targets"
+  },
+  {
+   "id": "could-updates",
+   "kind": "COULD",
+   "line": "The tool is easy to update when new data arrive.",
+   "status": "partial",
+   "where": null,
+   "files": [
+    "site/idx/meta.json",
+    "pipeline/jobs/index_build.py"
+   ],
+   "decisions": [],
+   "note": "One command, python -m sx.run index, rebuilds the index of photos from the archive's listing and each photo's header, and adds the weeks that are new. Tried on one installed week: the same photos in the same tiles, with the last digit of some rows apart. Adding a release that has not been published yet has not been tried.",
+   "short": "Easy to update"
+  },
+  {
+   "id": "could-bands",
+   "kind": "COULD",
+   "line": "The infrared colours are shown in a way that helps visitors use them.",
+   "status": "built",
+   "where": "view.html#colours",
+   "files": [
+    "site/js/ui/ruler.js",
+    "site/data/wave/tables.json"
+   ],
+   "decisions": [],
+   "note": "One colour ruler is the key behind every chip, dot and veil; each pixel's colour is read from the photo's own tables.",
+   "short": "Infrared colours"
+  },
+  {
+   "id": "could-coadd",
+   "kind": "COULD",
+   "line": "The data of each of the six detectors are added together to make faint things easier to see.",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b",
+   "files": [
+    "site/js/lib/stack.js"
+   ],
+   "decisions": [],
+   "note": "Photos of one visit and one detector are added with equal weight. The six detectors are not shown side by side.",
+   "short": "Six detectors added together"
+  },
+  {
+   "id": "could-spectra",
+   "kind": "COULD",
+   "line": "Spectra are drawn on the fly.",
+   "status": "built",
+   "where": "view.html#spectrum",
+   "files": [
+    "site/js/ui/spectrum.js",
+    "site/data/spectra"
+   ],
+   "decisions": [],
+   "note": "A click on any place, prepared or typed, draws its spectrum from the photos that are loaded, one curve for each visit; every spectrum says that its scale is relative.",
+   "short": "Spectra on the fly"
+  },
+  {
+   "id": "could-addsub",
+   "kind": "COULD",
+   "line": "Visitors can add or subtract images taken at different times.",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b&mode=diff",
+   "files": [
+    "site/js/lib/stack.js",
+    "site/js/ui/stage.js"
+   ],
+   "decisions": [
+    "S3"
+   ],
+   "note": "The photos of one visit are added together at every position. The difference of two visits is offered on the prepared targets; at typed positions its test failed, so it is switched off there and the page says why.",
+   "short": "Add or subtract images"
+  },
+  {
+   "id": "could-fov",
+   "kind": "COULD",
+   "line": "Visitors choose the field of view.",
+   "status": "not built",
+   "where": null,
+   "files": [],
+   "decisions": [],
+   "note": "Every picture has one fixed small size, which is what keeps the download short.",
+   "short": "Choose the field of view"
+  },
+  {
+   "id": "could-overlay",
+   "kind": "COULD",
+   "line": "Data from other telescopes, such as Gaia and WISE, are drawn over the images.",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b",
+   "files": [
+    "site/js/ui/rings.js",
+    "site/data/gaia/fast.json",
+    "site/data/targets/eps-indi-b/wise2010.png"
+   ],
+   "decisions": [],
+   "note": "Gaia rings mark where fast stars should be, and the cards put an older WISE picture beside SPHEREx. There is no live layer of another telescope.",
+   "short": "Gaia and WISE overlays"
+  },
+  {
+   "id": "could-url",
+   "kind": "COULD",
+   "line": "Coordinates in the address let others link to a view or embed it.",
+   "status": "built",
+   "where": "view.html?t=eps-indi-b&mode=blink",
+   "files": [
+    "site/js/lib/urlstate.js"
+   ],
+   "decisions": [],
+   "note": "Position, detector, view and the pair of visits are in the address; the embed switch shows the stage alone.",
+   "short": "Coordinates in the address"
+  },
+  {
+   "id": "could-flags",
+   "kind": "COULD",
+   "line": "Metadata such as contamination flags is shown.",
+   "status": "built",
+   "where": "view.html?t=r-dra",
+   "files": [
+    "site/js/lib/flags.js"
+   ],
+   "decisions": [],
+   "note": "Saturated and damaged pixels are hatched, the pixels of a detected source can be shown, and pointing at a pixel reads every flag it carries.",
+   "short": "Contamination flags"
+  },
+  {
+   "id": "could-tools",
+   "kind": "COULD",
+   "line": "Public tools such as Astropy and Aladin are used or offered.",
+   "status": "built",
+   "where": "view.html?t=eps-indi-b#lookup",
+   "files": [
+    "pipeline/requirements.txt",
+    "site/js/ui/lookup.js"
+   ],
+   "decisions": [],
+   "note": "Astropy prepares the data and the reference values offline. In the viewer every place, and every point clicked, has links to Aladin Lite, SIMBAD, VizieR, WiseView and the Legacy Survey viewer.",
+   "short": "Astropy and Aladin"
+  },
+  {
+   "id": "must-easy",
+   "kind": "MUST",
+   "line": "Anyone can quickly see how the sky changes over time.",
+   "short": "Easy for anyone",
+   "status": "partial",
+   "where": "checks.html#tried-by",
+   "files": [
+    "site/data/tried.json",
+    "site/js/pages/index.js"
+   ],
+   "decisions": [],
+   "note": "The first page puts one comet and one box in front of a visitor, and the plain-words explanations sit beside each result. Whether people who are not physicists can do it unaided has not been tried yet: the tasks and the pass bar are written, and the session has not been held."
+  },
+  {
+   "id": "could-resources",
+   "kind": "COULD",
+   "line": "The data and resources that the challenge lists are used.",
+   "short": "The challenge's resources",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b#lookup",
+   "files": [
+    "references/d1.md",
+    "references/d2.md",
+    "site/js/ui/lookup.js"
+   ],
+   "decisions": [],
+   "note": "The archive at IRSA is read live, the third data release of Gaia gives the motions of the stars, and every place links to WiseView. The tutorial notebooks and the resources of the Canadian space agency are not used."
+  },
+  {
+   "id": "could-volunteers",
+   "kind": "COULD",
+   "line": "The tool helps volunteers who look for moving objects, as Backyard Worlds does.",
+   "short": "Help volunteers",
+   "status": "partial",
+   "where": "view.html?t=eps-indi-b#is-it-real",
+   "files": [
+    "site/js/ui/isitreal.js",
+    "site/js/ui/spotit.js"
+   ],
+   "decisions": [],
+   "note": "A moving dot gets four checks that help tell a mover from a flaw, and links to ask at Backyard Worlds Talk or the Minor Planet Center. There is no way to send a find in from the page, and no list of candidates."
+  }
+ ]
+}

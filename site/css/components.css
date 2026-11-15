@@ -1,0 +1,1406 @@
+/*
+  Components: the parts that pages share. Built on tokens.css and base.css.
+  The frame of a page (.skip-link, .masthead, .page, .colophon) is in base.css.
+
+  Type
+    .headline                       the headline of a page or of its lead item: narrow, heaviest, the size of a
+                                    poster. An h1 looks like this by itself. Write it in capitals.
+    .heading                        the heading of a section; an h2 looks like this by itself
+    .object-name                    the name of an object at the head of an item: narrow, in capitals as written
+    .lede                           the paragraph under a headline: larger running text
+    .typed                          a line of typewriter text: a date, a position, a reading
+    .label                          the small label over a group or a field: the text face, weight 600, faint, in
+                                    sentence case as written. Never capitals, never typewriter.
+    .note                           a caption or a note under something
+    .change                         the word or number that changed: the second ink
+    .section-head                   a heading and the lines under it
+
+  The ruled form
+    .cells > .cell                  a row of ruled cells in fixed slots. From 40rem all cells stand in one row;
+                                    below that, two to a row. data-cols="2" to "6" on .cells fixes the number of
+                                    slots in a row. An empty .cell shows a dash. Inside a cell, .cell-label is
+                                    the label over what is in it (the text face, like .label).
+    .cells-text                     on a .cells whose cells hold words: the text face. What is recorded in them (a
+                                    [data-n], a time, a .cell-value such as a number with its unit) stays in
+                                    typewriter. A cell row without it is typewriter throughout.
+    .plate [data-plate]             a black square that holds a photo (img or canvas) or a drawing made of data.
+                                    Always give it the attribute data-plate. Inside it: .plate-tag (a small word in
+                                    a corner), .plate-mark (four ticks round the middle: where to look).
+    .plate-frame                    holds a .plate and the rows joined under it, in one frame. The verdict on a
+                                    photo is a band under it: .plate-verdict as a child of .plate-frame, after the
+                                    .plate and with data-plate, in the headline face, on black. (As a child of
+                                    .plate itself it is laid over the photo's corner: use it only where a band
+                                    has no room.)
+    .ledger                         a table of ruled rows in typewriter figures; td.num is a figure, set right
+    .items > .item                  items of the bulletin, each under a rule: never a box. In an item:
+                                    .object-name, .cells, text, and its plate.
+    .rows > li                      a list in ruled rows: one line for each thing, with its link
+
+  Controls
+    .field  .field-label            the strip the visitor types on, and the label printed above it
+    .joined (.joined-lg)            a field and the button that belongs to it, sharing one rule
+    .btn                            the plain button: a ruled rectangle, set like BLINK IT in the narrow heavy face.
+                                    Write its words in capitals. Pressed (aria-pressed="true") takes a heavy bar
+                                    under it and is not filled: the one filled thing of a view is .btn-primary.
+    .btn-primary                    the filled button: one in a view
+    .btn-toggle + .btn-lamp         a button that is on or off, with a small square that is empty or full
+    .btn-icon                       a square button that holds a drawing and no words (name it with aria-label)
+    .choice > button, a, label      one among several: a row of words in the text face (sentence case, weight 600).
+                                    The chosen one has a 2.5 px bar under it and the ink of the text; the others are
+                                    muted. Nothing is filled. The chosen one has aria-pressed, aria-checked,
+                                    aria-selected or aria-current, or is a label that holds a checked input.
+    .links                          a line of related links in the text face, set apart by space
+    .try                            the list of places to try: a name in the narrow face and one line on what it
+                                    is. One list, the same on the home page and the 404 page.
+    .disclosure (.about)            a details element: a line with a plus that becomes a minus, and indented
+                                    text under it when it is open
+
+  Status
+    .status-mark [data-status]      THE MARK OF A STATUS. The one drawn mark of the site: no page draws its own and
+                                    none uses a Unicode glyph. The markup is this, then the status word:
+                                      <span class="status-mark" data-status="pass" aria-hidden="true"></span> Passed
+                                    data-status is pass, fail, limit, corrected or unverified (the capitals of the
+                                    data, PASS and the others, work too). It is a square of 0.75em in the ink of the
+                                    status token: pass a full square, fail a square with a diagonal stroke (the only
+                                    mark in the second ink), limit a square with its lower half full, corrected a
+                                    square with a dot in the middle, unverified an empty square. The mark carries no
+                                    meaning alone: always put the status word, or an aria-label, with it.
+    .check-link [data-status]       the quiet link to a claim's check, for every page but Checks: the status mark
+                                    and the id ("K5"), underlined. The id is the text; mountCheckLinks in
+                                    js/ui/checklink.js sets data-status and puts a .status-mark in it from the data
+                                    of Checks. No box, no status word.
+    .stamp [data-status]            the status of a check, or a caution, in a box of its own ink; for the Checks
+                                    page only (elsewhere: .check-link). With
+                                    data-status="PASS", "FAIL", "LIMIT", "CORRECTED" or "UNVERIFIED" it takes that
+                                    ink and a mark. A page may put a .status-mark (or an svg.stamp-mark) inside
+                                    the stamp; then no second one is drawn. Without
+                                    data-status it is a caution, in the second ink. .stamp-alone turns a stamp
+                                    that stands by itself by a degree and a half.
+    .tag [data-status]              the same stamp as a link: the plain words that open a Checks card
+
+  Rulers and small stages
+    .scale (.scale-track, .scale-input, .scale-ticks, .scale-tick, .scale-chip, .scale-label, .scale-unit)
+                                    a ruler of colours with a chip on it; data-det="1" to "6" gives the chip the
+                                    colour of that detector
+    .stops > .stop (.stop-text, .stop-name, .stop-about, .stop-choice, .stop-meter)
+                                    a few named ways of doing something, in ruled rows, each with its meter
+    .meter-bar > .meter-fill  .meter-value
+                                    a bar whose length is set with --fill (0 to 1), and its number
+    .transport (.transport-play)    the buttons under a small stage
+    .readout                        the line of data under a small stage
+*/
+
+/* ---- Type ---- */
+
+.headline {
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  word-spacing: var(--word-narrow);
+  text-wrap: balance;
+}
+
+.heading {
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+  word-spacing: var(--word-narrow);
+  text-wrap: balance;
+}
+
+.object-name {
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+  word-spacing: var(--word-narrow);
+}
+
+.lede {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.typed {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+}
+
+/* the small label over a field, a cell or a group: the text face, in sentence case as written */
+.label {
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+/* a caption or a note under something */
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.note a {
+  color: var(--color-text);
+}
+
+/* what really changed */
+.change {
+  color: var(--color-change);
+}
+
+.section-head > * + * {
+  margin-block-start: var(--space-4);
+}
+
+/* ---- A row of ruled cells ---- */
+
+/*
+  The rules between the cells are the ground of the row showing through the gaps, so a row can break into two
+  and stay ruled. A cell is paper; a row that stands on another ground sets --cell-ground.
+*/
+.cells {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rule-hair);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  background: var(--color-line);
+  list-style: none;
+}
+
+.cells > * {
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--cell-ground, var(--color-bg));
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-caps);
+  font-variant-numeric: lining-nums tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* two to a row: an odd cell at the end takes the whole row, so that no slot is left bare */
+.cells > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* the word the form prints above what is typed */
+.cell-label {
+  display: block;
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+}
+
+/* a row whose cells say things in words: the text face; what is recorded stays in typewriter */
+.cells-text > * {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+}
+
+.cells-text [data-n],
+.cells-text time,
+.cells-text .cell-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-caps);
+}
+
+/* an empty slot is a blank cell with a dash */
+.cell:empty::before,
+.cell-value:empty::before {
+  content: "\2014";
+  color: var(--color-text-faint);
+}
+
+@media (min-width: 40rem) {
+  .cells {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .cells > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .cells[data-cols] {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  }
+
+  .cells[data-cols="2"] { --cols: 2; }
+  .cells[data-cols="3"] { --cols: 3; }
+  .cells[data-cols="4"] { --cols: 4; }
+  .cells[data-cols="5"] { --cols: 5; }
+  .cells[data-cols="6"] { --cols: 6; }
+}
+
+/* ---- A plate ---- */
+
+/* one photo: black behind it; a pixel with no value shows --color-empty */
+.plate {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0;
+  background: var(--color-stage);
+  color: var(--color-text);
+}
+
+.plate > img,
+.plate > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* a photo drawn pixel for pixel is enlarged without smoothing: each square is one pixel of the camera */
+.plate > canvas {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* what the photo shows, set on it in the headline face */
+.plate-verdict {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--space-2) var(--space-3) var(--space-1);
+  background: var(--color-stage);
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: clamp(2rem, 1.3rem + 3vw, 3.5rem);
+  font-weight: var(--weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  word-spacing: var(--word-narrow);
+}
+
+/* four ticks round the middle of a photo: where to look */
+.plate-mark {
+  position: absolute;
+  inset: 33%;
+  background:
+    linear-gradient(var(--color-mark), var(--color-mark)) left center / 21% var(--rule-hair) no-repeat,
+    linear-gradient(var(--color-mark), var(--color-mark)) right center / 21% var(--rule-hair) no-repeat,
+    linear-gradient(var(--color-mark), var(--color-mark)) center top / var(--rule-hair) 21% no-repeat,
+    linear-gradient(var(--color-mark), var(--color-mark)) center bottom / var(--rule-hair) 21% no-repeat;
+  pointer-events: none;
+}
+
+/* a word in the corner of a photo that says which photo is on */
+.plate-tag {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-stage);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-caps);
+  white-space: nowrap;
+}
+
+/* a plate and the cells joined under it stand in one frame */
+.plate-frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  border: 0;
+}
+
+.plate-frame > .plate {
+  border: 0;
+}
+
+/* the verdict on a photo: a black band under it, inside the frame, never over the photo's pixels */
+.plate-frame > .plate-verdict {
+  position: static;
+  max-width: none;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 3rem);
+}
+
+.plate-frame > .cells {
+  border: 0;
+  border-block-start: var(--rule-hair) solid var(--color-line-strong);
+}
+
+/* a date in a narrow cell under a plate puts its year under its month rather than run into the next cell; a
+   figure keeps its unit, which the gate binds to it with a no-break space */
+.plate-frame > .cells [data-n],
+.plate-frame > .cells time {
+  white-space: normal;
+}
+
+/* ---- A ledger ---- */
+
+.ledger {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.ledger td.num,
+.ledger th.num {
+  text-align: end;
+  white-space: nowrap;
+}
+
+/* ---- Items of the bulletin ---- */
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  max-width: none;
+  padding-block: var(--space-6) var(--space-7);
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.item > * + * {
+  margin-block-start: var(--space-5);
+}
+
+/* more room above a heading than below it; a heading belongs to what it heads */
+.item > h2 + *,
+.item h3 + * {
+  margin-block-start: var(--space-3);
+}
+
+.item * + h3 {
+  margin-block-start: var(--space-6);
+}
+
+/* a list in ruled rows: one line for each thing */
+.rows {
+  margin: 0;
+  padding: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+  list-style: none;
+}
+
+.rows > li {
+  max-width: none;
+  padding-block: var(--space-3);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+/* the places to try: a column of names in the narrow face and a column of words on what each is */
+.try {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.try > li {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  align-items: center;
+  max-width: none;
+}
+
+.try a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: 1.1;
+  word-spacing: var(--word-narrow);
+}
+
+.try-what {
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 39.99rem) {
+  .try {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .try > li {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--space-1) var(--space-2);
+  }
+
+  .try a {
+    min-height: 2rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .try a {
+    min-height: 2rem;
+  }
+}
+
+/* ---- The strip to type on ---- */
+
+.field-label {
+  display: block;
+  margin-block-end: var(--space-2);
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+.field {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--control-height, 3rem);
+  padding: 0 var(--space-3);
+  border: var(--rule-mid) solid var(--color-line-strong);
+  background: var(--color-strip);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--control-text, var(--text-md));
+  line-height: var(--leading-snug);
+}
+
+.field[aria-invalid="true"] {
+  border-color: var(--color-fail);
+}
+
+/* a field and its button are one unit: one frame in the ink of the form, the button filling its end */
+.joined {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  border: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-strip);
+}
+
+.joined .field {
+  border: 0;
+  background: transparent;
+}
+
+.joined > .btn {
+  min-height: var(--control-height, 3rem);
+  margin: 0;
+  border-width: 0;
+}
+
+.joined > .btn:not(.btn-primary) {
+  border-inline-start: var(--rule-hair) solid var(--color-rule);
+}
+
+.joined > :focus-visible {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+.joined .field:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}
+
+.joined-lg {
+  --control-height: 3.75rem;
+  --control-text: var(--text-lg);
+}
+
+.joined-lg > .field,
+.joined-lg .field {
+  padding-inline: var(--space-4);
+}
+
+/* the example in the field is a hint, not a value: the text face, so that it fits beside the button on a phone */
+.joined-lg .field::placeholder {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+}
+
+@media (max-width: 29.99rem) {
+  .joined-lg {
+    --control-text: var(--text-md);
+  }
+
+  .joined-lg .field {
+    padding-inline: var(--space-3);
+  }
+
+  .joined-lg .field::placeholder {
+    font-size: var(--text-sm);
+  }
+
+  .joined-lg > .btn-primary {
+    padding-inline: var(--space-4);
+  }
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: var(--rule-hair) solid var(--color-line-strong);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: 0;
+  word-spacing: var(--word-narrow);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--color-surface-raised);
+  text-decoration: none;
+}
+
+.btn:active {
+  background: var(--color-surface-raised);
+}
+
+/* on: a heavy bar under it in the ink of the form, not a fill */
+.btn[aria-pressed="true"] {
+  border-color: var(--color-rule);
+  border-block-end-width: var(--rule-mid);
+}
+
+/* the one thing a view asks for */
+.btn-primary {
+  padding-inline: var(--space-5);
+  border: var(--rule-mid) solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0;
+  word-spacing: var(--word-narrow);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary[aria-pressed="true"] {
+  border-color: var(--color-accent-strong);
+  background: var(--color-accent-strong);
+  color: var(--color-on-primary);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  border-color: var(--color-line);
+  background: transparent;
+  color: var(--color-text-faint);
+  cursor: not-allowed;
+}
+
+/* a small square in a button that is on or off: empty when off, full when on */
+.btn-lamp {
+  flex: none;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: var(--rule-hair) solid currentColor;
+}
+
+.btn[aria-pressed="true"] .btn-lamp {
+  background: currentColor;
+}
+
+/* a square button that holds a drawing and no words */
+.btn-icon {
+  width: var(--tap);
+  padding: 0;
+}
+
+.btn-icon > svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ---- One among several ---- */
+
+.choice {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-5);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.choice > * {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-1) 0 0;
+  border: 0;
+  border-block-end: var(--rule-mid) solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.choice > :hover {
+  color: var(--color-text);
+}
+
+.choice > [aria-pressed="true"],
+.choice > [aria-checked="true"],
+.choice > [aria-selected="true"],
+.choice > [aria-current]:not([aria-current="false"]),
+.choice > :has(> input:checked) {
+  border-block-end-color: var(--color-rule);
+  color: var(--color-text);
+}
+
+.choice > :disabled,
+.choice > [aria-disabled="true"] {
+  color: var(--color-text-faint);
+  cursor: not-allowed;
+}
+
+/* a label that holds a radio button or a checkbox: the input itself is not drawn, the cell is */
+.choice > label > input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.choice > :focus-visible,
+.choice > :has(> input:focus-visible) {
+  z-index: var(--z-raised);
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---- A line of related links ---- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-4);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  list-style: none;
+}
+
+.links > * {
+  max-width: none;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+
+/* ---- Something that opens ---- */
+
+.disclosure,
+.about {
+  border-block: var(--rule-hair) solid var(--color-line);
+}
+
+.disclosure + .disclosure,
+.about + .about {
+  border-block-start: 0;
+}
+
+.disclosure > summary,
+.about > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  list-style: none;
+}
+
+.disclosure > summary::-webkit-details-marker,
+.about > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* the plus is two strokes; open, the upright one goes and a minus is left */
+.disclosure > summary::before,
+.about > summary::before {
+  content: "";
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat,
+    linear-gradient(currentColor, currentColor) center / var(--rule-hair) 100% no-repeat;
+}
+
+.disclosure[open] > summary::before,
+.about[open] > summary::before {
+  background: linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat;
+}
+
+.disclosure > summary:hover,
+.about > summary:hover {
+  background: var(--color-surface-raised);
+}
+
+.disclosure > :not(summary),
+.about > :not(summary) {
+  margin-block: 0 var(--space-4);
+  padding-inline-start: calc(0.75rem + var(--space-3));
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.disclosure > :not(summary) + :not(summary),
+.about > :not(summary) + :not(summary) {
+  margin-block-start: calc(-1 * var(--space-2));
+}
+
+/* ---- The stamp: the status of a check, or a caution ---- */
+
+.stamp,
+.tag {
+  --stamp-ink: var(--color-signal);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  max-width: 100%;
+  padding: var(--space-1) var(--space-2);
+  border: 2px solid var(--stamp-ink);
+  color: var(--stamp-ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-caps);
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: 0.08em;
+}
+
+.stamp[data-status="PASS"], .tag[data-status="PASS"] { --stamp-ink: var(--color-pass); }
+.stamp[data-status="FAIL"], .tag[data-status="FAIL"] { --stamp-ink: var(--color-fail); }
+.stamp[data-status="LIMIT"], .tag[data-status="LIMIT"] { --stamp-ink: var(--color-limit); }
+.stamp[data-status="CORRECTED"], .tag[data-status="CORRECTED"] { --stamp-ink: var(--color-corrected); }
+.stamp[data-status="UNVERIFIED"], .tag[data-status="UNVERIFIED"] { --stamp-ink: var(--color-unverified); }
+
+/* the mark of a status, drawn in the ink of the stamp, so that colour is never the only sign */
+.stamp[data-status]::before,
+.tag[data-status]::before,
+.stamp-mark {
+  flex: none;
+  align-self: center;
+  width: 0.75em;
+  height: 0.75em;
+}
+
+.stamp[data-status]::before,
+.tag[data-status]::before {
+  content: "";
+  background: currentColor;
+  -webkit-mask: var(--stamp-mark) center / contain no-repeat;
+  mask: var(--stamp-mark) center / contain no-repeat;
+}
+
+/* a stamp that carries its own drawing does not get a second one */
+.stamp:has(> .stamp-mark)::before,
+.tag:has(> .stamp-mark)::before,
+.stamp:has(> .status-mark)::before,
+.tag:has(> .status-mark)::before {
+  content: none;
+}
+
+.stamp-mark {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+[data-status="PASS"] {
+  --stamp-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Crect x='1.75' y='1.75' width='8.5' height='8.5' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+[data-status="FAIL"] {
+  --stamp-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+[data-status="LIMIT"] {
+  --stamp-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Crect x='1.75' y='1.75' width='8.5' height='8.5' fill='none' stroke='black' stroke-width='1.5'/%3E%3Cpath d='M1.75 6h8.5v4.25h-8.5z'/%3E%3C/svg%3E");
+}
+
+[data-status="CORRECTED"] {
+  --stamp-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M1.75 1.75h8.5v8.5h-8.5zM0.5 11.5l11-11' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+[data-status="UNVERIFIED"] {
+  --stamp-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Crect x='1.75' y='1.75' width='8.5' height='8.5' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+a.stamp:hover,
+a.tag:hover {
+  background: var(--color-surface-raised);
+  text-decoration: none;
+}
+
+/* a stamp that stands by itself may sit a little askew, as a stamp does */
+.stamp-alone {
+  transform: rotate(-1.5deg);
+}
+
+/*
+  The mark of a status, drawn with borders and two pseudo-elements, 0.75em square. The ink is that of the status
+  token: only a failure leaves the ink of the text. Markup and meaning: see the top of this file.
+*/
+.status-mark {
+  --mark-ink: var(--color-text);
+  position: relative;
+  display: inline-block;
+  flex: none;
+  box-sizing: border-box;
+  width: 0.75em;
+  height: 0.75em;
+  margin-inline-end: 0.4em;
+  overflow: hidden;
+  border: 0.125em solid var(--mark-ink);
+  background: transparent;
+  color: var(--mark-ink);
+  vertical-align: -0.04em;
+}
+
+.status-mark::after {
+  content: none;
+  position: absolute;
+  background: var(--mark-ink);
+}
+
+.status-mark[data-status="pass" i] {
+  --mark-ink: var(--color-pass);
+  background: var(--mark-ink);
+}
+
+.status-mark[data-status="fail" i] {
+  --mark-ink: var(--color-fail);
+}
+
+.status-mark[data-status="fail" i]::after {
+  content: "";
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  width: 1.4em;
+  height: 0.125em;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.status-mark[data-status="limit" i] {
+  --mark-ink: var(--color-limit);
+}
+
+.status-mark[data-status="limit" i]::after {
+  content: "";
+  inset: auto 0 0 0;
+  height: 50%;
+}
+
+.status-mark[data-status="corrected" i] {
+  --mark-ink: var(--color-corrected);
+}
+
+.status-mark[data-status="corrected" i]::after {
+  content: "";
+  inset: 0;
+  width: 0.25em;
+  height: 0.25em;
+  margin: auto;
+}
+
+.status-mark[data-status="unverified" i] {
+  --mark-ink: var(--color-unverified);
+}
+
+/*
+  The check of a claim, anywhere but on the Checks page: the mark of its status and its id, as a link. The
+  mark is a .status-mark that checklink.js puts in; the text stays in the ink of the text.
+*/
+.check-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  min-height: 1.5rem;
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+
+.check-link > .status-mark {
+  align-self: center;
+}
+
+/* ---- A ruler of colours with a chip on it ---- */
+
+/*
+  .scale holds a label and a .scale-track. In the track: the line of the ruler, the ticks (.scale-ticks, each
+  placed with --at, 0% to 100%) and the chip. The chip is the thumb of a range input (.scale-input) when it can
+  be moved, or a .scale-chip placed with --at-fraction (0 to 1) when it only shows. --band is the colour of the
+  chip: set data-det="1" to "6" on .scale (or on a tick or chip) for the colour of that detector.
+*/
+.scale {
+  --thumb: 0.75rem;
+  --band: var(--color-accent);
+  min-width: 0;
+}
+
+[data-det="1"] { --band: var(--color-band-1); }
+[data-det="2"] { --band: var(--color-band-2); }
+[data-det="3"] { --band: var(--color-band-3); }
+[data-det="4"] { --band: var(--color-band-4); }
+[data-det="5"] { --band: var(--color-band-5); }
+[data-det="6"] { --band: var(--color-band-6); }
+
+.scale-label {
+  display: block;
+  margin-block-end: var(--space-1);
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+.scale-unit {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.scale-track {
+  position: relative;
+  height: 4.5rem;
+}
+
+/* the line of the ruler */
+.scale-track::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 2.125rem;
+  height: var(--rule-hair);
+  background: var(--color-rule);
+}
+
+.scale-ticks {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(var(--thumb) / 2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.scale-tick {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: var(--at);
+  max-width: none;
+}
+
+/* the tick itself */
+.scale-tick::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 1.8125rem;
+  inset-inline-start: calc(var(--rule-hair) / -2);
+  width: var(--rule-hair);
+  height: 0.6875rem;
+  background: var(--color-rule);
+}
+
+/* a tick that names its detector takes that detector's colour */
+.scale-tick[data-det]::before {
+  width: var(--rule-mid);
+  inset-inline-start: calc(var(--rule-mid) / -2);
+  background: var(--band);
+}
+
+.scale-tick-value,
+.scale-tick-name {
+  position: absolute;
+  inset-inline-start: 0;
+  transform: translateX(-50%);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.scale-tick-value {
+  inset-block-start: 3.25rem;
+}
+
+.scale-tick-name {
+  inset-block-start: 0;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.scale-tick.is-current .scale-tick-value {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* the two ends of a ruler: their numbers stay inside it */
+.scale-end:first-child .scale-tick-value {
+  transform: none;
+}
+
+.scale-end:nth-child(2) .scale-tick-value {
+  transform: translateX(-100%);
+}
+
+.scale-tick-quiet .scale-tick-value {
+  display: none;
+}
+
+.scale-tick-quiet.is-current .scale-tick-value {
+  display: block;
+}
+
+/* the chip that can be moved: a range input laid over the ruler */
+.scale-input {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0.75rem;
+  width: 100%;
+  height: var(--tap);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.scale-input:active {
+  cursor: grabbing;
+}
+
+.scale-input::-webkit-slider-runnable-track {
+  height: var(--tap);
+  background: transparent;
+}
+
+.scale-input::-moz-range-track {
+  height: var(--tap);
+  background: transparent;
+}
+
+.scale-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb);
+  height: 1.5rem;
+  margin-block-start: calc((var(--tap) - 1.5rem) / 2);
+  border: var(--rule-hair) solid var(--color-bg);
+  border-radius: 0;
+  background: var(--band);
+}
+
+.scale-input::-moz-range-thumb {
+  width: var(--thumb);
+  height: 1.5rem;
+  border: var(--rule-hair) solid var(--color-bg);
+  border-radius: 0;
+  background: var(--band);
+  box-sizing: border-box;
+}
+
+.scale-input:focus-visible {
+  outline-offset: -0.25rem;
+}
+
+/* the chip that only shows */
+.scale-chip {
+  position: absolute;
+  inset-block-start: 1.375rem;
+  inset-inline-start: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--at-fraction, 0));
+  width: var(--thumb);
+  height: 1.5rem;
+  margin-inline-start: calc(var(--thumb) / -2);
+  border: var(--rule-hair) solid var(--color-bg);
+  background: var(--band);
+}
+
+/* ---- A few named ways, in ruled rows, each with its meter ---- */
+
+.stops {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+  list-style: none;
+}
+
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  max-width: none;
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.stop-name {
+  display: block;
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.stop-about {
+  display: block;
+  margin-block-start: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+/* a stop that can be chosen: the whole row is the label of a radio button, drawn as a square */
+.stop-choice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+  cursor: pointer;
+}
+
+.stop-choice > input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0.125rem 0 0;
+  border: var(--rule-hair) solid var(--color-line-strong);
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.stop-choice > input:checked {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.stop:has(input:checked) {
+  background: var(--color-surface-raised);
+}
+
+.stop:has(input:focus-visible) {
+  z-index: var(--z-raised);
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.stop-choice > input:focus-visible {
+  outline: none;
+}
+
+/* the row answers the pointer anywhere, not only on its words */
+.stop-choice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* the meter of a stop: a bar whose length is set with --fill (0 to 1), and the number beside it */
+.stop-meter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.stop-meter:has([data-n]:empty) {
+  display: none;
+}
+
+/* the bar lies on a hair rule, which is its scale */
+.meter-bar {
+  display: block;
+  height: 0.75rem;
+  background: linear-gradient(var(--color-line-strong), var(--color-line-strong)) left bottom / 100% var(--rule-hair) no-repeat;
+}
+
+.meter-fill {
+  display: block;
+  width: calc(100% * var(--fill, 0));
+  min-width: var(--rule-mid);
+  height: 100%;
+  background: var(--color-text-muted);
+}
+
+/* without a length the bar is not drawn: the number stands alone */
+.meter-bar:not([style*="--fill"]) {
+  visibility: hidden;
+}
+
+.meter-value {
+  min-width: 5ch;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+/* ---- Under a small stage ---- */
+
+.transport {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* the button that says Play or Pause keeps its width */
+.transport-play {
+  min-width: 6rem;
+}
+
+.readout {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-caps);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Other ways of looking at the page ---- */
+
+@media (forced-colors: active) {
+  .btn-primary {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .btn[aria-pressed="true"] {
+    border-color: Highlight;
+  }
+
+  .cells {
+    background: CanvasText;
+  }
+
+  .meter-fill,
+  .stamp[data-status]::before,
+  .tag[data-status]::before {
+    background: CanvasText;
+  }
+
+  .status-mark {
+    border-color: CanvasText;
+    forced-color-adjust: none;
+  }
+
+  .status-mark::after,
+  .status-mark[data-status="pass" i] {
+    background: CanvasText;
+  }
+
+  .choice > [aria-pressed="true"],
+  .choice > [aria-checked="true"],
+  .choice > [aria-selected="true"],
+  .choice > :has(> input:checked) {
+    border-block-end-color: Highlight;
+  }
+
+  .plate-mark,
+  .disclosure > summary::before,
+  .about > summary::before {
+    forced-color-adjust: none;
+  }
+}

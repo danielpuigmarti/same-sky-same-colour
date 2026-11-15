@@ -1,0 +1,1221 @@
+/*
+  Pages: the layout of the first page (index.html). Built on tokens.css, base.css and components.css.
+  The viewer and the reading pages have files of their own.
+
+  The page is a bulletin. Under the masthead: the lead item (what happened, the form, and the plate that
+  shows it happening), then items, each in the form of its content: the results as a ledger, one night in four
+  colours as a black band across the page, the notice that a plain blink lies as text over its demonstration,
+  five targets and a comet as ruled rows, and the form once more.
+
+  A photo of the comet's field is 512 pixels across. On this page it is always drawn at twice its size and
+  never smoothed, centred on the comet, so every plate shows the same sky at the same scale, however wide it is.
+*/
+
+.page-index {
+  --photo: 64rem;                 /* a 512-pixel photo, at twice its size */
+  padding-block-start: var(--space-5);
+}
+
+/* an item brings its own rule and its own room */
+.page-index > * + * {
+  margin-block-start: 0;
+}
+
+.page-index h2 {
+  max-width: 16em;
+  letter-spacing: 0;
+}
+
+/* the row of cells under the masthead says things in words: .cells-text, from components.css */
+
+.masthead-cells a {
+  text-decoration-thickness: var(--rule-hair);
+}
+
+/* ---- The lead item: the headline, the offer, the form, and the plate ---- */
+
+.lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  padding-block-end: var(--space-7);
+}
+
+/*
+  On one column the order is: the headline, the offer, the form, the plate, then the places to try and the two
+  definitions. The parts of .lead-text take their place in the grid of .lead.
+*/
+.lead-text {
+  display: contents;
+}
+
+.lead .headline { order: 1; }
+.lead .lede { order: 2; }
+.lead .position { order: 3; }
+.lead .flip { order: 5; }
+.lead .position-try { order: 6; }
+.lead .terms { order: 7; }
+
+/* each sentence of the headline starts a line */
+.headline > span {
+  display: block;
+}
+
+.lead .lede {
+  max-width: var(--measure);
+  font-size: var(--text-md);
+}
+
+/* the form */
+.field-wrap {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+
+.field-wrap > .field {
+  padding-inline: var(--space-4);
+}
+
+.position {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+.position-message {
+  max-width: none;
+  margin-block-start: var(--space-2);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.position-message:empty {
+  display: none;
+}
+
+.position-hint {
+  max-width: var(--measure);
+  margin-block-start: var(--space-2);
+}
+
+/* the two words the page stands on, defined at first use: one ruled row of two cells */
+.terms {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: none;
+  margin: 0;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.terms > div {
+  padding-block: var(--space-3);
+}
+
+.terms > div + div {
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.terms dt {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+}
+
+.terms dd {
+  max-width: none;
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+@media (min-width: 40rem) {
+  .terms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .terms > div {
+    padding-inline: var(--space-4);
+  }
+
+  .terms > div:first-child {
+    padding-inline-start: 0;
+  }
+
+  .terms > div + div {
+    border-block-start: 0;
+    border-inline-start: var(--rule-hair) solid var(--color-line);
+  }
+}
+
+/* "Or try": the list itself (.try) is shared with the 404 page, in components.css */
+.position-try-label {
+  margin-block-end: var(--space-1);
+}
+
+/* ---- The plate that flips ---- */
+
+.flip {
+  min-width: 0;
+  margin: 0;
+}
+
+/* as the page is written, the two photos stand side by side, each with its words */
+.flip-states {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-items: start;
+}
+
+/* a photo of the comet's field: twice its size, centred on the comet, each pixel a sharp square */
+.flip .plate > img,
+.night .plate > img {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  width: var(--photo);
+  height: var(--photo);
+  max-width: none;
+  transform: translate(-50%, -50%);
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* the lead plate shows a window of 128 of the photo's 512 pixels, whatever its width: each pixel is a square */
+.flip .plate > img {
+  width: 400%;
+  height: 400%;
+}
+
+/* the three cells under the photo keep their slots whatever stands in them */
+.flip .cells {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.flip .cells > :last-child:nth-child(odd) {
+  grid-column: auto;
+}
+
+.flip .cells > * {
+  padding-inline: var(--space-3);
+}
+
+/*
+  Where scripts run, the two photos lie on each other and one shows at a time: the later one until the script
+  takes over, so that nothing jumps when it does. A plate whose script could not start (.is-still) goes back
+  to standing side by side.
+*/
+.flip.is-live .flip-states {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.flip.is-live .flip-state {
+  grid-area: 1 / 1;
+}
+
+/* both photos of the flip end at the same height, whichever has the longer date: the cells under the plate take
+   what is left, so that no rule moves when the photo changes */
+.flip-states > .flip-state.plate-frame {
+  align-self: stretch;
+  grid-template-rows: auto auto 1fr;
+}
+
+.flip.is-live[data-shows="after"] [data-state="before"],
+.flip.is-live[data-shows="before"] [data-state="after"] {
+  visibility: hidden;
+}
+
+@media (scripting: enabled) {
+  .flip:not(.is-still) .flip-states {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .flip:not(.is-still) .flip-state {
+    grid-area: 1 / 1;
+  }
+
+  .flip:not(.is-still):not(.is-live) [data-state="before"] {
+    visibility: hidden;
+  }
+
+  /* room for the control, so that what is below does not move when it comes */
+  .flip:not(.is-still):not(.is-live) .flip-states {
+    margin-block-end: calc(var(--tap) - var(--rule-hair));
+  }
+}
+
+/* the control that pauses the flipping: a row of the frame, as wide as the plate */
+.flip-control {
+  justify-content: flex-start;
+  width: 100%;
+  margin-block-start: calc(-1 * var(--rule-hair));
+  border-color: var(--color-line-strong);
+}
+
+.flip-control > svg {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.flip-caption {
+  max-width: none;
+  margin-block-start: var(--space-3);
+}
+
+/* ---- The results: a ledger ---- */
+
+.results-ledger {
+  margin-block-start: var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.results-ledger th,
+.results-ledger td {
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.results-ledger thead th {
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.results-ledger tbody th {
+  width: 16rem;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+.results-ledger td:last-child {
+  color: var(--color-text-muted);
+}
+
+.results-ledger td[colspan] {
+  color: var(--color-text);
+}
+
+.results-ledger a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+}
+
+.results-for {
+  margin-block-start: var(--space-4);
+}
+
+/* one line of values with words between them, under a heading */
+.record {
+  max-width: var(--measure);
+  margin-block-start: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}
+
+.record [data-n],
+.record .value {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.lie-def {
+  max-width: var(--measure);
+}
+
+.lie-times {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---- One night, four colours ---- */
+
+.night-head,
+.lie-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-block-start: var(--space-4);
+}
+
+.lie-head {
+  margin-block-start: 0;
+}
+
+.lie-text > * + * {
+  margin-block-start: var(--space-4);
+}
+
+.lie-text > p {
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+/* the night: a black band across the whole page, in both editions; its inks are those of the night */
+.night {
+  margin-inline: calc(-1 * var(--page-gutter));
+  padding: var(--space-7) var(--page-gutter);
+  border-block-start: 0;
+  background: var(--color-stage);
+  box-shadow: 0 0 0 100vmax var(--color-stage);
+  clip-path: inset(0 -100vmax);
+}
+
+.night .lede {
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+}
+
+.night-head .note {
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+}
+
+/*
+  The ruler. Its line runs the width of the page; each photo hangs from it at its colour, on a hair rule. The
+  four colours are evenly spaced to within a hundredth of a step, so four equal columns put each photo under
+  its own tick. Where carbon dioxide glows the line is heavy.
+*/
+.night-ruler {
+  --night-gap: var(--space-2);
+  --line: 2.25rem;                /* how far below the top of a photo's column the line of the ruler runs */
+  --thumb: 0.75rem;
+  --band: var(--color-accent);
+  position: relative;
+  margin-block-start: var(--space-6);
+}
+
+.night-ruler {
+  --key-h: 3.5rem;                /* the height of the key over the ruler: the chip is placed below it */
+}
+
+.night-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-5);
+  height: var(--key-h);
+}
+
+.night-key > * {
+  max-width: none;
+}
+
+/* the sign of the heavy line */
+.night-band::before {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: var(--rule-heavy);
+  margin-inline-end: var(--space-2);
+  background: var(--color-rule);
+  vertical-align: 0.2em;
+}
+
+.night-photos {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--night-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* the line of the ruler */
+.night-photos::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: var(--line);
+  height: var(--rule-hair);
+  background: var(--color-rule);
+}
+
+.night-photo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: none;
+}
+
+/* where carbon dioxide glows, the line is heavy from one photo to the next */
+.night-photo[data-band="inside"]::before {
+  content: "";
+  position: absolute;
+  inset-inline: calc(var(--night-gap) / -2);
+  inset-block-start: calc(var(--line) + var(--rule-hair) / 2 - var(--rule-heavy) / 2);
+  height: var(--rule-heavy);
+  background: var(--color-rule);
+}
+
+.night-photo[data-band="inside"]:last-child::before {
+  inset-inline-end: 0;
+}
+
+/* the colour of a photo stands over its tick; the hair rule below it is what the photo hangs from */
+.night-colour {
+  position: relative;
+  height: calc(var(--line) + var(--space-5));
+  max-width: none;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.night-colour::after {
+  content: "";
+  position: absolute;
+  inset-block: calc(var(--line) - var(--space-2)) 0;
+  inset-inline-start: calc(50% - var(--rule-hair) / 2);
+  width: var(--rule-hair);
+  background: var(--color-rule);
+}
+
+/* the photo the chip is on stands in a heavy frame */
+.night-photo.is-on .plate {
+  outline: var(--rule-heavy) solid var(--color-rule);
+}
+
+.night-photo.is-on .night-colour {
+  color: var(--color-display);
+}
+
+/* under a photo: when it was taken and how bright the comet is in it, on ruled lines */
+.night-data {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+  list-style: none;
+}
+
+.night-data > li {
+  max-width: none;
+  overflow-wrap: anywhere;
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.night-photo > .meter-bar {
+  margin-block-start: var(--space-2);
+}
+
+/* the chip that rides the ruler: a range input laid along its line, from the first tick to the last */
+.night-input {
+  position: absolute;
+  inset-block-start: calc(var(--key-h) + var(--line) + var(--rule-hair) / 2 - var(--tap) / 2);
+  inset-inline: calc((100% - 3 * var(--night-gap)) / 8 - var(--thumb) / 2);
+  width: auto;
+  height: var(--tap);
+  margin: 0;
+}
+
+.night-input::-webkit-slider-thumb {
+  width: var(--thumb);
+  border-color: var(--color-bg);
+}
+
+.night-readout {
+  min-height: calc(2 * var(--leading-snug) * 1em);
+  margin-block-start: var(--space-4);
+  max-width: none;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+}
+
+/* ---- A plain blink lies ---- */
+
+.lie-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  margin-block-start: var(--space-6);
+}
+
+.lie-stage:empty {
+  display: none;
+}
+
+/* on a narrow window the photo comes before the choice, and stays small enough to be seen with it */
+.lie-stage {
+  display: grid;
+  gap: var(--space-2);
+  justify-self: start;
+  order: -1;
+  width: 100%;
+  max-width: 24rem;
+}
+
+.lie-stage > .plate {
+  width: min(100%, 45vh);
+}
+
+.lie-choice {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.lie-choice > h3 {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-stretch: var(--stretch-text);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  word-spacing: 0;
+  line-height: var(--leading-snug);
+  text-wrap: pretty;
+}
+
+.lie-choice > * {
+  max-width: var(--measure);
+}
+
+.lie-moral {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+/* ---- Five targets and a comet ---- */
+
+.things-lede {
+  margin-block-start: var(--space-3);
+}
+
+.things-rows {
+  margin-block-start: var(--space-5);
+}
+
+.rows > .thing {
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.thing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1) var(--space-5);
+  align-items: baseline;
+}
+
+.thing > * {
+  max-width: none;
+}
+
+.thing .object-name a {
+  display: inline-block;
+  padding-block: var(--space-1);
+}
+
+.thing-change {
+  color: var(--color-text-muted);
+}
+
+/* ---- The form once more ---- */
+
+.again {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+/* ---- With room ---- */
+
+/* on a phone: the three cells under the lead photo stand one over another, each a line */
+@media (max-width: 39.99rem) {
+  .flip .cells {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flip .cells > * {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0 var(--space-3);
+  }
+
+  .results-ledger thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .results-ledger tr {
+    display: block;
+    padding-block: var(--space-3);
+    border-block-end: var(--rule-hair) solid var(--color-line);
+  }
+
+  .results-ledger th,
+  .results-ledger td {
+    display: block;
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .results-ledger td {
+    padding-block-start: var(--space-1);
+  }
+
+  .results-ledger td[data-label]::before {
+    content: attr(data-label) ": ";
+    color: var(--color-text-faint);
+  }
+}
+
+@media (min-width: 40rem) {
+  .night-ruler {
+    --night-gap: var(--space-4);
+  }
+
+  .thing {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  }
+
+  .thing-change {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 48rem) {
+  .night-ruler {
+    --key-h: 2.25rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .page-index {
+    padding-block-start: var(--space-6);
+  }
+
+  /* two columns that start on one line: the headline, the offer and the form; and the plate */
+  .lead {
+    grid-template-columns: minmax(0, 1fr) min(41.8%, calc(var(--photo) / 2 + 2 * var(--rule-hair)));
+    column-gap: clamp(var(--space-6), 5.5vw, 5.5rem);
+    align-items: start;
+    padding-block-end: var(--space-8);
+  }
+
+  .lead-text {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  /* the capitals of the headline start level with the top of the plate */
+  .lead .headline {
+    margin-block-start: -0.07em;
+    font-size: clamp(3rem, 5.3vw, 4.75rem);
+  }
+
+  /* near groups sit near, far groups far */
+  .lead .lede {
+    margin-block-start: var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .lead .position {
+    margin-block-start: var(--space-5);
+  }
+
+  .lead .position-try {
+    margin-block-start: var(--space-4);
+  }
+
+  .lead .terms {
+    margin-block-start: var(--space-6);
+  }
+
+  .night-head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-7);
+  }
+
+  /* the notice stands on the left; what it was shown on and measured on stands beside it, level with its foot */
+  .lie {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-8);
+  }
+
+  .lie > .record {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-block-start: 0;
+  }
+
+  .lie > .lie-head {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .lie > .lie-body {
+    grid-column: 1 / -1;
+  }
+
+  .night-ruler {
+    --night-gap: var(--space-5);
+  }
+
+  /* the choice stands on the left and the stage it plays on the right */
+  .lie-body {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    column-gap: var(--space-8);
+    align-items: start;
+  }
+
+  .lie-stage {
+    order: 0;
+    max-width: none;
+  }
+
+  .lie-stage > .plate {
+    width: 100%;
+  }
+
+  .thing {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) minmax(0, 5fr);
+  }
+
+  .thing-change {
+    grid-column: auto;
+  }
+
+  .again {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (forced-colors: active) {
+  .night-photos::before,
+  .night-photo[data-band="inside"]::before,
+  .night-colour::after,
+  .night-band::before {
+    background: CanvasText;
+  }
+}
+
+/* sentences that carry figures are prose: the text face, with the figures themselves in typewriter */
+.page-index .typed {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}
+
+.night-photo.is-on .plate {
+  outline-color: var(--color-text);
+}
+
+/* ---- The page for an address that holds nothing ---- */
+
+.page-missing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7);
+  align-content: start;
+  padding-block-start: var(--space-7);
+}
+
+.page-missing > * + * {
+  margin-block-start: 0;
+}
+
+.missing-text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.missing-text .missing-form {
+  justify-self: stretch;
+  margin-block-start: var(--space-3);
+}
+
+.missing-back {
+  margin-block-start: var(--space-4);
+}
+
+.missing-try {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+}
+
+.missing-plate {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+@media (min-width: 64rem) {
+  .page-missing {
+    grid-template-columns: minmax(0, 1fr) min(36%, 28rem);
+    column-gap: clamp(var(--space-6), 5.5vw, 5.5rem);
+    align-items: start;
+    padding-block: var(--space-7);
+  }
+
+  .missing-text .headline {
+    font-size: clamp(3rem, 5.3vw, 4.75rem);
+  }
+
+}
+
+/* ---- Why (why.html): the case for the tool, the two figures that make it, three short parts and who made it ---- */
+
+.page-why {
+  padding-block-start: var(--space-7);
+}
+
+.page-why > * + * {
+  margin-block-start: 0;
+}
+
+.why-lead {
+  display: grid;
+  gap: var(--space-5);
+  padding-block-end: var(--space-7);
+}
+
+.why-lead .lede,
+.why-lead .why-def {
+  max-width: var(--measure);
+}
+
+/* the comparison: how far a steady star seems to swing, drawn as two ruled bars on one scale */
+.why-compare {
+  display: grid;
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  list-style: none;
+}
+
+.why-compare > li {
+  display: grid;
+  gap: var(--space-2);
+  max-width: none;
+  padding-block: var(--space-3);
+}
+
+.why-compare > li + li {
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.why-compare-name {
+  font-weight: var(--weight-medium);
+}
+
+.why-compare .meter-bar {
+  height: 1rem;
+}
+
+.why-compare .meter-fill {
+  background: var(--color-display);
+}
+
+.why-compare-value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  max-width: none;
+}
+
+.why-compare .meter-value {
+  min-width: 0;
+  text-align: start;
+}
+
+.why-what {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  letter-spacing: 0;
+}
+
+.why-parts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.why-part {
+  padding-block: var(--space-6) var(--space-7);
+}
+
+.why-part + .why-part {
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.why-part > * + *,
+.why-us-text > * + * {
+  margin-block-start: var(--space-4);
+}
+
+.why-us {
+  display: grid;
+  gap: var(--space-4) var(--space-7);
+  padding-block: var(--space-6) var(--space-7);
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.why-us-text p {
+  max-width: var(--measure);
+}
+
+/* where to go next: ruled rows, each a line to tap */
+.why-next {
+  display: grid;
+  gap: var(--rule-hair);
+  margin: 0;
+  padding: 0;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  background: var(--color-line);
+  list-style: none;
+}
+
+.why-next li {
+  max-width: none;
+  background: var(--color-bg);
+}
+
+.why-next a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  font-weight: var(--weight-medium);
+}
+
+@media (min-width: 64rem) {
+  .why-lead .headline {
+    font-size: clamp(3rem, 6vw, 5.25rem);
+  }
+
+  .why-parts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .why-part {
+    padding-inline: var(--space-5);
+  }
+
+  .why-part:first-child {
+    padding-inline-start: 0;
+  }
+
+  .why-part:last-child {
+    padding-inline-end: 0;
+  }
+
+  .why-part + .why-part {
+    border-block-start: 0;
+    border-inline-start: var(--rule-hair) solid var(--color-line);
+  }
+
+  .why-us {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: start;
+  }
+
+  .why-next {
+    margin-block-start: var(--space-1);
+  }
+
+  .why-us h2 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---- How to use it, in three steps, under the offer of the first screen (index.html) ---- */
+
+.steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps > li {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  align-items: first baseline;
+  gap: var(--space-2);
+  max-width: none;
+  padding-block: var(--space-3);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+  counter-increment: step;
+}
+
+.steps > li + li {
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.steps > li::before {
+  content: counter(step);
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-display);
+  line-height: inherit;
+}
+
+/* on a phone the steps follow the form, so that the form stays on the first screen; beside the plate they come first */
+.lead .steps { order: 4; }
+
+@media (min-width: 64rem) {
+  .lead .steps {
+    order: 2;
+    margin-block-start: var(--space-4);
+  }
+}
+
+/* ---- The record, in one ruled line (index.html) ---- */
+
+.honesty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  max-width: none;
+  margin-block: var(--space-5);
+  padding-block: var(--space-2);
+  border-block: var(--rule-hair) solid var(--color-line-strong);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.honesty [data-n] {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.honesty a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  font-weight: var(--weight-medium);
+}
+
+/* what the two photos of the lead plate are, said once under them */
+.flip-says {
+  display: block;
+  margin-block-end: var(--space-1);
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+/* the three cells under the lead photo never break a date over lines */
+.flip .cells time,
+.flip .cells [data-when] {
+  white-space: nowrap;
+}
+
+/* ---- The challenge, line by line, on the first page: one ruled line for each ---- */
+
+.scorecard-box {
+  margin-block-start: var(--space-6);
+}
+
+.scorecard-box h3 {
+  margin-block-end: var(--space-2);
+}
+
+.scorecard {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--rule-hair) solid var(--color-line-strong);
+}
+
+.score {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line-strong);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.score-line {
+  grid-column: 1 / -1;
+  max-width: none;
+}
+
+.score[data-status="not built"] .score-line {
+  color: var(--color-text-muted);
+}
+
+.score-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+.score-link {
+  justify-self: end;
+}
+
+.score-link a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .score {
+    grid-template-columns: minmax(0, 1fr) 9.5rem 5.5rem;
+  }
+
+  .score-line {
+    grid-column: auto;
+  }
+}

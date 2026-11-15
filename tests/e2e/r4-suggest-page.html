@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions</title>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/suggest.css">
+</head>
+<body>
+<main id="main" class="page">
+<form action="view.html" method="get" role="search" aria-label="Sky position">
+<label class="field-label" for="where">TYPE A STAR'S NAME OR A SKY POSITION</label>
+<div class="joined joined-lg">
+<input class="field" id="where" name="q" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+<button class="btn btn-primary" type="submit">BLINK IT</button>
+</div>
+</form>
+<p><a href="lemmon.html" data-target="lemmon">COMET LEMMON</a></p>
+</main>
+<script type="module">
+import { mountSuggest } from './js/ui/suggest.js';
+const form = document.querySelector('form');
+const go = new URLSearchParams(location.search).has('stay') ? (href) => { window.__went = href; } : undefined;
+window.__suggest = mountSuggest(form, go ? { go } : {});
+</script>
+</body>
+</html>

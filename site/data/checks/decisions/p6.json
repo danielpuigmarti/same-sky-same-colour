@@ -1,0 +1,15 @@
+{
+ "S4": {
+  "build": false,
+  "why": "254 Gaia stars moving over 1 arcsec a year (G 11 to 16, two visits in detector 6); 6 not isolated; 24 tested in the seeded order; 24 passed every test (rule: at least 8). g2646192130603302400: less than 30 degrees from the ecliptic; g547381594623756416: fewer than 3 clean photos in detector 2; g3814642931282607104: less than 30 degrees from the ecliptic; g2860957125517813248: less than 30 degrees from the ecliptic; g4465690291808411008: fewer than 3 clean photos in detector 2; g6614280804418537472: less than 30 degrees from the ecliptic; g6832916148981189760: less than 30 degrees from the ecliptic; g2441630500517079808: less than 30 degrees from the ecliptic; g200296663143599104: less than 30 degrees from the ecliptic; g6271858008395422592: less than 30 degrees from the ecliptic; g6307111615356752128: less than 30 degrees from the ecliptic; g4007125842023089024: less than 30 degrees from the ecliptic; g4516795626657707008: fewer than 3 clean photos in detector 2; g6241924010489984896: less than 30 degrees from the ecliptic; g3680935136160410368: less than 30 degrees from the ecliptic; g6550040463175784192: less than 30 degrees from the ecliptic; g3335243109817560448: less than 30 degrees from the ecliptic; g2601148128510120576: less than 30 degrees from the ecliptic; g2640434056928150400: less than 30 degrees from the ecliptic; g1366580223320727808: fewer than 3 clean photos in detector 2 Not built.",
+  "stars": 24
+ },
+ "S5": {
+  "build": false,
+  "why": "JPL Horizons (observer SPHEREx) puts Pluto on 214 frames of the release; visits that are not short by detector: D1 2, D2 2, D3 3, D4 2, D5 2, D6 3. Found within 1 pixel of Horizons in D1 17 of 24; D2 13 of 24; D3 19 of 24; D4 12 of 24; D5 5 of 24; D6 0 of 24. No detector reaches 80 percent. Not shown. For information, not the rule: with the peak looked for only within 3 pixels of the Horizons place, D1 17 of 24; D2 14 of 24; D3 23 of 24; D4 14 of 24; D5 5 of 24; D6 0 of 24. Frames missed by the rule, by detector (stronger peak elsewhere in the box / peak 1 to 3 pixels from the place / peak too weak, none fitted or no valid pixels): D1 2 / 0 / 5; D2 11 / 0 / 0; D3 4 / 0 / 1; D4 5 / 2 / 5; D5 2 / 0 / 17; D6 6 / 0 / 18."
+ },
+ "S5b": {
+  "build": false,
+  "why": "JPL Horizons (observer SPHEREx) puts Pluto on 214 frames of the release. With nothing subtracted, Pluto found within 1 pixel of Horizons and gone from that place in the same-colour photo of another visit: D1 14 of 24; D2 8 of 24; D3 14 of 24; D4 9 of 24; D5 8 of 24; D6 1 of 24. For information, the two tests apart (a light at the place in the photo, of 24 pairs at most; the place empty in the twin): D1 21 and 16; D2 14 and 17; D3 23 and 14; D4 14 and 16; D5 9 and 22; D6 1 and 22. No detector reaches 80 percent. Not shown."
+ }
+}

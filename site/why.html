@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Why this tool exists: SPHEREx photos are free for anyone, but compared the obvious way they show changes that never happened. This tool compares them at the same colour, so a beginner can see how far to trust what they see.">
+<title data-page="Why">Why · Same Sky, Same Colour</title>
+<link rel="canonical" href="https://danielpuigmarti.github.io/same-sky-same-colour/why.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Why · Same Sky, Same Colour">
+<meta property="og:description" content="Why this tool exists: SPHEREx photos are free for anyone, but compared the obvious way they show changes that never happened. This tool compares them at the same colour, so a beginner can see how far to trust what they see.">
+<meta property="og:url" content="https://danielpuigmarti.github.io/same-sky-same-colour/why.html">
+<meta property="og:image" content="https://danielpuigmarti.github.io/same-sky-same-colour/img/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Same Sky, Same Colour: a SPHEREx photo of comet Lemmon at the colour of carbon dioxide.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+<div class="masthead-line">
+<a class="masthead-name" href="./" data-site="name">Same Sky, Same Colour</a>
+<nav class="masthead-nav" aria-label="Pages">
+<ul>
+<li><a href="./">Bulletin</a></li>
+<li><a href="view.html">Blink a place</a></li>
+<li><a href="lemmon.html">The comet</a></li>
+<li><a href="targets.html">Five targets</a></li>
+<li><a href="checks.html">Checks</a></li>
+<li><a href="why.html" aria-current="page">Why</a></li>
+</ul>
+</nav>
+<button class="masthead-edition" type="button" data-edition-toggle hidden>Day edition</button>
+</div>
+</header>
+<main id="main" class="page page-why">
+
+<section class="why-lead" aria-labelledby="why-title">
+<h1 id="why-title" class="headline"><span>FREE DATA</span> <span>SHOULD NOT FOOL ANYONE.</span></h1>
+<p class="lede">NASA’s SPHEREx photos of the whole sky are free for anyone to download. Compared the obvious way, they show changes that never happened. This tool compares them so that a student with a laptop can see how far to trust what they see.</p>
+<ol class="why-compare" aria-label="How far a steady star seems to swing, by the photos compared">
+<li>
+<p class="why-compare-name">All photos of one visit, in time order</p>
+<span class="meter-bar" style="--fill:1" aria-hidden="true"><span class="meter-fill"></span></span>
+<p class="why-compare-value"><span class="meter-value">&times;&#8239;<span data-n="lie.swing.all">11.8</span></span> <span class="why-what">Every photo of the visit is at a different colour.</span></p>
+</li>
+<li>
+<p class="why-compare-name">Two photos matched in colour, months apart</p>
+<span class="meter-bar" style="--fill:0.0086" aria-hidden="true"><span class="meter-fill"></span></span>
+<p class="why-compare-value"><span class="meter-value">&times;&#8239;<span data-n="lie.swing.matched">1.02</span></span> <span class="why-what">A swing of <span data-n="lie.swing.matched.percent">2</span>&nbsp;%. What this tool blinks.</span></p>
+</li>
+</ol>
+<p class="note why-def">Each figure is a steady star’s brightest reading divided by its faintest. The first is the middle value of <span data-n="lie.stars.all">20</span> stars over all <span data-n="lie.photos.all">112</span> photos of one visit; the second, of <span data-n="lie.stars.matched">14</span> stars between two matched photos. The two do not compare the same photos. The bars are on a logarithmic scale, so that &times;&#8239;1, no change, is no bar at all. How this was checked: <a class="check-link" href="checks.html#K7" data-check="K7">K7</a></p>
+</section>
+
+<div class="why-parts">
+<section class="why-part" aria-labelledby="problem-title">
+<h2 id="problem-title">THE PROBLEM</h2>
+<p>SPHEREx photographs the whole sky in infrared. The colour its camera records changes from one edge of the camera to the other, so the same star is photographed at a different colour each time. Stars are brighter at some colours than at others. Flip between two photos of a star and it can seem to change when nothing happened.</p>
+<p>We measured it on <span data-n="lie.stars.all">20</span> steady stars beside RW Aurigae: across all <span data-n="lie.photos.all">112</span> photos of one visit, their brightest reading is <span data-n="lie.swing.all">11.8</span> times their faintest (median).</p>
+<p>The trick is old. In 1930 Clyde Tombaugh found Pluto at Lowell Observatory by blinking photographic plates of one patch of sky. A SPHEREx photo of a patch can be at another colour than the last, so a plain blink can show changes that never happened.</p>
+</section>
+
+<section class="why-part" aria-labelledby="who-title">
+<h2 id="who-title">WHO IT AFFECTS</h2>
+<p>SPHEREx’s photos are public. Students, amateur astronomers and citizen scientists can all download them and look for things that moved or changed.</p>
+<p>Anyone who compares the photos the obvious way will find “discoveries” that are not real, and can spend a long time chasing them.</p>
+</section>
+
+<section class="why-part" aria-labelledby="change-title">
+<h2 id="change-title">WHAT IT CHANGES</h2>
+<p>It compares only photos taken at the same colour. Between two photos matched in colour the same <span data-n="lie.stars.matched">14</span> steady stars swing by a factor of <span data-n="lie.swing.matched">1.02</span> (median), a swing of <span data-n="lie.swing.matched.percent">2</span>&nbsp;%. A change much bigger than that is worth a closer look, and the “Is it real?” panel checks the usual false alarms.</p>
+<p>We tested it on three objects whose motion across the sky is already known, Barnard’s Star and two brown dwarfs. It matched the catalogue’s motion since 2010 to within <span data-n="targets.wise0855.shift.diff">0.7</span>&nbsp;arcseconds each time. Within SPHEREx’s own year the motion is smaller and less sure: WISE 0855 moved <span data-n="motion.wise0855.measured">3.2</span>&nbsp;arcseconds against <span data-n="motion.wise0855.catalogue">4.6</span> in the catalogue. One pixel of the camera is <span data-n="stage.pixel_arcsec">6.15</span>&nbsp;arcseconds. It runs in a browser, with nothing to install, and reads NASA’s public archive directly.</p>
+</section>
+</div>
+
+<section class="why-us" aria-labelledby="us-title">
+<h2 id="us-title">WHO WE ARE</h2>
+<div class="why-us-text">
+<p>We are two students of applied physics at TU/e, the Eindhoven University of Technology. Neither of us is a professional astronomer, and that is the point.</p>
+<p>NASA makes SPHEREx data free for anyone, but free data only helps if beginners can use it without fooling themselves. We want a student with a laptop to be able to look at the same sky as a professional and know how far to trust it. This tool is our first step toward that.</p>
+</div>
+<ul class="why-next" aria-label="Where to go from here">
+<li><a href="view.html">Blink a place of your own</a></li>
+<li><a href="targets.html">See the five targets it was tested on</a></li>
+<li><a href="checks.html">Read every check, the failed ones too</a></li>
+</ul>
+</section>
+
+</main>
+<footer class="colophon">
+<div class="cells">
+<p class="cell" data-site="name">Same Sky, Same Colour</p>
+<p class="cell">Photos: SPHEREx Level <span translate="no">2</span>, NASA/IPAC Infrared Science Archive</p>
+<p class="cell"><a href="checks.html">Checks</a> and <a href="lemmon.html">the comet</a></p>
+</div>
+</footer>
+</body>
+</html>

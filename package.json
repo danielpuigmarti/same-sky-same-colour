@@ -1,0 +1,25 @@
+{
+  "name": "same-sky-same-colour",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Blink SPHEREx images of one sky position taken months apart at the same infrared colour.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "demo": "node tools/demo.mjs",
+    "gate": "node tools/gate.mjs && node tests/unit/v4-pages.test.mjs --write",
+    "gate:check": "node tools/gate.mjs --check",
+    "test:unit": "node --test \"tests/unit/*.test.mjs\"",
+    "typecheck": "tsc --noEmit -p jsconfig.json",
+    "test": "npm run test:unit && npm run typecheck && npm run gate:check",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "typescript": "7.0.2"
+  }
+}

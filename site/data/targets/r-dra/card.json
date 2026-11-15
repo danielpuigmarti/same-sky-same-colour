@@ -1,0 +1,25 @@
+{
+ "id": "r-dra",
+ "name": "R Draconis",
+ "detector": 2,
+ "showcase": "manifest.json",
+ "preview": "pair.png",
+ "visits": [
+  "June 2025",
+  "November 2025"
+ ],
+ "kind": "saturated",
+ "check": "K6-rdra",
+ "plain": "too bright to measure",
+ "within_tolerance": true,
+ "verdict": "Saturated in {{targets.r-dra.saturated}} of the {{targets.r-dra.frames}} photos checked: no brightness is given.",
+ "reference": {
+  "text": "Gaia DR3 1648328016354496384, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+  "unverified": false
+ },
+ "numbers": [
+  "targets.r-dra.frames",
+  "targets.r-dra.saturated",
+  "targets.r-dra.pairs"
+ ]
+}

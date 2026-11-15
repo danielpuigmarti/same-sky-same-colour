@@ -1,0 +1,161 @@
+/*
+  The viewer, what stands at the foot of the page: the two lines that open ("How the pictures are drawn", and the
+  menu of a view with its link, its embed code and the photos it is made of).
+  Built on tokens.css, base.css, components.css and stage.css; loaded by view.html after them.
+*/
+
+/* ---- The lines that open: one under the other, sharing their rule ---- */
+
+.view-reading ul {
+  display: grid;
+  gap: var(--space-2);
+  padding-inline-start: calc(0.75rem + var(--space-3) + 1.25em);
+}
+
+.view > #share {
+  margin-block-start: 0;
+}
+
+/* ---- The menu of a view ---- */
+
+.share {
+  min-width: 0;
+  border-block-end: var(--rule-hair) solid var(--color-line-strong);
+}
+
+/* a ruled line with a plus that becomes a minus, as a line that opens has everywhere on the site */
+.share-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  text-align: start;
+  cursor: pointer;
+}
+
+.share-toggle::before {
+  content: "";
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat,
+    linear-gradient(currentColor, currentColor) center / var(--rule-hair) 100% no-repeat;
+}
+
+.share-toggle[aria-expanded="true"]::before {
+  background: linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat;
+}
+
+.share-toggle:hover {
+  background: var(--color-surface-raised);
+}
+
+/* what opens is indented text, not a box */
+.share-panel {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: 0 0 var(--space-4) calc(0.75rem + var(--space-3));
+}
+
+.share-panel[hidden] {
+  display: none;
+}
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.share-copy {
+  text-transform: uppercase;
+}
+
+.share-status {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.share-status:empty {
+  display: none;
+}
+
+/* what could not be copied, to copy by hand: a strip of the form */
+.share-fallback {
+  width: 100%;
+  min-width: 0;
+  max-width: var(--measure);
+  padding: var(--space-2);
+  border: var(--rule-mid) solid var(--color-line-strong);
+  background: var(--color-strip);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+/* the photos of the view: a line that opens inside the menu, then a ledger */
+.share-photos {
+  max-width: 60rem;
+}
+
+.share-photos > .share-source {
+  max-width: var(--measure);
+}
+
+.share-photos > .share-photo-list {
+  margin: var(--space-3) 0 var(--space-4);
+  padding-inline-start: 0;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.share-photo-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 var(--space-4);
+  min-width: 0;
+  padding-block: var(--space-2);
+  padding-inline-start: calc(0.75rem + var(--space-3));
+}
+
+.share-photo-when {
+  font-variant-numeric: tabular-nums;
+}
+
+.share-photo-file {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 64rem) {
+  .share-photo-list li {
+    grid-template-columns: 21rem minmax(0, 1fr);
+  }
+}
+
+/* ---- Embedded in another page: the pictures alone ---- */
+
+.is-embed #share,
+.is-embed #view-ranges {
+  display: none !important;
+}
+
+@media print {
+  .share {
+    display: none;
+  }
+}

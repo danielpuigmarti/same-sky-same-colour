@@ -1,0 +1,37 @@
+{
+ "stage.diff_grey_below": {
+  "value": 3,
+  "err": null,
+  "unit": "times the noise",
+  "text": "3",
+  "check": null
+ },
+ "stage.diff_range": {
+  "value": 5,
+  "err": null,
+  "unit": "times the noise",
+  "text": "5",
+  "check": null
+ },
+ "stage.flips_per_second": {
+  "value": 2,
+  "err": null,
+  "unit": "per second",
+  "text": "2",
+  "check": null
+ },
+ "stage.pixel_arcsec": {
+  "value": 6.15,
+  "err": null,
+  "unit": "arcsec",
+  "text": "6.15",
+  "check": null
+ },
+ "stage.stretch_percentile": {
+  "value": 99.5,
+  "err": null,
+  "unit": "%",
+  "text": "99.5",
+  "check": null
+ }
+}

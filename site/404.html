@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="noindex">
+<script>
+/* this page is served at the address that was mistyped, at any depth: find the site's folder first, so that the styles, scripts and links below resolve against it */
+(function () {
+  var parts = location.pathname.split('/').filter(Boolean);
+  var base = '/';
+  if (/(^|\/)404\.html$/.test(location.pathname)) base = location.pathname.replace(/404\.html$/, '');
+  else if (/\.github\.io$/.test(location.hostname) && parts.length) base = '/' + parts[0] + '/';
+  document.write('<base href="' + base + '">');
+  document.addEventListener('DOMContentLoaded', function () {
+    var skip = document.querySelector('.skip-link');
+    if (skip) skip.setAttribute('href', location.pathname + location.search + '#main');
+  });
+})();
+</script>
+<title data-page="Nothing at this address">Nothing at this address · Same Sky, Same Colour</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+<div class="masthead-line">
+<a class="masthead-name" href="./" data-site="name">Same Sky, Same Colour</a>
+<nav class="masthead-nav" aria-label="Pages">
+<ul>
+<li><a href="./">Bulletin</a></li>
+<li><a href="view.html">Blink a place</a></li>
+<li><a href="lemmon.html">The comet</a></li>
+<li><a href="targets.html">Five targets</a></li>
+<li><a href="checks.html">Checks</a></li>
+<li><a href="why.html">Why</a></li>
+</ul>
+</nav>
+<button class="masthead-edition" type="button" data-edition-toggle hidden>Day edition</button>
+</div>
+</header>
+<main id="main" class="page page-missing">
+<div class="missing-text">
+<h1 class="headline">NOTHING AT THIS ADDRESS.</h1>
+<p class="lede">The page you asked for is not part of this site. To look at a place in the sky, type its name or its position.</p>
+<form class="missing-form" action="view.html" method="get" role="search" aria-label="Sky position">
+<label class="field-label" for="where">Type a star’s name or a sky position</label>
+<div class="joined joined-lg">
+<input class="field" id="where" name="q" placeholder="Vega, M57 or 330.84 −56.79" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go">
+<button class="btn btn-primary" type="submit">BLINK IT</button>
+</div>
+</form>
+<div class="missing-try">
+<p class="label">Or try the five targets, or the comet</p>
+<ul class="try" aria-label="Places to try">
+<li><a href="view.html?t=eps-indi-b" data-target="eps-indi-b">EPSILON INDI B</a> <span class="try-what">two brown dwarfs drifting across the sky</span></li>
+<li><a href="view.html?t=barnard" data-target="barnard">BARNARD’S STAR</a> <span class="try-what">the fastest-moving star in the sky</span></li>
+<li><a href="view.html?t=wise0855" data-target="wise0855"><span translate="no">WISE 0855</span></a> <span class="try-what">the coldest brown dwarf known</span></li>
+<li><a href="view.html?t=rw-aur" data-target="rw-aur">RW AURIGAE</a> <span class="try-what">a young star that dims irregularly</span></li>
+<li><a href="view.html?t=r-dra" data-target="r-dra">R DRACONIS</a> <span class="try-what">a red giant, too bright to measure</span></li>
+<li><a href="lemmon.html" data-target="lemmon">COMET LEMMON</a> <span class="try-what">a comet that glows at the colour of carbon dioxide</span></li>
+</ul>
+</div>
+<p class="missing-back"><a href="./">Back to the bulletin</a></p>
+</div>
+<figure class="flip missing-plate">
+<div class="plate-frame">
+<div class="plate" data-plate>
+<img src="data/lemmon/wide/wide-0.png" width="512" height="512" alt="A patch of sky crowded with stars. At the marked spot in the middle there is nothing.">
+<span class="plate-mark" aria-hidden="true"></span>
+</div>
+<p class="plate-verdict" data-plate>NOTHING HERE</p>
+</div>
+<figcaption class="note">The marked spot on <span data-n="e1.lemmon.date.aug">10 August 2025</span>. Photo: NASA’s SPHEREx space telescope.</figcaption>
+</figure>
+</main>
+<footer class="colophon">
+<div class="cells">
+<p class="cell" data-site="name">Same Sky, Same Colour</p>
+<p class="cell">Photos: SPHEREx Level <span translate="no">2</span>, NASA/IPAC Infrared Science Archive</p>
+<p class="cell"><a href="checks.html">Checks</a> and <a href="lemmon.html">the comet</a></p>
+</div>
+</footer>
+</body>
+</html>

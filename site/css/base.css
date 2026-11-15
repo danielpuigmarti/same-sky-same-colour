@@ -1,0 +1,552 @@
+/*
+  Base styles: what every page shares. Built on tokens.css.
+  Parts that pages share go in components.css; the layout of a single page goes in pages.css.
+
+  The look, in four rules:
+    1. The page is a ruled form. Square corners, three weights of rule, no shadow. What the form prints (the
+       masthead, headlines, rules, the one filled button) is in one ink, --color-display; what is typed on it
+       (running text, the contents of cells) is in another, --color-text. In the day edition both are black.
+    2. Type has three voices. Headlines are Archivo at its narrowest and heaviest, with capitals written as
+       capitals. Running text is Archivo at its normal width. Anything measured (a date, a position, a colour,
+       the status of a check) and anything the form prints as a label is Courier Prime.
+    3. A photo, or a drawing made of data, stands on a black plate in both editions: give its holder the
+       attribute data-plate. Inside it every colour token is that of the night edition.
+    4. The second ink, --color-change, is for what changed and for a stamp. Nothing else is red.
+
+  Never set text-transform: uppercase on text that may hold a unit, a symbol or a number: µm would turn into
+  ΜM. It is used here on the name of the site and the links of the masthead, which are fixed words.
+*/
+
+/* ---- Roles, built from the tokens. Declared on a plate too, so that they follow its inks. ---- */
+
+:root,
+[data-plate] {
+  --color-change: var(--color-signal);      /* what really changed: a word, a number, the bar of a meter */
+  --color-empty: var(--color-line);         /* a pixel of a photo that has no value */
+  --font-data: var(--font-mono);            /* dates, colours, readouts: anything read off an instrument */
+  --word-narrow: 0.15em;                    /* word spacing of every setting of the narrow face: BLINK IT, INDI B */
+}
+
+/* ---- Reset ---- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-block-start: var(--space-5);
+  scrollbar-color: var(--color-line-strong) var(--color-bg);
+  caret-color: var(--color-accent);
+  accent-color: var(--color-accent);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-stretch: var(--stretch-text);
+  font-size: var(--text-md);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  font-synthesis: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd, figure, blockquote, pre {
+  margin: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---- Text ---- */
+
+/* headings are printed by the form: narrow, heavy, in its ink */
+h1, h2, h3, h4 {
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  word-spacing: var(--word-narrow);
+  text-wrap: balance;
+}
+
+/* the headline of a page: write it in capitals */
+h1 {
+  font-size: var(--text-display);
+  font-weight: var(--weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+p, li, dd, figcaption {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+small,
+figcaption {
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-text-muted);
+}
+
+strong, b {
+  font-weight: var(--weight-medium);
+}
+
+em {
+  font-style: normal;
+  font-weight: var(--weight-medium);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+}
+
+/* a time or a figure in running text stays in the text face, with lining figures; a cell, a ledger or a readout sets its own */
+time {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+code, kbd, samp, pre {
+  font-size: 0.9375em;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+abbr[title] {
+  text-decoration: underline dotted var(--rule-hair);
+  text-underline-offset: 0.18em;
+  cursor: help;
+}
+
+/* a number filled from numbers.json keeps its digits in line and is never broken across two lines */
+[data-n] {
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+
+hr {
+  border: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+  margin-block: var(--space-6);
+}
+
+/* ---- The surfaces the browser draws ---- */
+
+/* selected text: the two inks change places */
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* the browser's own colouring of a field that it filled in */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text);
+  box-shadow: 0 0 0 100rem var(--color-strip) inset;
+  caret-color: var(--color-text);
+}
+
+::placeholder {
+  color: var(--color-text-faint);
+  opacity: 1;
+}
+
+/* ---- Links and focus ---- */
+
+/* a link is in the ink of the text around it and underlined: the underline is what says "link" */
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: 0.18em;
+  text-decoration-color: currentColor;
+}
+
+/* under the pointer the underline takes the next weight of rule */
+a:hover {
+  text-decoration-thickness: var(--rule-mid);
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---- Media ---- */
+
+img, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img, video {
+  height: auto;
+}
+
+/* ---- A plate: black in both editions, with the inks of the night ---- */
+
+[data-plate] {
+  background: var(--color-stage);
+  color: var(--color-text);
+  scrollbar-color: var(--color-line-strong) var(--color-stage);
+  caret-color: var(--color-accent);
+  accent-color: var(--color-accent);
+}
+
+/* ---- Tables: ruled rows, a heavier rule under the head ---- */
+
+table {
+  border-collapse: collapse;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+th, td {
+  padding: var(--space-2) var(--space-3);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+  text-align: start;
+  vertical-align: top;
+}
+
+th {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+thead th {
+  border-block-end: var(--rule-mid) solid var(--color-line-strong);
+  vertical-align: bottom;
+}
+
+/* ---- Controls take the type of the page and its square corners ---- */
+
+button, input, select, textarea {
+  font: inherit;
+  font-stretch: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  border-radius: 0;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- Something that opens ---- */
+
+summary {
+  cursor: pointer;
+}
+
+/* ---- The frame of every page: skip link, masthead, content, colophon ---- */
+
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-start: var(--space-3);
+  z-index: var(--z-overlay);
+  padding: var(--space-3) var(--space-4);
+  border: var(--rule-mid) solid var(--color-rule);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transform: translateY(-300%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/*
+  The masthead: the name of the site, the five pages, the control that changes the edition, and under them the
+  heavy rule. What stands under that rule belongs to each page: a row of cells (.cells), a form, or a title.
+  Put it inside the masthead, after .masthead-line, and it lies flush against the rule.
+*/
+.masthead {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.masthead-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-4);
+  padding-block: var(--space-2) var(--space-1);
+  border-block-end: var(--rule-heavy) solid var(--color-rule);
+}
+
+.masthead-name {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  margin-inline-end: auto;
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-display);
+  line-height: 1;
+  word-spacing: var(--word-narrow);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.masthead-name:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--rule-mid);
+}
+
+/* on a narrow window the pages stand on lines of their own, under the name and the control */
+.masthead-nav {
+  order: 3;
+  flex: 1 0 100%;
+}
+
+.masthead-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead-nav li {
+  max-width: none;
+}
+
+.masthead-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: clamp(0.6875rem, 2.95vw, var(--text-sm));
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration-line: none;
+  white-space: nowrap;
+}
+
+/* a line of the masthead is 2.25rem high to the eye and --tap high to the finger */
+.masthead-nav a::after {
+  content: "";
+  position: absolute;
+  inset: calc((2.25rem - var(--tap)) / 2) 0;
+}
+
+.masthead-nav a:hover {
+  text-decoration-line: underline;
+}
+
+.masthead-nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+
+/* the control that changes the edition: a ruled rectangle that says which edition it leads to */
+.masthead-edition {
+  position: relative;
+  order: 2;
+  min-height: 2rem;
+  padding: 0 var(--space-3);
+  border: var(--rule-hair) solid var(--color-line-strong);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.masthead-edition::after {
+  content: "";
+  position: absolute;
+  inset: calc((2rem - var(--tap)) / 2) 0;
+}
+
+.masthead-edition:hover {
+  background: var(--color-surface-raised);
+}
+
+.masthead-edition:active {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* on a phone the longer label ("Night edition") has to fit beside the name as well as the shorter one */
+@media (max-width: 26rem) {
+  .masthead-line {
+    column-gap: var(--space-2);
+  }
+
+  .masthead-name {
+    font-size: var(--text-lg);
+  }
+
+  .masthead-edition {
+    padding-inline: var(--space-2);
+    font-size: var(--text-xs);
+  }
+}
+
+/* what stands under the heavy rule lies against it and has no rule at its sides */
+.masthead > .cells {
+  border-block-start: 0;
+  border-inline: 0;
+}
+
+@media (min-width: 64rem) {
+  .masthead-line {
+    gap: 0 var(--space-5);
+    padding-block: var(--space-3) var(--space-2);
+  }
+
+  .masthead-name {
+    font-size: 1.625rem;
+  }
+
+  .masthead-nav {
+    order: 0;
+    flex: 0 1 auto;
+  }
+
+  .masthead-nav ul {
+    justify-content: flex-start;
+    gap: 0 var(--space-5);
+  }
+
+  .masthead-nav a {
+    min-height: var(--tap);
+  }
+
+  .masthead-nav a::after {
+    content: none;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: clamp(var(--space-5), 2vw + 1rem, var(--space-7)) var(--page-gutter) var(--space-9);
+}
+
+/* the parts of a page stand well apart: more room on a wide window, where there is more to take in at once */
+.page > * + * {
+  margin-block-start: clamp(var(--space-6), 3vw + 1rem, var(--space-8));
+}
+
+/* a part of a page that has nothing in it yet takes no room */
+.page > section:empty {
+  display: none;
+}
+
+/*
+  The colophon: the last lines of every page, as one row of cells under a heavy rule. Put a .cells inside it.
+*/
+.colophon {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: 0 var(--page-gutter) var(--space-7);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.colophon > .cells {
+  border-inline: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+}
+
+.colophon p {
+  max-width: none;
+}
+
+/* the colophon's cells hold words */
+.colophon .cells > * {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+}
+
+/* ---- Helpers ---- */
+
+/* for text that only a screen reader should meet */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Other ways of looking at the page ---- */
+
+@media (forced-colors: active) {
+  .masthead-line {
+    border-block-end-color: CanvasText;
+  }
+}
+
+@media print {
+  .skip-link,
+  .masthead-nav,
+  .masthead-edition {
+    display: none;
+  }
+}

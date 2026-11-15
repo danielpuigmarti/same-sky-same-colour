@@ -1,0 +1,22 @@
+{
+ "about": "The stored answer of the live self-test on the Checks page. The frame is the first photo of the prepared WISE 0855-0714 target; its stamp origin and time are those in data/targets/wise0855/manifest.json (a unit test keeps the two the same). The tolerances were written from the data, before the first run against the archive, and are not tuned to pass.",
+ "budget_ms": 20000,
+ "target": { "id": "wise0855", "name": "WISE 0855-0714", "ra": 133.75976527, "dec": -7.24218218, "det": 6 },
+ "key": "dr1/level2/2025W46_1A/l2b-v27-2026-206/6/level2_2025W46_1A_0075_4D6_spx_l2b-v27-2026-206.fits",
+ "values": [
+  { "id": "nx", "label": "Photo width", "unit": "pixels", "stored": 2040, "tolerance": 0, "digits": 0,
+    "why": "A SPHEREx detector is a fixed array of this size and the reader's offsets depend on it, so no difference is allowed." },
+  { "id": "ny", "label": "Photo height", "unit": "pixels", "stored": 2040, "tolerance": 0, "digits": 0,
+    "why": "The detector is square, as its width: no difference is allowed." },
+  { "id": "mjd", "label": "Time of the photo (MJD, UTC)", "unit": "days", "stored": 60989.297473643, "tolerance": 0.000001, "digits": 9,
+    "why": "The header of a released file does not change. 0.000001 days is 0.09 seconds, and the header gives the time to 0.000000001 days, so a rounding of the last digits passes and a different file does not." },
+  { "id": "x0", "label": "Stamp, first column", "unit": "pixel", "stored": 899, "tolerance": 0, "digits": 0,
+    "why": "Where the reader puts the target on the photo, cut to a whole pixel (6.15 arcsec). The target must fall on the same pixel as in the stored answer, so no difference is allowed." },
+  { "id": "y0", "label": "Stamp, first row", "unit": "pixel", "stored": 1951, "tolerance": 0, "digits": 0,
+    "why": "As the first column, for the row: the same pixel, so no difference is allowed." },
+  { "id": "pixels", "label": "Pixels in the stamp", "unit": "pixels", "stored": 4096, "tolerance": 0, "digits": 0,
+    "why": "The stamp is 64 by 64 pixels and is read whole." },
+  { "id": "roundtrip", "label": "Sky position after the round trip through the photo's coordinates", "unit": "arcsec", "stored": 0, "tolerance": 0.1, "digits": 4,
+    "why": "The target's position goes into the photo's coordinates and comes back, and must return to where it started. 0.1 arcsec is the limit the typed-position check uses against astropy (row d2-coords), a sixtieth of a pixel." }
+ ]
+}

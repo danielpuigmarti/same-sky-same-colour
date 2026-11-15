@@ -1,0 +1,106 @@
+{
+ "w": 64,
+ "h": 64,
+ "items": [
+  {
+   "source": "frames/barnard-d2",
+   "dx": 0.3,
+   "dy": -0.2
+  },
+  {
+   "source": "frames/barnard-d2",
+   "dx": -0.45,
+   "dy": 0.1
+  },
+  {
+   "source": "frames/barnard-d2",
+   "dx": 0.12,
+   "dy": 0.4
+  },
+  {
+   "source": "frames/barnard-d2",
+   "dx": -0.7,
+   "dy": 0.25
+  },
+  {
+   "source": "frames/eps-indi-d5",
+   "dx": 0.3,
+   "dy": -0.2
+  },
+  {
+   "source": "frames/eps-indi-d5",
+   "dx": -0.45,
+   "dy": 0.1
+  },
+  {
+   "source": "frames/eps-indi-d5",
+   "dx": 0.12,
+   "dy": 0.4
+  },
+  {
+   "source": "frames/eps-indi-d5",
+   "dx": -0.7,
+   "dy": 0.25
+  },
+  {
+   "source": "showcase/barnard-d5#0",
+   "dx": 0.3,
+   "dy": -0.2
+  },
+  {
+   "source": "showcase/barnard-d5#0",
+   "dx": -0.45,
+   "dy": 0.1
+  },
+  {
+   "source": "showcase/barnard-d5#0",
+   "dx": 0.12,
+   "dy": 0.4
+  },
+  {
+   "source": "showcase/barnard-d5#0",
+   "dx": -0.7,
+   "dy": 0.25
+  },
+  {
+   "source": "showcase/barnard-d5#2",
+   "dx": 0.3,
+   "dy": -0.2
+  },
+  {
+   "source": "showcase/barnard-d5#2",
+   "dx": -0.45,
+   "dy": 0.1
+  },
+  {
+   "source": "showcase/barnard-d5#2",
+   "dx": 0.12,
+   "dy": 0.4
+  },
+  {
+   "source": "showcase/barnard-d5#2",
+   "dx": -0.7,
+   "dy": 0.25
+  },
+  {
+   "source": "showcase/barnard-d5#3",
+   "dx": 0.3,
+   "dy": -0.2
+  },
+  {
+   "source": "showcase/barnard-d5#3",
+   "dx": -0.45,
+   "dy": 0.1
+  },
+  {
+   "source": "showcase/barnard-d5#3",
+   "dx": 0.12,
+   "dy": 0.4
+  },
+  {
+   "source": "showcase/barnard-d5#3",
+   "dx": -0.7,
+   "dy": 0.25
+  }
+ ]
+}

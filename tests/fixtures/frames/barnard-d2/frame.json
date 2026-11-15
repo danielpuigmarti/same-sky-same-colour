@@ -1,0 +1,91 @@
+{
+ "id": "barnard-d2",
+ "key": "dr1/level2/2026W11_2A/l2b-v27-2026-234/2/level2_2026W11_2A_0501_1D2_spx_l2b-v27-2026-234.fits",
+ "size": 61352640,
+ "target": {
+  "ra": 269.44636,
+  "dec": 4.76706
+ },
+ "pixel": {
+  "x": 845.3865203645387,
+  "y": 641.8326634102676
+ },
+ "stamp": {
+  "key": "dr1/level2/2026W11_2A/l2b-v27-2026-234/2/level2_2026W11_2A_0501_1D2_spx_l2b-v27-2026-234.fits",
+  "det": 2,
+  "mjd": 61114.032669638,
+  "w": 64,
+  "h": 64,
+  "x0": 813,
+  "y0": 610,
+  "tx": 32.38652036453868,
+  "ty": 31.832663410267628,
+  "lam": 1.4455310036995472,
+  "bw": 0.03544820367928244
+ },
+ "expected": {
+  "data": "image.f32",
+  "flags": "flags.i32"
+ },
+ "counts": {
+  "nonfinite": 2,
+  "flags_nonzero": 4095
+ },
+ "hdus": [
+  {
+   "name": "PRIMARY",
+   "hdrLoc": 0,
+   "datLoc": 2880,
+   "datSpan": 0
+  },
+  {
+   "name": "IMAGE",
+   "hdrLoc": 2880,
+   "datLoc": 28800,
+   "datSpan": 16646400
+  },
+  {
+   "name": "FLAGS",
+   "hdrLoc": 16675200,
+   "datLoc": 16692480,
+   "datSpan": 7470720
+  }
+ ],
+ "flags_layout": {
+  "compression": "RICE_1",
+  "tile": [
+   2040,
+   1
+  ],
+  "blocksize": 32,
+  "bytepix": 4,
+  "pointer": "1PB (two big-endian int32: length, offset)",
+  "heap": 16708800
+ },
+ "ranges": [
+  {
+   "start": 0,
+   "end": 28799,
+   "file": "bytes-0-28799.bin",
+   "what": "file start: primary header and IMAGE header"
+  },
+  {
+   "start": 5006400,
+   "end": 5528639,
+   "file": "bytes-5006400-5528639.bin",
+   "what": "IMAGE rows 610 to 673 (2040 big-endian float32 each)"
+  },
+  {
+   "start": 16675200,
+   "end": 16714559,
+   "file": "bytes-16675200-16714559.bin",
+   "what": "FLAGS header (17280 bytes), the pointer table of all 2040 rows (16320 bytes) and the first 5760 bytes of the heap"
+  },
+  {
+   "start": 18908995,
+   "end": 19140394,
+   "file": "bytes-18908995-19140394.bin",
+   "what": "FLAGS compressed rows 610 to 673 (heap bytes 2200195 to 2431594)"
+  }
+ ]
+}

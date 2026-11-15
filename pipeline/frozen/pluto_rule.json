@@ -1,0 +1,22 @@
+{
+ "id": "PB6-Pluto",
+ "question": "Does Pluto land where JPL Horizons says it should be in a same-colour flipbook of SPHEREx photos?",
+ "written": "2026-11-14T20:57+00:00, before any Pluto photo was read",
+ "positions": "JPL Horizons, observer SPHEREx (id -163182), astrometric ICRS, target 999 (Pluto), at the mid-exposure time of every photo",
+ "frames": "every DR1 frame in the frame index whose outline contains Pluto's Horizons position at the frame's time (frames found with a daily ephemeris, then confirmed at their own time); photos are kept only when Pluto is at least 12 pixels from the detector edge",
+ "visits": "the visit rule is applied to the frames that hold Pluto; Pluto is covered if two or more visits that are not short (at least 3 photos in the detector) hold it",
+ "twin": "for each photo, the frames of other visits (visit rule applied to the frames that cover the sky position of Pluto in that photo) are candidates; the shared match rule (same detector, colour within half the smaller bandwidth at that pixel, closest colour first) picks the twin; a twin is dropped when Pluto itself lies within 12 pixels of that position at the twin's time",
+ "difference": "the photo minus its twin on the photo's pixel grid, each with its own background removed (sigma-clipped median), expressed in noise units by the shared rules; the photo's stamp is 48 by 48 pixels centred on Pluto's predicted position",
+ "found": "the strongest positive peak of the difference, after smoothing with a Gaussian of 1 pixel, in the 21 by 21 pixels round the predicted position is at least 5 noise units high and its fitted centre is within 1 pixel (6.15 arcsec) of the predicted position",
+ "per_detector": "each detector is judged on its own; at most 24 difference frames per detector, evenly spaced in time; a detector with fewer than 4 difference frames is not judged",
+ "passes_if": "Pluto is covered in two visits that are not short, and in at least one detector at least 80 percent of its difference frames are found",
+ "if_it_passes": "a showcase of the passing detector with the most difference frames (ties: the lower detector), position only, no spectrum and no label of any ice",
+ "if_it_fails": "no Pluto showcase; the decision says why",
+ "pixel_arcsec": 6.15,
+ "max_per_detector": 24,
+ "min_per_detector": 4,
+ "peak_noise_units": 5.0,
+ "radius_px": 1.0,
+ "search_px": 10,
+ "fraction": 0.8
+}

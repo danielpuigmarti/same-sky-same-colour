@@ -1,0 +1,47 @@
+{
+ "id": "PB7",
+ "question": "Are there enough clean fast movers for a gallery of stars that moved between 2010 and 2026, and for a fair spot-the-mover set?",
+ "written": "2026-11-14T20:57+00:00, before any SPHEREx photo or AllWISE image was measured for this decision",
+ "candidates": {
+  "catalogue": "Gaia DR3 gaia_source, ESA archive",
+  "proper_motion_mas_per_year_above": 1000,
+  "g_mag_between": [
+   11.0,
+   16.0
+  ],
+  "parallax_over_error_at_least": 5,
+  "ruwe_below": 1.4,
+  "isolation": "no other Gaia DR3 source brighter than the star plus 2.5 magnitudes within 20 arcsec of the star's position in 2010 or in 2026",
+  "coverage": "detector 6 has two visits that are not short (visit rule, default pair) at the star's position in 2026.0, from the frame index",
+  "order": "the candidates are shuffled with the seed and tested in that order; testing stops at 12 stars that pass or after 60 stars tested"
+ },
+ "photos_used": "every detector 6 photo of the two visits of the default pair that holds the star at least 12 pixels from the detector edge and not in the rows the match rule never uses; at most 12 photos from each visit, evenly spaced in time",
+ "unsaturated": "in none of the photos used does a pixel within 2 pixels of the star's catalogue position carry the OVERFLOW, NONLINEAR or BLOOM flag; a star with such a photo is rejected, not repaired",
+ "lands_on_its_ring": {
+  "spherex": "in each of the two visits the mean position of the star over the photos in which it is fitted (at least 3 photos with a peak of at least 10 times the noise) is within 1 detector pixel (6.15 arcsec) of the position that Gaia DR3 gives, moved to the time of each photo with proper motion and parallax (astropy)",
+  "allwise_2010": "in the AllWISE Atlas W2 image the fitted position is within 1 AllWISE pixel (1.375 arcsec) of the Gaia position moved to the middle of the image's observation dates"
+ },
+ "empty_fields": {
+  "count": 6,
+  "matched_density": "the number of Gaia DR3 sources with G below 17 in the 246 arcsec field is within 25 percent (at least 3) of the number in the field of the mover it is paired with",
+  "truly_empty": "no Gaia DR3 source in the field has a proper motion of 150 mas/year or more, or lacks a proper motion, at G below 19; the field is at least 30 degrees from the ecliptic; its position is at least 0.5 and at most 3 degrees from its mover; detector 6 and detector 2 both have two visits that are not short there; an AllWISE W2 image covers it",
+  "checked_in": "the same photos are used as for a mover, with the same saturation rule"
+ },
+ "passes_if": "at least 8 stars pass every test above and 6 empty fields meet the field rule",
+ "if_it_passes": "gallery showcases for every star that passed (up to 12); a set of 12 blinks for \"Can you spot it?\": 6 fields with a mover and 6 empty, each shown plain (detector 2 photos, a different colour from the 2010 image) or colour-matched (detector 6 photos, the colour of the 2010 image), balanced 3 and 3 within movers and within empty fields and assigned by the seed",
+ "if_it_fails": "nothing is written but the decision",
+ "pixel_arcsec": 6.15,
+ "allwise_pixel_arcsec": 1.375,
+ "seed": 20261114,
+ "min_stars": 8,
+ "max_tested": 60,
+ "max_accepted": 12,
+ "amendments": [
+  {
+   "written": "2026-11-14T21:50Z, after the first run measured 12 stars and then found no empty field for most of them",
+   "what": "The six movers of the spot-it set are taken, in the seeded order, from the stars that passed and lie at least 30 degrees from the ecliptic, and up to 60 trial positions are tried for each empty field. Testing goes on past the 12 stars of the gallery (the first 12 that pass, in the seeded order) until 8 stars that passed lie at least 30 degrees from the ecliptic, or 60 stars have been tested.",
+   "why": "The field rule asks for an empty field within 3 degrees of its mover and at least 30 degrees from the ecliptic (where asteroids that moved between 2010 and 2026 would make a field not empty). Both can hold only if the mover itself is that far from the ecliptic. The first run had tried 25 positions for movers within 10 degrees of the ecliptic.",
+   "unchanged": "the tests of a star (saturation, 1 pixel in SPHEREx and in AllWISE), the minimum of 8 stars, the 6 empty fields, the density and emptiness rules"
+  }
+ ]
+}

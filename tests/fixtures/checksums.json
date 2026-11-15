@@ -1,0 +1,126 @@
+{
+ "contracts/checks.json": {
+  "bytes": 2327,
+  "sha256": "63d366f8342c6fed722ee0c158bd8e10670ac3aeba7931d71abc8ecbd9bfd712"
+ },
+ "contracts/numbers.json": {
+  "bytes": 563,
+  "sha256": "164195d0975be2c5c636fa63b7575de69fa40766d3b63006225d08529084ed9d"
+ },
+ "frames/barnard-d2/bytes-0-28799.bin": {
+  "bytes": 28800,
+  "sha256": "f98f1ff61ff692b559b948f9e4e2cb4f2a2cdc84a30fb6ef4c15c070dd2afe10"
+ },
+ "frames/barnard-d2/bytes-16675200-16714559.bin": {
+  "bytes": 39360,
+  "sha256": "aa9232b98d801292d422abc4d87afba95c1243b75b4cf3c1d40a3378f82bb1fa"
+ },
+ "frames/barnard-d2/bytes-18908995-19140394.bin": {
+  "bytes": 231400,
+  "sha256": "c3190954db5897c026423175a02c8f7fd6c49bcf389995c9bc9a739829265837"
+ },
+ "frames/barnard-d2/bytes-5006400-5528639.bin": {
+  "bytes": 522240,
+  "sha256": "c8ca4956d8ea6061bead1f0fadc06e1402fc5a33b765f3aaca3e1516162a9802"
+ },
+ "frames/barnard-d2/flags.i32": {
+  "bytes": 16384,
+  "sha256": "1c2e223016a938fe0a5bfca0ec435d9601474f09bbda1b4a9a9d8248906989e9"
+ },
+ "frames/barnard-d2/frame.json": {
+  "bytes": 1882,
+  "sha256": "4ecf0e3abe3376be508c7fef23e959832689bf2c2f0b062763ee95411e58b051"
+ },
+ "frames/barnard-d2/image.f32": {
+  "bytes": 16384,
+  "sha256": "6f914bff3857b50957c6310d6528bb0010d712f0f4e68a530eda2eebd7b4f0df"
+ },
+ "frames/eps-indi-d4/bytes-0-28799.bin": {
+  "bytes": 28800,
+  "sha256": "a24dd419aa67ccb9fc864fa22e56c5ee08fe7d18da9a5da593070adc4e49dd95"
+ },
+ "frames/eps-indi-d4/bytes-13800000-14322239.bin": {
+  "bytes": 522240,
+  "sha256": "b8e0781f77cda1dc64d40a0a6e370988c672079f7ef2c9b032f804b93daf8116"
+ },
+ "frames/eps-indi-d4/bytes-16672320-16711679.bin": {
+  "bytes": 39360,
+  "sha256": "916188b4e325dcf83877e787273ea49839a11948ef354d87a6ee265b28641ae3"
+ },
+ "frames/eps-indi-d4/bytes-26587653-26948659.bin": {
+  "bytes": 361007,
+  "sha256": "ccba56dff27ee0fb01dcf757a6d51d3ad7e7811c8ab879b74b8dc26933147af1"
+ },
+ "frames/eps-indi-d4/flags.i32": {
+  "bytes": 16384,
+  "sha256": "9ccf1e73e63eea5ff4972f0fb4d2674290648d69adfbdeba5042ebd7250e0146"
+ },
+ "frames/eps-indi-d4/frame.json": {
+  "bytes": 1933,
+  "sha256": "0ebf12f5ab69c77cb22f55cccbc1a576aeea69ba9bb9256e376e5142bac9db9d"
+ },
+ "frames/eps-indi-d4/image.f32": {
+  "bytes": 16384,
+  "sha256": "61b0c7b8a7704b3c88d29249f1e388403227ee94c7cc1e8aa08b91b00f0df0d1"
+ },
+ "frames/eps-indi-d5/bytes-0-28799.bin": {
+  "bytes": 28800,
+  "sha256": "d00aa2d09c96d0e3536ae7620289fe061059d5ee76095107d9da68f56f6ff1a9"
+ },
+ "frames/eps-indi-d5/bytes-16672320-16711679.bin": {
+  "bytes": 39360,
+  "sha256": "76fd663a739a95f7d8a4cb95da2289c5ce1884eae7a16b6c5cd8633bf4058811"
+ },
+ "frames/eps-indi-d5/bytes-19320983-19670293.bin": {
+  "bytes": 349311,
+  "sha256": "6691de128535e9c58267c925005b09ae0954304e17d112af3d24b19b7bf74f4f"
+ },
+ "frames/eps-indi-d5/bytes-3697920-4220159.bin": {
+  "bytes": 522240,
+  "sha256": "955b7ad00ee20145f1567476ae380ae0e61234b1fab5c19594bb9f0192423023"
+ },
+ "frames/eps-indi-d5/flags.i32": {
+  "bytes": 16384,
+  "sha256": "1e6c8e572c0c1a63c73f6d31476901c39d16d7a3c72054b12a3c34b44841decf"
+ },
+ "frames/eps-indi-d5/frame.json": {
+  "bytes": 1921,
+  "sha256": "e54943b218f32eb3bee55c3482f73f3f5bdb2f6b914bf18ff24e5aae9647d670"
+ },
+ "frames/eps-indi-d5/image.f32": {
+  "bytes": 16384,
+  "sha256": "a2c407b09992ec6b5f0ae191f8627753e1c4fe3b22c2f70bfaadbfbb899b8acd"
+ },
+ "idx/expected.json": {
+  "bytes": 76795,
+  "sha256": "ac7181f4a01a87326f477dbf19dc5517ed6c8adb5d9e07316e1326045f18c621"
+ },
+ "idx/meta.json": {
+  "bytes": 6646,
+  "sha256": "00a969ead7a968923d7751c480a8906ed34754f3351c1be0fe687445d0d337af"
+ },
+ "idx/t/6_35.json.gz": {
+  "bytes": 82900,
+  "sha256": "b9588c2060f9901b345cbb67c44968a5a0441f9c820f80e8e00456402ada7ebf"
+ },
+ "showcase/barnard-d5/flags.bin": {
+  "bytes": 65536,
+  "sha256": "fca877eef2325c60cd04e0c9dce87ef71631127d4cc170d3b24eb75c457a1edb"
+ },
+ "showcase/barnard-d5/manifest.json": {
+  "bytes": 1559,
+  "sha256": "73f025c7471dfd037406cc94c44aa20a7a7a0b46c1a8f242650c3d1d7170c61e"
+ },
+ "showcase/barnard-d5/stamps.bin": {
+  "bytes": 65536,
+  "sha256": "6e0a9af30ecdf85b3748c96fec221213686908fce23f5f0c8f053ab1b6f03f74"
+ },
+ "wave/reference.json": {
+  "bytes": 64967,
+  "sha256": "a0f8e5cd61863c339c00a21817194cfb969f440b8c684c89e8af4087b08c672f"
+ },
+ "wave/tables.json": {
+  "bytes": 32240,
+  "sha256": "71a7aa67df24dc2bebe0a3abee14b751ce4862be55655f761afc9fbe4839fdce"
+ }
+}

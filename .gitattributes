@@ -1,0 +1,15 @@
+# Text is stored and checked out with LF line endings on every system, so that checksums and the gate agree everywhere.
+* text=auto eol=lf
+
+# Fixtures are compared byte for byte: never converted.
+tests/fixtures/** -text
+
+# Binary files.
+*.bin binary
+*.f32 binary
+*.i32 binary
+*.gz binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary

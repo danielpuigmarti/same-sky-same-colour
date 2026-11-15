@@ -1,0 +1,65 @@
+{
+ "live.positions": {
+  "value": 27,
+  "err": null,
+  "unit": null,
+  "text": "27",
+  "check": "K11"
+ },
+ "live.first_pair.budget_s": {
+  "value": 4,
+  "err": null,
+  "unit": "s",
+  "text": "4",
+  "check": "K11"
+ },
+ "live.first_pair.median_s": {
+  "value": 3.3,
+  "err": null,
+  "unit": "s",
+  "text": "3.3",
+  "check": "K11"
+ },
+ "live.first_pair.worst_s": {
+  "value": 4.6,
+  "err": null,
+  "unit": "s",
+  "text": "4.6",
+  "check": "K11"
+ },
+ "live.full_set.median_s": {
+  "value": 11,
+  "err": null,
+  "unit": "s",
+  "text": "11.0",
+  "check": "K11"
+ },
+ "live.full_set.worst_s": {
+  "value": 17.2,
+  "err": null,
+  "unit": "s",
+  "text": "17.2",
+  "check": "K11"
+ },
+ "live.megabytes.median": {
+  "value": 16.1,
+  "err": null,
+  "unit": "MB",
+  "text": "16.1",
+  "check": "K11"
+ },
+ "live.megabytes.most": {
+  "value": 21.6,
+  "err": null,
+  "unit": "MB",
+  "text": "21.6",
+  "check": "K11"
+ },
+ "live.plan.photos_per_visit": {
+  "value": 40,
+  "err": null,
+  "unit": null,
+  "text": "40",
+  "check": "K11"
+ }
+}

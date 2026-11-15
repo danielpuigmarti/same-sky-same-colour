@@ -1,0 +1,21 @@
+[
+ {
+  "id": "K-index",
+  "title": "The index of photos, built again from the archive for one week",
+  "claim": "One command builds the index of photos from the archive alone: the bucket's listing of a week and each photo's own header. For a whole week it gives the photos of the installed index, each in the same tiles. It does not give every row digit for digit: a row that the installed index took from the archive's image search, and not from the photo's header, can differ in its last digit.",
+  "test": "Week 2025W46_1A, the one with the fewest photos of the 110 weeks in the installed index. The command listed the week in the archive's public bucket (9,169 photos), read from each photo the cards CRPIX1 to MJD-END of its header with one range request, and wrote rows and tiles into a folder of its own. The rows were read back from those tiles (9,169 photos) and compared with the rows of the same photos in the installed index (site/idx, 9,169 photos of that week): the photo (week, version, observation, exposure, detector), the mid-time as stored, to 0.000001 day, the four corners, and the tiles that hold the row. 9,169 rows compared, 608 differ; 0 photos are in one index only; 0 rows lie in other tiles. Reading the headers took 37 s for a thousand photos (9,169 photos, the listing included, six requests at a time). Of the rows that differ, 598 differ in the mid-time, by up to 0.000001 day, and 14 in a corner, by up to 0.0001 degree. The installed index took 408,078 of its rows from the archive's image search and not from the headers (meta.json, sources). The search gives the start and the end of an exposure to 0.000001 day, and their mean can fall one digit beside the mid-time that the header itself gives (MJD-AVG). Built from the same header with the times rounded that way and the corners rounded once, 608 of the 608 rows are the installed rows digit for digit; 0 are not explained.",
+  "pass_rule": "PASS if the week has the same photos in both, every row in the same tiles, and no row differs: mid-times equal as stored, corners within 0.000001 degree. A limit, not a pass, if the photos and the tiles are the same and every row that differs is the installed row digit for digit once the header's times are rounded as the archive's image search rounds them. FAIL otherwise.",
+  "rule_commit": null,
+  "status": "LIMIT",
+  "plain": "one week built again from the archive: the same photos, a last digit apart in some rows",
+  "value": "9,169 rows compared, 608 differ",
+  "unit": null,
+  "reference": "the installed index: 0 differ",
+  "tolerance": "mid-time equal; corners within 0.000001 degree",
+  "image": null,
+  "image_sha256": null,
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "python -m sx.run index --week 2025W46_1A --check"
+ }
+]

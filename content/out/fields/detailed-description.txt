@@ -1,0 +1,53 @@
+Try it
+
+Open https://danielpuigmarti.github.io/same-sky-same-colour/. "The comet" shows comet Lemmon's glow at one infrared colour. "Blink a place" takes a star's name or a sky position and blinks the photos that share a colour.
+
+What it does
+
+You type a star's name or a sky position covered by SPHEREx Data Release 1. The page finds the photos that cover it, groups them into visits (one pass of the telescope over that patch of sky), and pairs photos from two visits that share a colour. It blinks each pair, wipes a curtain across them, or shows them side by side. The five targets of the challenge are ready.
+
+How it works
+
+There is no server. A list of every photo of the data release ships as small files. For a position, the browser reads the one small file that covers it, asks NASA's public bucket for the header of each candidate photo, works out where the position falls on the camera and at which colour, pairs the photos by colour, and reads only the few rows of pixels it needs. The colour of every pixel comes from the wavelength tables in the photo headers; our copy of them is 32,240 bytes for all six detectors.
+
+How it answers the challenge
+
+- Public web tool for SPHEREx images: built.
+- Enter coordinates: built.
+- Images like a little video: partly built.
+- The five named targets: built.
+- Easy to update: partly built.
+- Infrared colours: built.
+- Six detectors added together: partly built.
+- Spectra on the fly: built.
+- Add or subtract images: partly built.
+- Choose the field of view: not built.
+- Gaia and WISE overlays: partly built.
+- Coordinates in the address: built.
+- Contamination flags: built.
+- Astropy and Aladin: built.
+- Easy for anyone: partly built.
+- The challenge's resources: partly built.
+- Help volunteers: partly built.
+
+How we checked
+
+- Colour axis: our tables reproduce those in the photo headers to 2.4e-07 micrometres. Against IRSA's own wavelength maps they differ by 0.37 to 0.91 nm rms, and by up to 26.0 nm at some pixels of the second detector. On two hydrogen lines of a planetary nebula, Paschen-beta fitted at 1.28184 micrometres against 1.28188 expected, and Brackett-alpha at 4.04989 against 4.05137.
+- Comet: on the two nights it sat within 0.4 pixel of where JPL Horizons puts it.
+- Speed: the opening pair of pictures came in a median of 3.3 seconds over 27 tested places, worst 4.6.
+
+Comet Lemmon
+
+On 26 February 2026 SPHEREx took four photos of the comet within a few minutes, each at a different colour. At the colour of carbon dioxide the comet is about 16 times brighter than at the colours beside it, and on the night before about 10 times. The same sky at the same colour on 10 August 2025 is empty. These figures move with how we measure: on the later night from 8.1 to 17.3 (a wider circle gives 10.9), and on the night before 3.1 without its brightest photo. The brightness is a lower limit: we measure inside a circle 12.3 arcseconds in radius and the glow is wider. We do not claim how much gas there is. Whether anyone has measured this gas before is on the Checks page.
+
+Benefits
+
+The page is for people who watch variable stars and comets, volunteers who search for moving objects, teachers, and the curious. It says what it cannot do. Very bright stars saturate and get no brightness; of the 6 colour bands of RW Aurigae, 4 are marked too bright to measure reliably. Asteroids are not checked. The Checks page lists every check, failures and limits included; a person has reviewed 0 of 26 so far.
+
+What we hope to achieve
+
+We hope anyone can look at a patch of sky, see whether something has changed and how far to trust it, and that a new release can be added by listing its photos again.
+
+Tools and languages
+
+JavaScript (no framework, no build step), HTML and CSS for the site; Python with Astropy, NumPy, SciPy, Matplotlib and Requests for the offline preparation and the reference values; Node.js, TypeScript's type check and Playwright for the tests; GitHub Pages for hosting. The code is Apache-2.0.

@@ -1,0 +1,9 @@
+SPHEREx Data Release 1, Level 2 spectral images, from the nasa-irsa-spherex bucket at NASA/IPAC Infrared Science Archive (IRSA). The page reads them live, a few rows at a time.
+
+The WCS-WAVE wavelength tables in the headers of those images, and IRSA's own spectral WCS product, which our tables are compared with.
+
+IRSA's Simple Image Access (SIA) service, collection spherex_dr1, used offline to build the list of photos and to cross-check it.
+
+NASA JPL Horizons, for the positions of the comet as seen from SPHEREx.
+
+AllWISE Atlas images (WISE, NASA/IPAC IRSA), for the pictures of the moving targets taken by WISE long before SPHEREx.

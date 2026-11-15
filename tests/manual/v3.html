@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panels test page</title>
+<link rel="stylesheet" href="../../site/css/tokens.css">
+<link rel="stylesheet" href="../../site/css/base.css">
+<link rel="stylesheet" href="../../site/css/components.css">
+<link rel="stylesheet" href="../../site/css/panels.css">
+<style>
+  main { width: 100%; box-sizing: border-box; padding: 16px; max-width: 46rem; margin: 0 auto; }
+  .pick { display: block; width: 100%; max-width: 384px; image-rendering: pixelated; cursor: crosshair; background: #000; }
+  .calls { font: 12px/1.4 ui-monospace, monospace; color: var(--color-text-muted); height: 8rem; overflow: auto; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<main>
+<h1>Panels test page</h1>
+<p>The frame map, the spectrum and "Is it real?" on pictures made by hand (<code>tests/fixtures/v3/make.mjs</code>), with no stage and no
+network. Serve the whole project: <code>node tools/serve.mjs --root .</code>, then open <code>/tests/manual/v3.html</code>.
+Choose the picture with <code>?scenario=clean</code> (a blip in one photo), <code>ghost</code>, <code>persist</code>, <code>star</code>,
+<code>real</code> (a change in every later photo) or <code>fast</code> (Barnard's Star moving); <code>&amp;extra=200</code> adds photos
+that are indexed and not loaded, <code>&amp;dots=21000</code> adds a deep field's worth of them. Click the picture to click a place.</p>
+<canvas id="picture" class="pick" width="64" height="64" aria-label="The picture to click"></canvas>
+<p id="calls" class="calls" aria-live="off"></p>
+<section id="frame-map"></section>
+<section id="spectrum"></section>
+<section id="is-it-real"></section>
+</main>
+<script type="module">
+import { mountPanels } from '../../site/js/ui/panels.js';
+import { useStars, parseFast } from '../../site/js/ui/rings.js';
+import { propagate } from '../../site/js/lib/gaia.js';
+import { skyToPixel } from '../../site/js/ui/rings.js';
+import { makeField, gridSky, rng, BIT } from '../fixtures/v3/make.mjs';
+
+const q = new URLSearchParams(location.search);
+const scenario = q.get('scenario') ?? 'clean';
+const extra = Number(q.get('extra') ?? 150), dots = Number(q.get('dots') ?? 0);
+const BLIP = { x: 40, y: 25 }, STAR = { x: 20, y: 40 };
+
+let sky = gridSky(269.44, 4.77), shape = () => ({});
+let place = BLIP;
+if (scenario === 'clean') shape = (v, k) => (v === 1 && k === 2 ? { blips: [{ ...BLIP, peak: 30 }] } : {});
+if (scenario === 'ghost') shape = (v, k) => (v === 1 && k === 2 ? { blips: [{ ...BLIP, peak: 30 }], flags: [{ ...BLIP, bit: BIT.GHOST }] } : {});
+if (scenario === 'persist') shape = (v, k) => (v === 0 && k === 4 ? { blips: [{ ...BLIP, peak: -30 }], flags: [{ ...BLIP, bit: BIT.PERSIST }] } : {});
+if (scenario === 'star') { place = STAR; shape = (v) => ({ blips: [{ x: STAR.x + (v ? 0.4 : 0), y: STAR.y, peak: 250 }], flags: [{ ...STAR, bit: BIT.SOURCE, r: 3 }] }); }
+if (scenario === 'real') { place = { x: 45, y: 45 }; shape = (v) => (v === 1 ? { blips: [{ x: 45, y: 45, peak: 25 }] } : {}); }
+if (scenario === 'fast') {
+  const barnard = { ra: 269.448502525, dec: 4.739420051, epoch: 2016, pmra: -801.551, pmdec: 10362.3942, parallax: 546.9759, rv: -110.468, id: '4472832130942575872', g: 8.2 };
+  sky = gridSky(...propagate(barnard, 60975));
+  const at = (mjd) => skyToPixel(sky, 32, 32, ...propagate(barnard, mjd));
+  shape = (v, k, mjd) => { const [x, y] = at(mjd); return { blips: [{ x, y, peak: 40 }] }; };
+  place = { x: at(60900)[0], y: at(60900)[1] };
+  useStars(parseFast({ epoch: 2016, stars: [[barnard.id, barnard.ra, barnard.dec, barnard.pmra, barnard.pmdec, barnard.parallax, barnard.g]] }));
+}
+const field = makeField({ sky, shape });
+const frames = [...field.frames];
+const r = rng(3);
+for (let i = 0; i < extra + dots; i++) {
+  const det = 1 + Math.floor(r() * 6);
+  frames.push({ key: `dr1/level2/2025W20_1A/l2b-v27-2026-196/${det}/level2_2025W20_1A_${String(1000 + i).padStart(4, '0')}_1D${det}_spx_l2b-v27-2026-196.fits`, det, mjd: 60890 + r() * 170, lam: 3.9 + r() * 0.9 + (dots ? (r() - 0.3) * 3 : 0), bw: 0.037, visit: r() < 0.5 ? 0 : 1, loaded: false, flagged: r() < 0.05 });
+}
+
+const calls = [];
+const log = document.getElementById('calls');
+const note = (c) => { calls.push(c); log.textContent = calls.slice(-6).map((x) => JSON.stringify(x)).join('\n'); };
+const copied = [];
+const panels = mountPanels(
+  { frameMap: document.getElementById('frame-map'), spectrum: document.getElementById('spectrum'), isItReal: document.getElementById('is-it-real') },
+  {
+    showFrame: (key) => note({ showFrame: key }),
+    selectFrames: (keys) => note({ selectFrames: keys }),
+    loadAllColours: () => { note({ loadAllColours: true }); return Promise.resolve(); },
+  },
+  { base: '../../site/', copy: (t) => { copied.push(t); }, fast: scenario !== 'fast' ? true : false },
+);
+const t0 = performance.now();
+panels.setFrames(frames);
+const t1 = performance.now();
+panels.setPictures(field.stamps);
+panels.flush();
+window.__v3 = { panels, calls, copied, frames, stamps: field.stamps, place, timing: { setFrames: t1 - t0 }, scenario };
+
+// the picture: stamp 6 (the first photo of the later visit), clickable
+const cv = document.getElementById('picture'), ctx = cv.getContext('2d');
+const s = field.stamps[6], img = ctx.createImageData(64, 64);
+const lo = 95, hi = 130;
+for (let y = 0; y < 64; y++) for (let x = 0; x < 64; x++) {
+  const g = Math.max(0, Math.min(255, (255 * (s.data[y * 64 + x] - lo)) / (hi - lo)));
+  const o = ((63 - y) * 64 + x) * 4;
+  img.data.set([g, g, g, 255], o);
+}
+ctx.putImageData(img, 0, 0);
+cv.addEventListener('click', (e) => {
+  const b = cv.getBoundingClientRect();
+  const x = Math.round(((e.clientX - b.left) / b.width) * 64 - 0.5), y = Math.round(63 - ((e.clientY - b.top) / b.height) * 64 + 0.5);
+  panels.pointAt({ x, y });
+});
+</script>
+</body>
+</html>

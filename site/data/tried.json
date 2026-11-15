@@ -1,0 +1,81 @@
+{
+ "about": "Observed use. Filled in by hand after the tester session: people who are not physicists, named by role only (no names, pictures or ages), six tasks done without help. The pass bar was written before the session and is not changed afterwards. Every count is the real count; results are shown whichever way they go.",
+ "pass_bar": {
+  "written_on": "2026-11-14",
+  "rule": "A task counts as passed when at least 4 of 5 testers complete it without help.",
+  "testers": 5,
+  "needed": 4
+ },
+ "session": {
+  "date": "2026-11-15",
+  "testers": 2,
+  "roles": [
+   "a data engineer, on a computer",
+   "a student"
+  ],
+  "adults_confirmed": true,
+  "notes": "Two of the five testers planned took part, so the bar of 4 of 5 is met by no task; the counts stand as they came."
+ },
+ "tasks": [
+  {
+   "id": "find-wise0855",
+   "task": "Find the brown dwarf WISE 0855 from the coordinates in the challenge text, 08h55m10.831s -7d14m42.53s.",
+   "attempted": 2,
+   "completed": 2,
+   "passed": false,
+   "quote": null
+  },
+  {
+   "id": "explain-flicker",
+   "task": "Say why the steady stars flicker when all the photos of one visit are blinked in time order.",
+   "attempted": 2,
+   "completed": 2,
+   "passed": false,
+   "quote": null
+  },
+  {
+   "id": "brighter-tile",
+   "task": "Say why one photo of the comet is brighter than the others.",
+   "attempted": 2,
+   "completed": 1,
+   "passed": false,
+   "quote": null
+  },
+  {
+   "id": "odd-point",
+   "task": "Find the photo that made an odd point on the spectrum.",
+   "attempted": 2,
+   "completed": 2,
+   "passed": false,
+   "quote": null
+  },
+  {
+   "id": "recover",
+   "task": "Recover from a lost connection: turn the network off in the middle of a load, then get the page working again.",
+   "attempted": 2,
+   "completed": 1,
+   "passed": false,
+   "quote": null
+  },
+  {
+   "id": "real-or-not",
+   "task": "Decide whether a blip in a difference picture is real, and say what the page told you to decide it.",
+   "attempted": 2,
+   "completed": 1,
+   "passed": false,
+   "quote": null
+  }
+ ],
+ "spot_the_mover": {
+  "built": false,
+  "stimuli": null,
+  "testers": null,
+  "hits": null,
+  "of": null
+ },
+ "community": {
+  "posts": null,
+  "replies": null,
+  "quotes": []
+ }
+}

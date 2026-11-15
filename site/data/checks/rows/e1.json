@@ -1,0 +1,21 @@
+[
+ {
+  "id": "K14",
+  "title": "One source for every number, and the search of the literature",
+  "claim": "Every number on the pages, in the project text and in the captions of the video is read from one file, every picture of a Checks row is the file that was reviewed, and what is known in the literature about the comet's carbon dioxide has been searched by hand and dated.",
+  "test": "node tools/gate.mjs --check: a page that shows another number than numbers.json, a text of content/ that names a number that does not exist, a missing or changed picture of a row, and a PASS without a reviewer all fail it. The search of NASA ADS, the abstracts of the DPS 2026 meeting and of EPSC 2026, CBET and ATel is done by hand and written here with its date. Searched on 15 November 2026, by query (a person still reads it and signs it): NASA ADS (titles, abstracts and full text of 2025 and 2026, which hold the CBETs, ATels, MPECs, the COSPAR 2026 abstracts and the EPSC 2026 abstracts indexed by then), arXiv, and the EPSC 2026 programme. On C/2025 A6 they hold its discovery, orbit and brightness (2025CBET.5508....1F, 2025CBET.5594....1S, 2025CBET.5621....1G, 2025MPEC....D...55P), its jets (2025ATel17450....1S), optical spectra (2025ATel17456....1M), its OH seen by radio (2025ATel17463....1J, 2026RAA....26f1002J), its rotation (2026cosp...46..261T) and the polarisation of its tail (2026cosp...46..249W); nothing on its carbon dioxide. The abstracts of the DPS 2026 meeting were not in ADS and could not be opened without an account, so they were not searched.",
+  "pass_rule": "The gate passes on the frozen tree; the search is dated and its sources are listed on this card; no text says that the comet's gas was found, measured or confirmed here before anyone else.",
+  "rule_commit": null,
+  "status": "UNVERIFIED",
+  "plain": "not reviewed",
+  "value": "nothing on the comet’s carbon dioxide found on 15 November 2026; DPS 2026 not searched",
+  "unit": null,
+  "reference": null,
+  "tolerance": null,
+  "image": null,
+  "image_sha256": null,
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "rerun": "npm run gate:check"
+ }
+]

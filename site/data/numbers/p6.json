@@ -1,0 +1,51 @@
+{
+ "pluto.blink.both": {
+  "value": 14,
+  "err": null,
+  "unit": null,
+  "text": "14",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.detector": {
+  "value": 1,
+  "err": null,
+  "unit": null,
+  "text": "1",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.fraction": {
+  "value": 58.333333333333336,
+  "err": null,
+  "unit": "percent",
+  "text": "58",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.frames": {
+  "value": 214,
+  "err": null,
+  "unit": null,
+  "text": "214",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.median_offset_arcsec": {
+  "value": 0.26330194838334775,
+  "err": null,
+  "unit": "arcsec",
+  "text": "0.3",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.median_offset_px": {
+  "value": 0.042813324940381745,
+  "err": null,
+  "unit": "pixel",
+  "text": "0.04",
+  "check": "K-pluto-blink"
+ },
+ "pluto.blink.pairs": {
+  "value": 24,
+  "err": null,
+  "unit": null,
+  "text": "24",
+  "check": "K-pluto-blink"
+ }
+}

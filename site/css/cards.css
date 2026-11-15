@@ -1,0 +1,2105 @@
+/*
+  The pages that tell a result: the five targets, the comet and the Checks page. Built on tokens.css, base.css and
+  components.css, and loaded by those three pages after the shared sheets.
+
+  The pages are set as the rest of the bulletin is. An item is headed by the name of its object; a row of ruled
+  cells (.cells) carries what is measured; a photo or a drawing made of data stands on a black plate (.plate,
+  with data-plate) and has its own cells joined under it (.plate-frame), the verdict on a band under it; a table
+  is a ledger; something long opens from a ruled line (.about). The check behind a claim is a quiet link
+  (.check-link); only the Checks page prints a status as a stamp. Those parts are in components.css. This sheet
+  lays them out on these three pages and adds what only they have.
+
+    .page-head  .page-facts  .lead  .page-part              the frame of the three pages
+    .facts                                                  a short ledger: a label and what stands against it
+    .table-scroll                                           a ledger that may be wider than the window
+    .tcard (.tcard-cells, .tcard-body, .tcard-text)         a target
+    .blink-box > .plate-live                                two photos of a pair, then one photo that blinks
+    .jump > .jump-panel (.jump-marks)                       two pictures on one grid of the sky, with marks
+    .bands (.band-ruler, .band-list)                        the bands of colour of a variable star, on one ruler
+    .spots > .spot                                          "Can you spot it?"
+    .track (.track-map, .places > .place)                   the comet: its path and the two places
+    .strip (.strip-stage, .strip-ruler, .strip-thumb)       the comet: the photos of both nights on one ruler
+    .proof (.chart, .finding)                               the comet: brightness against colour, and the evidence
+    .checks (.cfilter, .checklist > .ccard)                 the register of checks: one ruled row for each, opening in place
+    .lines > .line                                          the challenge, line by line
+
+  The ink of a status is --status: it is set by data-status, and always stands beside the word and the mark of
+  that status.
+*/
+
+/* ---- The ink of a status ---- */
+
+.page-made {
+  --status: var(--color-unverified);
+}
+
+.page-made [data-status="PASS"],
+.lines [data-status="built"] { --status: var(--color-pass); }
+.page-made [data-status="FAIL"] { --status: var(--color-fail); }
+.page-made [data-status="LIMIT"],
+.lines [data-status="partial"] { --status: var(--color-limit); }
+.page-made [data-status="CORRECTED"] { --status: var(--color-corrected); }
+.page-made [data-status="UNVERIFIED"],
+.lines [data-status="not built"] { --status: var(--color-unverified); }
+
+/* ---- The frame of the three pages ---- */
+
+/* the headline hangs from the heavy rule of the masthead; figures in the running text are lining and tabular */
+.page-made {
+  padding-block-start: var(--space-5);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+/* a headline of two sentences sets each on lines of its own */
+.page-head > .headline > span {
+  display: block;
+}
+
+/* the same size as the headline of the home page, so that its word spaces are the same size too */
+.page-head > .headline {
+  font-size: clamp(3rem, 5.3vw, 4.75rem);
+}
+
+/* room between the note under the ledger and the first item's rule */
+.page-targets .page-head {
+  margin-block-end: var(--space-6);
+}
+
+.page-head .lede,
+.page-head .note {
+  max-width: var(--measure);
+}
+
+/* what the comet's page holds, as a short ledger beside the plate */
+.page-facts {
+  max-width: 34rem;
+}
+
+/* the lead of the comet's page: what was seen, beside the photo of the comet */
+.lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.lead-text {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.lead-text > .note {
+  margin-block-start: var(--space-2);
+}
+
+/* on a narrow window the plate comes before the long text */
+.lead-plate {
+  order: -1;
+  max-width: 32rem;
+  margin: 0;
+}
+
+.lead-plate:empty {
+  display: none;
+}
+
+/* a part of a page: under a rule, with room above it */
+.page-made > .page-part {
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-6);
+  border-block-start: var(--rule-mid) solid var(--color-line);
+}
+
+.page-part > * + * {
+  margin-block-start: var(--space-6);
+}
+
+.page-part > h3 {
+  margin-block-start: var(--space-7);
+}
+
+.page-part > h3 + * {
+  margin-block-start: var(--space-3);
+}
+
+.page-part > .section-head > h2 + * {
+  margin-block-start: var(--space-3);
+}
+
+/* a made part that holds more than one thing */
+div[data-built] > * + * {
+  margin-block-start: var(--space-6);
+}
+
+.section-head > p {
+  max-width: var(--measure);
+}
+
+.page-made :is(h2, h3, article, li)[id] {
+  scroll-margin-block-start: var(--space-5);
+}
+
+.page-made cite {
+  font-style: normal;
+}
+
+/* the plain words of a check, beside its mark and id */
+.tag-plain {
+  display: block;
+  margin-block-start: var(--space-1);
+}
+
+/* the check at the end of a sentence stands a little apart from it */
+.page-made p > .check-link {
+  margin-inline-start: var(--space-1);
+}
+
+/* ---- A short ledger: on each ruled line a label and what stands against it ---- */
+
+.facts {
+  display: grid;
+  margin: 0;
+  border-block-start: var(--rule-hair) solid var(--color-line);
+}
+
+.facts + .facts {
+  border-block-start: 0;
+}
+
+.facts > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 var(--space-4);
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+/* the label of a line is set as every label is: the text face, quiet */
+.facts dt {
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+
+.facts dd {
+  max-width: none;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 40rem) {
+  .facts > div {
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+  }
+}
+
+/* ---- A ledger that may be wider than the window ---- */
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-scroll > table {
+  width: 100%;
+}
+
+.table-scroll caption {
+  padding-block-end: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  text-align: start;
+}
+
+.table-scroll th[scope="row"] {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.table-scroll td,
+.table-scroll th {
+  max-width: 32rem;
+}
+
+/* figures are tabular and lining everywhere they stand in columns; the figures of the limits are set right */
+.page-made :is(.ledger, .facts, .cells, .strip-readout) {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.limits :is(td, th[scope="col"]:not(:first-child)) {
+  text-align: end;
+}
+
+/* ---- A plate takes the shape of what it holds, when that is not one square photo ---- */
+
+.plate.still,
+.plate.jump,
+.plate.track-plate,
+.plate.chart-plate,
+.ccard-picture .plate,
+.pluto-figure .plate {
+  aspect-ratio: auto;
+}
+
+.plate.still > img,
+.pluto-figure .plate > img {
+  width: 100%;
+  height: auto;
+}
+
+/* the rules of a frame, for what is drawn inside its plate: a plate has the inks of the night, its frame the
+   inks of the edition */
+.page-made .plate-frame,
+.strip-live {
+  --frame-rule: var(--color-line);
+}
+
+/* the cell of what the plate shows now is marked in the ink of the text, not filled: the one yellow thing of a view
+   is the primary button, and the chosen cell of a choice */
+.cells > [data-on] {
+  box-shadow: inset 0 calc(-1 * var(--rule-heavy)) 0 var(--color-text);
+  font-weight: 700;
+}
+
+.cells:has(> [data-on]) > [data-visit]:not([data-on]) .cell-value {
+  color: var(--color-text-muted);
+}
+
+/* two to a row: an odd cell at the end of a plate's cells takes the whole row, so that no slot is left bare */
+@media (min-width: 40rem) {
+  .plate-frame > .cells[data-cols="2"] > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* the buttons of a plate stand in a row joined under its cells */
+.plate-frame > .transport {
+  flex-wrap: wrap;
+  gap: var(--rule-hair);
+  border-block-start: var(--rule-hair) solid var(--color-line);
+  background: var(--color-line);
+}
+
+.plate-frame > .transport > .btn {
+  flex: 1 1 6.5rem;
+  min-width: 0;
+  border: 0;
+  background: var(--color-bg);
+}
+
+.plate-frame > .transport > .btn:hover {
+  background: var(--color-surface-raised);
+}
+
+.plate-frame > .transport > .btn:active,
+.plate-frame > .transport > .btn[aria-pressed="true"] {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: inset 0 calc(-1 * var(--rule-heavy)) 0 var(--color-text);
+}
+
+.plate-frame > .transport > .btn:focus-visible {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+/* the verdict band of a plate that blinks: its place is kept where scripts run, so that nothing under it jumps when
+   the first month is written; empty, it is not there */
+.plate-frame > .plate-verdict:empty {
+  display: none;
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .plate-frame:has(> .blink-box:not(.is-still)) > .plate-verdict:empty,
+  .plate-frame:has(> .place-blink:not([hidden])) > .plate-verdict:empty,
+  .plate-frame > .jump + .plate-verdict:empty {
+    display: block;
+    visibility: hidden;
+  }
+
+  .plate-frame > .plate-verdict:empty::before {
+    content: "\00a0";
+  }
+}
+
+.place-blink[hidden] + .plate-verdict {
+  display: none;
+}
+
+/* =============================================================================================
+   The targets (targets.html)
+   ============================================================================================= */
+
+.tcard-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.tcard-blink,
+.tcard-jump {
+  min-width: 0;
+  margin: 0;
+}
+
+.tcard-blink {
+  max-width: 32rem;
+}
+
+.tcard-jump {
+  max-width: 32rem;
+}
+
+.tcard-blink > figcaption,
+.tcard-jump > figcaption,
+.same-sky > figcaption,
+.pluto-figure > figcaption {
+  max-width: none;
+  margin-block-start: var(--space-4);
+}
+
+.tcard-text {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  min-width: 0;
+}
+
+/* what was found: the verdict is the first thing read */
+.tcard-verdict {
+  font-size: var(--text-lg);
+  line-height: 1.45;
+}
+
+/* the way into the viewer: a plain underlined link in the text face */
+.tcard-open a {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+}
+
+/* an item's name stands closer to its own cells than to the block above it */
+.tcard.item {
+  padding-block-start: var(--space-7);
+}
+
+.tcard > .tcard-name + .cells {
+  margin-block-start: var(--space-3);
+}
+
+.tcard > .cells + .tcard-body {
+  margin-block-start: var(--space-5);
+}
+
+.tcard-note,
+.tcard-unread {
+  color: var(--color-text-muted);
+}
+
+.tcard-outside {
+  color: var(--color-change);
+  font-weight: var(--weight-medium);
+}
+
+.tcard-text > .facts {
+  margin-block-start: var(--space-3);
+}
+
+.tcard-values cite {
+  color: var(--color-text-muted);
+}
+
+/* with room, the plate that leads stands on the left and the words on the right; the bands of colour run the whole
+   width under them. An object that moved leads with the flip of the picture of long ago and SPHEREx's, which
+   stands the height of the item on the left; the words and, under them, its two visits stand on the right */
+@media (min-width: 64rem) {
+  .tcard-body {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .tcard-blink,
+  .tcard-jump {
+    max-width: none;
+  }
+
+  .tcard-body > .tcard-text:first-child {
+    grid-column: 1 / -1;
+    max-width: 44rem;
+  }
+
+  .tcard-body > .bands {
+    grid-column: 1 / -1;
+  }
+
+  .tcard-body > .tcard-jump {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .tcard-body > .tcard-jump + .tcard-text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tcard-body > .tcard-jump + .tcard-text + .tcard-blink {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: var(--space-5);
+    align-items: start;
+  }
+
+  .tcard-body > .tcard-jump + .tcard-text + .tcard-blink > figcaption {
+    margin-block-start: 0;
+  }
+}
+
+/* what there is to see between the two visits is said first, and plainly */
+.blink-lead {
+  display: block;
+  margin-block-end: var(--space-2);
+  color: var(--color-text);
+}
+
+/* ---- The ledger at the head of the targets page ---- */
+
+/* on a narrow window each row stands as a short record of its own, with the words of its columns beside its figures */
+@media (max-width: 63.999rem) {
+  .targets-ledger thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .targets-ledger,
+  .targets-ledger tbody,
+  .targets-ledger tr,
+  .targets-ledger th,
+  .targets-ledger td {
+    display: block;
+  }
+
+  .targets-ledger tr {
+    padding-block: var(--space-3);
+    border-block-end: var(--rule-hair) solid var(--color-line);
+  }
+
+  .targets-ledger th {
+    padding-inline: 0;
+  }
+
+  .targets-ledger td {
+    padding-block: var(--space-2) 0;
+    padding-inline: 0;
+  }
+
+  .targets-ledger td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--color-text-faint);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+}
+
+.page-ledger:empty {
+  display: none;
+}
+
+.targets-ledger th,
+.targets-ledger td {
+  vertical-align: top;
+  max-width: none;
+}
+
+/* words are set in the text face; what is measured, in typewriter */
+.targets-ledger td {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+
+.targets-ledger td.ledger-figure,
+.targets-ledger td.ledger-figure [data-n] {
+  font-family: var(--font-mono);
+}
+
+.targets-ledger td.ledger-figure {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+.targets-ledger td:nth-child(2),
+.targets-ledger td:nth-child(4) {
+  text-wrap: balance;
+}
+
+.page-head .page-ledger + .note {
+  max-width: 62ch;
+  text-wrap: balance;
+}
+
+@media (min-width: 64rem) {
+  .targets-ledger td.ledger-figure {
+    white-space: nowrap;
+  }
+}
+
+.targets-ledger tbody th a {
+  color: var(--color-display);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  white-space: nowrap;
+  word-spacing: var(--word-narrow);
+}
+
+/* the check column holds the mark and the id and nothing else */
+.targets-ledger td:last-child {
+  white-space: nowrap;
+}
+
+/* ---- Two photos of a matched pair, then one photo that blinks ---- */
+
+/* the plain picture is two square photos side by side; the live one is one square photo */
+.blink-box {
+  display: grid;
+  align-content: center;
+  aspect-ratio: auto;
+}
+
+.blink-box > img {
+  width: 100%;
+  height: auto;
+}
+
+/* once the two photos blink, the plain picture stays for a screen reader only */
+.blink-box > img.visually-hidden {
+  width: 1px;
+  height: 1px;
+}
+
+.blink-box.is-live {
+  aspect-ratio: 1;
+}
+
+.blink-box:empty {
+  display: none;
+}
+
+/* where scripts run the plate keeps the place of the live photo, so that nothing under it jumps when it comes */
+@media (scripting: enabled) {
+  .blink-box:not(.is-still) {
+    aspect-ratio: 1;
+  }
+
+  .blink-box:empty {
+    display: grid;
+  }
+}
+
+.plate-live {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+}
+
+.plate-live > canvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* which photo is on the left and which on the right: said while the two stand side by side */
+.tcard-blink:has(.is-live) .blink-sides {
+  display: none;
+}
+
+/* the middle of a wide photo, cut by its plate: the picture is laid out by the page (width, height and margin) and is
+   never smoothed, so that each square is one pixel of the camera */
+.plate-crop > img {
+  position: absolute;
+  max-width: none;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* a star too bright for the detector: its middle has no value, and is hatched the way the viewer hatches it */
+.tcard[data-kind="saturated"] .plate-live {
+  background-image: repeating-linear-gradient(135deg, var(--color-hatch) 0 1.2px, transparent 1.2px 4px);
+}
+
+/* ---- Two pictures on one grid of the sky, with what is marked on them ---- */
+
+.jump {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rule-hair);
+  background: var(--frame-rule, var(--color-stage));
+}
+
+.jump-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-stage);
+}
+
+.jump-panel > img {
+  width: 100%;
+  height: auto;
+}
+
+.jump-marks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+}
+
+.jump-marks * {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.jump-path {
+  stroke: var(--color-mark-alt);
+  stroke-width: 1.5px;
+  stroke-opacity: 0.7;
+}
+
+.jump-ring {
+  stroke: var(--color-mark-alt);
+  stroke-width: 1.5px;
+}
+
+.jump-ring-other {
+  stroke-dasharray: 3 3;
+  stroke-opacity: 0.8;
+}
+
+.jump-cross {
+  stroke: var(--color-mark);
+  stroke-width: 1.5px;
+}
+
+.jump-star {
+  stroke: var(--color-text);
+  stroke-width: 1.5px;
+}
+
+.is-bare .jump-marks {
+  visibility: hidden;
+}
+
+.jump-key {
+  max-width: var(--measure);
+}
+
+.tcard-jump .about {
+  margin-block-start: var(--space-3);
+}
+
+.tcard-jump .about > p {
+  max-width: none;
+  overflow-wrap: anywhere;
+}
+
+/* laid over each other, for the blink: one of the two pictures shows, and its cell is filled */
+.jump.is-stacked {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.jump.is-stacked > .jump-panel {
+  grid-area: 1 / 1;
+}
+
+/* the picture that shows is named on the plate, with its year in plain sight; side by side, its cell says it */
+.plate.jump {
+  container-type: inline-size;
+}
+
+.jump.is-stacked[data-shows="first"] > .jump-panel:last-child,
+.jump.is-stacked[data-shows="second"] > .jump-panel:first-child {
+  visibility: hidden;
+}
+
+.jump.is-stacked[data-shows="first"] ~ .cells > [data-panel="0"],
+.jump.is-stacked[data-shows="second"] ~ .cells > [data-panel="1"] {
+  box-shadow: inset 0 calc(-1 * var(--rule-heavy)) 0 var(--color-text);
+  font-weight: 700;
+}
+
+/* ---- The bands of colour of a variable star: one ruler, and a line for each band under it ---- */
+
+.bands {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* the ruler is a drawing made of data: a strip of plate, with each band a block on it */
+.band-ruler {
+  position: relative;
+  height: 1rem;
+  border-block-end: var(--rule-hair) solid var(--frame-rule, var(--color-line));
+}
+
+.band-span {
+  position: absolute;
+  inset-block: 0.25rem 0;
+  background: var(--band);
+}
+
+/* a band without a figure is drawn empty */
+.band-span[data-shown="false"] {
+  background: none;
+  box-shadow: inset 0 0 0 var(--rule-hair) var(--band);
+}
+
+.band-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line);
+  list-style: none;
+}
+
+.band-list > li {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0 var(--space-3);
+  align-items: start;
+  max-width: none;
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+/* the key of a band: a small square of plate in the colour of its detector, full when the band has a figure */
+.band-swatch {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  margin-block-start: 0.25em;
+}
+
+.band-swatch::before {
+  content: "";
+  position: absolute;
+  inset: 0.1875rem;
+  background: var(--band);
+}
+
+.band-list > li[data-shown="false"] .band-swatch::before {
+  background: none;
+  box-shadow: inset 0 0 0 var(--rule-hair) var(--band);
+}
+
+.band-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.band-more {
+  grid-column: 2;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.bands > .note {
+  max-width: var(--measure);
+}
+
+/* with room the six lines stand in two columns, in the order of the ruler */
+@media (min-width: 64rem) {
+  .band-list {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    column-gap: var(--space-6);
+  }
+}
+
+/* ---- "Can you spot it?" ---- */
+
+.spots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-6) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spot {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  max-width: none;
+}
+
+/* the rings of a pair stay out of sight until its answer is opened */
+.spot .jump-marks {
+  visibility: hidden;
+}
+
+.spot:has(.spot-answer[open]) .jump-marks {
+  visibility: visible;
+}
+
+.pluto-figure {
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* =============================================================================================
+   The comet (lemmon.html)
+   ============================================================================================= */
+
+/* ---- The path over the two nights, and the two places ---- */
+
+.track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.track-figure {
+  max-width: 32rem;
+  margin: 0;
+}
+
+.track-map {
+  width: 100%;
+  height: auto;
+}
+
+.track-map * {
+  vector-effect: non-scaling-stroke;
+}
+
+.track-path {
+  fill: none;
+  stroke: var(--color-text-faint);
+  stroke-width: 1.5px;
+}
+
+.track-dot {
+  fill: var(--color-text-faint);
+}
+
+.track-dot[data-inside="true"] {
+  fill: var(--color-text);
+}
+
+.track-ring {
+  fill: none;
+  stroke: var(--color-mark);
+  stroke-width: 2px;
+}
+
+.track-name {
+  fill: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 2.6px;
+  font-weight: 700;
+}
+
+.track-compass path,
+.track-scale path {
+  fill: none;
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5px;
+}
+
+.track-compass text,
+.track-scale text {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 2.2px;
+}
+
+.places {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: var(--space-6) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  max-width: none;
+}
+
+/* a place is headed by its moment */
+.place-when {
+  font-size: var(--text-xl);
+}
+
+.place-when time {
+  font: inherit;
+}
+
+.place-blink {
+  margin: 0;
+}
+
+.plate-frame > .place-blink > .plate {
+  border: 0;
+}
+
+/* when the plate of a place is not there, its cells are the top of the frame */
+.place-blink[hidden] + .cells {
+  border-block-start: 0;
+}
+
+/* without scripts the picture of the pipeline holds the map and the four small photos */
+noscript {
+  display: block;
+}
+
+noscript > .plate {
+  max-width: 60rem;
+}
+
+@media (scripting: none) {
+  .track-figure,
+  .place-blink {
+    display: none;
+  }
+
+  .place-blink + .cells {
+    border-block-start: 0;
+  }
+}
+
+/* ---- The photos of both nights, on one ruler of colour ---- */
+
+.strip {
+  min-width: 0;
+}
+
+.strip > .still {
+  max-width: 71.25rem;
+}
+
+.strip-live {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.strip-stage {
+  max-width: 32rem;
+}
+
+.strip-plate {
+  container-type: inline-size;
+}
+
+.strip-readout {
+  max-width: none;
+}
+
+/* the ruler and what hangs from it stand on one plate */
+.strip-ruler {
+  container-type: inline-size;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  border: var(--rule-hair) solid var(--frame-rule, var(--color-line));
+}
+
+.strip-ruler > * + * {
+  margin-block-start: var(--space-4);
+}
+
+/* the band of carbon dioxide on the ruler: a stretch of the line drawn heavy, with its name above */
+.scale-under {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(var(--thumb) / 2);
+  pointer-events: none;
+}
+
+.scale-band {
+  position: absolute;
+  inset-block-start: calc(2.125rem + (var(--rule-hair) - var(--rule-heavy)) / 2);
+  inset-inline-start: var(--from);
+  width: calc(var(--to) - var(--from));
+  height: var(--rule-heavy);
+  background: var(--color-line);
+}
+
+.scale-band-name {
+  position: absolute;
+  inset-block-end: 1.375rem;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  color: var(--color-display);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tracking-caps);
+  white-space: nowrap;
+}
+
+.strip-night > .label {
+  margin-block-end: var(--space-2);
+}
+
+/* on a narrow window the small photos of a night stand in lines, in the order of their colour */
+.strip-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strip-row > li {
+  max-width: none;
+}
+
+.strip-thumb {
+  display: grid;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+}
+
+.strip-thumb-photo {
+  display: block;
+  aspect-ratio: 1;
+  border: var(--rule-hair) solid var(--color-line);
+}
+
+.strip-thumb-photo > canvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* a photo inside the band is framed in the ink of the ruler */
+.strip-thumb[data-inside="true"] .strip-thumb-photo {
+  border-color: var(--color-line);
+}
+
+.strip-thumb:hover {
+  color: var(--color-text);
+}
+
+.strip-thumb[aria-pressed="true"] {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.strip-thumb[aria-pressed="true"] .strip-thumb-photo {
+  outline: var(--rule-mid) solid var(--color-accent);
+}
+
+/* with room each small photo hangs from the ruler at its own colour */
+@media (min-width: 48rem) {
+  .strip-row {
+    position: relative;
+    display: block;
+    height: calc(7.2cqi + 1.5rem);
+    margin-inline: 0.375rem;
+  }
+
+  .strip-row > li {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: var(--at);
+    width: 7.2cqi;
+    transform: translateX(-50%);
+  }
+}
+
+/* with room the photo stands on the left, its verdict under it, and its three cells beside it, one under the other */
+@media (min-width: 64rem) {
+  .strip-stage {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      "photo readout"
+      "verdict readout";
+    grid-template-rows: auto 1fr;
+    max-width: none;
+  }
+
+  .strip-stage > .plate {
+    grid-area: photo;
+  }
+
+  .strip-stage > .plate-verdict {
+    grid-area: verdict;
+  }
+
+  .strip-stage > .strip-readout {
+    grid-area: readout;
+  }
+
+  .strip-stage > .strip-readout {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
+    border-block-start: 0;
+    border-inline-start: var(--rule-hair) solid var(--color-line);
+  }
+
+  .strip-stage > .strip-readout > .cell {
+    display: grid;
+    align-content: center;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .strip-stage > .strip-readout .cell-value {
+    font-size: var(--text-lg);
+    line-height: var(--leading-snug);
+  }
+}
+
+/* ---- The evidence: brightness against colour, the same sky in August, one photo left out ---- */
+
+.page-part > .proof {
+  margin-block-start: var(--space-7);
+}
+
+.proof > * + * {
+  margin-block-start: var(--space-6);
+}
+
+.proof > h3 + * {
+  margin-block-start: var(--space-3);
+}
+
+.proof > p {
+  max-width: var(--measure);
+}
+
+.proof-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.proof-text {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+/* the headline number */
+.finding {
+  font-size: var(--text-xl);
+  line-height: 1.35;
+}
+
+.finding strong {
+  font-weight: var(--weight-bold);
+}
+
+.chart {
+  margin: 0;
+}
+
+.chart-plate {
+  padding: var(--space-4) var(--space-4) var(--space-3);
+}
+
+.chart-plot {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-band {
+  fill: var(--color-display);
+  fill-opacity: 0.16;
+}
+
+.chart-band-name {
+  fill: var(--color-display);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chart-tick,
+.chart-axis {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.chart-grid {
+  stroke: var(--color-line);
+  stroke-width: 1px;
+}
+
+.chart-zero {
+  stroke: var(--color-line-strong);
+  stroke-width: 1px;
+}
+
+.chart-line {
+  fill: none;
+  stroke-width: 1.25px;
+  stroke-opacity: 0.6;
+}
+
+/* the earlier night is drawn hollow and round, the later one full and square, in the ink of the form */
+.chart-line[data-series="0"] { stroke: var(--color-text-muted); }
+.chart-line[data-series="1"] { stroke: var(--color-display); }
+
+.chart-point[data-series="0"] .chart-mark {
+  fill: var(--color-stage);
+  stroke: var(--color-text);
+  stroke-width: 1.5px;
+}
+
+.chart-point[data-series="1"] .chart-mark {
+  fill: var(--color-display);
+}
+
+.chart-error {
+  stroke: var(--color-text-muted);
+  stroke-width: 1px;
+}
+
+.chart-neighbour {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 1px;
+}
+
+.chart-star {
+  fill: none;
+  stroke: var(--color-text-faint);
+  stroke-width: 1px;
+  stroke-dasharray: 2 2;
+}
+
+.chart-august line {
+  stroke: var(--color-text-faint);
+  stroke-width: 1px;
+}
+
+.chart-august path {
+  fill: var(--color-text-faint);
+}
+
+/* the photo that the plate above shows now */
+.chart-point.is-current .chart-mark {
+  stroke: var(--color-mark);
+  stroke-width: 2.5px;
+}
+
+.chart-key {
+  display: grid;
+  gap: var(--space-1) var(--space-5);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.chart-key > li {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: var(--space-2);
+  align-items: start;
+  max-width: none;
+}
+
+.chart-glyph {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* on a narrow window the words of the drawing are set larger, so that they can still be read */
+@media (max-width: 39.999rem) {
+  .chart-plate {
+    padding-inline: var(--space-2);
+  }
+
+  .chart-tick,
+  .chart-axis,
+  .chart-band-name {
+    font-size: 14px;
+  }
+}
+
+/* the same sky in August: the picture is shown at its own size, and its ledger beside it when there is room */
+.same-sky {
+  max-width: 39.25rem;
+  margin: 0;
+}
+
+/* the sub-headings of the comet page are in the text face, so that they do not read as the capitals above them */
+.page-part .proof > h3,
+.page-part > h3 {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-stretch: var(--stretch-text);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  word-spacing: normal;
+}
+
+.photos th:nth-child(3) {
+  min-width: 8.5rem;
+}
+
+.leftout tr[data-role="peak"] td {
+  font-weight: 700;
+}
+
+.not-claimed {
+  max-width: 44rem;
+}
+
+@media (min-width: 40rem) {
+  .chart-key {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  /* the plate stands on the right across both rows; the facts of the photo go under the words, on the left, so
+     that the two columns end together */
+  .lead {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-7);
+  }
+
+  .lead-text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .lead-plate {
+    display: contents;
+  }
+
+  .lead-plate > .plate-frame {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .lead-plate > .lead-cells {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .track {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: var(--space-6);
+  }
+
+  .track-figure {
+    max-width: none;
+  }
+
+  .proof-body {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-6);
+  }
+
+  /* the heading, the words and the ledger stand in the left column and the plate on the right across all of
+     them, so that there is no empty corner beside the heading */
+  .proof:has(> .same-sky-body) {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: var(--space-6);
+    align-items: start;
+  }
+
+  .proof:has(> .same-sky-body) > h3,
+  .proof:has(> .same-sky-body) > p {
+    grid-column: 1;
+  }
+
+  .same-sky-body {
+    display: contents;
+  }
+
+  .same-sky-body > .table-scroll {
+    grid-column: 1;
+    grid-row: 3;
+    margin-block-start: var(--space-4);
+  }
+
+  .same-sky-body > .same-sky {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+}
+
+/* =============================================================================================
+   The register of checks (checks.html)
+   ============================================================================================= */
+
+.checks > * + * {
+  margin-block-start: var(--space-6);
+}
+
+/* what the register opens on: the words on the left and, with room, a key to the marks on the right */
+.checks-intro {
+  display: grid;
+  gap: var(--space-5);
+  line-height: var(--leading-normal);
+}
+
+.checks-intro-text {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+}
+
+.checks-intro p {
+  max-width: none;
+}
+
+/* the bottom line, in one sentence of counts */
+.checks-reviewed {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* the first thing a visitor who is not a scientist needs to know about this page: set by size and weight, not by a stripe */
+.checks-plain {
+  color: var(--color-text);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.checks-key {
+  display: grid;
+  align-content: start;
+  margin: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+  font-size: var(--text-sm);
+}
+
+.checks-key-row {
+  display: grid;
+  gap: var(--space-1) var(--space-4);
+  padding-block: var(--space-2);
+  border-block-end: var(--rule-hair) solid var(--color-line);
+}
+
+.checks-key dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.checks-key dd {
+  margin: 0;
+  max-width: none;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 64rem) {
+  .checks-intro {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-7);
+    align-items: start;
+  }
+
+  .checks-key-row {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+
+/* ---- The filter: one row of joined cells that also counts, the chosen one filled ---- */
+
+.cfilter {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cfilter > legend {
+  margin-block-end: var(--space-2);
+  padding: 0;
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+}
+
+.cfilter-choice {
+  gap: var(--space-2);
+}
+
+.cfilter-name {
+  font-weight: var(--weight-medium);
+}
+
+/* the count stands apart from the word: "Failed 3" */
+.cfilter-count {
+  margin-inline-start: var(--space-1);
+  color: var(--color-text-faint);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 700;
+}
+
+.cfilter-choice:has(> input:checked) .cfilter-count {
+  color: inherit;
+}
+
+/* a choice hides the rows of the other statuses; a row that the address names always shows */
+.checks:has(.cfilter input[value="PASS"]:checked) .ccard:not([data-status="PASS"]):not(:target),
+.checks:has(.cfilter input[value="CORRECTED"]:checked) .ccard:not([data-status="CORRECTED"]):not(:target),
+.checks:has(.cfilter input[value="LIMIT"]:checked) .ccard:not([data-status="LIMIT"]):not(:target),
+.checks:has(.cfilter input[value="UNVERIFIED"]:checked) .ccard:not([data-status="UNVERIFIED"]):not(:target),
+.checks:has(.cfilter input[value="FAIL"]:checked) .ccard:not([data-status="FAIL"]):not(:target) {
+  display: none;
+}
+
+/* ---- The list: one ruled row for each check, opening in place ---- */
+
+.checklist {
+  margin: 0;
+  padding: 0;
+  border-block-start: var(--rule-mid) solid var(--color-line-strong);
+  list-style: none;
+}
+
+.ccard {
+  max-width: none;
+  border-block-end: var(--rule-hair) solid var(--color-line);
+  scroll-margin-block-start: var(--space-5);
+}
+
+.ccard-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "status icon"
+    "title title"
+    "figure figure";
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+  padding-block: var(--space-3);
+  padding-inline-end: 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.ccard-row::-webkit-details-marker {
+  display: none;
+}
+
+.ccard-row:hover,
+.ccard:target > .ccard-details > .ccard-row {
+  background: var(--color-surface-raised);
+}
+
+/* a plus that becomes a minus, drawn in the ink of the text */
+.ccard-row::after {
+  content: "";
+  grid-area: icon;
+  align-self: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-inline: var(--space-2);
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat,
+    linear-gradient(currentColor, currentColor) center / var(--rule-hair) 100% no-repeat;
+}
+
+.ccard-details[open] > .ccard-row::after {
+  background: linear-gradient(currentColor, currentColor) center / 100% var(--rule-hair) no-repeat;
+}
+
+.ccard-id {
+  display: none;
+}
+
+/* the mark and the word of a status, in the ink of the text unless the check failed */
+.ccard-status {
+  grid-area: status;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  white-space: nowrap;
+}
+
+/* what is not reviewed yet stands quiet, so that the failures, limits and corrections above it stand out */
+.ccard[data-status="UNVERIFIED"] .ccard-row {
+  color: var(--color-text-muted);
+}
+
+.ccard[data-status="UNVERIFIED"] .ccard-status {
+  color: var(--color-text-faint);
+  font-weight: 400;
+}
+
+.ccard[data-status="UNVERIFIED"] .ccard-title {
+  font-weight: 400;
+}
+
+.ccard:not([data-status="UNVERIFIED"]) .ccard-title {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.ccard:not([data-status="UNVERIFIED"]) .ccard-status {
+  font-weight: 700;
+}
+
+.ccard-title {
+  grid-area: title;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.ccard-figure {
+  grid-area: figure;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: var(--leading-snug);
+}
+
+.ccard-figure:empty {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .ccard-row {
+    grid-template-columns: 9.5rem 9.5rem minmax(0, 1fr) minmax(0, 14rem) 2.25rem;
+    grid-template-areas: "id status title figure icon";
+    gap: 0 var(--space-4);
+    padding-inline-start: var(--space-2);
+  }
+
+  .ccard-id {
+    grid-area: id;
+    display: block;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .ccard-title {
+    text-wrap: balance;
+  }
+
+  .ccard-figure {
+    text-align: start;
+  }
+}
+
+/* what the row opens to, under the title: indented to the title's column when there is room */
+.ccard-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  padding-block: var(--space-3) var(--space-6);
+}
+
+.ccard-text {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  min-width: 0;
+  max-width: 46rem;
+}
+
+/* the page reads whole without a script, and its rows are closed with one: they do not flash open first */
+@media (scripting: enabled) {
+  .checklist:not(.is-ready) .ccard-body {
+    display: none;
+  }
+}
+
+/* the row of cells of an entry: its status, its id and who looked at it */
+@media (max-width: 39.999rem) {
+  .cells.ccard-cells {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cells.ccard-cells > [data-cell="status"] {
+    grid-column: 1 / -1;
+  }
+
+  .cells.ccard-cells > :last-child:nth-child(odd):not([data-cell="status"]) {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 40rem) {
+  .cells.ccard-cells {
+    /* the id of the entry takes the room it needs, never less: a word is not broken between its letters */
+    grid-template-columns: minmax(15rem, auto) max-content minmax(0, 1fr);
+  }
+}
+
+.ccard-how .facts dd,
+.ccard-rule dd,
+.ccard-facts dd,
+.ccard-values dd {
+  max-width: 38rem;
+}
+
+.ccard-claim {
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}
+
+/* a short value is set as a reading of an instrument, a long one as a sentence */
+.ccard-values dd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.ccard-values dd.is-long {
+  font-family: var(--font-sans);
+}
+
+.ccard-unit {
+  color: var(--color-text-muted);
+}
+
+.ccard-facts code {
+  font-size: 1em;
+}
+
+/* the picture that was reviewed is shown as it is, on a plate: most are drawn on white. On a narrow window the
+   plate comes before the long text. */
+.ccard-picture {
+  order: -1;
+  min-width: 0;
+  max-width: 46rem;
+  margin: 0;
+}
+
+.ccard-picture .plate a {
+  display: block;
+}
+
+.ccard-picture .plate img {
+  width: 100%;
+  height: auto;
+}
+
+/* with room, the words stand on the left, under the title, and the plate on the right */
+@media (min-width: 64rem) {
+  .ccard-body {
+    padding-inline-start: calc(var(--space-2) + 8rem + 10rem + 2 * var(--space-4));
+    padding-inline-end: 2.25rem;
+  }
+
+  .ccard-body:has(> .ccard-picture) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-6);
+    align-items: start;
+  }
+
+  .ccard-picture {
+    order: 0;
+    max-width: none;
+  }
+}
+
+/* ---- What the tool can and cannot see ---- */
+
+.limits td,
+.limits th {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.limits thead th {
+  white-space: normal;
+}
+
+.limits-none {
+  color: var(--color-text-faint);
+}
+
+/* ---- The challenge, line by line ---- */
+
+.lines > .line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1) var(--space-5);
+}
+
+.line > p {
+  max-width: none;
+}
+
+/* how far a line is built: the mark and the word, in the ink of the text, in the text face */
+.line-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--status);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  white-space: nowrap;
+}
+
+
+.line[data-status="not built"] .line-text {
+  color: var(--color-text-muted);
+}
+
+.line-note {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+@media (min-width: 40rem) {
+  .lines > .line {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+  }
+
+  .line-status {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    padding-block-start: 0.3em;
+  }
+
+  .line > :not(.line-status) {
+    grid-column: 2;
+  }
+}
+
+/* ---- Other ways of looking at the page ---- */
+
+@media (forced-colors: active) {
+  .jump-marks,
+  .track-map,
+  .chart-plot,
+  .band-ruler,
+  .band-swatch {
+    forced-color-adjust: none;
+  }
+
+  .cells > [data-on],
+  .plate-frame > .transport > .btn[aria-pressed="true"],
+  .ccard-details[open] > .ccard-row {
+    outline: var(--rule-mid) solid Highlight;
+    outline-offset: calc(-1 * var(--rule-mid));
+  }
+
+  .plate-frame > .transport {
+    background: CanvasText;
+  }
+}
+
+@media print {
+  .cfilter,
+  .transport {
+    display: none;
+  }
+}
+
+/* a cell that holds a sentence is set in the text face, its figures and dates with it: typewriter is for what is
+   measured or recorded, and a number inside a sentence is not recorded */
+.cell-value.is-prose {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+}
+
+.cell-value.is-prose :is([data-n], time) {
+  font-family: inherit;
+  letter-spacing: 0;
+}
+
+/* a ledger cell that says something in words is set in the text face; its dates do not break */
+.photos.neighbours td,
+.photos td:last-child:not([data-flux]) {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+
+.photos time {
+  white-space: nowrap;
+}
+
+/* the ledger of the same sky has to fit its column: its dates may break, and its figures stand close */
+.same-sky-body .photos time {
+  white-space: normal;
+}
+
+.same-sky-body .photos th:nth-child(3) {
+  min-width: 0;
+}
+
+.same-sky-body .photos :is(td, th) {
+  padding-inline: var(--space-2);
+}
+
+/* on a phone the ledger is set smaller and closer so that its six columns fit, and its words break only between words */
+@media (max-width: 39.99rem) {
+  .same-sky-body .photos {
+    font-size: 0.6875rem;
+  }
+
+  .same-sky-body .photos :is(td, th),
+  .same-sky-body .photos td:last-child:not([data-flux]) {
+    padding-inline: 0.125rem;
+    font-size: 0.6875rem;
+  }
+
+  .same-sky-body .photos :is(th:first-child, td:first-child) {
+    padding-inline-start: 0;
+  }
+}
+
+/* the visits of a plate: a month and a year share a line where the cell has room, and the year goes under the
+   month where it has not, so that a date never spills out of its cell */
+.cells > [data-visit] .cell-value {
+  letter-spacing: 0;
+}
+
+div.checks-intro[data-built] > * + * {
+  margin-block-start: 0;
+}
+
+/* the words of a line of the challenge keep to the measure, however wide the window */
+.line-text,
+.line-note {
+  max-width: var(--measure);
+}
+
+/* the live self-test of the Checks page: the rule, one button, and what the read gave */
+.selftest > [data-selftest-body] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.selftest-rule-wrap {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure);
+}
+
+.selftest-rule {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-inline-start: var(--space-4);
+}
+
+.selftest-out {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 100%;
+}
+
+.selftest-out > p {
+  max-width: var(--measure);
+  margin: 0;
+}
+
+.selftest-verdict {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  overflow-wrap: anywhere;
+}
+
+.selftest-out,
+.selftest-rule-wrap {
+  min-width: 0;
+  width: 100%;
+}
+
+.selftest-out [data-state="differs"],
+.selftest-out [data-state="slow"],
+.selftest-out [data-state="unreachable"] {
+  color: var(--color-signal);
+}
+
+.selftest-table td {
+  font-family: var(--font-mono);
+}
+
+.selftest-table tr[data-ok="false"] td:last-child {
+  color: var(--color-signal);
+  font-weight: 700;
+}

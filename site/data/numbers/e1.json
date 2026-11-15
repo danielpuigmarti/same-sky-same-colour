@@ -1,0 +1,58 @@
+{
+ "e1.lemmon.date.aug": {
+  "value": 60897.452,
+  "err": null,
+  "unit": "MJD",
+  "text": "10 August 2025",
+  "check": null
+ },
+ "e1.lemmon.date.feb": {
+  "value": 61097.861,
+  "err": null,
+  "unit": "MJD",
+  "text": "26 February 2026",
+  "check": null
+ },
+ "e1.rwaur.bands.total": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": "K6"
+ },
+ "e1.rwaur.bands.shown": {
+  "value": 2,
+  "err": null,
+  "unit": null,
+  "text": "2",
+  "check": "K6"
+ },
+ "e1.rwaur.bands.hidden": {
+  "value": 4,
+  "err": null,
+  "unit": null,
+  "text": "4",
+  "check": "K6"
+ },
+ "e1.tried.tasks": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": null
+ },
+ "e1.tried.testers": {
+  "value": 5,
+  "err": null,
+  "unit": null,
+  "text": "5",
+  "check": null
+ },
+ "e1.tried.bar": {
+  "value": 4,
+  "err": null,
+  "unit": null,
+  "text": "4",
+  "check": null
+ }
+}

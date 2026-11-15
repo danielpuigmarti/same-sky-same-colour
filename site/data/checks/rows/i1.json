@@ -1,0 +1,40 @@
+[
+ {
+  "id": "K11",
+  "title": "A typed position, read straight from the archive: how long it takes and how it ends",
+  "claim": "Any position on the sky gives two visits at one colour within seconds on a desktop link, or a plain message, and no error is left uncaught.",
+  "test": "Chrome 157.0.8103.51 opened the viewer at 27 positions against the real archive, one after the other, each in a fresh window: the five test targets by name, both ecliptic poles and 20 random positions (seed 20261114). Times count from opening the page; megabytes are counted from the answers of the archive. The photos of each plan are counted against the index, and the stars of the targets are compared with their catalogue motion in every photo. One target was opened again over slowed links (400 kbit/s: message \"slow\"; 1.6 Mbit/s: first pair after 16.1 s, the rest offered as \"Load more (13 MB)\").",
+  "pass_rule": "Every position ends in pictures or in a message with a next step; the browser reports no uncaught error; the median time to the first pair is under 4 seconds; both poles say that their plan is capped; Barnard's Star and one more target lie within 1 pixel of their catalogue motion in every photo of both visits.",
+  "rule_commit": null,
+  "image": null,
+  "image_sha256": null,
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "status": "UNVERIFIED",
+  "plain": "timed at 27 real positions",
+  "value": "27 of 27 positions end in pictures (27) or a message (0); 0 uncaught errors; first pair: median 3.3 s, worst 4.6 s; full set: median 11.0 s, worst 17.2 s; median 16.1 MB, most 21.6 MB; 3 targets within 1 px of their catalogue motion (Barnard's Star: worst 0.73 px); at 4 positions the page asked a second time for pairs the reader had held back",
+  "unit": null,
+  "reference": "27 of 27 positions, 0 errors, median first pair under 4 s, 2 targets within 1 px",
+  "tolerance": "none",
+  "rerun": "node tools/timing.mjs"
+ },
+ {
+  "id": "K12",
+  "title": "What is typed is read, and what goes wrong is said",
+  "claim": "A position typed in any usual form opens where astropy puts it, an old catalogue position of a fast star moves to the star, and every way the archive can fail has its own message with a next step.",
+  "test": "Through the viewer page in Chrome 157.0.8103.51: 29 typed positions compared with astropy; the challenge statement's position for WISE 0855-0714 and Barnard's Star's position in 2000; 21 texts that are not positions. With a stand-in archive behind the page (tests/e2e/i1-live.spec.mjs): the bucket blocked, HTTP 503, HTTP 403, offline, a failure in the middle of loading, a link of 400 kbit/s, a link that turns slow while the first pair loads, one pair that stalls on a quick link, a position with no photos, a part of the sky that is not listed, one visit only, a saturated star, an empty patch; and the names (this site's list, the name service, a name nobody knows).",
+  "pass_rule": "Every typed position within 0.1 arcsec of astropy; both old positions move to their star and say so; every text that is not a position gets a message; every fault shows its own message and a next step.",
+  "rule_commit": null,
+  "image": null,
+  "image_sha256": null,
+  "reviewer_role": null,
+  "reviewed_on": null,
+  "status": "UNVERIFIED",
+  "plain": "every fault shows its message",
+  "value": "29 of 29 typed positions (worst 0.0017 arcsec); 2 of 2 old positions moved to their star; 21 of 21 other texts answered; 12 of 12 faults and 1 of 1 name tests show their message",
+  "unit": null,
+  "reference": "all of them",
+  "tolerance": "0.1 arcsec for a typed position",
+  "rerun": "node tools/timing.mjs --only inputs,faults"
+ }
+]

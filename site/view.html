@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Flip between NASA SPHEREx photos of one patch of sky, taken months apart at the same infrared colour, and read every pixel.">
+<title data-page="Viewer">Viewer · Same Sky, Same Colour</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Viewer · Same Sky, Same Colour">
+<meta property="og:description" content="Flip between NASA SPHEREx photos of one patch of sky, taken months apart at the same infrared colour, and read every pixel.">
+<meta property="og:image" content="https://danielpuigmarti.github.io/same-sky-same-colour/img/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Same Sky, Same Colour: a SPHEREx photo of comet Lemmon at the colour of carbon dioxide.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/stage.css">
+<link rel="stylesheet" href="css/panels.css">
+<link rel="stylesheet" href="css/live.css">
+<link rel="stylesheet" href="css/suggest.css">
+<noscript><style>#view-where { display: none; }</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+<div class="masthead-line">
+<a class="masthead-name" href="./" data-site="name">Same Sky, Same Colour</a>
+<nav class="masthead-nav" aria-label="Pages">
+<ul>
+<li><a href="./">Bulletin</a></li>
+<li><a href="view.html" aria-current="page">Blink a place</a></li>
+<li><a href="lemmon.html">The comet</a></li>
+<li><a href="targets.html">Five targets</a></li>
+<li><a href="checks.html">Checks</a></li>
+<li><a href="why.html">Why</a></li>
+</ul>
+</nav>
+<button class="masthead-edition" type="button" data-edition-toggle hidden>Day edition</button>
+</div>
+<form class="view-search" action="view.html" method="get" role="search" aria-label="Blink another place" data-position>
+<label class="field-label" for="where">Type a star's name or a sky position</label>
+<div class="joined">
+<input class="field" id="where" name="q" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Vega, M57 or 330.84 −56.79">
+<button class="btn btn-primary" type="submit">BLINK IT</button>
+</div>
+</form>
+</header>
+<main id="main" class="page view">
+<div class="view-head">
+<div class="view-title">
+<h1>BLINK A PLACE</h1>
+<p id="view-named" class="view-named" hidden></p>
+<p class="view-back"><a id="view-back" href="view.html" target="_blank" rel="noopener">Open in the viewer</a></p>
+</div>
+<p id="view-lede" class="view-lede"></p>
+</div>
+<dl id="view-where" class="cells view-facts" data-cols="4" aria-label="What is known about this place">
+<div class="cell view-facts-colours"><dt class="cell-label">Range of colours</dt><dd class="cell-value" data-cell="colours"></dd></div>
+<div class="cell"><dt class="cell-label">Visits</dt><dd class="cell-value" data-cell="visits"></dd></div>
+<div class="cell"><dt class="cell-label">Photos</dt><dd class="cell-value" data-cell="photos"></dd></div>
+<div class="cell"><dt class="cell-label">Read from</dt><dd class="cell-value" data-cell="source"></dd></div>
+</dl>
+<noscript>
+<p class="view-noscript">This page needs JavaScript to read the pictures. The <a href="targets.html">targets</a> and the <a href="lemmon.html">comet</a> are shown as plain pictures on their own pages.</p>
+</noscript>
+<section id="stage"></section>
+<section id="lookup" hidden></section>
+<section id="plan"></section>
+<section id="places" hidden></section>
+<section id="visits"></section>
+<section id="colours"></section>
+<section id="frame-map"></section>
+<section id="spectrum"></section>
+<section id="is-it-real"></section>
+<section id="reading" class="view-reading">
+<details class="disclosure">
+<summary>How the pictures are drawn</summary>
+<ul>
+<li>Each square is <span data-n="stage.pixel_arcsec">6.15</span> arcsec across on the sky, the size of one pixel of the telescope's camera, and holds the value of one pixel of a photo. North is up and east is to the left in every picture, so that two visits line up.</li>
+<li>Nothing is smoothed, unless you switch on Smooth pixels. That changes how the screen enlarges the picture and none of its values: the readout under the pointer says the same.</li>
+<li>When several photos of a visit are shown together, each pixel is the mean of the photos that could be used there, each without its own sky background. A pixel is shown when at least half of the photos of each visit could be used; elsewhere there is no data.</li>
+<li>The two pictures share one brightness rule. Black and white are set from the pixels of both together (white at the <span data-n="stage.stretch_percentile">99.5</span>th percentile), with one fixed curve between them, so a value has the same grey in both.</li>
+<li>Blink changes picture at most <span data-n="stage.flips_per_second">2</span> times a second. The space bar plays and pauses, the arrow keys step, and D shows the difference.</li>
+<li>Hatching marks pixels that are saturated or damaged. A veil covers pixels where the two visits were not taken at the same colour. Small ticks beside a place mark where a known fast star should be on the date of the picture.</li>
+<li>The difference is drawn in units of the noise, from −<span data-n="stage.diff_range">5</span> to +<span data-n="stage.diff_range">5</span>. Anything smaller than <span data-n="stage.diff_grey_below">3</span> times the noise is grey. It is the only picture that is resampled.</li>
+</ul>
+</details>
+</section>
+<div id="share" hidden></div>
+</main>
+<footer class="colophon">
+<div class="cells">
+<p class="cell" data-site="name">Same Sky, Same Colour</p>
+<p class="cell">Photos: SPHEREx Level <span translate="no">2</span>, NASA/IPAC Infrared Science Archive</p>
+<p class="cell"><a href="checks.html">Checks</a> and <a href="lemmon.html">the comet</a></p>
+</div>
+</footer>
+<script type="module" src="js/pages/view.js"></script>
+</body>
+</html>

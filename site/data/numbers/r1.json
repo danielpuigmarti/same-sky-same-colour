@@ -1,0 +1,16 @@
+{
+ "r1.flip.shown_px": {
+  "value": 128,
+  "err": null,
+  "unit": "pixels",
+  "text": "128",
+  "check": null
+ },
+ "r1.flip.field_arcmin": {
+  "value": 13.12,
+  "err": null,
+  "unit": "arcmin",
+  "text": "13.1",
+  "check": null
+ }
+}

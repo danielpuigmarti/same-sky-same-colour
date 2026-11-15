@@ -1,0 +1,358 @@
+{
+ "id": "wise0855",
+ "name": "WISE 0855-0714",
+ "detector": 6,
+ "showcase": "manifest.json",
+ "preview": "pair.png",
+ "visits": [
+  "November 2025",
+  "April 2026"
+ ],
+ "kind": "mover",
+ "check": "K5",
+ "plain": "checked against published astrometry",
+ "within_tolerance": true,
+ "verdict": "Moved {{targets.wise0855.shift.measured}} arcsec since 2010; the catalogue gives {{targets.wise0855.shift.catalogue}} arcsec. Position only: no brightness is given.",
+ "reference": {
+  "text": "Kirkpatrick et al. 2021, ApJS 253, 7 (2021ApJS..253....7K), as served by SIMBAD for WISEA J085510.74-071442.5; the position is given at epoch J2000.0 there. Not in Gaia.",
+  "unverified": true
+ },
+ "jump": {
+  "picture": "jump.png",
+  "panels": [
+   {
+    "file": "wise2010.png",
+    "label": "WISE, 2010",
+    "what": "AllWISE Atlas image, band W2 (4.6 µm), tile 1342m076_ac51: a mean of photos taken from 2010-05-03 to 2010-11-13",
+    "year": 2010.601
+   },
+   {
+    "file": "spherex.png",
+    "label": "SPHEREx, April 2026",
+    "what": "median of the 21 photos of detector 6 taken from 2026-04-21 to 2026-05-11, drawn on the same sky grid",
+    "year": 2026.32
+   }
+  ],
+  "north": "up",
+  "east": "left",
+  "arcsec_per_pixel": 2.05,
+  "pixels": 105,
+  "resampled": true,
+  "catalogue": [
+   {
+    "u": 0.20241,
+    "v": 0.52487
+   },
+   {
+    "u": 0.79759,
+    "v": 0.47514
+   }
+  ],
+  "measured": [
+   {
+    "u": 0.20254,
+    "v": 0.5269
+   },
+   {
+    "u": 0.79551,
+    "v": 0.47497
+   }
+  ],
+  "track": [
+   {
+    "u": 0.19432,
+    "v": 0.52512
+   },
+   {
+    "u": 0.20236,
+    "v": 0.524
+   },
+   {
+    "u": 0.21091,
+    "v": 0.52464
+   },
+   {
+    "u": 0.22381,
+    "v": 0.52367
+   },
+   {
+    "u": 0.23496,
+    "v": 0.52137
+   },
+   {
+    "u": 0.24233,
+    "v": 0.52101
+   },
+   {
+    "u": 0.25232,
+    "v": 0.5215
+   },
+   {
+    "u": 0.26551,
+    "v": 0.51979
+   },
+   {
+    "u": 0.27515,
+    "v": 0.51785
+   },
+   {
+    "u": 0.28259,
+    "v": 0.51812
+   },
+   {
+    "u": 0.29412,
+    "v": 0.5181
+   },
+   {
+    "u": 0.30679,
+    "v": 0.51589
+   },
+   {
+    "u": 0.31508,
+    "v": 0.5146
+   },
+   {
+    "u": 0.32334,
+    "v": 0.51521
+   },
+   {
+    "u": 0.33605,
+    "v": 0.51443
+   },
+   {
+    "u": 0.34754,
+    "v": 0.5121
+   },
+   {
+    "u": 0.355,
+    "v": 0.51157
+   },
+   {
+    "u": 0.36463,
+    "v": 0.51213
+   },
+   {
+    "u": 0.37782,
+    "v": 0.51058
+   },
+   {
+    "u": 0.38781,
+    "v": 0.50853
+   },
+   {
+    "u": 0.39517,
+    "v": 0.50867
+   },
+   {
+    "u": 0.40635,
+    "v": 0.5088
+   },
+   {
+    "u": 0.41921,
+    "v": 0.50667
+   },
+   {
+    "u": 0.42778,
+    "v": 0.50521
+   },
+   {
+    "u": 0.43579,
+    "v": 0.50578
+   },
+   {
+    "u": 0.44827,
+    "v": 0.50519
+   },
+   {
+    "u": 0.46009,
+    "v": 0.50285
+   },
+   {
+    "u": 0.46768,
+    "v": 0.50214
+   },
+   {
+    "u": 0.47696,
+    "v": 0.50275
+   },
+   {
+    "u": 0.49011,
+    "v": 0.50137
+   },
+   {
+    "u": 0.50047,
+    "v": 0.49922
+   },
+   {
+    "u": 0.50778,
+    "v": 0.49922
+   },
+   {
+    "u": 0.5186,
+    "v": 0.49948
+   },
+   {
+    "u": 0.53162,
+    "v": 0.49747
+   },
+   {
+    "u": 0.5405,
+    "v": 0.49585
+   },
+   {
+    "u": 0.54829,
+    "v": 0.49634
+   },
+   {
+    "u": 0.56051,
+    "v": 0.49594
+   },
+   {
+    "u": 0.57262,
+    "v": 0.49361
+   },
+   {
+    "u": 0.5804,
+    "v": 0.49272
+   },
+   {
+    "u": 0.58934,
+    "v": 0.49335
+   },
+   {
+    "u": 0.60241,
+    "v": 0.49216
+   },
+   {
+    "u": 0.61312,
+    "v": 0.48993
+   },
+   {
+    "u": 0.62043,
+    "v": 0.48977
+   },
+   {
+    "u": 0.63089,
+    "v": 0.49015
+   },
+   {
+    "u": 0.64401,
+    "v": 0.48825
+   },
+   {
+    "u": 0.65322,
+    "v": 0.48648
+   },
+   {
+    "u": 0.66083,
+    "v": 0.48689
+   },
+   {
+    "u": 0.67276,
+    "v": 0.48666
+   },
+   {
+    "u": 0.68514,
+    "v": 0.48437
+   },
+   {
+    "u": 0.69312,
+    "v": 0.4833
+   },
+   {
+    "u": 0.70175,
+    "v": 0.48394
+   },
+   {
+    "u": 0.71468,
+    "v": 0.48292
+   },
+   {
+    "u": 0.72575,
+    "v": 0.48063
+   },
+   {
+    "u": 0.7331,
+    "v": 0.48031
+   },
+   {
+    "u": 0.74318,
+    "v": 0.48079
+   },
+   {
+    "u": 0.75637,
+    "v": 0.47904
+   },
+   {
+    "u": 0.76591,
+    "v": 0.47713
+   },
+   {
+    "u": 0.77339,
+    "v": 0.47743
+   },
+   {
+    "u": 0.78499,
+    "v": 0.47737
+   },
+   {
+    "u": 0.79761,
+    "v": 0.47514
+   }
+  ],
+  "neighbours": [
+   {
+    "source": "Gaia DR3 5756956644387831296",
+    "g_mag": 16.31,
+    "u": 0.8101,
+    "v": 0.45934,
+    "arcsec_from_target": 4.3
+   }
+  ]
+ },
+ "numbers": [
+  "targets.wise0855.beside.away",
+  "targets.wise0855.beside.off",
+  "targets.wise0855.beside.off_px",
+  "targets.wise0855.position.off_px",
+  "targets.wise0855.position.tolerance_px",
+  "targets.wise0855.shift.catalogue",
+  "targets.wise0855.shift.diff",
+  "targets.wise0855.shift.diff_px",
+  "targets.wise0855.shift.measured",
+  "targets.wise0855.shift.pixels",
+  "targets.wise0855.shift.tolerance",
+  "targets.wise0855.shift.years",
+  "targets.wise0855.speed.measured",
+  "targets.wise0855.spherex.month",
+  "targets.wise0855.spherex.photos",
+  "targets.wise0855.wise.first",
+  "targets.wise0855.wise.last",
+  "targets.wise0855.pairs"
+ ],
+ "motion": {
+  "build": true,
+  "check": "K5-motion",
+  "line": "Within SPHEREx's own data, from {{motion.wise0855.first}} to {{motion.wise0855.last}}, it moved {{motion.wise0855.measured}} arcsec, give or take {{motion.wise0855.error}}; the catalogue gives {{motion.wise0855.catalogue}} arcsec.",
+  "visits": [
+   "November 2025",
+   "April 2026"
+  ],
+  "numbers": [
+   "motion.wise0855.catalogue",
+   "motion.wise0855.days",
+   "motion.wise0855.error",
+   "motion.wise0855.first",
+   "motion.wise0855.last",
+   "motion.wise0855.measured",
+   "motion.wise0855.pixels",
+   "motion.wise0855.significance",
+   "motion.wise0855.stars"
+  ]
+ },
+ "beside": {
+  "source": "Gaia DR3 5756956644387831296",
+  "is_catalogue_source": true,
+  "line": "A star that does not move lies {{targets.wise0855.beside.away}} arcsec from it in these photos. In the 2010 image, with the target elsewhere, that star sits {{targets.wise0855.beside.off_px}} of a pixel from where Gaia puts it."
+ }
+}

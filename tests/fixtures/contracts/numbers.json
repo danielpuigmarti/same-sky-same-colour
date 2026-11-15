@@ -1,0 +1,7 @@
+{
+ "fixture.stamps.frames": { "value": 3, "err": null, "unit": null, "text": "3", "check": "fixture-stamps" },
+ "fixture.stamps.size": { "value": 64, "err": null, "unit": "pixels", "text": "64", "check": null },
+ "fixture.wave.pixels": { "value": 1200, "err": null, "unit": null, "text": "1,200", "check": "fixture-wave" },
+ "fixture.wave.tolerance": { "value": 0.000001, "err": null, "unit": "µm", "text": "0.000001", "check": "fixture-wave" },
+ "fixture.index.frames": { "value": 342, "err": null, "unit": "frames", "text": "342", "check": "fixture-index" }
+}

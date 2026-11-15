@@ -1,0 +1,72 @@
+{
+ "id": "empty-ecl000-d2",
+ "name": "An empty field on the ecliptic, detector 2",
+ "ra": 180.00355,
+ "dec": -0.00154,
+ "det": 2,
+ "w": 64,
+ "h": 64,
+ "frames": [
+  {
+   "key": "dr1/level2/2025W21_1B/l2b-v27-2026-199/2/level2_2025W21_1B_0606_4D2_spx_l2b-v27-2026-199.fits",
+   "mjd": 60817.209547104,
+   "lam": 1.623146,
+   "x0": 960,
+   "y0": 50,
+   "tx": 32.4717,
+   "ty": 31.6127,
+   "visit": 0
+  },
+  {
+   "key": "dr1/level2/2025W21_2C/l2b-v27-2026-199/2/level2_2025W21_2C_0020_1D2_spx_l2b-v27-2026-199.fits",
+   "mjd": 60817.612526594,
+   "lam": 1.103085,
+   "x0": 983,
+   "y0": 1930,
+   "tx": 32.2145,
+   "ty": 31.8631,
+   "visit": 0
+  },
+  {
+   "key": "dr1/level2/2025W21_1B/l2b-v27-2026-199/2/level2_2025W21_1B_0570_3D2_spx_l2b-v27-2026-199.fits",
+   "mjd": 60817.004877428,
+   "lam": 1.280139,
+   "x0": 975,
+   "y0": 1203,
+   "tx": 32.2676,
+   "ty": 32.0832,
+   "visit": 0
+  },
+  {
+   "key": "dr1/level2/2025W51_2A/l2b-v27-2026-211/2/level2_2025W51_2A_0727_1D2_spx_l2b-v27-2026-211.fits",
+   "mjd": 61030.927154523,
+   "lam": 1.623183,
+   "x0": 949,
+   "y0": 50,
+   "tx": 31.5466,
+   "ty": 31.6208,
+   "visit": 1
+  },
+  {
+   "key": "dr1/level2/2025W51_2A/l2b-v27-2026-211/2/level2_2025W51_2A_0679_1D2_spx_l2b-v27-2026-211.fits",
+   "mjd": 61030.722804465,
+   "lam": 1.10317,
+   "x0": 974,
+   "y0": 1930,
+   "tx": 32.3359,
+   "ty": 31.5646,
+   "visit": 1
+  },
+  {
+   "key": "dr1/level2/2025W52_1A/l2b-v27-2026-211/2/level2_2025W52_1A_0081_3D2_spx_l2b-v27-2026-211.fits",
+   "mjd": 61031.405351073,
+   "lam": 1.270747,
+   "x0": 965,
+   "y0": 1240,
+   "tx": 31.5075,
+   "ty": 31.6473,
+   "visit": 1
+  }
+ ],
+ "note": "Two visits, three photos each. The photo at position i of visit 0 and the one at position i of visit 1 have the same colour (within 0.7 per cent)."
+}

@@ -1,0 +1,206 @@
+{
+ "version": 1,
+ "epoch": 2026.0,
+ "about": "Named targets. ra, dec in degrees (ICRS) at `epoch` (stars, Pluto) or at `when` (the comet). A `fast` star also carries its catalogue astrometry: position and epoch, proper motion in mas/yr (pmra is the motion in RA times cos(dec)), parallax in mas, radial velocity in km/s.",
+ "entries": [
+  {
+   "id": "barnard",
+   "name": "Barnard's Star",
+   "aliases": [
+    "Barnard's Star",
+    "Barnards Star",
+    "Barnard Star",
+    "GJ 699",
+    "GL 699",
+    "V2500 Oph",
+    "HIP 87937"
+   ],
+   "kind": "star",
+   "ra": 269.44626688,
+   "dec": 4.76822227,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": true,
+   "catalogue": {
+    "ra": 269.448502525,
+    "dec": 4.739420051,
+    "epoch": 2016.0,
+    "pmra": -801.551,
+    "pmdec": 10362.3942,
+    "parallax": 546.9759,
+    "rv": -110.468,
+    "speed_arcsec_per_year": 10.3933,
+    "source": "Gaia DR3 4472832130942575872, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+    "unverified": false
+   },
+   "note": "The fastest star in the sky: about 10.4 arcsec a year.",
+   "g_mag": 8.1939745,
+   "ruwe": 1.0848505
+  },
+  {
+   "id": "eps-indi-b",
+   "name": "Epsilon Indi B",
+   "aliases": [
+    "Epsilon Indi B",
+    "Eps Indi B",
+    "Epsilon Indi Ba",
+    "Eps Ind B",
+    "eps Ind B",
+    "ε Indi B",
+    "ε Ind B"
+   ],
+   "kind": "star",
+   "ra": 331.09665344,
+   "dec": -56.80066275,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": true,
+   "catalogue": {
+    "ra": 331.076452597,
+    "dec": -56.793812067,
+    "epoch": 2016.0,
+    "pmra": 3981.9767,
+    "pmdec": -2466.8318,
+    "parallax": 270.658,
+    "rv": null,
+    "speed_arcsec_per_year": 4.6842,
+    "source": "Gaia DR3 6412596012146801152, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+    "unverified": false
+   },
+   "note": "A pair of brown dwarfs, Ba and Bb, about 0.4 degrees from Epsilon Indi A. Gaia lists the two as one source whose fit is poor (RUWE above 4): the position is that of the pair.",
+   "g_mag": 18.030664,
+   "ruwe": 4.2955413
+  },
+  {
+   "id": "wise0855",
+   "name": "WISE 0855-0714",
+   "aliases": [
+    "WISE 0855-0714",
+    "WISE 0855",
+    "WISE J0855-0714",
+    "WISE J085510.83-071442.5",
+    "WISEA J0855-0714",
+    "WISEA J085510.74-071442.5"
+   ],
+   "kind": "star",
+   "ra": 133.75976527,
+   "dec": -7.24218218,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": true,
+   "catalogue": {
+    "ra": 133.81890825,
+    "dec": -7.247048,
+    "epoch": 2000.0,
+    "pmra": -8123.7,
+    "pmdec": 673.2,
+    "parallax": 439,
+    "rv": null,
+    "speed_arcsec_per_year": 8.1515,
+    "source": "Kirkpatrick et al. 2021, ApJS 253, 7 (2021ApJS..253....7K), as served by SIMBAD for WISEA J085510.74-071442.5; the position is given at epoch J2000.0 there. Not in Gaia.",
+    "unverified": true,
+    "unverified_why": "Values read from SIMBAD; the paper itself was not opened and the epoch of the position was not read from it."
+   },
+   "note": "The coldest brown dwarf known, about 8.1 arcsec a year. Not in Gaia."
+  },
+  {
+   "id": "rw-aur",
+   "name": "RW Aurigae",
+   "aliases": [
+    "RW Aurigae",
+    "RW Aur",
+    "RW Aur A",
+    "V* RW Aur"
+   ],
+   "kind": "star",
+   "ra": 76.9560897,
+   "dec": 30.40112848,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": false,
+   "catalogue": {
+    "ra": 76.956081196,
+    "dec": 30.401204589,
+    "epoch": 2016.0,
+    "pmra": 2.6406,
+    "pmdec": -27.3976,
+    "parallax": 6.4062,
+    "rv": -20.937,
+    "speed_arcsec_per_year": 0.0275,
+    "source": "Gaia DR3 156430822114424576, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+    "unverified": false
+   },
+   "note": "A young star that dims irregularly. Gaia DR3 lists the two stars of the pair apart; this is the brighter, A.",
+   "g_mag": 12.184072,
+   "ruwe": 1.5003728
+  },
+  {
+   "id": "r-dra",
+   "name": "R Draconis",
+   "aliases": [
+    "R Draconis",
+    "R Dra",
+    "V* R Dra"
+   ],
+   "kind": "star",
+   "ra": 248.16723308,
+   "dec": 66.75502383,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": false,
+   "catalogue": {
+    "ra": 248.167378367,
+    "dec": 66.755006745,
+    "epoch": 2016.0,
+    "pmra": -20.6428,
+    "pmdec": 6.1488,
+    "parallax": 1.2509,
+    "rv": null,
+    "speed_arcsec_per_year": 0.0215,
+    "source": "Gaia DR3 1648328016354496384, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+    "unverified": false
+   },
+   "note": "A pulsating red giant, bright and saturated in SPHEREx.",
+   "g_mag": 6.374379,
+   "ruwe": 1.297982
+  },
+  {
+   "id": "lemmon",
+   "name": "Comet C/2025 A6 (Lemmon)",
+   "kind": "comet",
+   "aliases": [
+    "C/2025 A6",
+    "C/2025 A6 (Lemmon)",
+    "Comet Lemmon",
+    "Lemmon",
+    "Comet C/2025 A6",
+    "2025 A6"
+   ],
+   "ra": 242.68730757,
+   "dec": -60.01319227,
+   "epoch": null,
+   "when": "2026-02-26T20:41:00Z",
+   "mjd": 61097.861806,
+   "fast": false,
+   "source": "JPL Horizons, astrometric ICRS position seen from SPHEREx, at 2026-02-26 20:41 UTC, between the two SPHEREx exposures of that night",
+   "note": "A moving target: this is its position on the night of 26 February 2026 only. It moves about 52 arcmin in 37.5 hours."
+  },
+  {
+   "id": "pluto",
+   "name": "Pluto",
+   "kind": "planet",
+   "aliases": [
+    "Pluto",
+    "134340 Pluto",
+    "(134340) Pluto"
+   ],
+   "ra": 305.55583207,
+   "dec": -23.30168658,
+   "epoch": 2026.0,
+   "mjd": 61041.0,
+   "fast": false,
+   "source": "JPL Horizons, astrometric ICRS position seen from SPHEREx, at 2026.0",
+   "note": "Moves slowly against the stars: about 0.04 arcsec an hour."
+  }
+ ]
+}

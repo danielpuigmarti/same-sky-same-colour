@@ -1,0 +1,42 @@
+[
+ {
+  "label": "Epsilon Indi B",
+  "line": "Two brown dwarfs drifting across the sky: the pair shifts between two visits.",
+  "href": "view.html?t=eps-indi-b"
+ },
+ {
+  "label": "Barnard's Star",
+  "line": "The fastest-moving star in the sky: it jumps between two visits.",
+  "href": "view.html?t=barnard"
+ },
+ {
+  "label": "WISE 0855-0714",
+  "line": "The coldest brown dwarf known: a faint dot that moves.",
+  "href": "view.html?t=wise0855"
+ },
+ {
+  "label": "RW Aurigae",
+  "line": "A young star that dims irregularly: compare its brightness at two visits.",
+  "href": "view.html?t=rw-aur"
+ },
+ {
+  "label": "R Draconis",
+  "line": "A bright red giant, too bright for SPHEREx: it fills its pixels.",
+  "href": "view.html?t=r-dra"
+ },
+ {
+  "label": "Ring Nebula",
+  "line": "A ring of gas around a dying star: a round bright shape in the middle of the photo.",
+  "href": "view.html?ra=283.396251&dec=33.029152&q=Ring+Nebula"
+ },
+ {
+  "label": "Whirlpool Galaxy",
+  "line": "A spiral galaxy: a bright core with its arms wound round it.",
+  "href": "view.html?ra=202.469575&dec=47.195258&q=Whirlpool+Galaxy"
+ },
+ {
+  "label": "Crab Nebula",
+  "line": "The cloud left by an exploded star: a large uneven glow.",
+  "href": "view.html?ra=83.6324&dec=22.0174&q=Crab+Nebula"
+ }
+]

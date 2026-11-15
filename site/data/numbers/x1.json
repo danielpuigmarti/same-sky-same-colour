@@ -1,0 +1,30 @@
+{
+ "pluto.best.within": {
+  "value": 19,
+  "err": null,
+  "unit": null,
+  "text": "19",
+  "check": "K-pluto"
+ },
+ "pluto.best.photos": {
+  "value": 24,
+  "err": null,
+  "unit": null,
+  "text": "24",
+  "check": "K-pluto"
+ },
+ "gallery.stars.passed": {
+  "value": 24,
+  "err": null,
+  "unit": null,
+  "text": "24",
+  "check": "K-gallery"
+ },
+ "gallery.stars.tested": {
+  "value": 24,
+  "err": null,
+  "unit": null,
+  "text": "24",
+  "check": "K-gallery"
+ }
+}

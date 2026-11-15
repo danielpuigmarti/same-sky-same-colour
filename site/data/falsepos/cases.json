@@ -1,0 +1,406 @@
+{
+ "version": 1,
+ "rules": {
+  "residual_units": 3.0,
+  "radius_px": 2.0,
+  "bright_g_max": 14.0,
+  "fast_mas_per_year": 500.0,
+  "flag_tiers": [
+   "saturation",
+   "defect"
+  ],
+  "same_place_px": 1.0,
+  "min_pairs": 2
+ },
+ "about": "Four real false positives of the 'Is it real?' panel. `expected` is the answer to each of the panel's four questions for the residual at `residual.click`.",
+ "cases": [
+  {
+   "id": "star-a",
+   "showcase": "falsepos/star-a",
+   "title": "A steady bright star (G 11.0)",
+   "what_it_is": "A steady star of magnitude 11.0 (Gaia DR3 156388078601663616). The photos of two visits were taken at the same colour, but the telescope samples a star with few pixels and the sky has turned between the visits, so the star never cancels pixel by pixel: it leaves a dark and a bright patch, in every pair.",
+   "ra": 77.45126955777076,
+   "dec": 30.46057613579202,
+   "detector": 4,
+   "residual": {
+    "pair": [
+     2,
+     5
+    ],
+    "pair_index": 0,
+    "click": {
+     "a": {
+      "frame": 2,
+      "x": 31.421847716880393,
+      "y": 32.80979176491019
+     },
+     "b": {
+      "frame": 5,
+      "x": 32.191726033970895,
+      "y": 31.595983452427845
+     }
+    },
+    "units": 106.7778549194336,
+    "per_pair": [
+     {
+      "pair": 0,
+      "units": 106.7778549194336,
+      "shows": true
+     },
+     {
+      "pair": 1,
+      "units": 123.110107421875,
+      "shows": true
+     },
+     {
+      "pair": 2,
+      "units": 77.57150268554688,
+      "shows": true
+     },
+     {
+      "pair": 3,
+      "units": 28.002685546875,
+      "shows": true
+     },
+     {
+      "pair": 4,
+      "units": 66.1645736694336,
+      "shows": true
+     }
+    ],
+    "flags": {
+     "a": [
+      "SOURCE"
+     ],
+     "b": [
+      "SOURCE"
+     ]
+    }
+   },
+   "expected": {
+    "flagged": {
+     "answer": false,
+     "flags": [
+      "SOURCE"
+     ],
+     "tiers_hit": []
+    },
+    "more_than_one_pair": {
+     "answer": true,
+     "pairs_with_residual": 5,
+     "pairs": 5
+    },
+    "bright_gaia_star_within_2px": {
+     "answer": true,
+     "star": {
+      "source_id": "156388078601663616",
+      "G": 11.0334835,
+      "sep_px": 0.7066030955925802
+     },
+     "nearest_any": {
+      "source_id": "156388078601663616",
+      "G": 11.0334835,
+      "sep_px": 0.7066030955925802
+     }
+    },
+    "on_fast_star_ring": {
+     "answer": false,
+     "fast_stars_within_3_arcmin": 0,
+     "nearest_ring_px": null
+    }
+   },
+   "frames": 10
+  },
+  {
+   "id": "star-b",
+   "showcase": "falsepos/star-b",
+   "title": "A steady bright star (G 11.7)",
+   "what_it_is": "A steady star of magnitude 11.7 (Gaia DR3 180219370362714112). The photos of two visits were taken at the same colour, but the telescope samples a star with few pixels and the sky has turned between the visits, so the star never cancels pixel by pixel: it leaves a dark and a bright patch, in every pair.",
+   "ra": 78.33889574203015,
+   "dec": 30.499610634986492,
+   "detector": 4,
+   "residual": {
+    "pair": [
+     1,
+     6
+    ],
+    "pair_index": 0,
+    "click": {
+     "a": {
+      "frame": 1,
+      "x": 31.546442554748182,
+      "y": 32.95005721859866
+     },
+     "b": {
+      "frame": 6,
+      "x": 32.3910440826985,
+      "y": 32.00836760773859
+     }
+    },
+    "units": 27.628158569335938,
+    "per_pair": [
+     {
+      "pair": 0,
+      "units": 27.628158569335938,
+      "shows": true
+     },
+     {
+      "pair": 1,
+      "units": 56.09968566894531,
+      "shows": true
+     },
+     {
+      "pair": 2,
+      "units": 58.50272750854492,
+      "shows": true
+     },
+     {
+      "pair": 3,
+      "units": 82.35616302490234,
+      "shows": true
+     },
+     {
+      "pair": 4,
+      "units": 42.14451217651367,
+      "shows": true
+     }
+    ],
+    "flags": {
+     "a": [
+      "SOURCE"
+     ],
+     "b": [
+      "SOURCE"
+     ]
+    }
+   },
+   "expected": {
+    "flagged": {
+     "answer": false,
+     "flags": [
+      "SOURCE"
+     ],
+     "tiers_hit": []
+    },
+    "more_than_one_pair": {
+     "answer": true,
+     "pairs_with_residual": 5,
+     "pairs": 5
+    },
+    "bright_gaia_star_within_2px": {
+     "answer": true,
+     "star": {
+      "source_id": "180219370362714112",
+      "G": 11.6508284,
+      "sep_px": 0.7071242759010947
+     },
+     "nearest_any": {
+      "source_id": "180219370362714112",
+      "G": 11.6508284,
+      "sep_px": 0.7071242759010947
+     }
+    },
+    "on_fast_star_ring": {
+     "answer": false,
+     "fast_stars_within_3_arcmin": 0,
+     "nearest_ring_px": null
+    }
+   },
+   "frames": 10
+  },
+  {
+   "id": "ghost",
+   "showcase": "falsepos/ghost",
+   "title": "A reflection of a very bright star (GHOST)",
+   "what_it_is": "A residual on pixels flagged GHOST: the archive marks light there as a reflection of a very bright star inside the telescope, not something in the sky, so nothing at these pixels can be trusted. In this showcase it appears in 1 of 5 pairs: that points to the photo and not to the sky.",
+   "ra": 213.8077811356394,
+   "dec": 18.88436438129356,
+   "detector": 4,
+   "residual": {
+    "pair": [
+     0,
+     5
+    ],
+    "pair_index": 0,
+    "click": {
+     "a": {
+      "frame": 0,
+      "x": 32.272517736116015,
+      "y": 31.354154908079977
+     },
+     "b": {
+      "frame": 5,
+      "x": 31.82249263277265,
+      "y": 32.3154600832886
+     }
+    },
+    "units": 21.06307029724121,
+    "per_pair": [
+     {
+      "pair": 0,
+      "units": 21.06307029724121,
+      "shows": true
+     },
+     {
+      "pair": 1,
+      "units": -0.062445834279060364,
+      "shows": false
+     },
+     {
+      "pair": 2,
+      "units": 0.40850675106048584,
+      "shows": false
+     },
+     {
+      "pair": 3,
+      "units": 0.004605642519891262,
+      "shows": false
+     },
+     {
+      "pair": 4,
+      "units": 0.11536365002393723,
+      "shows": false
+     }
+    ],
+    "flags": {
+     "a": [
+      "SOURCE",
+      "GHOST"
+     ],
+     "b": [
+      "SOURCE"
+     ]
+    }
+   },
+   "expected": {
+    "flagged": {
+     "answer": true,
+     "flags": [
+      "SOURCE",
+      "GHOST"
+     ],
+     "tiers_hit": [
+      "defect"
+     ]
+    },
+    "more_than_one_pair": {
+     "answer": false,
+     "pairs_with_residual": 1,
+     "pairs": 5
+    },
+    "bright_gaia_star_within_2px": {
+     "answer": false,
+     "star": null,
+     "nearest_any": {
+      "source_id": "1233951663283878656",
+      "G": 19.1319218,
+      "sep_px": 3.8341549785699054
+     }
+    },
+    "on_fast_star_ring": {
+     "answer": false,
+     "fast_stars_within_3_arcmin": 0,
+     "nearest_ring_px": null
+    }
+   },
+   "frames": 10
+  },
+  {
+   "id": "persist",
+   "showcase": "falsepos/persist",
+   "title": "An after-image (PERSIST)",
+   "what_it_is": "A residual on pixels flagged PERSIST: the archive says these pixels may still carry the after-image of something bright seen just before, so their values cannot be trusted. In this showcase it appears in 1 of 5 pairs: that points to the photo and not to the sky.",
+   "ra": 213.42140891731535,
+   "dec": 18.728260571887063,
+   "detector": 2,
+   "residual": {
+    "pair": [
+     0,
+     8
+    ],
+    "pair_index": 0,
+    "click": {
+     "a": {
+      "frame": 0,
+      "x": 32.65982375767862,
+      "y": 32.25810904433797
+     },
+     "b": {
+      "frame": 8,
+      "x": 31.52047811707189,
+      "y": 31.96379325170244
+     }
+    },
+    "units": 20.847076416015625,
+    "per_pair": [
+     {
+      "pair": 0,
+      "units": 20.847076416015625,
+      "shows": true
+     },
+     {
+      "pair": 1,
+      "units": 0.19886164367198944,
+      "shows": false
+     },
+     {
+      "pair": 2,
+      "units": 0.5886739492416382,
+      "shows": false
+     },
+     {
+      "pair": 3,
+      "units": -0.10051886737346649,
+      "shows": false
+     },
+     {
+      "pair": 4,
+      "units": 0.995650589466095,
+      "shows": false
+     }
+    ],
+    "flags": {
+     "a": [
+      "PERSIST",
+      "SOURCE"
+     ],
+     "b": [
+      "SOURCE"
+     ]
+    }
+   },
+   "expected": {
+    "flagged": {
+     "answer": true,
+     "flags": [
+      "PERSIST",
+      "SOURCE"
+     ],
+     "tiers_hit": [
+      "defect"
+     ]
+    },
+    "more_than_one_pair": {
+     "answer": false,
+     "pairs_with_residual": 1,
+     "pairs": 5
+    },
+    "bright_gaia_star_within_2px": {
+     "answer": false,
+     "star": null,
+     "nearest_any": {
+      "source_id": "1233922771040954752",
+      "G": 20.5463142,
+      "sep_px": 5.502363011042519
+     }
+    },
+    "on_fast_star_ring": {
+     "answer": false,
+     "fast_stars_within_3_arcmin": 0,
+     "nearest_ring_px": null
+    }
+   },
+   "frames": 10
+  }
+ ]
+}

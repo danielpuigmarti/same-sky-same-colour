@@ -1,0 +1,296 @@
+{
+ "falsepos.cases": {
+  "value": 4,
+  "err": null,
+  "unit": null,
+  "text": "4",
+  "check": null
+ },
+ "limits.coadd.max_share_pct": {
+  "value": 100.0,
+  "err": null,
+  "unit": "%",
+  "text": "100",
+  "check": "K10"
+ },
+ "limits.coadd.mjy_at_1": {
+  "value": 13.891397050194614,
+  "err": null,
+  "unit": "mJy",
+  "text": "14",
+  "check": "K10"
+ },
+ "limits.coadd.mjy_at_10": {
+  "value": 1.3891397050194614,
+  "err": null,
+  "unit": "mJy",
+  "text": "1.39",
+  "check": "K10"
+ },
+ "limits.coadd.mjy_at_100": {
+  "value": 0.7811706625951745,
+  "err": null,
+  "unit": "mJy",
+  "text": "0.78",
+  "check": "K10"
+ },
+ "limits.coadd.shown_pct": {
+  "value": 79.296875,
+  "err": null,
+  "unit": "%",
+  "text": "79",
+  "check": "K10"
+ },
+ "limits.fraction_pct": {
+  "value": 80.0,
+  "err": null,
+  "unit": "%",
+  "text": "80",
+  "check": "K10"
+ },
+ "limits.injections": {
+  "value": 144,
+  "err": null,
+  "unit": null,
+  "text": "144",
+  "check": "K10"
+ },
+ "limits.pair.max_share_pct": {
+  "value": 100.0,
+  "err": null,
+  "unit": "%",
+  "text": "100",
+  "check": "K10"
+ },
+ "limits.pair.mjy_at_1": {
+  "value": 31.622776601683793,
+  "err": null,
+  "unit": "mJy",
+  "text": "32",
+  "check": "K10"
+ },
+ "limits.pair.mjy_at_10": {
+  "value": 3.1622776601683795,
+  "err": null,
+  "unit": "mJy",
+  "text": "3.16",
+  "check": "K10"
+ },
+ "limits.pair.mjy_at_100": {
+  "value": 1.3891397050194614,
+  "err": null,
+  "unit": "mJy",
+  "text": "1.39",
+  "check": "K10"
+ },
+ "limits.pair.shown_pct": {
+  "value": 70.8251953125,
+  "err": null,
+  "unit": "%",
+  "text": "71",
+  "check": "K10"
+ },
+ "limits.runs": {
+  "value": 18,
+  "err": null,
+  "unit": null,
+  "text": "18",
+  "check": "K10"
+ },
+ "limits.shift_years": {
+  "value": 0.49436734000479343,
+  "err": null,
+  "unit": "years",
+  "text": "0.49",
+  "check": "K10"
+ },
+ "limits.units": {
+  "value": 5.0,
+  "err": null,
+  "unit": null,
+  "text": "5",
+  "check": "K10"
+ },
+ "pb6.earlier.coadd": {
+  "value": 3,
+  "err": null,
+  "unit": null,
+  "text": "3",
+  "check": "K8"
+ },
+ "pb6.earlier.coadd_clipped": {
+  "value": 5,
+  "err": null,
+  "unit": null,
+  "text": "5",
+  "check": "K8"
+ },
+ "pb6.earlier.flipbook": {
+  "value": 1,
+  "err": null,
+  "unit": null,
+  "text": "1",
+  "check": "K8"
+ },
+ "pb6.earlier.flipbook_clipped": {
+  "value": 4,
+  "err": null,
+  "unit": null,
+  "text": "4",
+  "check": "K8"
+ },
+ "pb6.earlier.positions": {
+  "value": 10,
+  "err": null,
+  "unit": null,
+  "text": "10",
+  "check": "K8"
+ },
+ "pb6.empty.coadd": {
+  "value": 6,
+  "err": null,
+  "unit": null,
+  "text": "6",
+  "check": "K8"
+ },
+ "pb6.empty.coadd_clipped": {
+  "value": 10,
+  "err": null,
+  "unit": null,
+  "text": "10",
+  "check": "K8"
+ },
+ "pb6.empty.flipbook": {
+  "value": 3,
+  "err": null,
+  "unit": null,
+  "text": "3",
+  "check": "K8"
+ },
+ "pb6.empty.flipbook_clipped": {
+  "value": 9,
+  "err": null,
+  "unit": null,
+  "text": "9",
+  "check": "K8"
+ },
+ "pb6.empty.positions": {
+  "value": 20,
+  "err": null,
+  "unit": null,
+  "text": "20",
+  "check": "K8"
+ },
+ "pb6.inject.coadd": {
+  "value": 9,
+  "err": null,
+  "unit": null,
+  "text": "9",
+  "check": "K8"
+ },
+ "pb6.inject.flipbook": {
+  "value": 9,
+  "err": null,
+  "unit": null,
+  "text": "9",
+  "check": "K8"
+ },
+ "pb6.inject.total": {
+  "value": 10,
+  "err": null,
+  "unit": null,
+  "text": "10",
+  "check": "K8"
+ },
+ "pb6.shown.pairs1_pct": {
+  "value": 68.505859375,
+  "err": null,
+  "unit": "%",
+  "text": "69",
+  "check": "K8"
+ },
+ "pb6.shown.pairs2_pct": {
+  "value": 84.6435546875,
+  "err": null,
+  "unit": "%",
+  "text": "85",
+  "check": "K8"
+ },
+ "pb6.shown.pairs3_pct": {
+  "value": 79.39453125,
+  "err": null,
+  "unit": "%",
+  "text": "79",
+  "check": "K8"
+ },
+ "pb6.shown.pairs4_pct": {
+  "value": 83.75244140625,
+  "err": null,
+  "unit": "%",
+  "text": "84",
+  "check": "K8"
+ },
+ "pb6.shown.pairs5_pct": {
+  "value": 78.28369140625,
+  "err": null,
+  "unit": "%",
+  "text": "78",
+  "check": "K8"
+ },
+ "pb6.shown.pairs6_pct": {
+  "value": 80.3955078125,
+  "err": null,
+  "unit": "%",
+  "text": "80",
+  "check": "K8"
+ },
+ "pb6.shown.pairs7_pct": {
+  "value": 77.74658203125,
+  "err": null,
+  "unit": "%",
+  "text": "78",
+  "check": "K8"
+ },
+ "pb6.shown.pairs8_pct": {
+  "value": 77.34375,
+  "err": null,
+  "unit": "%",
+  "text": "77",
+  "check": "K8"
+ },
+ "pb6.star.light_left_pct": {
+  "value": 2.3660022663293585,
+  "err": null,
+  "unit": "%",
+  "text": "2",
+  "check": "K8"
+ },
+ "pb6.star.peak_left_pct": {
+  "value": 30.601802936628538,
+  "err": null,
+  "unit": "%",
+  "text": "31",
+  "check": "K8"
+ },
+ "pb6.stars.coadd": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K8"
+ },
+ "pb6.stars.flipbook": {
+  "value": 0,
+  "err": null,
+  "unit": null,
+  "text": "0",
+  "check": "K8"
+ },
+ "pb6.stars.total": {
+  "value": 20,
+  "err": null,
+  "unit": null,
+  "text": "20",
+  "check": "K8"
+ }
+}

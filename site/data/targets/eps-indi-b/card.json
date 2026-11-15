@@ -1,0 +1,342 @@
+{
+ "id": "eps-indi-b",
+ "name": "Epsilon Indi B",
+ "detector": 6,
+ "showcase": "manifest.json",
+ "preview": "pair.png",
+ "visits": [
+  "April 2025",
+  "April 2026"
+ ],
+ "kind": "mover",
+ "check": "K5",
+ "plain": "checked against Gaia",
+ "within_tolerance": true,
+ "verdict": "Moved {{targets.eps-indi-b.shift.measured}} arcsec since 2010; the catalogue gives {{targets.eps-indi-b.shift.catalogue}} arcsec.",
+ "reference": {
+  "text": "Gaia DR3 6412596012146801152, ESA Gaia archive (gaiadr3.gaia_source), epoch J2016.0",
+  "unverified": false
+ },
+ "jump": {
+  "picture": "jump.png",
+  "panels": [
+   {
+    "file": "wise2010.png",
+    "label": "WISE, 2010",
+    "what": "AllWISE Atlas image, band W2 (4.6 µm), tile 3306m561_ac51: a mean of photos taken from 2010-04-28 to 2010-10-30; beyond the edge of that tile the picture shows tile 3323m576_ac51",
+    "year": 2010.575
+   },
+   {
+    "file": "spherex.png",
+    "label": "SPHEREx, April 2026",
+    "what": "median of the 11 photos of detector 6 taken from 2026-04-29 to 2026-05-04, drawn on the same sky grid",
+    "year": 2026.326
+   }
+  ],
+  "north": "up",
+  "east": "left",
+  "arcsec_per_pixel": 2.05,
+  "pixels": 105,
+  "resampled": true,
+  "catalogue": [
+   {
+    "u": 0.64628,
+    "v": 0.41007
+   },
+   {
+    "u": 0.35377,
+    "v": 0.58997
+   }
+  ],
+  "measured": [
+   {
+    "u": 0.6452,
+    "v": 0.41105
+   },
+   {
+    "u": 0.35184,
+    "v": 0.59334
+   }
+  ],
+  "track": [
+   {
+    "u": 0.64988,
+    "v": 0.40654
+   },
+   {
+    "u": 0.64563,
+    "v": 0.41104
+   },
+   {
+    "u": 0.6421,
+    "v": 0.41382
+   },
+   {
+    "u": 0.63591,
+    "v": 0.4156
+   },
+   {
+    "u": 0.62973,
+    "v": 0.41941
+   },
+   {
+    "u": 0.62617,
+    "v": 0.42364
+   },
+   {
+    "u": 0.62195,
+    "v": 0.42576
+   },
+   {
+    "u": 0.61523,
+    "v": 0.428
+   },
+   {
+    "u": 0.6099,
+    "v": 0.43234
+   },
+   {
+    "u": 0.60663,
+    "v": 0.43599
+   },
+   {
+    "u": 0.60149,
+    "v": 0.43772
+   },
+   {
+    "u": 0.59473,
+    "v": 0.44067
+   },
+   {
+    "u": 0.59031,
+    "v": 0.44518
+   },
+   {
+    "u": 0.58687,
+    "v": 0.4481
+   },
+   {
+    "u": 0.58082,
+    "v": 0.44983
+   },
+   {
+    "u": 0.57452,
+    "v": 0.45352
+   },
+   {
+    "u": 0.57085,
+    "v": 0.45783
+   },
+   {
+    "u": 0.56679,
+    "v": 0.46006
+   },
+   {
+    "u": 0.56013,
+    "v": 0.46219
+   },
+   {
+    "u": 0.55463,
+    "v": 0.46645
+   },
+   {
+    "u": 0.55135,
+    "v": 0.47023
+   },
+   {
+    "u": 0.54638,
+    "v": 0.472
+   },
+   {
+    "u": 0.53959,
+    "v": 0.47481
+   },
+   {
+    "u": 0.53501,
+    "v": 0.47931
+   },
+   {
+    "u": 0.53164,
+    "v": 0.48237
+   },
+   {
+    "u": 0.52574,
+    "v": 0.48407
+   },
+   {
+    "u": 0.51932,
+    "v": 0.48763
+   },
+   {
+    "u": 0.51554,
+    "v": 0.492
+   },
+   {
+    "u": 0.51162,
+    "v": 0.49434
+   },
+   {
+    "u": 0.50504,
+    "v": 0.49637
+   },
+   {
+    "u": 0.49937,
+    "v": 0.50055
+   },
+   {
+    "u": 0.49605,
+    "v": 0.50444
+   },
+   {
+    "u": 0.49126,
+    "v": 0.50628
+   },
+   {
+    "u": 0.48446,
+    "v": 0.50894
+   },
+   {
+    "u": 0.47971,
+    "v": 0.51343
+   },
+   {
+    "u": 0.47639,
+    "v": 0.51663
+   },
+   {
+    "u": 0.47065,
+    "v": 0.51831
+   },
+   {
+    "u": 0.46413,
+    "v": 0.52173
+   },
+   {
+    "u": 0.46021,
+    "v": 0.52616
+   },
+   {
+    "u": 0.45643,
+    "v": 0.52863
+   },
+   {
+    "u": 0.44995,
+    "v": 0.53056
+   },
+   {
+    "u": 0.44411,
+    "v": 0.53464
+   },
+   {
+    "u": 0.44074,
+    "v": 0.53865
+   },
+   {
+    "u": 0.43613,
+    "v": 0.54055
+   },
+   {
+    "u": 0.42932,
+    "v": 0.54308
+   },
+   {
+    "u": 0.4244,
+    "v": 0.54754
+   },
+   {
+    "u": 0.42111,
+    "v": 0.55088
+   },
+   {
+    "u": 0.41555,
+    "v": 0.55256
+   },
+   {
+    "u": 0.40893,
+    "v": 0.55584
+   },
+   {
+    "u": 0.40488,
+    "v": 0.56031
+   },
+   {
+    "u": 0.40121,
+    "v": 0.56291
+   },
+   {
+    "u": 0.39485,
+    "v": 0.56477
+   },
+   {
+    "u": 0.38886,
+    "v": 0.56874
+   },
+   {
+    "u": 0.38542,
+    "v": 0.57285
+   },
+   {
+    "u": 0.38098,
+    "v": 0.57485
+   },
+   {
+    "u": 0.3742,
+    "v": 0.57725
+   },
+   {
+    "u": 0.3691,
+    "v": 0.58166
+   },
+   {
+    "u": 0.36584,
+    "v": 0.58514
+   },
+   {
+    "u": 0.36045,
+    "v": 0.58683
+   },
+   {
+    "u": 0.35377,
+    "v": 0.58997
+   }
+  ],
+  "neighbours": []
+ },
+ "numbers": [
+  "targets.eps-indi-b.position.off_px",
+  "targets.eps-indi-b.position.tolerance_px",
+  "targets.eps-indi-b.shift.catalogue",
+  "targets.eps-indi-b.shift.diff",
+  "targets.eps-indi-b.shift.diff_px",
+  "targets.eps-indi-b.shift.measured",
+  "targets.eps-indi-b.shift.pixels",
+  "targets.eps-indi-b.shift.tolerance",
+  "targets.eps-indi-b.shift.years",
+  "targets.eps-indi-b.speed.measured",
+  "targets.eps-indi-b.spherex.month",
+  "targets.eps-indi-b.spherex.photos",
+  "targets.eps-indi-b.wise.first",
+  "targets.eps-indi-b.wise.last",
+  "targets.eps-indi-b.pairs"
+ ],
+ "motion": {
+  "build": true,
+  "check": "K5-motion",
+  "line": "Within SPHEREx's own data, from {{motion.eps-indi-b.first}} to {{motion.eps-indi-b.last}}, it moved {{motion.eps-indi-b.measured}} arcsec, give or take {{motion.eps-indi-b.error}}; the catalogue gives {{motion.eps-indi-b.catalogue}} arcsec.",
+  "visits": [
+   "May 2025",
+   "April 2026"
+  ],
+  "numbers": [
+   "motion.eps-indi-b.catalogue",
+   "motion.eps-indi-b.days",
+   "motion.eps-indi-b.error",
+   "motion.eps-indi-b.first",
+   "motion.eps-indi-b.last",
+   "motion.eps-indi-b.measured",
+   "motion.eps-indi-b.pixels",
+   "motion.eps-indi-b.significance",
+   "motion.eps-indi-b.stars"
+  ]
+ }
+}

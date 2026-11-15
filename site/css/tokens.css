@@ -1,0 +1,235 @@
+/*
+  Design tokens: every colour, size, space and timing the site uses, in one place.
+
+  The site is a bulletin of what changed in the sky, after the circulars and telegrams by which observers
+  have announced such changes for a century: ruled cells, typewriter lines for anything measured, headlines
+  set heavy and narrow, and the photos as black plates. Two editions share every rule and differ only in
+  their inks: the night edition (black paper, yellow ink for what the form prints, off-white for what is
+  typed on it) is the default; the day edition (pale paper, black ink) is chosen with
+  <html data-edition="day">.
+
+  Anything that holds a photo or a drawing made of data (a plate, the map of photos, a spectrum) is black in
+  both editions: give it the attribute data-plate and the tokens inside it are those of the night edition.
+
+  This file is part of the foundation: other parts of the project use these names and do not edit the file.
+  A part that needs a value of its own declares it in its own stylesheet, built from these.
+
+  Widths used in media queries (custom properties cannot be used there):
+    40rem  one column becomes two
+    64rem  the widest layout
+  Every layout must work from 360 px wide.
+*/
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("../fonts/courier-prime-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("../fonts/courier-prime-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root,
+[data-plate],
+.plate-verdict {
+  /* ---- Surfaces ---- */
+  --color-bg: #0c0b08;            /* the page: black paper */
+  --color-surface: #16140d;       /* a ruled cell, a strip, a table */
+  --color-surface-raised: #221f13;/* a cell on a cell; hover */
+  --color-stage: #000000;         /* behind an image of the sky, in both editions */
+  --color-strip: #16140d;         /* what the visitor types on: the field of a form */
+
+  /* ---- Lines ---- */
+  --color-line: #3b3521;          /* quiet dividers; not enough on its own to mark a control */
+  --color-line-strong: #a89c6b;   /* edges of controls: 7.0:1 on the page */
+  --color-rule: #c9a232;          /* the rules the form prints: the heavy rule under the masthead, the frame of a cell row: 8.2 */
+
+  /* ---- Text: contrast on --color-bg / on --color-surface-raised ---- */
+  --color-text: #f1ead6;          /* 16.3 / 13.6 */
+  --color-text-muted: #cfc6a8;    /* 11.4 /  9.5 */
+  --color-text-faint: #a89f82;    /*  7.3 /  6.1  the faintest text allowed */
+  --color-display: #ebc144;       /* headlines and the masthead: 11.5 on the page */
+
+  /* ---- Interaction ---- */
+  --color-accent: #ebc144;        /* links and the active control: 11.5 on the page */
+  --color-accent-strong: #f7d66b; /* hover and pressed */
+  --color-on-accent: #0c0b08;     /* text on a filled accent: 11.5 */
+  --color-primary: #ebc144;       /* the one filled button of a view */
+  --color-on-primary: #0c0b08;
+  --color-focus: #f1ead6;         /* the focus ring: the white of what is typed, 3 px; never a border of anything else */
+
+  /* ---- Status of a check: told apart by its mark and its word; only a failure takes the second ink ---- */
+  --color-pass: #f1ead6;
+  --color-fail: #ff6b5e;
+  --color-limit: #cfc6a8;
+  --color-corrected: #cfc6a8;
+  --color-unverified: #a89f82;
+  --color-signal: #ff6b5e;        /* the second ink: a failure, a warning, what changed */
+
+  color-scheme: dark;
+}
+
+:root {
+  /* ---- Drawing on images: the same in both editions, because a plate is always black ---- */
+  --color-diff-neg: #4f9dff;      /* a difference below zero (fainter) */
+  --color-diff-pos: #ff9a3d;      /* a difference above zero (brighter) */
+  --color-veil: rgb(10 12 16 / 0.72); /* laid over pixels that are not matched in colour */
+  --color-hatch: #ff6ac1;         /* hatching over saturated pixels */
+  --color-mark: #ebc144;          /* rings, cross-hairs and outlines: the ink the form prints */
+  --color-mark-alt: #ff6b5e;      /* a second kind of mark, such as a predicted position: the second ink */
+
+  /* ---- The six detectors, from the shortest wavelengths to the longest ---- */
+  --color-band-1: #9aa8ff;
+  --color-band-2: #5cc8f0;
+  --color-band-3: #5ed6a0;
+  --color-band-4: #e3d05a;
+  --color-band-5: #f59a4a;
+  --color-band-6: #f0626e;
+
+  /* ---- Type ----
+     Archivo carries everything that is read: at its narrowest and heaviest for headlines (--font-display with
+     --stretch-display), at its normal width for running text. Courier Prime carries what the form prints and
+     what is measured: cells, labels of fields, numbers, coordinates, dates, the status of a check.
+     Never set text-transform: uppercase on text that holds a unit or a symbol (µm would become ΜM): what is
+     meant to be in capitals is written in capitals. */
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier Prime", "Courier New", Courier, ui-monospace, monospace;
+  --stretch-display: 62%;         /* the narrowest cut: headlines, the masthead, the filled button */
+  --stretch-text: 100%;
+
+  /* a scale of about 1.2 from 1rem; the largest step grows with the window and stops at 6rem */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-display: clamp(3rem, 1.1rem + 6.9vw, 6rem);
+
+  --leading-display: 0.9;         /* the largest headlines, set narrow and heavy */
+  --leading-tight: 1.05;          /* large headings */
+  --leading-snug: 1.45;           /* small headings, labels, captions, cells */
+  --leading-normal: 1.65;         /* running text */
+
+  --weight-normal: 400;
+  --weight-medium: 600;
+  --weight-bold: 800;
+  --weight-display: 900;
+
+  --tracking-display: -0.012em;   /* never below -0.04em */
+  --tracking-caps: 0.02em;        /* a line the form prints in capitals */
+  --measure: 58ch;                /* the longest line of running text: about 75 characters of Archivo */
+
+  /* ---- Space: steps of 4 px up to 2rem, then the room between the parts of a page ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3.5rem;
+  --space-8: 5rem;
+  --space-9: 7rem;
+
+  /* ---- Layout ---- */
+  --page-max: 82rem;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+  --tap: 2.75rem;                 /* the smallest side of anything meant to be pressed */
+
+  /* ---- Shape: a ruled form has square corners, three weights of rule and no shadow ---- */
+  --radius-1: 0;
+  --radius-2: 0;
+  --radius-3: 0;
+  --radius-pill: 0;
+  --rule-hair: 1.5px;
+  --rule-mid: 2.5px;
+  --rule-heavy: 4px;
+  --border: var(--rule-hair) solid var(--color-line);
+  --border-strong: var(--rule-hair) solid var(--color-line-strong);
+  --border-form: var(--rule-hair) solid var(--color-rule);
+  --shadow-1: none;
+  --shadow-2: none;
+
+  /* ---- Focus ---- */
+  --focus-width: 3px;
+  --focus-offset: 2px;
+  --focus-ring: var(--focus-width) solid var(--color-focus);
+
+  /* ---- Motion: a blink is a swap, so a state changes at once; only what opens or travels takes time ---- */
+  --dur-1: 0ms;                   /* a control answering */
+  --dur-2: 0ms;                   /* a state changing */
+  --dur-3: 180ms;                 /* something opening, or travelling along a ruler */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.2, 1);
+  --beat: 1200ms;                 /* the one clock: everything that blinks by itself changes on this beat */
+
+  /* ---- Layers ---- */
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-overlay: 1000;
+  --z-message: 2000;
+}
+
+/* ---- The day edition: pale paper, black ink; the yellow of the night stays on filled buttons and on the plates ---- */
+:root[data-edition="day"] {
+  --color-bg: #f6efd6;
+  --color-surface: #eee5c5;
+  --color-surface-raised: #e4d6a7;
+  --color-strip: #fffdf3;
+
+  --color-line: #c4b27a;
+  --color-line-strong: #14120c;
+  --color-rule: #14120c;
+
+  --color-text: #14120c;          /* 16.3 on the page */
+  --color-text-muted: #322b14;    /* 12.2 */
+  --color-text-faint: #423a1b;    /*  9.8  the faintest text allowed */
+  --color-display: #14120c;
+
+  --color-accent: #14120c;
+  --color-accent-strong: #000000;
+  --color-on-accent: #ebc144;
+  --color-primary: #14120c;
+  --color-on-primary: #ebc144;
+  --color-focus: #1230d6;
+
+  --color-pass: #14120c;
+  --color-fail: #a1100d;
+  --color-limit: #322b14;
+  --color-corrected: #322b14;
+  --color-unverified: #423a1b;
+  --color-signal: #a1100d;
+
+  color-scheme: light;
+}
+
+/* a plate inside the day edition keeps the inks of the night: see the first rule of this file */
+:root[data-edition="day"] [data-plate] {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+  }
+}

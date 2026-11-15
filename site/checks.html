@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Every claim of this site with the check behind it: what was measured, what it was compared with, the rule that decides, and whether a person has reviewed it.">
+<title data-page="Checks">Checks · Same Sky, Same Colour</title>
+<link rel="canonical" href="https://danielpuigmarti.github.io/same-sky-same-colour/checks.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Checks · Same Sky, Same Colour">
+<meta property="og:description" content="Every claim of this site with the check behind it: what was measured, what it was compared with, the rule that decides, and whether a person has reviewed it.">
+<meta property="og:url" content="https://danielpuigmarti.github.io/same-sky-same-colour/checks.html">
+<meta property="og:image" content="https://danielpuigmarti.github.io/same-sky-same-colour/img/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Same Sky, Same Colour: a SPHEREx photo of comet Lemmon at the colour of carbon dioxide.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/edition.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/cards.css">
+<script type="module" src="js/pages/checks.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+<div class="masthead-line">
+<a class="masthead-name" href="./" data-site="name">Same Sky, Same Colour</a>
+<nav class="masthead-nav" aria-label="Pages">
+<ul>
+<li><a href="./">Bulletin</a></li>
+<li><a href="view.html">Blink a place</a></li>
+<li><a href="lemmon.html">The comet</a></li>
+<li><a href="targets.html">Five targets</a></li>
+<li><a href="checks.html" aria-current="page">Checks</a></li>
+<li><a href="why.html">Why</a></li>
+</ul>
+</nav>
+<button class="masthead-edition" type="button" data-edition-toggle hidden>Day edition</button>
+</div>
+</header>
+<main id="main" class="page page-made page-checks">
+<header class="page-head">
+<h1 class="headline">EVERY CLAIM HAS A CHECK.</h1>
+<div class="checks-intro" data-built="intro">
+<div class="checks-intro-text">
+<p class="checks-plain">Nothing here is for you to do. Before trusting the tool we tested it, and this page is the record: each row is one test, with the rule we wrote before running it (for those that can pass or fail) and what came out, failures included.</p>
+<p class="checks-reviewed">In short: of <span data-n="v4.checks.total">26</span> checks, <span data-n="v4.checks.pass">0</span> have passed, <span data-n="v4.checks.fail">4</span> failed, <span data-n="v4.checks.limit">4</span> mark limits, <span data-n="v4.checks.corrected">1</span> corrected an earlier figure and <span data-n="v4.checks.unverified">17</span> were run by the code but not reviewed by a person. A person reviewed <span data-n="v4.checks.reviewed">0</span> of <span data-n="v4.checks.total">26</span> within the hackathon, and a check counts as passed only once a person has reviewed it. Where a check failed, its row says what was switched off because of it.</p>
+<p>There are <span data-n="v4.checks.total">26</span> checks, for what the site claims: the colour axis, the comet, the five targets, the difference view, the “Is it real?” panel, how a typed position is read, the index of photos, the interstellar comet 3I/ATLAS, the spectra and the speed of the live path. A check counts as passed only when its rule holds and a person has reviewed the result.</p>
+</div>
+<dl class="checks-key" aria-label="What the marks mean">
+<div class="checks-key-row"><dt><span class="status-mark" data-status="fail" aria-hidden="true"></span>Failed</dt><dd>The rule did not hold. The entry says what was switched off because of it.</dd></div>
+<div class="checks-key-row"><dt><span class="status-mark" data-status="limit" aria-hidden="true"></span>A limit</dt><dd>This is something the tool cannot measure or claim, said plainly.</dd></div>
+<div class="checks-key-row"><dt><span class="status-mark" data-status="corrected" aria-hidden="true"></span>Corrected</dt><dd>An earlier figure was wrong. The entry keeps both it and the right one.</dd></div>
+<div class="checks-key-row"><dt><span class="status-mark" data-status="pass" aria-hidden="true"></span>Passed</dt><dd>The rule held, and a person has looked at the result.</dd></div>
+<div class="checks-key-row"><dt><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+</dl>
+</div>
+</header>
+<section id="checks" class="checks" aria-label="The checks" data-built="checks">
+<fieldset class="cfilter" data-filter>
+<legend>Show</legend>
+<div class="choice">
+<label class="cfilter-choice"><input type="radio" name="show" value="all" checked><span class="cfilter-name">All</span> <span class="cfilter-count"><span data-n="v4.checks.total">26</span></span></label>
+<label class="cfilter-choice" data-status="FAIL"><input type="radio" name="show" value="FAIL"><span class="status-mark" data-status="fail" aria-hidden="true"></span><span class="cfilter-name">Failed</span> <span class="cfilter-count"><span data-n="v4.checks.fail">4</span></span></label>
+<label class="cfilter-choice" data-status="LIMIT"><input type="radio" name="show" value="LIMIT"><span class="status-mark" data-status="limit" aria-hidden="true"></span><span class="cfilter-name">Limits</span> <span class="cfilter-count"><span data-n="v4.checks.limit">4</span></span></label>
+<label class="cfilter-choice" data-status="CORRECTED"><input type="radio" name="show" value="CORRECTED"><span class="status-mark" data-status="corrected" aria-hidden="true"></span><span class="cfilter-name">Corrected</span> <span class="cfilter-count"><span data-n="v4.checks.corrected">1</span></span></label>
+<label class="cfilter-choice" data-status="UNVERIFIED"><input type="radio" name="show" value="UNVERIFIED"><span class="status-mark" data-status="unverified" aria-hidden="true"></span><span class="cfilter-name">Not reviewed by a person</span> <span class="cfilter-count"><span data-n="v4.checks.unverified">17</span></span></label>
+</div>
+</fieldset>
+<p class="visually-hidden" role="status" data-filter-status></p>
+<ol class="checklist" aria-label="The checks">
+<li class="ccard" id="K8" data-status="FAIL">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K8</span><span class="ccard-status"><span class="status-mark" data-status="fail" aria-hidden="true"></span>Failed</span><span class="ccard-title">Difference view and flipbook: do they show real change and nothing else?</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">A difference of two visits taken at the same colour shows no change where there is none: an empty field averages to zero, and an injected source comes back at its true strength. Whether steady stars cancel is part of the same test, and the row says what it found.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="FAIL">FAILED</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K8">K8</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">empty 6/3 of 20 (with the 5-sigma clip of the earlier test, for comparison: 10/9), stars 0/0 of 20, injected 9/9 of 10 (co-adds/flipbook) <span class="ccard-unit">positions, stars, sources</span></dd></div>
+<div><dt>Reference</dt><dd>18, 18, 10</dd></div>
+<div><dt>Tolerance</dt><dd>3 standard errors; 3 noise units; 20%</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Mean of an empty difference within 3 standard errors at 18 or more of 20 positions; 18 or more of 20 stars with no dark-bright pair above 3 noise units within 3 pixels; injected sources within 20% (10 of 10). A view is built at typed positions only if all three hold. Written before any measurement (pipeline/frozen/pb6_rule.json; the code in the column of the commit is the first 40 characters of the SHA-256 of that file, the commit itself is made by the person who commits).</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The rule did not hold. The entry says what was switched off because of it.</dd></div>
+<div><dt>In plain words</dt><dd>difference view tested on empty sky and on steady stars</dd></div>
+<div><dt>How it was tested</dt><dd>20 empty positions (no Gaia DR3 star brighter than G = 13 within 5 arcmin), each in two detectors, the ten of the earlier background test among them; the 20 steady comparison stars of RW Aurigae; 10 injected point sources (round Gaussian, sigma 1 pixel). Two views are judged apart: the difference of the co-adds of the two visits (at most 8 matched pairs) and each photo minus its same-colour twin (the flipbook). All built with the shared rules (visits, match, stack) on one 64 by 64 grid of 6.15 arcsec pixels. The mean is taken over the pixels with no flag but FULLSAMPLE; standard errors count pixels as independent.</dd></div>
+<div><dt>Rule recorded as</dt><dd><code>11248f56001e</code></dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run diffcheck</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k8-pb6.png"><img src="data/checks/img/k8-pb6.png" width="1800" height="552" alt="The picture of this check: Difference view and flipbook: do they show real change and nothing else?." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>d41bdb2b12c95d97</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K-pluto-blink" data-status="FAIL">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K-pluto-blink</span><span class="ccard-status"><span class="status-mark" data-status="fail" aria-hidden="true"></span>Failed</span><span class="ccard-title">Pluto in plain photos, blinked against another visit</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">In plain SPHEREx photos, with nothing subtracted, Pluto is a point of light where JPL Horizons says it should be, and that place is empty in a photo of the same colour taken at another visit.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="FAIL">FAILED</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K-pluto-blink">K-pluto-blink</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">detector 1: 14 of 24 pairs; best detector for the light alone: D3 23 of 24, its twins empty in 14 <span class="ccard-unit">pairs</span></dd></div>
+<div><dt>Reference</dt><dd>at least 80 percent</dd></div>
+<div><dt>Tolerance</dt><dd>1 pixel</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>In at least one detector at least 80 percent of the pairs show a light of at least 5 noise units whose fitted centre is within 1 pixel (6.15 arcsec) of the Horizons place, with nothing of 3 noise units or more there in the twin. The rule is in pipeline/frozen/pluto_blink_rule.json; it was written after the difference test of row K-pluto had failed and before any plain photo was measured for it.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The rule did not hold. The entry says what was switched off because of it.</dd></div>
+<div><dt>In plain words</dt><dd>did not meet its rule</dd></div>
+<div><dt>How it was tested</dt><dd>The photos and their same-colour twins are those of row K-pluto: JPL Horizons gives Pluto’s place as SPHEREx saw it at each photo’s time, the frame index gives the photos that hold it, and the shared match rule gives each a twin from another visit in which Pluto is at least 12 pixels away. At most 24 pairs per detector, evenly spaced in time. In the photo, background removed and smoothed with a Gaussian of 1 pixel, the brightest pixel within 1.5 pixels of the predicted place is measured and a round Gaussian is fitted there; in the twin, resampled onto the photo’s pixels and treated the same way, the brightest pixel within 1 pixel of that fit. Position only: no brightness, spectrum or ice is claimed.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run pluto_blink</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k-pluto-blink.png"><img src="data/checks/img/k-pluto-blink.png" width="990" height="462" alt="The picture of this check: Pluto in plain photos, blinked against another visit." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>b4c36f1f8263cde9</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K-gallery" data-status="FAIL">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K-gallery</span><span class="ccard-status"><span class="status-mark" data-status="fail" aria-hidden="true"></span>Failed</span><span class="ccard-title">A gallery of fast stars and “Can you spot it?”: not built</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Enough fast stars and matched empty fields exist for a fair spot-the-mover set.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="FAIL">FAILED</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K-gallery">K-gallery</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">24 of 24 tested stars on their position; the set could not be completed (4 of 6 movers, too few empty fields)</dd></div>
+<div><dt>Reference</dt><dd>8 stars and 6 empty fields</dd></div>
+<div><dt>Tolerance</dt><dd>1 pixel</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>At least 8 stars on their catalogue position within 1 pixel and not saturated in any photo used, with 6 matched empty fields. Otherwise neither the gallery nor the set is built.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The rule did not hold. The entry says what was switched off because of it.</dd></div>
+<div><dt>In plain words</dt><dd>not built: its test failed</dd></div>
+<div><dt>How it was tested</dt><dd>Gaia DR3 stars moving more than 1 arcsec a year with two visits, each compared with its catalogue position in a 2010 AllWISE image and in SPHEREx; six empty fields of matched star density sought for the set.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run gallery</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K-pluto" data-status="FAIL">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K-pluto</span><span class="ccard-status"><span class="status-mark" data-status="fail" aria-hidden="true"></span>Failed</span><span class="ccard-title">Pluto, photo by photo: not shown</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Pluto is found where JPL Horizons predicts it in the difference of same-colour photos.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="FAIL">FAILED</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K-pluto">K-pluto</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>19 of 24 in the best detector <span class="ccard-unit">difference photos</span></dd></div>
+<div><dt>Reference</dt><dd>at least 80%</dd></div>
+<div><dt>Tolerance</dt><dd>1 pixel</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Found within 1 pixel of the prediction in at least 80% of the difference photos of one detector. Otherwise Pluto is not shown.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The rule did not hold. The entry says what was switched off because of it.</dd></div>
+<div><dt>In plain words</dt><dd>not shown: its test failed</dd></div>
+<div><dt>How it was tested</dt><dd>214 photos that hold Pluto; each photo minus its same-colour twin from the other visit; the brightest residual within 10 pixels compared with the predicted position, detector by detector.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run pluto</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K1-limit" data-status="LIMIT">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K1-limit</span><span class="ccard-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>A limit</span><span class="ccard-title">Colour axis: the other four detectors</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">In detectors 1, 3, 4 and 6 no line of known colour is available to this tool, so the tables are only compared with IRSA’s own science wavelength maps. The check rests on IRSA’s code and calibration.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="LIMIT">A LIMIT</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K1-limit">K1-limit</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>D1 1.1 nm; D3 4.3 nm; D4 5.7 nm; D6 2.6 nm <span class="ccard-unit">largest difference</span></dd></div>
+<div><dt>Reference</dt><dd>IRSA CWAVE</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Not a pass or fail test: the largest difference is reported.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>This is something the tool cannot measure or claim, said plainly.</dd></div>
+<div><dt>In plain words</dt><dd>colour rests on IRSA’s own maps</dd></div>
+<div><dt>How it was tested</dt><dd>The tables against the CWAVE layer of IRSA’s Spectral WCS product (version cal-swcs-v5-2026-191) at 10,000 random pixels of each detector.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run lines</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k1-cwave.png"><img src="data/checks/img/k1-cwave.png" width="1430" height="650" alt="The picture of this check: Colour axis: the other four detectors." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>ee1cd7b95fdde042</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K4" data-status="LIMIT">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K4</span><span class="ccard-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>A limit</span><span class="ccard-title">Agrees with a published ratio only within a wide margin, on the same photos (not independent)</span><span class="ccard-figure">2.18 ± 0.09 <span class="ccard-unit">times</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Interstellar comet 3I/ATLAS gave off more carbon dioxide in December 2025 than in August 2025. From the same SPHEREx photos, the December over August ratio of the band at 4.26 µm, corrected for distance, comes out as the published ratio within the combined error.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="LIMIT">A LIMIT</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K4">K4</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>2.18 ± 0.09 <span class="ccard-unit">times</span></dd></div>
+<div><dt>Reference</dt><dd>1.88 ± 0.34</dd></div>
+<div><dt>Tolerance</dt><dd>combined error 0.35</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>PASS if the ratio lies within the combined error of the published ratio (1.88 ± 0.34): |2.18 - 1.88| &lt;= 0.35. The test is weak: the photos are the same ones, a result 20% away would also pass, and the centring of the aperture moves the result by more than its stated error. For that last reason the row is read as a limit, not as a pass.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>This is something the tool cannot measure or claim, said plainly.</dd></div>
+<div><dt>In plain words</dt><dd>reproduces a published ratio on the same photos (not independent)</dd></div>
+<div><dt>How it was tested</dt><dd>Flux of the comet in a 2-pixel aperture (12.3 arcsec) with a background ring of 40 to 55 pixels, in the photos of detector 5 (27 in August, 17 in December), the aperture centred on the position in IRSA’s table of the comet’s observations; 6 and 3 of the photos lie inside 4.20 to 4.32 µm. For each pass, a Gaussian is fitted to the flux above the continuum between 4.15 and 4.40 µm, and its area is the band. A band with hard edges is not used: moving its edges by 0.01 µm swings the ratio from 1.25 to 3.04. Scaling: the flux F in a fixed angle on the sky is proportional to Q / (r_h² x Δ), where Q is the number of molecules the nucleus gives off each second, r_h the distance from the Sun and Δ the distance from the telescope (gas leaving at a constant speed); so each photo is multiplied by r_h² x Δ before the fit. The published ratio is 3.0e27 over 1.6e27 molecules a second (Lisse et al.): a ratio of two production rates that those papers derive from their own model of the coma. The pages on disk do not say how, so this test cannot say whether the two quantities are the same; they are the same kind of quantity (carbon dioxide in a 2-pixel aperture on the same photos) and both are scaled to the same distances. With the scaling Δ² in place of Δ the ratio would be 1.47, outside the combined error of the published ratio. The ratio also depends on where the aperture sits: centred on the position from JPL Horizons as seen from SPHEREx (0.3 to 3 arcsec from IRSA’s) it is 2.44 ± 0.09, which would not pass; centred on the light of each bright photo it is 2.41 ± 0.10; with a 5-pixel aperture, which hardly depends on the centring, it is 2.45 ± 0.13, which would not pass. In spring 2026 the band is not there: 3 photos in the band give +0.2 ± 1.0 mJy (3-sigma limit 3.2 mJy) against 18 mJy expected if production had stayed what it was in December; that is excluded at 18 sigma.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run threei</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k4-bands.png"><img src="data/checks/img/k4-bands.png" width="1430" height="546" alt="The picture of this check: Agrees with a published ratio only within a wide margin, on the same photos (not independent)." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>76b2f07fe96ec346</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K6" data-status="LIMIT">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K6</span><span class="ccard-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>A limit</span><span class="ccard-title">RW Aurigae: its change per colour, with the saturated centre left out</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Between September 2025 and February to March 2026 RW Aurigae changed by a different amount in each colour band; a band is shown only where the change does not rest on pixels close to saturation.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="LIMIT">A LIMIT</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K6">K6</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">D1 +18.8% (13 pairs) not shown; D2 +36.0% (11 pairs); D3 +28.2% (14 pairs); D4 not measurable; D5 -28.1% (7 pairs) not shown; D6 -37.6% (8 pairs) not shown <span class="ccard-unit">change with the common mask, per detector</span></dd></div>
+<div><dt>Reference</dt><dd class="is-long">D1 +24.4%; D2 +37.9%; D3 +20.7%; D4 -4.4%; D5 -15.1%; D6 -29.2% with all pairs</dd></div>
+<div><dt>Tolerance</dt><dd class="is-long">comparison stars within 1%: D1 -1.13 +- 0.95% (14 stars); D2 -0.55 +- 1.22% (14 stars); D3 -0.86 +- 1.14% (12 stars); D4 -1.56 +- 0.93% (14 stars); D5 -3.05 +- 1.35% (16 stars); D6 +3.22 +- 2.50% (12 stars)</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Per band: the sign of the change is the same with the common mask as with all pairs, and the comparison stars of that band, with the same mask, have a median ratio within 1% of 1. A band that fails reads “too bright to measure reliably”.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>This is something the tool cannot measure or claim, said plainly.</dd></div>
+<div><dt>In plain words</dt><dd>change measured per colour</dd></div>
+<div><dt>How it was tested</dt><dd>Per detector, every one-to-one pair of frames the match rule accepts between the two visits. Three ways: all pairs (aperture of 3 pixels, every pixel); a common mask (in both frames everything within the radius that holds every flagged pixel of either aperture is left out, and the flux is that of the ring from there to 4.5 pixels); clean pairs (no flagged pixel in either aperture). Twenty comparison stars in the same frames are measured the same way, with the mask radius of the RW Aurigae pair nearest in colour. No data of other observers are used.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run rwaur</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k6-rwaur.png"><img src="data/checks/img/k6-rwaur.png" width="1625" height="728" alt="The picture of this check: RW Aurigae: its change per colour, with the saturated centre left out." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>fee625c0a975ce3e</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K-index" data-status="LIMIT">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K-index</span><span class="ccard-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>A limit</span><span class="ccard-title">The index of photos, built again from the archive for one week</span><span class="ccard-figure">9,169 rows compared, 608 differ</span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">One command builds the index of photos from the archive alone: the bucket’s listing of a week and each photo’s own header. For a whole week it gives the photos of the installed index, each in the same tiles. It does not give every row digit for digit: a row that the installed index took from the archive’s image search, and not from the photo’s header, can differ in its last digit.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="LIMIT">A LIMIT</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K-index">K-index</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>9,169 rows compared, 608 differ</dd></div>
+<div><dt>Reference</dt><dd>the installed index: 0 differ</dd></div>
+<div><dt>Tolerance</dt><dd>mid-time equal; corners within 0.000001 degree</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>PASS if the week has the same photos in both, every row in the same tiles, and no row differs: mid-times equal as stored, corners within 0.000001 degree. A limit, not a pass, if the photos and the tiles are the same and every row that differs is the installed row digit for digit once the header’s times are rounded as the archive’s image search rounds them. FAIL otherwise.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>This is something the tool cannot measure or claim, said plainly.</dd></div>
+<div><dt>In plain words</dt><dd>one week built again from the archive: the same photos, a last digit apart in some rows</dd></div>
+<div><dt>How it was tested</dt><dd>Week 2025W46_1A, the one with the fewest photos of the 110 weeks in the installed index. The command listed the week in the archive’s public bucket (9,169 photos), read from each photo the cards CRPIX1 to MJD-END of its header with one range request, and wrote rows and tiles into a folder of its own. The rows were read back from those tiles (9,169 photos) and compared with the rows of the same photos in the installed index (site/idx, 9,169 photos of that week): the photo (week, version, observation, exposure, detector), the mid-time as stored, to 0.000001 day, the four corners, and the tiles that hold the row. 9,169 rows compared, 608 differ; 0 photos are in one index only; 0 rows lie in other tiles. Reading the headers took 37 s for a thousand photos (9,169 photos, the listing included, six requests at a time). Of the rows that differ, 598 differ in the mid-time, by up to 0.000001 day, and 14 in a corner, by up to 0.0001 degree. The installed index took 408,078 of its rows from the archive’s image search and not from the headers (meta.json, sources). The search gives the start and the end of an exposure to 0.000001 day, and their mean can fall one digit beside the mid-time that the header itself gives (MJD-AVG). Built from the same header with the times rounded that way and the corners rounded once, 608 of the 608 rows are the installed rows digit for digit; 0 are not explained.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run index --week 2025W46_1A --check</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K3-corrected" data-status="CORRECTED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K3-corrected</span><span class="ccard-status"><span class="status-mark" data-status="corrected" aria-hidden="true"></span>Corrected</span><span class="ccard-title">Comet Lemmon: an earlier figure, corrected</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">An earlier version of this analysis said the comet’s excess inside the band was 88 times the scatter of empty sky. Measured on enough empty sky it is 4.7 times.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value"><span class="stamp" data-status="CORRECTED">CORRECTED</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K3-corrected">K3-corrected</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>4.7 <span class="ccard-unit">times the scatter of empty tracks</span></dd></div>
+<div><dt>Reference</dt><dd>88 (the earlier figure)</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Not a pass or fail test: a correction kept on record.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>An earlier figure was wrong. The entry keeps both it and the right one.</dd></div>
+<div><dt>In plain words</dt><dd>an earlier figure, corrected</dd></div>
+<div><dt>How it was tested</dt><dd>The earlier figure divided the excess by the scatter of the same estimate on 8 tracks of empty apertures, which happened to miss the stars of the field. On 128 empty tracks, some of which cross stars, the scatter is larger and the same excess is 4.7 times it. Both figures were measured on 14 November 2026 with an earlier estimate of the excess; this job does not compute them again, and the site quotes neither: it quotes the contrast of row K2.</dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K1" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K1</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Colour axis: two hydrogen lines in their right place</span><span class="ccard-figure">1.28184 and 4.04989 <span class="ccard-unit">µm</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Read with the sky-distortion terms off, the wavelength tables put the Paschen-beta and Brackett-alpha lines of the planetary nebula NGC 6543 at their known colours.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K1">K1</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>1.28184 and 4.04989 <span class="ccard-unit">µm</span></dd></div>
+<div><dt>Reference</dt><dd>1.28188 and 4.05137</dd></div>
+<div><dt>Tolerance</dt><dd>0.005 and 0.015 µm</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>The fitted centre lies within 5 nm of the expected Paschen-beta wavelength and within 15 nm of the expected Brackett-alpha wavelength.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>colour checked on two known lines</dd></div>
+<div><dt>How it was tested</dt><dd>NGC 6543 in every photo of detector 2 within 0.11 µm of Paschen-beta and of detector 5 within 0.1 µm of Brackett-alpha (76 and 55 photos). Flux in a 3-pixel aperture, background from a ring of 8 to 13.5 pixels; a Gaussian on a straight line is fitted to flux against the wavelength the tables give at the nebula. Expected: the laboratory vacuum wavelength moved by the nebula’s velocity of -66 km/s (source of the velocity to be cited before review).</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run lines</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k1-lines.png"><img src="data/checks/img/k1-lines.png" width="1430" height="546" alt="The picture of this check: Colour axis: two hydrogen lines in their right place." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>c331ad3cf67a44c3</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K2" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K2</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Comet Lemmon: brighter at the colour of carbon dioxide</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">On 25 and 26 February 2026 the brightest photo of comet C/2025 A6 (Lemmon) inside the carbon-dioxide band (4.20 to 4.32 µm) was at least 5 times brighter than the photos taken at the nearest colours on either side of the band.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K2">K2</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">15.6 ± 1.4 (26 February) and 9.7 ± 0.9 (25 February) <span class="ccard-unit">times</span></dd></div>
+<div><dt>Reference</dt><dd>5</dd></div>
+<div><dt>Tolerance</dt><dd>at least</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>The contrast is 5 or more on both nights.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>brighter at the colour of carbon dioxide on both nights</dd></div>
+<div><dt>How it was tested</dt><dd>Detector 5 photographed the comet 16 times on the two nights, each time at another colour; 15 photos could be measured (a photo with too many flagged pixels in the aperture gives no flux). Flux in an aperture of 2 pixels (12.3 arcsec) radius at the position JPL Horizons gives for the comet seen from SPHEREx; background from a ring of 40 to 55 pixels. The fluxes are lower limits, because the comet’s glow reaches the ring: round the comet at 4.266 µm the sky level falls from 0.70 MJy/sr at 15 to 25 pixels to 0.44 in the ring and 0.41 just beyond it, while at the same place in August 2025 it is level (0.35, 0.34 and 0.34). Contrast of a night = the brightest photo of that night inside the band, over the mean of the two photos nearest the band: 4.193 µm (26 February) below it and 4.384 µm (25 February) above it, so each night takes one neighbour from the other night. The error counts the noise of the pixels, the background, and the scatter of up to 20 empty apertures of the same colour in each photo. Checks: with a ring of 15 to 25 pixels the contrast is 16.7 and 10.2; with an aperture of 5 pixels 10.9 and 8.5; with every aperture shifted by up to 0.2 pixel it stays between 12.7 and 17.3, and between 9.0 and 11.3. With any one photo left out that is not a night’s brightest, the lowest contrast is 6.7. With a night’s brightest photo left out, the next brightest gives: 25 February 3.1; 26 February 8.1; on 25 February the other photo inside the band sits at its edge, so that night’s figure rests on a single photo. In the photo at 4.119 µm a star of the Gaia catalogue (G magnitude 12.8) lies 1.5 pixels from the comet and adds to its flux; that photo is not one of the three used.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run lemmon</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k2-contrast.png"><img src="data/checks/img/k2-contrast.png" width="1100" height="572" alt="The picture of this check: Comet Lemmon: brighter at the colour of carbon dioxide." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>2acbf2dea4b13bc5</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K3" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K3</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Comet Lemmon: the same sky without the comet</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">For each of the 5 photos of the comet taken inside the band, a photo of August 2025 at the same colour shows nothing at the comet’s place: the brightness belongs to the comet, not to that patch of sky.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K3">K3</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">largest template 2.9% of its comet flux; smallest excess 5.3 standard errors</dd></div>
+<div><dt>Reference</dt><dd>5% and 5 standard errors</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every template flux is under 5% of the comet’s flux at that place, and every photo inside the band other than a night’s brightest exceeds its template by 5 standard errors or more.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>nothing there in August 2025 at the same colour</dd></div>
+<div><dt>How it was tested</dt><dd>For each of the 5 photos inside the band, the August 2025 photos of detector 5 that hold the same place were matched against it by the site’s match rule (same detector, closest colour at that place, within half a bandwidth); the chosen templates differ in colour by 1.4 to 12.4 nm. Same aperture (2 pixels) and ring (40 to 55 pixels) at the same sky position. Template fluxes: -0.1, +1.5, +0.3, +0.5, +0.7 mJy against 162.5, 52.7, 136.2, 263.2, 71.7 mJy for the comet. Standard errors include the scatter of empty apertures of the same colour in both photos, which in this crowded field is far larger than the noise of the pixels (with the noise of the pixels and of the background alone, the smallest excess is 112 standard errors). The comet’s two brightest positions are 52.2 arcmin and 37.5 hours apart, and the centre of its light lies 0.4 and 0.2 pixels from the JPL Horizons position.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run lemmon</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k3-templates.png"><img src="data/checks/img/k3-templates.png" width="860" height="944" alt="The picture of this check: Comet Lemmon: the same sky without the comet." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>7f2978cb67a72163</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K5" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K5</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Three moving targets land where their catalogues say</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">From the image the WISE telescope took in 2010 to SPHEREx’s latest visit, Epsilon Indi B, Barnard’s Star and WISE 0855-0714 moved across the sky by the amount their catalogue astrometry gives.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K5">K5</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">Epsilon Indi B 0.5 arcsec (0.14 px in SPHEREx alone); Barnard’s Star 0.1 arcsec (0.04 px in SPHEREx alone); WISE 0855-0714 0.7 arcsec (0.07 px in SPHEREx alone) <span class="ccard-unit">difference between measured and catalogue shift</span></dd></div>
+<div><dt>Reference</dt><dd class="is-long">Epsilon Indi B 73.9 arcsec in 15.8 years; Barnard’s Star 163.8 arcsec in 15.8 years; WISE 0855-0714 128.6 arcsec in 15.7 years</dd></div>
+<div><dt>Tolerance</dt><dd class="is-long">Epsilon Indi B 4.2 arcsec; Barnard’s Star 12.2 arcsec; WISE 0855-0714 4.8 arcsec; 0.5 px in SPHEREx alone</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Each measured shift differs from the catalogue shift by at most the tolerance in site/data/targets/tolerances.json (written before the jobs measured: half a SPHEREx pixel, plus half of what the object moved while the 2010 image was taken, plus one WISE beam for a star that saturates WISE), and each SPHEREx position lies within half a pixel of the catalogue position at that date. A fixed star beside a target is seen in the 2010 image within one SPHEREx pixel of its Gaia position. Barnard’s Star saturates WISE: the core of its 2010 image is spoiled, and a Gaussian fitted there lands 6.4 arcsec from the catalogue, on the brighter side of the core. That value is not used. Its 2010 centre is the centroid of the wings of its image (2 to 4 beam widths out, started from the fit and repeated until it settles), 0.3 arcsec from the catalogue. The WISE beam in its tolerance (6.4 arcsec) was set when only the first value was known; without it the tolerance would be 5.8 arcsec and the difference of 0.1 arcsec would be within it all the same.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>position checked against the catalogue</dd></div>
+<div><dt>How it was tested</dt><dd>The 2010 position is the centre of a Gaussian fitted in the AllWISE Atlas image of band W2 (for a star that saturates WISE, the centroid of the wings of its image); the SPHEREx position is the mean over the photos of the latest deep visit of detector 6 (the two stars) or the centre in the co-add of that visit (WISE 0855, too faint for one photo; a Gaia star beside it is fitted with it). The catalogue position is Gaia DR3 for the two stars and the astrometry of Kirkpatrick et al. 2021 as served by SIMBAD for WISE 0855 (not in Gaia; the paper itself was not opened), moved to each date with proper motion and parallax. Position only: no brightness is produced for Barnard’s Star or WISE 0855. Beside WISE 0855-0714 lies the star Gaia DR3 5756956644387831296 (G 16.3), 4.3 arcsec from it at the date of the SPHEREx visit; it does not move and is fitted together with the target. In the 2010 image the target was 131 arcsec away, and what that image shows at the star’s place lies 0.23 arcsec (0.04 of a SPHEREx pixel) from the star’s Gaia position at that date (rule of the review: within 1 pixel).</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run targets</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k5-movers.png"><img src="data/checks/img/k5-movers.png" width="1365" height="1326" alt="The picture of this check: Three moving targets land where their catalogues say." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>6ac3daa5f80fccad</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K5-motion" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K5-motion</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Motion within SPHEREx’s own year</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Between two SPHEREx visits months apart, Epsilon Indi B and WISE 0855-0714 are seen to move, by the amount their catalogue astrometry gives with parallax included.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K5-motion">K5-motion</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">Epsilon Indi B 4.78 +- 0.15 arcsec; WISE 0855-0714 3.15 +- 0.83 arcsec <span class="ccard-unit">measured shift between two visits</span></dd></div>
+<div><dt>Reference</dt><dd class="is-long">Epsilon Indi B 4.66 arcsec; WISE 0855-0714 4.57 arcsec</dd></div>
+<div><dt>Tolerance</dt><dd>3 times the error</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Per target: the measured shift is at least 3 times its error from zero, and its east and north components are each within 3 times their error of the catalogue shift. The rule is applied with the robust scatter of the field stars in the error (the value given) and again with their plain standard deviation, and for WISE 0855 with both choices of photos; a target is shown only if it holds every way. A target that does not meet the rule gets its measured shift and error stated, and no motion view.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>motion seen within SPHEREx’s own year</dd></div>
+<div><dt>How it was tested</dt><dd>Detector 6. Epsilon Indi B: its position in every photo, averaged over each visit; first against last deep visit. WISE 0855: its position in the co-add of each of two visits (at each pixel the mean of the photos that may be used there; a Gaia star beside it is fitted with it); May 2025 is left out. It is measured a second time from only the photos with no unusable pixel round the target. Field stars measured the same way in the same photos are the control; the scatter of their shifts is added to the target’s error.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run motion</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k5-motion.png"><img src="data/checks/img/k5-motion.png" width="1495" height="1196" alt="The picture of this check: Motion within SPHEREx’s own year." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>bd575031b4c2bf6c</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K6-rdra" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K6-rdra</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">R Draconis is too bright to measure</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">R Draconis is saturated in every SPHEREx photo of this release that holds it, so the tool gives no brightness for it.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K6-rdra">K6-rdra</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>412 of 412 <span class="ccard-unit">photos saturated at the star</span></dd></div>
+<div><dt>Reference</dt><dd>412 of 412</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>A photo is saturated when at least one of those pixels carries the flag OVERFLOW, NONLINEAR or BLOOM. The verdict “too bright to measure” stands if every photo checked is saturated.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>too bright to measure</dd></div>
+<div><dt>How it was tested</dt><dd>Every photo that holds the star, in all six detectors, from 2025-05-16 to 2026-05-13: the flags of the pixels within 3 pixels of the star’s position.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run targets</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k6-rdra.png"><img src="data/checks/img/k6-rdra.png" width="1365" height="481" alt="The picture of this check: R Draconis is too bright to measure." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>bed999b086e3254e</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K7" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K7</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">A plain blink makes steady stars seem to change</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Flipping through SPHEREx photos that were taken at different colours makes steady stars seem to change in brightness; between photos of the same colour they hold.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K7">K7</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">x 11.8 (all photos), x 2.18 (one detector), x 1.021 (matched) <span class="ccard-unit">median swing of the comparison stars</span></dd></div>
+<div><dt>Reference</dt><dd>RW Aurigae itself: x 49.7, x 2.71, x 1.24</dd></div>
+<div><dt>Tolerance</dt><dd>matched below 1.10</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>The median swing of the comparison stars between matched photos is below 1.10, and below their swing at the other two stops.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>steady stars hold once the colour is matched</dd></div>
+<div><dt>How it was tested</dt><dd>Twenty steady comparison stars in the frames of RW Aurigae. The swing of a star is its brightest flux over its faintest (aperture of 3 pixels) among the photos flipped through: every photo of the first visit in time order (112 photos, six detectors); the photos of detector 1 in that visit; the two photos of a pair matched at the same colour in detector 1 (median over the star’s pairs). The value is the median over the stars; RW Aurigae’s own swing is given beside it.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run rwaur</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k7-flicker.png"><img src="data/checks/img/k7-flicker.png" width="1690" height="858" alt="The picture of this check: A plain blink makes steady stars seem to change." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>13980a45f8fd7b85</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K9" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K9</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">“Is it real?” names four known false alarms</span><span class="ccard-figure">4 of 4 <span class="ccard-unit">cases</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">The four questions of the panel give the expected answers on four real false alarms: two steady stars, one pixel the archive flags as a ghost and one it flags as left-over charge.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K9">K9</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>4 of 4 <span class="ccard-unit">cases</span></dd></div>
+<div><dt>Reference</dt><dd>4 of 4</dd></div>
+<div><dt>Tolerance</dt><dd>none</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>All four cases give the expected answer to each of the four questions.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>tested on four known false alarms</dd></div>
+<div><dt>How it was tested</dt><dd>The panel’s answers, computed from the photos of the four cases in data/falsepos/, compared with the answers written beside them in cases.json before the panel existed.</dd></div>
+<div><dt>Run it again</dt><dd><code>node --test tests/unit/v3-isitreal.test.mjs</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K10" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K10</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">What the difference view can and cannot see</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">A moving object shows as a dark-bright pair in the difference of two visits only when it moves far enough and is bright enough. The table says where that starts, for each of the six detectors; what is not in it is not seen.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K10">K10</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">co-add: flux needed (median of the detectors) 13.9 mJy at 1.0 arcsec a year, 1.39 mJy at 10.0 arcsec a year, 0.781 mJy at 100.0 arcsec a year; the view shows 79% of its pixels; single pair: flux needed (median of the detectors) 31.6 mJy at 1.0 arcsec a year, 3.16 mJy at 10.0 arcsec a year, 1.39 mJy at 100.0 arcsec a year; the view shows 71% of its pixels <span class="ccard-unit">mJy and arcsec per year</span></dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>A mover shows when its dark-bright pair reaches 5 noise units in at least 80% of the injections. Rule written before the run (pipeline/frozen/limits_rule.json; the code in the column of the commit is the first 40 characters of the SHA-256 of that file). The table is shown whatever it says.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>what the tool can and cannot see</dd></div>
+<div><dt>How it was tested</dt><dd>Synthetic movers (round Gaussian, sigma 1 pixel) injected into the real matched co-adds, and into real single pairs, at 3 fixed positions of each detector, 8 injections per position for each of 8 speeds and 21 fluxes. The shift between visits is the speed times the time between them (median 181 days).</dd></div>
+<div><dt>Rule recorded as</dt><dd><code>a13dc5353428</code></dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run limits</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k10-limits.png"><img src="data/checks/img/k10-limits.png" width="1920" height="672" alt="The picture of this check: What the difference view can and cannot see." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>efb821d5dc905d0a</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K11" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K11</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">A typed position, read straight from the archive: how long it takes and how it ends</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Any position on the sky gives two visits at one colour within seconds on a desktop link, or a plain message, and no error is left uncaught.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K11">K11</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">27 of 27 positions end in pictures (27) or a message (0); 0 uncaught errors; first pair: median 3.3 s, worst 4.6 s; full set: median 11.0 s, worst 17.2 s; median 16.1 MB, most 21.6 MB; 3 targets within 1 px of their catalogue motion (Barnard’s Star: worst 0.73 px); at 4 positions the page asked a second time for pairs the reader had held back</dd></div>
+<div><dt>Reference</dt><dd class="is-long">27 of 27 positions, 0 errors, median first pair under 4 s, 2 targets within 1 px</dd></div>
+<div><dt>Tolerance</dt><dd>none</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every position ends in pictures or in a message with a next step; the browser reports no uncaught error; the median time to the first pair is under 4 seconds; both poles say that their plan is capped; Barnard’s Star and one more target lie within 1 pixel of their catalogue motion in every photo of both visits.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>timed at 27 real positions</dd></div>
+<div><dt>How it was tested</dt><dd>Chrome 157.0.8103.51 opened the viewer at 27 positions against the real archive, one after the other, each in a fresh window: the five test targets by name, both ecliptic poles and 20 random positions (seed 20261114). Times count from opening the page; megabytes are counted from the answers of the archive. The photos of each plan are counted against the index, and the stars of the targets are compared with their catalogue motion in every photo. One target was opened again over slowed links (400 kbit/s: message “slow”; 1.6 Mbit/s: first pair after 16.1 s, the rest offered as “Load more (13 MB)”).</dd></div>
+<div><dt>Run it again</dt><dd><code>node tools/timing.mjs</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K12" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K12</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">What is typed is read, and what goes wrong is said</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">A position typed in any usual form opens where astropy puts it, an old catalogue position of a fast star moves to the star, and every way the archive can fail has its own message with a next step.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K12">K12</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">29 of 29 typed positions (worst 0.0017 arcsec); 2 of 2 old positions moved to their star; 21 of 21 other texts answered; 12 of 12 faults and 1 of 1 name tests show their message</dd></div>
+<div><dt>Reference</dt><dd>all of them</dd></div>
+<div><dt>Tolerance</dt><dd>0.1 arcsec for a typed position</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every typed position within 0.1 arcsec of astropy; both old positions move to their star and say so; every text that is not a position gets a message; every fault shows its own message and a next step.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>every fault shows its message</dd></div>
+<div><dt>How it was tested</dt><dd>Through the viewer page in Chrome 157.0.8103.51: 29 typed positions compared with astropy; the challenge statement’s position for WISE 0855-0714 and Barnard’s Star’s position in 2000; 21 texts that are not positions. With a stand-in archive behind the page (tests/e2e/i1-live.spec.mjs): the bucket blocked, HTTP 503, HTTP 403, offline, a failure in the middle of loading, a link of 400 kbit/s, a link that turns slow while the first pair loads, one pair that stalls on a quick link, a position with no photos, a part of the sky that is not listed, one visit only, a saturated star, an empty patch; and the names (this site’s list, the name service, a name nobody knows).</dd></div>
+<div><dt>Run it again</dt><dd><code>node tools/timing.mjs --only inputs,faults</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="K13" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K13</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Spectra of a brown dwarf pair, compared with IRSA’s own tool</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">The spectrum that this tool builds from single SPHEREx photos for Epsilon Indi B and for three steady stars matches the one from IRSA’s Spectrophotometry Tool to within 10%; this has not been compared yet.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K13">K13</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Reference</dt><dd>0.9 to 1.1</dd></div>
+<div><dt>Tolerance</dt><dd>ratio between 0.9 and 1.1</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>PASS if the median ratio of our fluxes to those of IRSA’s tool, over the colours both have, lies between 0.9 and 1.1; otherwise the spectra stay labelled “relative only”.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>In plain words</dt><dd>spectra are relative only until compared with IRSA’s tool</dd></div>
+<div><dt>How it was tested</dt><dd>The spectrum of Epsilon Indi B (a pair of brown dwarfs) and of three steady, unsaturated stars within 4 arcmin of it, from 327 photos in 5 visits: flux in a 2-pixel aperture, sky from a ring of 6 to 10 pixels, one point per photo. Compared with IRSA’s SPHEREx Spectrophotometry Tool at the same positions and the same visit. The tool is a web application that runs a job for each source (minutes to hours) and has no script interface, so the comparison has to be made by hand: positions, our values and the rule are in the review sheet. Until it is made, every spectrum is labelled “relative only”. As a rough check of the shape, the three stars’ fluxes at the 2MASS bands are 0.99 times their catalogue brightness (median over J, H, K and the three stars; not a calibration: the bands are wide). The aperture correction from the point-spread-function model is not applied: the scatter of the stars about their neighbours in colour is 3.5% with it and 3.3% without.</dd></div>
+<div><dt>Run it again</dt><dd><code>python -m sx.run spectra</code></dd></div>
+</dl>
+</div>
+<figure class="ccard-picture">
+<div class="plate-frame">
+<div class="plate" data-plate><a href="data/checks/img/k13-spectra.png"><img src="data/checks/img/k13-spectra.png" width="1560" height="1040" alt="The picture of this check: Spectra of a brown dwarf pair, compared with IRSA’s own tool." loading="lazy" decoding="async"></a></div>
+<dl class="cells" data-cols="2">
+<div class="cell"><dt class="cell-label">Picture</dt><dd class="cell-value is-prose">The picture this check rests on; it opens at full size.</dd></div>
+<div class="cell"><dt class="cell-label">Start of its SHA-256</dt><dd class="cell-value"><code>d2f732865cffbbc0</code></dd></div>
+</dl>
+</div>
+</figure>
+</div>
+</details>
+</li>
+<li class="ccard" id="K14" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">K14</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">One source for every number, and the search of the literature</span><span class="ccard-figure"></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Every number on the pages, in the project text and in the captions of the video is read from one file, every picture of a Checks row is the file that was reviewed, and what is known in the literature about the comet’s carbon dioxide has been searched by hand and dated.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#K14">K14</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd class="is-long">nothing on the comet’s carbon dioxide found on 15 November 2026; DPS 2026 not searched</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>The gate passes on the frozen tree; the search is dated and its sources are listed on this card; no text says that the comet’s gas was found, measured or confirmed here before anyone else.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>How it was tested</dt><dd>node tools/gate.mjs --check: a page that shows another number than numbers.json, a text of content/ that names a number that does not exist, a missing or changed picture of a row, and a PASS without a reviewer all fail it. The search of NASA ADS, the abstracts of the DPS 2026 meeting and of EPSC 2026, CBET and ATel is done by hand and written here with its date. Searched on 15 November 2026, by query (a person still reads it and signs it): NASA ADS (titles, abstracts and full text of 2025 and 2026, which hold the CBETs, ATels, MPECs, the COSPAR 2026 abstracts and the EPSC 2026 abstracts indexed by then), arXiv, and the EPSC 2026 programme. On C/2025 A6 they hold its discovery, orbit and brightness (2025CBET.5508....1F, 2025CBET.5594....1S, 2025CBET.5621....1G, 2025MPEC....D...55P), its jets (2025ATel17450....1S), optical spectra (2025ATel17456....1M), its OH seen by radio (2025ATel17463....1J, 2026RAA....26f1002J), its rotation (2026cosp...46..261T) and the polarisation of its tail (2026cosp...46..249W); nothing on its carbon dioxide. The abstracts of the DPS 2026 meeting were not in ADS and could not be opened without an account, so they were not searched.</dd></div>
+<div><dt>Run it again</dt><dd><code>npm run gate:check</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="d2-coords" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">d2-coords</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Typed positions are read as astropy reads them</span><span class="ccard-figure">0 <span class="ccard-unit">arcsec</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Degrees, letters, colons and spaces all give the position astropy gives, and nonsense is refused in plain words.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#d2-coords">d2-coords</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>0 <span class="ccard-unit">arcsec</span></dd></div>
+<div><dt>Reference</dt><dd>0</dd></div>
+<div><dt>Tolerance</dt><dd>0.1</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every position within 0.1 arcsec of astropy; every refusal has a plain message.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>How it was tested</dt><dd>28 strings, among them the challenge statement’s own, were read by the page’s parser and by astropy; 21 strings that are not positions must be refused.</dd></div>
+<div><dt>Run it again</dt><dd><code>npm test</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="d2-propagation" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">d2-propagation</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">A star’s catalogue position is moved to the date of a photo</span><span class="ccard-figure">0.00313 <span class="ccard-unit">arcsec</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Proper motion, radial velocity and annual parallax move a catalogue position to the date of a photo as astropy moves it.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#d2-propagation">d2-propagation</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>0.00313 <span class="ccard-unit">arcsec</span></dd></div>
+<div><dt>Reference</dt><dd>0</dd></div>
+<div><dt>Tolerance</dt><dd>0.0615</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every position within 0.01 pixel (0.0615 arcsec) of astropy.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>How it was tested</dt><dd>10 stars (Barnard’s Star, Epsilon Indi B, WISE 0855-0714 and seven fast Gaia DR3 stars) on 4 dates between July 2025 and September 2026.</dd></div>
+<div><dt>Run it again</dt><dd><code>npm test</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="d2-rules-agree" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">d2-rules-agree</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">JavaScript and Python give the same visits, pairs and stacks</span><span class="ccard-figure">0 <span class="ccard-unit">cases that differ</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">The visit rule, the match rule, the background, the co-add, the resampling and the difference are the same rule in both languages.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#d2-rules-agree">d2-rules-agree</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>0 <span class="ccard-unit">cases that differ</span></dd></div>
+<div><dt>Reference</dt><dd>0</dd></div>
+<div><dt>Tolerance</dt><dd>0</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Visits and pairs equal; numbers equal within 1e-6 relative.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>How it was tested</dt><dd>Shared vectors written by Python are read by JavaScript; a vector written by JavaScript is read by Python. Real stamps of an empty field and of Barnard’s Star are among them.</dd></div>
+<div><dt>Run it again</dt><dd><code>npm test</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+<li class="ccard" id="d2-align" data-status="UNVERIFIED">
+<details class="ccard-details" open>
+<summary class="ccard-row"><span class="ccard-id">d2-align</span><span class="ccard-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not reviewed by a person</span><span class="ccard-title">Alignment from field stars finds a known shift</span><span class="ccard-figure">0.04 <span class="ccard-unit">pixel</span></span></summary>
+<div class="ccard-body">
+<div class="ccard-text">
+<p class="ccard-claim">Cross-correlating the stars of two photos of one field finds how far one is from the other.</p>
+<dl class="cells ccard-cells" data-cols="3">
+<div class="cell" data-cell="status"><dt class="cell-label">Status</dt><dd class="cell-value is-prose"><span class="stamp" data-status="UNVERIFIED">NOT REVIEWED BY A PERSON</span></dd></div>
+<div class="cell"><dt class="cell-label">Entry</dt><dd class="cell-value"><a href="#d2-align">d2-align</a></dd></div>
+<div class="cell"><dt class="cell-label">Reviewed</dt><dd class="cell-value">Not yet</dd></div>
+</dl>
+<dl class="facts ccard-values">
+<div><dt>Measured</dt><dd>0.04 <span class="ccard-unit">pixel</span></dd></div>
+<div><dt>Reference</dt><dd>0</dd></div>
+<div><dt>Tolerance</dt><dd>0.05</dd></div>
+</dl>
+<dl class="facts ccard-rule">
+<div><dt>Pass rule</dt><dd>Every shift recovered within 0.05 pixel.</dd></div>
+</dl>
+<dl class="facts ccard-facts">
+<div><dt>What the status means</dt><dd>The code ran the test against its rule, but no person reviewed the result within the hackathon, so it is not marked passed.</dd></div>
+<div><dt>How it was tested</dt><dd>Five real stamps were shifted by four known amounts between 0.1 and 0.7 pixel with a cubic spline (scipy), and the shift was measured again.</dd></div>
+<div><dt>Run it again</dt><dd><code>npm test</code></dd></div>
+</dl>
+</div>
+</div>
+</details>
+</li>
+</ol>
+</section>
+<section id="selftest" class="page-part selftest" aria-labelledby="selftest-title">
+<div class="section-head">
+<h2 id="selftest-title">TEST THE LIVE CONNECTION</h2>
+<p>The checks above were run before the site was built. This one runs now, in your browser: it reads one known photo from the public archive of NASA and compares it with an answer stored in the site.</p>
+</div>
+<div data-selftest-body>
+<p>This test needs scripts. Without them, the prepared targets still work: <a href="targets.html">open the five targets</a>.</p>
+</div>
+</section>
+<section id="limits" class="page-part" data-built="limits">
+<div class="section-head">
+<h2 id="limits-title">WHAT THE TOOL CAN AND CANNOT SEE</h2>
+<p>An object that moves between two visits leaves a dark patch where it was and a bright patch where it is. The tables give the faintest brightness, in millijanskys, at which that pair shows, for objects of different speeds. “Not seen” means that no brightness that was tried shows at that speed. A made-up moving object counts as seen when its dark and bright pair reaches <span data-n="limits.units">5</span>× the noise in at least <span data-n="limits.fraction_pct">80</span> of every hundred tries. The shift is how far an object of that speed goes in <span data-n="limits.shift_years">0.49</span> years, the typical time between two visits. <a class="check-link" data-check="K10" data-status="UNVERIFIED" href="checks.html#K10" aria-label="Check K10: not reviewed by a person"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>K10</a></p>
+</div>
+<h3>The photos of each visit added together</h3>
+<div class="table-scroll" tabindex="0" role="group" aria-label="The photos of each visit added together: table of limits">
+<table class="ledger limits">
+<thead>
+<tr><th scope="col">Speed, arcsec a year</th><th scope="col">Shift between the visits, pixels</th><th scope="col">Detector 1</th><th scope="col">Detector 2</th><th scope="col">Detector 3</th><th scope="col">Detector 4</th><th scope="col">Detector 5</th><th scope="col">Detector 6</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row"><span data-n="v4.limits.coadd.1.speed">0.1</span></th><td><span data-n="v4.limits.coadd.1.shift">0.01</span></td><td><span data-n="v4.limits.coadd.1.d1">560</span></td><td><span data-n="v4.limits.coadd.1.d2">100</span></td><td><span data-n="v4.limits.coadd.1.d3">100</span></td><td><span data-n="v4.limits.coadd.1.d4">56</span></td><td><span data-n="v4.limits.coadd.1.d5">180</span></td><td><span data-n="v4.limits.coadd.1.d6">180</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.2.speed">0.3</span></th><td><span data-n="v4.limits.coadd.2.shift">0.02</span></td><td class="limits-none">not seen</td><td><span data-n="v4.limits.coadd.2.d2">32</span></td><td><span data-n="v4.limits.coadd.2.d3">32</span></td><td><span data-n="v4.limits.coadd.2.d4">18</span></td><td><span data-n="v4.limits.coadd.2.d5">56</span></td><td><span data-n="v4.limits.coadd.2.d6">100</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.3.speed">1</span></th><td><span data-n="v4.limits.coadd.3.shift">0.08</span></td><td><span data-n="v4.limits.coadd.3.d1">56</span></td><td><span data-n="v4.limits.coadd.3.d2">10</span></td><td><span data-n="v4.limits.coadd.3.d3">10</span></td><td><span data-n="v4.limits.coadd.3.d4">5.6</span></td><td><span data-n="v4.limits.coadd.3.d5">18</span></td><td><span data-n="v4.limits.coadd.3.d6">18</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.4.speed">3</span></th><td><span data-n="v4.limits.coadd.4.shift">0.24</span></td><td><span data-n="v4.limits.coadd.4.d1">18</span></td><td><span data-n="v4.limits.coadd.4.d2">3.2</span></td><td><span data-n="v4.limits.coadd.4.d3">3.2</span></td><td><span data-n="v4.limits.coadd.4.d4">5.6</span></td><td><span data-n="v4.limits.coadd.4.d5">5.6</span></td><td><span data-n="v4.limits.coadd.4.d6">10</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.5.speed">10</span></th><td><span data-n="v4.limits.coadd.5.shift">0.80</span></td><td><span data-n="v4.limits.coadd.5.d1">5.6</span></td><td><span data-n="v4.limits.coadd.5.d2">1</span></td><td><span data-n="v4.limits.coadd.5.d3">1</span></td><td><span data-n="v4.limits.coadd.5.d4">0.56</span></td><td><span data-n="v4.limits.coadd.5.d5">1.8</span></td><td><span data-n="v4.limits.coadd.5.d6">3.2</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.6.speed">30</span></th><td><span data-n="v4.limits.coadd.6.shift">2.41</span></td><td><span data-n="v4.limits.coadd.6.d1">3.2</span></td><td><span data-n="v4.limits.coadd.6.d2">0.56</span></td><td><span data-n="v4.limits.coadd.6.d3">0.56</span></td><td><span data-n="v4.limits.coadd.6.d4">0.32</span></td><td><span data-n="v4.limits.coadd.6.d5">0.56</span></td><td><span data-n="v4.limits.coadd.6.d6">1</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.7.speed">100</span></th><td><span data-n="v4.limits.coadd.7.shift">8.04</span></td><td><span data-n="v4.limits.coadd.7.d1">3.2</span></td><td class="limits-none">not seen</td><td><span data-n="v4.limits.coadd.7.d3">0.32</span></td><td class="limits-none">not seen</td><td><span data-n="v4.limits.coadd.7.d5">0.56</span></td><td><span data-n="v4.limits.coadd.7.d6">1</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.coadd.8.speed">200</span></th><td><span data-n="v4.limits.coadd.8.shift">16.08</span></td><td class="limits-none">not seen</td><td><span data-n="v4.limits.coadd.8.d2">3.2</span></td><td><span data-n="v4.limits.coadd.8.d3">0.32</span></td><td class="limits-none">not seen</td><td class="limits-none">not seen</td><td><span data-n="v4.limits.coadd.8.d6">1</span></td></tr>
+</tbody>
+</table>
+</div>
+<h3>One photo against one photo</h3>
+<div class="table-scroll" tabindex="0" role="group" aria-label="One photo against one photo: table of limits">
+<table class="ledger limits">
+<thead>
+<tr><th scope="col">Speed, arcsec a year</th><th scope="col">Shift between the visits, pixels</th><th scope="col">Detector 1</th><th scope="col">Detector 2</th><th scope="col">Detector 3</th><th scope="col">Detector 4</th><th scope="col">Detector 5</th><th scope="col">Detector 6</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row"><span data-n="v4.limits.pair.1.speed">0.1</span></th><td><span data-n="v4.limits.pair.1.shift">0.01</span></td><td><span data-n="v4.limits.pair.1.d1">560</span></td><td><span data-n="v4.limits.pair.1.d2">180</span></td><td><span data-n="v4.limits.pair.1.d3">320</span></td><td><span data-n="v4.limits.pair.1.d4">560</span></td><td><span data-n="v4.limits.pair.1.d5">560</span></td><td><span data-n="v4.limits.pair.1.d6">560</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.2.speed">0.3</span></th><td><span data-n="v4.limits.pair.2.shift">0.02</span></td><td><span data-n="v4.limits.pair.2.d1">100</span></td><td><span data-n="v4.limits.pair.2.d2">100</span></td><td><span data-n="v4.limits.pair.2.d3">100</span></td><td><span data-n="v4.limits.pair.2.d4">100</span></td><td><span data-n="v4.limits.pair.2.d5">180</span></td><td><span data-n="v4.limits.pair.2.d6">180</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.3.speed">1</span></th><td><span data-n="v4.limits.pair.3.shift">0.08</span></td><td><span data-n="v4.limits.pair.3.d1">18</span></td><td><span data-n="v4.limits.pair.3.d2">56</span></td><td><span data-n="v4.limits.pair.3.d3">32</span></td><td><span data-n="v4.limits.pair.3.d4">32</span></td><td><span data-n="v4.limits.pair.3.d5">32</span></td><td><span data-n="v4.limits.pair.3.d6">56</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.4.speed">3</span></th><td><span data-n="v4.limits.pair.4.shift">0.24</span></td><td><span data-n="v4.limits.pair.4.d1">10</span></td><td><span data-n="v4.limits.pair.4.d2">10</span></td><td><span data-n="v4.limits.pair.4.d3">5.6</span></td><td><span data-n="v4.limits.pair.4.d4">5.6</span></td><td><span data-n="v4.limits.pair.4.d5">10</span></td><td><span data-n="v4.limits.pair.4.d6">32</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.5.speed">10</span></th><td><span data-n="v4.limits.pair.5.shift">0.80</span></td><td><span data-n="v4.limits.pair.5.d1">3.2</span></td><td><span data-n="v4.limits.pair.5.d2">3.2</span></td><td><span data-n="v4.limits.pair.5.d3">3.2</span></td><td><span data-n="v4.limits.pair.5.d4">1.8</span></td><td><span data-n="v4.limits.pair.5.d5">5.6</span></td><td><span data-n="v4.limits.pair.5.d6">5.6</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.6.speed">30</span></th><td><span data-n="v4.limits.pair.6.shift">2.41</span></td><td><span data-n="v4.limits.pair.6.d1">1.8</span></td><td><span data-n="v4.limits.pair.6.d2">1</span></td><td><span data-n="v4.limits.pair.6.d3">1</span></td><td><span data-n="v4.limits.pair.6.d4">1</span></td><td><span data-n="v4.limits.pair.6.d5">1.8</span></td><td><span data-n="v4.limits.pair.6.d6">3.2</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.7.speed">100</span></th><td><span data-n="v4.limits.pair.7.shift">8.04</span></td><td><span data-n="v4.limits.pair.7.d1">1</span></td><td><span data-n="v4.limits.pair.7.d2">1.8</span></td><td><span data-n="v4.limits.pair.7.d3">1</span></td><td><span data-n="v4.limits.pair.7.d4">1</span></td><td><span data-n="v4.limits.pair.7.d5">1.8</span></td><td><span data-n="v4.limits.pair.7.d6">3.2</span></td></tr>
+<tr><th scope="row"><span data-n="v4.limits.pair.8.speed">200</span></th><td><span data-n="v4.limits.pair.8.shift">16.08</span></td><td><span data-n="v4.limits.pair.8.d1">1</span></td><td><span data-n="v4.limits.pair.8.d2">1</span></td><td><span data-n="v4.limits.pair.8.d3">1</span></td><td class="limits-none">not seen</td><td><span data-n="v4.limits.pair.8.d5">3.2</span></td><td><span data-n="v4.limits.pair.8.d6">3.2</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenge" class="page-part" data-built="challenge">
+<div class="section-head">
+<h2 id="challenge-title">THE CHALLENGE, LINE BY LINE</h2>
+<p>What the challenge asks for and what it suggests, in our words, and what this site does about each line. A line is built when everything it asks for works, and partly built when some of it does. As of <time datetime="2026-11-15">15 November 2026</time>.</p>
+</div>
+<h3>What it asks for</h3>
+<ul class="rows lines">
+<li class="line" id="must-site" data-status="built">
+<p class="line-text">A public web tool that shows images of the sky from SPHEREx.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">Static files, no server; the deploy workflow publishes them.</p>
+<p class="links line-links"><a href="index.html">See it<span class="visually-hidden">: A public web tool that shows images of the sky from SPHEREx.</span></a></p>
+</li>
+<li class="line" id="must-coords" data-status="built">
+<p class="line-text">A visitor enters the coordinates of a patch of sky, right ascension and declination.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">The box reads degrees, hours-minutes-seconds and names, with suggestions while one types, including the string the challenge gives for WISE 0855. It opens a view of that place read live from the archive, with an address one can share; the five targets open at once.</p>
+<p class="links line-links"><a href="index.html#where">See it<span class="visually-hidden">: A visitor enters the coordinates of a patch of sky, right ascension and declination.</span></a></p>
+</li>
+<li class="line" id="must-video" data-status="partial">
+<p class="line-text">The tool shows a series of images of that patch like a little video, so that moving objects are easy to spot.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">Blink, curtain and side by side work at any typed position and on the prepared targets, and use only photos taken at the same colour. The film is one visit against another, not a long series; the difference of the two is shown on the prepared targets only, because its test at typed positions failed.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b&amp;mode=blink">See it<span class="visually-hidden">: The tool shows a series of images of that patch like a little video, so that moving objects are easy to spot.</span></a></p>
+</li>
+<li class="line" id="must-targets" data-status="built">
+<p class="line-text">The tool is tried on Barnard’s Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">One item each, with its reference, its tolerance and a plain verdict. The three that move are measured against an image of the WISE telescope taken years earlier; RW Aurigae’s change is given band by band; R Draconis is too bright to measure, and Barnard’s Star too bright to give a brightness.</p>
+<p class="links line-links"><a href="targets.html">See it<span class="visually-hidden">: The tool is tried on Barnard’s Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.</span></a> <a href="view.html?t=eps-indi-b">Epsilon Indi B</a> <a href="view.html?t=barnard">Barnard’s Star</a> <a href="view.html?t=wise0855">WISE 0855-0714</a> <a href="view.html?t=rw-aur">RW Aurigae</a> <a href="view.html?t=r-dra">R Draconis</a></p>
+</li>
+<li class="line" id="must-easy" data-status="partial">
+<p class="line-text">Anyone can quickly see how the sky changes over time.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">The first page puts one comet and one box in front of a visitor, and the plain-words explanations sit beside each result. Whether people who are not physicists can do it unaided has not been tried yet: the tasks and the pass bar are written, and the session has not been held.</p>
+<p class="links line-links"><a href="checks.html#tried-by">See it<span class="visually-hidden">: Anyone can quickly see how the sky changes over time.</span></a></p>
+</li>
+</ul>
+<h3>What it suggests</h3>
+<ul class="rows lines">
+<li class="line" id="could-updates" data-status="partial">
+<p class="line-text">The tool is easy to update when new data arrive.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">One command, python -m sx.run index, rebuilds the index of photos from the archive’s listing and each photo’s header, and adds the weeks that are new. Tried on one installed week: the same photos in the same tiles, with the last digit of some rows apart. Adding a release that has not been published yet has not been tried.</p>
+</li>
+<li class="line" id="could-bands" data-status="built">
+<p class="line-text">The infrared colours are shown in a way that helps visitors use them.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">One colour ruler is the key behind every chip, dot and veil; each pixel’s colour is read from the photo’s own tables.</p>
+<p class="links line-links"><a href="view.html#colours">See it<span class="visually-hidden">: The infrared colours are shown in a way that helps visitors use them.</span></a></p>
+</li>
+<li class="line" id="could-coadd" data-status="partial">
+<p class="line-text">The data of each of the six detectors are added together to make faint things easier to see.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">Photos of one visit and one detector are added with equal weight. The six detectors are not shown side by side.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b">See it<span class="visually-hidden">: The data of each of the six detectors are added together to make faint things easier to see.</span></a></p>
+</li>
+<li class="line" id="could-spectra" data-status="built">
+<p class="line-text">Spectra are drawn on the fly.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">A click on any place, prepared or typed, draws its spectrum from the photos that are loaded, one curve for each visit; every spectrum says that its scale is relative.</p>
+<p class="links line-links"><a href="view.html#spectrum">See it<span class="visually-hidden">: Spectra are drawn on the fly.</span></a></p>
+</li>
+<li class="line" id="could-addsub" data-status="partial">
+<p class="line-text">Visitors can add or subtract images taken at different times.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">The photos of one visit are added together at every position. The difference of two visits is offered on the prepared targets; at typed positions its test failed, so it is switched off there and the page says why.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b&amp;mode=diff">See it<span class="visually-hidden">: Visitors can add or subtract images taken at different times.</span></a></p>
+</li>
+<li class="line" id="could-fov" data-status="not built">
+<p class="line-text">Visitors choose the field of view.</p>
+<p class="line-status"><span class="status-mark" data-status="unverified" aria-hidden="true"></span>Not built</p>
+<p class="line-note">Every picture has one fixed small size, which is what keeps the download short.</p>
+</li>
+<li class="line" id="could-overlay" data-status="partial">
+<p class="line-text">Data from other telescopes, such as Gaia and WISE, are drawn over the images.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">Gaia rings mark where fast stars should be, and the cards put an older WISE picture beside SPHEREx. There is no live layer of another telescope.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b">See it<span class="visually-hidden">: Data from other telescopes, such as Gaia and WISE, are drawn over the images.</span></a></p>
+</li>
+<li class="line" id="could-url" data-status="built">
+<p class="line-text">Coordinates in the address let others link to a view or embed it.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">Position, detector, view and the pair of visits are in the address; the embed switch shows the stage alone.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b&amp;mode=blink">See it<span class="visually-hidden">: Coordinates in the address let others link to a view or embed it.</span></a></p>
+</li>
+<li class="line" id="could-flags" data-status="built">
+<p class="line-text">Metadata such as contamination flags is shown.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">Saturated and damaged pixels are hatched, the pixels of a detected source can be shown, and pointing at a pixel reads every flag it carries.</p>
+<p class="links line-links"><a href="view.html?t=r-dra">See it<span class="visually-hidden">: Metadata such as contamination flags is shown.</span></a></p>
+</li>
+<li class="line" id="could-tools" data-status="built">
+<p class="line-text">Public tools such as Astropy and Aladin are used or offered.</p>
+<p class="line-status"><span class="status-mark" data-status="pass" aria-hidden="true"></span>Built</p>
+<p class="line-note">Astropy prepares the data and the reference values offline. In the viewer every place, and every point clicked, has links to Aladin Lite, SIMBAD, VizieR, WiseView and the Legacy Survey viewer.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b#lookup">See it<span class="visually-hidden">: Public tools such as Astropy and Aladin are used or offered.</span></a></p>
+</li>
+<li class="line" id="could-resources" data-status="partial">
+<p class="line-text">The data and resources that the challenge lists are used.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">The archive at IRSA is read live, the third data release of Gaia gives the motions of the stars, and every place links to WiseView. The tutorial notebooks and the resources of the Canadian space agency are not used.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b#lookup">See it<span class="visually-hidden">: The data and resources that the challenge lists are used.</span></a></p>
+</li>
+<li class="line" id="could-volunteers" data-status="partial">
+<p class="line-text">The tool helps volunteers who look for moving objects, as Backyard Worlds does.</p>
+<p class="line-status"><span class="status-mark" data-status="limit" aria-hidden="true"></span>Partly built</p>
+<p class="line-note">A moving dot gets four checks that help tell a mover from a flaw, and links to ask at Backyard Worlds Talk or the Minor Planet Center. There is no way to send a find in from the page, and no list of candidates.</p>
+<p class="links line-links"><a href="view.html?t=eps-indi-b#is-it-real">See it<span class="visually-hidden">: The tool helps volunteers who look for moving objects, as Backyard Worlds does.</span></a></p>
+</li>
+</ul>
+</section>
+<section id="tried-by" class="page-part" data-built="tried-by">
+<div class="section-head">
+<h2 id="tried-title">TRIED BY</h2>
+<p>People who are not physicists try the site without help. The bar, written on <time datetime="2026-11-14">14 November 2026</time>: a task counts as passed when at least 4 of 5 testers complete it without help. The session was held on <time datetime="2026-11-15">15 November 2026</time> with <span data-n="v4.tried.testers">2</span> testers (a data engineer, on a computer, a student). Each is named by role and nothing else. Two of the five testers planned took part, so the bar of 4 of 5 is met by no task; the counts stand as they came.</p>
+</div>
+<div class="table-scroll" tabindex="0" role="group" aria-label="Table of the tasks">
+<table class="ledger tried">
+<thead>
+<tr><th scope="col">Task</th><th scope="col">Done without help</th><th scope="col">Result</th><th scope="col">In their words</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">Find the brown dwarf WISE 0855 from the coordinates in the challenge text, 08h55m10.831s -7d14m42.53s.</th><td><span data-n="v4.tried.task1.completed">2</span> of <span data-n="v4.tried.task1.attempted">2</span></td><td>Not passed</td><td></td></tr>
+<tr><th scope="row">Say why the steady stars flicker when all the photos of one visit are blinked in time order.</th><td><span data-n="v4.tried.task2.completed">2</span> of <span data-n="v4.tried.task2.attempted">2</span></td><td>Not passed</td><td></td></tr>
+<tr><th scope="row">Say why one photo of the comet is brighter than the others.</th><td><span data-n="v4.tried.task3.completed">1</span> of <span data-n="v4.tried.task3.attempted">2</span></td><td>Not passed</td><td></td></tr>
+<tr><th scope="row">Find the photo that made an odd point on the spectrum.</th><td><span data-n="v4.tried.task4.completed">2</span> of <span data-n="v4.tried.task4.attempted">2</span></td><td>Not passed</td><td></td></tr>
+<tr><th scope="row">Recover from a lost connection: turn the network off in the middle of a load, then get the page working again.</th><td><span data-n="v4.tried.task5.completed">1</span> of <span data-n="v4.tried.task5.attempted">2</span></td><td>Not passed</td><td></td></tr>
+<tr><th scope="row">Decide whether a blip in a difference picture is real, and say what the page told you to decide it.</th><td><span data-n="v4.tried.task6.completed">1</span> of <span data-n="v4.tried.task6.attempted">2</span></td><td>Not passed</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+</section>
+</main>
+<footer class="colophon">
+<div class="cells">
+<p class="cell" data-site="name">Same Sky, Same Colour</p>
+<p class="cell">Photos: SPHEREx Level <span translate="no">2</span>, NASA/IPAC Infrared Science Archive</p>
+<p class="cell"><a href="checks.html">Checks</a> and <a href="lemmon.html">the comet</a></p>
+</div>
+</footer>
+</body>
+</html>

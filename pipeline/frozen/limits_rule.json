@@ -1,0 +1,22 @@
+{
+ "id": "E5",
+ "written": "2026-11-14 22:11 Europe/Amsterdam, before the limits job was run",
+ "question": "What speeds and brightnesses of a mover can the difference view show, and which can it not?",
+ "rule": "A mover shows when its dark-bright pair reaches 5 noise units in at least 80% of the injections.",
+ "pair": "The mover is a round Gaussian of sigma 1.0 pixel (6.15 arcsec pixels) that sits at one place in the earlier visit and at another in the later one, the shift being its speed times the time between the two visits. In the difference (later minus earlier, in noise units, shown pixels only) the pair reaches 5 noise units when some pixel within 2 pixels of the earlier place is at -5 or lower and some pixel within 2 pixels of the later place is at +5 or higher. Where the two places are less than 2 pixels apart the two discs overlap.",
+ "views": {
+  "coadd": "The difference of the co-adds of the matched pairs (sx.stack.coadd and sx.stack.difference), with the pixels it shows (one common flag mask, matched colours only).",
+  "pair": "One pair, the one of the closest colours (the first of the matched pairs): the same difference without the co-add."
+ },
+ "positions": "Three fixed positions per detector: the first three positions of the list in pipeline/frozen/pb6_rule.json that were run in that detector and gave at least 4 matched pairs. The real co-adds of those runs are used; their own noise and structure are left as they are.",
+ "injections": {
+  "per_position_and_cell": 8,
+  "seed": 20261114,
+  "place": "the earlier place is drawn uniformly within 20 pixels of the middle of the grid, the direction of the motion at random; a draw is repeated until the later place is within 28 pixels of the middle and no pixel within 5 pixels of either place is at 3 noise units or beyond in the clean difference (real structure is not mistaken for the mover); at most 400 draws, otherwise the cell is marked as outside the grid",
+  "speeds_arcsec_per_year": [0.1, 0.3, 1, 3, 10, 30, 100, 200],
+  "fluxes_mjy": "ten to the power of -2 to +3 in steps of 0.25: the total flux of the Gaussian, in mJy, put into the difference as +flux at the later place and -flux at the earlier place",
+  "noise_unit": "sx.stack.difference: the two noises of the co-adds (or of the two photos) added in quadrature, measured on the clean difference"
+ },
+ "table": "For each detector and speed, the lowest flux of the grid from which every higher flux also shows. A speed with no such flux up to the highest one in the grid is reported as not shown. The table is published whatever it says.",
+ "assumptions": "The co-add of real photos is blurred by the pixel grid and by putting the photos on one grid; a round Gaussian of sigma 1.0 pixel is assumed for what a point source looks like there. The real width was not measured for this table, so the fluxes are a lower bound on what is needed if real sources are wider."
+}
